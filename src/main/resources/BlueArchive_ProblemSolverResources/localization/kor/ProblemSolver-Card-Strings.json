@@ -1,0 +1,15 @@
+{
+  "BlueArchive_ProblemSolver:ProblemSolverStrike": {
+    "NAME": "타격",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "BlueArchive_ProblemSolver:ProblemSolverDefend": {
+    "NAME": "수비",
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:HelpMePeroroSama": {
+    "NAME": "도와줘요 페로로님!",
+    "DESCRIPTION": "선택한 BlueArchive_ProblemSolver:페로로굿즈의 효과를 발동합니다.",
+    "UPGRADE_DESCRIPTION": "보존. NL 선택한 BlueArchive_ProblemSolver:페로로굿즈의 효과를 발동합니다."
+  }
+}
