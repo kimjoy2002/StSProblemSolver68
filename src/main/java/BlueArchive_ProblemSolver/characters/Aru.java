@@ -4,7 +4,6 @@ import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.cards.ProblemSolverDefend;
 import BlueArchive_ProblemSolver.cards.ProblemSolverStrike;
 import BlueArchive_ProblemSolver.relics.ProblemSolverBaseRelic;
-import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -36,11 +35,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static BlueArchive_ProblemSolver.characters.Aru.Enums.COLOR_RED;
+import static BlueArchive_ProblemSolver.characters.Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
 
-public class Aru extends CustomPlayer {
+public class Aru extends ProblemSolver68 {
     public static final Logger logger = LogManager.getLogger(Aru.class.getName());
 
     public static final String BASE_ANIMATION = "base_animation";
+
+    public enum ProblemSolver68Type {
+        PROBLEM_SOLVER_68_NONE,
+        PROBLEM_SOLVER_68_ARU,
+        PROBLEM_SOLVER_68_MUTSUKI,
+        PROBLEM_SOLVER_68_KAYOKO,
+        PROBLEM_SOLVER_68_HARUKA
+    }
+
+    public ProblemSolver68Type solverType = PROBLEM_SOLVER_68_NONE;
 
     public static class Enums {
         @SpireEnum
@@ -68,12 +78,19 @@ public class Aru extends CustomPlayer {
 
 
     // =============== STRINGS =================
-
     private static final String ID = DefaultMod.makeID("ProblemSolver68");
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
 
+    public static final String ARU_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Aru.atlas";
+    public static final String ARU_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Aru.json";
+    public static final String MUTSUKI_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Mutsuki.atlas";
+    public static final String MUTSUKI_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Mutsuki.json";
+    public static final String KAYOKO_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Kayoko.atlas";
+    public static final String KAYOKO_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Kayoko.json";
+    public static final String HARUKA_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Haruka.atlas";
+    public static final String HARUKA_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Haruka.json";
     // =============== /STRINGS/ =================
 
 
@@ -99,44 +116,45 @@ public class Aru extends CustomPlayer {
     public Aru(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
                 "BlueArchive_ProblemSolverResources/images/char/problemsolver/orb/vfx.png", null,
-                new SpineAnimation("BlueArchive_ProblemSolverResources/images/char/problemsolver/Hifumi2.atlas",
-                        "BlueArchive_ProblemSolverResources/images/char/problemsolver/Hifumi2.json", 1f));
-
-
-
-
-
-        // =============== TEXTURES, ENERGY, LOADOUT =================  
+                new SpineAnimation(ARU_SKELETON_ATLAS,
+                        ARU_SKELETON_JSON, 1f));
 
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
                 DefaultMod.PROBLEMSOLVER_SHOULDER_2, // campfire pose
                 DefaultMod.PROBLEMSOLVER_SHOULDER_1, // another campfire pose
                 DefaultMod.PROBLEMSOLVER_CORPSE, // dead corpse
-                getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
-
-        // =============== /TEXTURES, ENERGY, LOADOUT/ =================
-
-
-        // =============== ANIMATIONS =================  
-
-        loadAnimation(
-                DefaultMod.PROBLEMSOLVER_SKELETON_ATLAS,
-                DefaultMod.PROBLEMSOLVER_SKELETON_JSON,
-                0.9f);
-        AnimationState.TrackEntry e = state.setAnimation(0,BASE_ANIMATION, true);
-        e.setTime(e.getEndTime() * MathUtils.random());
-
-        // =============== /ANIMATIONS/ =================
-
-
-        // =============== TEXT BUBBLE LOCATION =================
+                getLoadout(), 20.0F, -10.0F, PROBLEM_SOLVER_WIDTH, PROBLEM_SOLVER_HEIGHT, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
         dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
 
-        // =============== /TEXT BUBBLE LOCATION/ =================
+        init();
+    }
 
+
+    public Aru(String name, PlayerClass setClass, ProblemSolver68Type type) {
+        super(name, setClass, orbTextures,
+                "BlueArchive_ProblemSolverResources/images/char/problemsolver/orb/vfx.png", null,
+                new SpineAnimation(ARU_SKELETON_ATLAS,
+                        ARU_SKELETON_JSON, 1f));
+
+        initializeClass(null, // required call to load textures and setup energy/loadout.
+                // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
+                DefaultMod.PROBLEMSOLVER_SHOULDER_2, // campfire pose
+                DefaultMod.PROBLEMSOLVER_SHOULDER_1, // another campfire pose
+                DefaultMod.PROBLEMSOLVER_CORPSE, // dead corpse
+                getLoadout(), 20.0F, -10.0F, PROBLEM_SOLVER_WIDTH, PROBLEM_SOLVER_HEIGHT, new EnergyManager(ENERGY_PER_TURN)); // energy manager
+
+        dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
+        dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
+
+        setSolverType(type);
+    }
+
+    public void setSolverType(ProblemSolver68Type solverType) {
+        this.solverType = solverType;
+        newAnimation(BASE_ANIMATION);
     }
 
     // =============== /CHARACTER CLASS END/ =================
@@ -278,16 +296,37 @@ public class Aru extends CustomPlayer {
     }
 
     public void newAnimation(String animation) {
+        String atlas = "";
+        String json = "";
 
-        loadAnimation(
-                DefaultMod.PROBLEMSOLVER_SKELETON_ATLAS,
-                DefaultMod.PROBLEMSOLVER_SKELETON_JSON,
-                0.9f);
-        AnimationState.TrackEntry e = state.setAnimation(0,animation.isEmpty()?BASE_ANIMATION:animation, true);
-        e.setTime(e.getEndTime() * MathUtils.random());
+        switch(solverType) {
+            case PROBLEM_SOLVER_68_ARU:
+                atlas = ARU_SKELETON_ATLAS;
+                json = ARU_SKELETON_JSON;
+                break;
+            case PROBLEM_SOLVER_68_MUTSUKI:
+                atlas = MUTSUKI_SKELETON_ATLAS;
+                json = MUTSUKI_SKELETON_JSON;
+                break;
+            case PROBLEM_SOLVER_68_KAYOKO:
+                atlas = KAYOKO_SKELETON_ATLAS;
+                json = KAYOKO_SKELETON_JSON;
+                break;
+            case PROBLEM_SOLVER_68_HARUKA:
+                atlas = HARUKA_SKELETON_ATLAS;
+                json = HARUKA_SKELETON_JSON;
+                break;
+        }
+
+        if(!atlas.isEmpty() && !json.isEmpty()) {
+            loadAnimation(
+                    atlas,
+                    json,
+                    0.9f);
+            AnimationState.TrackEntry e = state.setAnimation(0,animation.isEmpty()?BASE_ANIMATION:animation, true);
+            e.setTime(e.getEndTime() * MathUtils.random());
+        }
     }
-
-
 
     public Texture getCutsceneBg() {
         return ImageMaster.loadImage("images/scenes/purpleBg.jpg");

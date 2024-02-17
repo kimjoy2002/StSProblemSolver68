@@ -1,0 +1,13 @@
+
+Haruka.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+haruka
+  rotate: false
+  xy: 1, 1
+  size: 601, 805
+  orig: 601, 805
+  offset: 0, 0
+  index: -1

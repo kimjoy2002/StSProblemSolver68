@@ -1,7 +1,7 @@
 {
-  "BlueArchive_ProblemSolver:CarWashAction": {
+  "BlueArchive_ProblemSolver:CharSelectAction": {
     "TEXT": [
-      "카드를 선택하십시오."
+      "시작할 캐릭터를 선택하십시오."
     ]
   }
 }

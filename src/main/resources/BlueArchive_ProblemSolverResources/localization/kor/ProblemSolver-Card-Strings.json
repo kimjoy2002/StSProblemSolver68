@@ -7,9 +7,20 @@
     "NAME": "수비",
     "DESCRIPTION": "방어도를 !B! 얻습니다."
   },
-  "BlueArchive_ProblemSolver:HelpMePeroroSama": {
-    "NAME": "도와줘요 페로로님!",
-    "DESCRIPTION": "선택한 BlueArchive_ProblemSolver:페로로굿즈의 효과를 발동합니다.",
-    "UPGRADE_DESCRIPTION": "보존. NL 선택한 BlueArchive_ProblemSolver:페로로굿즈의 효과를 발동합니다."
+  "BlueArchive_ProblemSolver:ChooseAru": {
+    "NAME": "라쿠하치마 아루",
+    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: 높은 공격력. 많은 광역. 에너지 회복"
+  },
+  "BlueArchive_ProblemSolver:ChooseMutsuki": {
+    "NAME": "아사기 무츠키",
+    "DESCRIPTION": "*폭열의 *아리아 추가. NL 전용 키워드: BlueArchive_ProblemSolver:소악마. NL 강점: 많은 버프. 연타 공격."
+  },
+  "BlueArchive_ProblemSolver:ChooseKayoko": {
+    "NAME": "오니카타 카요코",
+    "DESCRIPTION": "*패닉샷 추가. NL 전용 키워드: BlueArchive_ProblemSolver:공포. NL 강점: 디버프. 낮은 비용. 드로우"
+  },
+  "BlueArchive_ProblemSolver:ChooseHaruka": {
+    "NAME": "이구사 하루카",
+    "DESCRIPTION": "*트리거 *오버 추가. NL 전용 키워드: 미정. NL 강점: 높은 방어."
   }
 }

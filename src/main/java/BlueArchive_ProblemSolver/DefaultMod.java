@@ -1,7 +1,13 @@
 package BlueArchive_ProblemSolver;
 
 import BlueArchive_ProblemSolver.actions.ProblemSolverTutorialAction;
+import BlueArchive_ProblemSolver.cards.ChooseAru;
+import BlueArchive_ProblemSolver.cards.ChooseHaruka;
+import BlueArchive_ProblemSolver.cards.ChooseKayoko;
+import BlueArchive_ProblemSolver.cards.ChooseMutsuki;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.patches.GridSelectScreenPatch;
 import BlueArchive_ProblemSolver.relics.*;
 import BlueArchive_ProblemSolver.variables.SecondMagicNumber;
 import BlueArchive_ProblemSolver.variables.ThirdMagicNumber;
@@ -15,6 +21,9 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -30,6 +39,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
+
+import static BlueArchive_ProblemSolver.characters.Aru.Enums.PROBLEM_SOLVER;
+import static BlueArchive_ProblemSolver.characters.ProblemSolver68.problemSolverPlayer;
 
 //TODO: DON'T MASS RENAME/REFACTOR
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -69,7 +81,9 @@ public class DefaultMod implements
         EditCharactersSubscriber,
         PostInitializeSubscriber,
         AddAudioSubscriber,
-        OnStartBattleSubscriber {
+        OnStartBattleSubscriber,
+        StartGameSubscriber,
+        PostUpdateSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
@@ -86,7 +100,14 @@ public class DefaultMod implements
     private static final String DESCRIPTION = "BlueArchive Problem Solver 68 mod";
     ModLabeledToggleButton activeTutorialButton = null;
     // =============== INPUT TEXTURE LOCATION =================
-    
+
+
+    // =============== CHOOSE PRE GAME (REFERENCE SNEKO MOD) =================
+    public static int choosingCharacters = -1;
+    public static CardGroup choosePS68;
+    public static boolean pureRandomMode = false;
+    public static boolean openedStarterScreen = true;
+
     // Colors (RGB)
     // Character Color
     public static final Color DEFAULT_BLACK_RED = CardHelper.getColor(200.0f, 0.0f, 0.0f);
@@ -126,10 +147,7 @@ public class DefaultMod implements
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "BlueArchive_ProblemSolverResources/images/Badge.png";
-    
-    // Atlas and JSON files for the Animations
-    public static final String PROBLEMSOLVER_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Hifumi2.atlas";
-    public static final String PROBLEMSOLVER_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Hifumi2.json";
+
 
     // =============== MAKE IMAGE PATHS =================
     
@@ -150,7 +168,7 @@ public class DefaultMod implements
         return getModID() + "Resources/images/powers/" + resourcePath;
     }
     public static String makeCharPath(String resourcePath) {
-        return getModID() + "Resources/images/char/other" + resourcePath;
+        return getModID() + "Resources/images/char/other/" + resourcePath;
     }
     
     public static String makeEventPath(String resourcePath) {
@@ -280,11 +298,11 @@ public class DefaultMod implements
     
     @Override
     public void receiveEditCharacters() {
-        logger.info("Beginning to edit characters. " + "Add " + Aru.Enums.PROBLEM_SOLVER.toString());
+        logger.info("Beginning to edit characters. " + "Add " + PROBLEM_SOLVER.toString());
 
-        BaseMod.addCharacter(new Aru("Hifumi", Aru.Enums.PROBLEM_SOLVER),
-                PROBLEMSOLVER_BUTTON, PROBLEMSOLVER_PORTRAIT, Aru.Enums.PROBLEM_SOLVER);
-        logger.info("Added " + Aru.Enums.PROBLEM_SOLVER.toString());
+        BaseMod.addCharacter(new Aru("Aru", PROBLEM_SOLVER),
+                PROBLEMSOLVER_BUTTON, PROBLEMSOLVER_PORTRAIT, PROBLEM_SOLVER);
+        logger.info("Added " + PROBLEM_SOLVER.toString());
         receiveEditPotions();
     }
     
@@ -332,6 +350,54 @@ public class DefaultMod implements
         logger.info("Done loading badge Image and mod options");
     }
 
+    @Override
+    public void receiveStartGame() {
+        if (!CardCrawlGame.loadingSave) {
+            openedStarterScreen = false;
+        }
+
+    }
+
+    public static void ChooseAtGameStart() {
+        if (AbstractDungeon.player instanceof Aru && !pureRandomMode) {
+            choosingCharacters = 0;
+            choosePS68 = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+
+
+            choosePS68.addToTop(new ChooseAru());
+            choosePS68.addToTop(new ChooseMutsuki());
+            choosePS68.addToTop(new ChooseKayoko());
+            choosePS68.addToTop(new ChooseHaruka());
+            GridSelectScreenPatch.centerGridSelect = true;
+            AbstractDungeon.gridSelectScreen.open(choosePS68, 1, false, CardCrawlGame.languagePack.getUIString("BlueArchive_ProblemSolver:CharSelectAction").TEXT[0]);
+        }
+
+    }
+    @Override
+    public void receivePostUpdate() {
+        if (!openedStarterScreen && CardCrawlGame.isInARun()) {
+            ChooseAtGameStart();
+            openedStarterScreen = true;
+        }
+
+        if (choosingCharacters > -1 && choosingCharacters <= 1 && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty() && !pureRandomMode) {
+            AbstractCard c = (AbstractCard)AbstractDungeon.gridSelectScreen.selectedCards.get(0);
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
+            choosePS68.removeCard(c);
+            c.onChoseThisOption();
+            if (choosingCharacters == 1) {
+                choosingCharacters = 2;
+                GridSelectScreenPatch.centerGridSelect = false;
+
+            } else if (choosingCharacters < 1) {
+                ++choosingCharacters;
+                AbstractDungeon.gridSelectScreen.open(choosePS68, 1, false, CardCrawlGame.languagePack.getUIString("BlueArchive_ProblemSolver:CharSelectAction").TEXT[0]);
+            }
+        }
+
+    }
+
+
 
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         if (AbstractDungeon.player instanceof Aru) {
@@ -340,7 +406,6 @@ public class DefaultMod implements
             }
         }
     }
-
 
     // =============== / POST-INITIALIZE/ =================
     

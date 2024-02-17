@@ -1,7 +1,7 @@
 package deprecate;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.AcqireRelicAction;
+import BlueArchive_ProblemSolver.actions.ApplyPowerToAllAllyAction;
 import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
 import BlueArchive_ProblemSolver.powers.MomoFriendPower;
 import BlueArchive_ProblemSolver.relics.TwinPeroroRelic;
@@ -119,7 +119,7 @@ public class PeroroGoods extends AbstractDynamicCard {
                 }
             }
             else {
-                AbstractDungeon.actionManager.addToBottom(new AcqireRelicAction(relic));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerToAllAllyAction(relic));
             }
 
             for(int i = 0; i < plus_add; i++) {

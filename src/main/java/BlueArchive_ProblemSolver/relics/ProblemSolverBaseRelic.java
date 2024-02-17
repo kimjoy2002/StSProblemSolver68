@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.relics;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.AddTemporaryHPToAllAllyAction;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,7 +17,7 @@ public class ProblemSolverBaseRelic extends CustomRelic {
     public static final String ID = DefaultMod.makeID("ProblemSolverBaseRelic");
 
     private boolean firstTurn = true;
-    public static final int HEAL = 5;
+    public static final int HEAL = 3;
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("ProblemSolverBaseRelic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("ProblemSolverBaseRelic.png"));
@@ -32,7 +33,7 @@ public class ProblemSolverBaseRelic extends CustomRelic {
     public void atTurnStartPostDraw() {
         if (this.firstTurn) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, HEAL));
+            AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPToAllAllyAction(HEAL));
             this.firstTurn = false;
             this.grayscale = true;
         }
