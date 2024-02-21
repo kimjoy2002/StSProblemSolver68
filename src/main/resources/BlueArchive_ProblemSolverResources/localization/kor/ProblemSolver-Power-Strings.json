@@ -1,2 +1,15 @@
 {
+  "BlueArchive_ProblemSolver:ChangeWhenHitPower": {
+    "NAME": "흥신소 바리케이트",
+    "DESCRIPTIONS": [
+      "이번 턴 공격을 받을때마다 공격받는 대상이 다른 대상으로 바뀝니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:DeadStrPower": {
+    "NAME": "대가를 치를 것이다!",
+    "DESCRIPTIONS": [
+      "#y흥신소 캐릭터가 죽을때마다 #y힘을 #b",
+      " 얻습니다."
+    ]
+  }
 }

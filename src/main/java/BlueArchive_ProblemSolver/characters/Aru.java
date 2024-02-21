@@ -1,6 +1,8 @@
 package BlueArchive_ProblemSolver.characters;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.cards.DeliveryRequest;
+import BlueArchive_ProblemSolver.cards.MultiBlock;
 import BlueArchive_ProblemSolver.cards.ProblemSolverDefend;
 import BlueArchive_ProblemSolver.cards.ProblemSolverStrike;
 import BlueArchive_ProblemSolver.relics.ProblemSolverBaseRelic;
@@ -47,10 +49,11 @@ public class Aru extends ProblemSolver68 {
         PROBLEM_SOLVER_68_ARU,
         PROBLEM_SOLVER_68_MUTSUKI,
         PROBLEM_SOLVER_68_KAYOKO,
-        PROBLEM_SOLVER_68_HARUKA
+        PROBLEM_SOLVER_68_HARUKA,
+        PROBLEM_SOLVER_68_HELMETGANG,
+        PROBLEM_SOLVER_68_RABU,
+        PROBLEM_SOLVER_68_SAORI
     }
-
-    public ProblemSolver68Type solverType = PROBLEM_SOLVER_68_NONE;
 
     public static class Enums {
         @SpireEnum
@@ -91,6 +94,17 @@ public class Aru extends ProblemSolver68 {
     public static final String KAYOKO_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Kayoko.json";
     public static final String HARUKA_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Haruka.atlas";
     public static final String HARUKA_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Haruka.json";
+
+    //--- non Problem Solver 68
+    public static final String HELMETGANG_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/HelmetGang.atlas";
+    public static final String HELMETGANG_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/HelmetGang.json";
+
+    public static final String RABU_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Rabu.atlas";
+    public static final String RABU_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Rabu.json";
+
+    public static final String SAORI_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.atlas";
+    public static final String SAORI_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.json";
+
     // =============== /STRINGS/ =================
 
 
@@ -183,6 +197,10 @@ public class Aru extends ProblemSolver68 {
         retVal.add(ProblemSolverDefend.ID);
         retVal.add(ProblemSolverDefend.ID);
         retVal.add(ProblemSolverDefend.ID);
+
+        //테스트
+        retVal.add(DeliveryRequest.ID);
+        retVal.add(MultiBlock.ID);
         return retVal;
     }
 
@@ -315,6 +333,18 @@ public class Aru extends ProblemSolver68 {
             case PROBLEM_SOLVER_68_HARUKA:
                 atlas = HARUKA_SKELETON_ATLAS;
                 json = HARUKA_SKELETON_JSON;
+                break;
+            case PROBLEM_SOLVER_68_HELMETGANG:
+                atlas = HELMETGANG_SKELETON_ATLAS;
+                json = HELMETGANG_SKELETON_JSON;
+                break;
+            case PROBLEM_SOLVER_68_RABU:
+                atlas = RABU_SKELETON_ATLAS;
+                json = RABU_SKELETON_JSON;
+                break;
+            case PROBLEM_SOLVER_68_SAORI:
+                atlas = SAORI_SKELETON_ATLAS;
+                json = SAORI_SKELETON_JSON;
                 break;
         }
 

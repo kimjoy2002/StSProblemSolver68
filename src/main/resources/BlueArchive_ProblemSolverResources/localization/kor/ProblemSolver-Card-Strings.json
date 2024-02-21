@@ -22,5 +22,82 @@
   "BlueArchive_ProblemSolver:ChooseHaruka": {
     "NAME": "이구사 하루카",
     "DESCRIPTION": "*트리거 *오버 추가. NL 전용 키워드: 미정. NL 강점: 높은 방어."
+  },
+  "BlueArchive_ProblemSolver:DeliveryRequest": {
+    "NAME": "배달 의뢰",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다."
+  },
+  "BlueArchive_ProblemSolver:MultiBlock": {
+    "NAME": "흥신소 바리케이트",
+    "DESCRIPTION": "모든 아군이 방어도를 !B! 얻습니다. NL 이번 턴 공격을 받을때마다 공격받는 대상이 다른 대상으로 바뀝니다."
+  },
+  "BlueArchive_ProblemSolver:DoubleTab": {
+    "NAME": "더블탭",
+    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다."
+  },
+  "BlueArchive_ProblemSolver:DiningTogether": {
+    "NAME": "회식",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:흥신소 캐릭터 수만큼 [E] 를 얻습니다. 소멸.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " 만큼 얻습니다.)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:VolleyFire": {
+    "NAME": "일제 사격",
+    "DESCRIPTION": "피해를 !D! 살아 있는 아군 캐릭터 수 만큼 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " 번 공격합니다.)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:YouWillPayForThis": {
+    "NAME": "대가를 치를 것이다!",
+    "DESCRIPTION": "죽은 BlueArchive_ProblemSolver:흥신소 캐릭터가 있으면 힘을 !M! 얻습니다. NL 다른 BlueArchive_ProblemSolver:흥신소 캐릭터가 죽을때마다 힘을 !M! 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:FirstAid": {
+    "NAME": "응급 치료",
+    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소 캐릭터를 체력 1로 부활시키고 *임시 BlueArchive_ProblemSolver:체력을 !M! 만큼 부여합니다. NL 소멸.",
+    "EXTENDED_DESCRIPTION": [
+      "위급한 동료가 없어"
+    ]
+  },
+  "BlueArchive_ProblemSolver:DogFight": {
+    "NAME": "난전",
+    "DESCRIPTION": "피해를 !D! 줍니다. 캐릭터가 죽을때마다 이번 전투동안 이 카드의 피해량이 !M! 증가합니다."
+  },
+  "BlueArchive_ProblemSolver:HireHelmetGang": {
+    "NAME": "헬멧단 고용",
+    "DESCRIPTION": "이번 전투동안 체력 !M! 의 BlueArchive_ProblemSolver:용병을 고용합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "더 고용할 수 없어"
+    ]
+  },
+  "BlueArchive_ProblemSolver:HireHelmetLeader": {
+    "NAME": "정예 헬멧단 고용",
+    "DESCRIPTION": "이번 전투동안 체력 !M! 의 BlueArchive_ProblemSolver:용병을 고용합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷 !BlueArchive_ProblemSolver:M! 또는 힘을 !BlueArchive_ProblemSolver:M2! 들고 시작합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "더 고용할 수 없어"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ChooseRabu": {
+    "NAME": "코미카제 라브 고용",
+    "DESCRIPTION": "이번 전투동안 체력 !M! 의 BlueArchive_ProblemSolver:용병을 고용합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷을 !BlueArchive_ProblemSolver:M! 들고 시작합니다."
+  },
+  "BlueArchive_ProblemSolver:ChooseSaori": {
+    "NAME": "조마에 사오리 고용",
+    "DESCRIPTION": "이번 전투동안 체력 !M! 의 BlueArchive_ProblemSolver:용병을 고용합니다. 선택한 BlueArchive_ProblemSolver:용병이 힘을 !BlueArchive_ProblemSolver:M! 을 들고 시작합니다."
+  },
+  "BlueArchive_ProblemSolver:FireSupport": {
+    "NAME": "화력 지원",
+    "DESCRIPTION": "*임시 BlueArchive_ProblemSolver:체력을 !M! 얻습니다. 모든 아군 캐릭터의 *임시 BlueArchive_ProblemSolver:체력을 더한 만큼 피해를 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (피해를 ",
+      " 줍니다.)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:CombatRation": {
+    "NAME": "전투식량",
+    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:흥신소 캐릭터가 *임시 BlueArchive_ProblemSolver:체력을 !M! 얻습니다. NL 이번 전투동안 BlueArchive_ProblemSolver:용병들의 최대 체력이 !BlueArchive_ProblemSolver:M! 증가합니다."
   }
 }

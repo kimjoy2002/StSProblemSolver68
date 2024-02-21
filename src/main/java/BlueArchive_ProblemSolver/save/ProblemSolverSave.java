@@ -5,21 +5,21 @@ import basemod.abstracts.CustomSavable;
 
 import java.util.ArrayList;
 
-public class ProblemSolverSave implements CustomSavable<ArrayList<saveData>> {
-    public static ArrayList<saveData> currentCharacters = new ArrayList<saveData>();
+public class ProblemSolverSave implements CustomSavable<ArrayList<SaveData>> {
+    public static ArrayList<SaveData> currentCharacters = new ArrayList<SaveData>();
 
     @Override
-    public ArrayList<saveData> onSave() {
+    public ArrayList<SaveData> onSave() {
         return currentCharacters;
     }
     @Override
-    public void onLoad(ArrayList<saveData> characters) {
+    public void onLoad(ArrayList<SaveData> characters) {
         currentCharacters.clear();
-        for(saveData c : characters) {
-            ProblemSolver68.addCharacter(ProblemSolver68.stringToEnum(c.name), c.hp, c.max_hp);
+        for(SaveData c : characters) {
+            ProblemSolver68.addCharacter(ProblemSolver68.stringToEnum(c.name), c.hp, c.max_hp, false);
         }
     }
     public void addCharacter(String character, int hp, int max_hp){
-        currentCharacters.add(new saveData(character, hp, max_hp));
+        currentCharacters.add(new SaveData(character, hp, max_hp));
     }
 }
