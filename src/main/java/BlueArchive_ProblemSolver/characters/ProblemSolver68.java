@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.characters;
 
 import BlueArchive_ProblemSolver.actions.RemoveCharacterAction;
+import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
 import BlueArchive_ProblemSolver.powers.OnDeadPower;
 import BlueArchive_ProblemSolver.save.ProblemSolverSave;
@@ -16,6 +17,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -23,9 +26,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 import java.util.*;
 
@@ -51,6 +54,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static void init() {
         problemSolverPlayer.clear();
         dyingPlayer.clear();
+        ProblemSolverSave.currentCharacters.clear();
         savedata = new ProblemSolverSave();
         BaseMod.addSaveField("BlueArchive_ProblemSolver:Character",savedata);
     }
@@ -119,6 +123,59 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
         problemSolverPlayer.remove(player);
     }
+
+    public static void reassignCardList() {
+        HashMap<CardGroup, AbstractCard.CardRarity> checkMap = new HashMap<CardGroup, AbstractCard.CardRarity>();
+        checkMap.put(AbstractDungeon.srcCommonCardPool, AbstractCard.CardRarity.COMMON);
+        checkMap.put(AbstractDungeon.srcUncommonCardPool, AbstractCard.CardRarity.UNCOMMON);
+        checkMap.put(AbstractDungeon.srcRareCardPool, AbstractCard.CardRarity.RARE);
+        checkMap.put(AbstractDungeon.commonCardPool, AbstractCard.CardRarity.COMMON);
+        checkMap.put(AbstractDungeon.uncommonCardPool, AbstractCard.CardRarity.UNCOMMON);
+        checkMap.put(AbstractDungeon.rareCardPool, AbstractCard.CardRarity.RARE);
+
+        boolean solverTypes[] = new boolean[4];
+
+        for(ProblemSolver68 player : problemSolverPlayer) {
+            if(player.solverType.ordinal() > 0 && player.solverType.ordinal() <= 4) {
+                solverTypes[player.solverType.ordinal() - 1] = true;
+            }
+        }
+
+        for(Map.Entry<CardGroup, AbstractCard.CardRarity> entry : checkMap.entrySet()) {
+            entry.getKey().group.removeIf((card) -> {
+                if(card instanceof AbstractDynamicCard) {
+                    if(!((AbstractDynamicCard)card).ableSolverType(solverTypes)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+
+            ArrayList<AbstractCard> cards = CardLibrary.getCardList(Aru.Enums.LIBRARY_COLOR);
+
+            for(AbstractCard card : cards) {
+                if(card instanceof AbstractDynamicCard) {
+                    if(card.isSeen &&
+                        card.rarity == entry.getValue() &&
+                        ((AbstractDynamicCard)card).isSpecificCard() &&
+                        ((AbstractDynamicCard)card).ableSolverType(solverTypes)) {
+                        boolean contain = false;
+                        for(AbstractCard testCard : entry.getKey().group) {
+                            if(testCard.cardID == card.cardID) {
+                                contain = true;
+                                break;
+                            }
+                        }
+                        if(!contain) {
+                            entry.getKey().addToBottom(card.makeCopy());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
     public static void addCharacter(Aru.ProblemSolver68Type type) {
         addCharacter(type, -2, -2, false);
     }
@@ -142,6 +199,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             problemSolverPlayer.add(((Aru)AbstractDungeon.player));
             if(!inBattle) {
                 savedata.addCharacter(name, AbstractDungeon.player.currentHealth, AbstractDungeon.player.maxHealth);
+                reassignCardList();
             } else {
                 AbstractDungeon.player.isEndingTurn = false;
                 AbstractDungeon.player.healthBarUpdatedEvent();
@@ -181,6 +239,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             problemSolverPlayer.add(p);
             if(!inBattle) {
                 savedata.addCharacter(name, p.currentHealth, p.maxHealth);
+                reassignCardList();
             }
             else {
                 p.isEndingTurn = false;

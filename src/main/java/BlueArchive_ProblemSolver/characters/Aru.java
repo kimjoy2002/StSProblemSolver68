@@ -198,9 +198,6 @@ public class Aru extends ProblemSolver68 {
         retVal.add(ProblemSolverDefend.ID);
         retVal.add(ProblemSolverDefend.ID);
 
-        //테스트
-        retVal.add(DeliveryRequest.ID);
-        retVal.add(MultiBlock.ID);
         return retVal;
     }
 

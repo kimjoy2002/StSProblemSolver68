@@ -46,6 +46,18 @@ public class MultiCharacterPatch {
             ProblemSolver68.afterLoad();
         }
     }
+    @SpirePatch(
+            clz = AbstractDungeon.class,
+            method = "initializeCardPools"
+    )
+    public static class initializeCardPoolsPatch {
+        public static void Postfix(AbstractDungeon __instance)
+        {
+            if(AbstractDungeon.player instanceof ProblemSolver68) {
+                ProblemSolver68.reassignCardList();
+            }
+        }
+    }
 
 
 

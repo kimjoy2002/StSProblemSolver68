@@ -11,5 +11,19 @@
       "#y흥신소 캐릭터가 죽을때마다 #y힘을 #b",
       " 얻습니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:FearPower": {
+    "NAME": "공포",
+    "DESCRIPTIONS": [
+      "체력이 #r",
+      " 이하로 낮아지면 도망칩니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ImpPower": {
+    "NAME": "소악마",
+    "DESCRIPTIONS": [
+      "모든 아군 캐릭터가 공격 카드를 사용할때 그 피해량을 #g",
+      " 증가시키고 수치가 1 감소합니다."
+    ]
   }
 }
