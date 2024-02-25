@@ -17,7 +17,7 @@ public class ProblemSolverBaseRelic extends CustomRelic {
     public static final String ID = DefaultMod.makeID("ProblemSolverBaseRelic");
 
     private boolean firstTurn = true;
-    public static final int HEAL = 4;
+    public static final int HEAL = 3;
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("ProblemSolverBaseRelic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("ProblemSolverBaseRelic.png"));

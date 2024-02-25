@@ -3,17 +3,23 @@ package BlueArchive_ProblemSolver.characters;
 import BlueArchive_ProblemSolver.actions.RemoveCharacterAction;
 import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
+import BlueArchive_ProblemSolver.powers.CaliforniaGurlsPower;
 import BlueArchive_ProblemSolver.powers.OnDeadPower;
 import BlueArchive_ProblemSolver.save.ProblemSolverSave;
 import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
+import BlueArchive_ProblemSolver.util.GifDecoder;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
@@ -33,6 +39,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import java.util.*;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCharPath;
+import static BlueArchive_ProblemSolver.characters.Aru.MUTSUKI_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
 
 public abstract class ProblemSolver68 extends CustomPlayer {
@@ -48,6 +55,10 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     private boolean isDisabled = false;
     private boolean isHovered = false;
     public Aru.ProblemSolver68Type solverType = PROBLEM_SOLVER_68_NONE;
+
+
+    public static Animation<TextureRegion> mutuski_animation;
+    float animation_elapsed = 0;
     public ProblemSolver68(String name, AbstractPlayer.PlayerClass playerClass, String[] orbTextures, String orbVfxPath, float[] layerSpeeds, AbstractAnimation animation) {
         super(name, playerClass, orbTextures, orbVfxPath, layerSpeeds, animation);
     }
@@ -183,6 +194,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         if(!(AbstractDungeon.player instanceof Aru)) {
             return null;
         }
+
         String name = enumToString(type);
 
         if (name.isEmpty()) {
@@ -251,6 +263,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
     public static void afterLoad() {
+        if(ProblemSolver68.mutuski_animation == null) {
+            ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
+        }
         for (ProblemSolver68 p : problemSolverPlayer) {
             if(AbstractDungeon.player != p){
                 p.energy = AbstractDungeon.player.energy;
@@ -379,43 +394,48 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 }
             }
         }
-        if (!this.isDying) {
-            ArrayList<ProblemSolver68> removal = new ArrayList<>();
-            for (ProblemSolver68 p : problemSolverPlayer) {
-                TempHPField.tempHp.set(p, 0);
-                if (AbstractDungeon.player == p) {
+        ArrayList<ProblemSolver68> removal = new ArrayList<>();
+        for (ProblemSolver68 p : problemSolverPlayer) {
+            TempHPField.tempHp.set(p, 0);
+            loseBlock();
+            if (AbstractDungeon.player == p) {
+                if (!this.isDying) {
+                    if(currentHealth <= 0) {
+                        heal(1);
+                        AbstractDungeon.effectsQueue.add(new HealEffect(hb.cX - animX, hb.cY,1));
+                        healthBarUpdatedEvent();
+                        this.isDying = false;
+                    }
                     super.onVictory();
-                } else if (isProblemSolver(p.solverType)) {
-                    p.onVictorySub();
-                } else {
-                    removal.add(p);
                 }
+            } else if (isProblemSolver(p.solverType)) {
+                p.onVictorySub();
+            } else {
+                removal.add(p);
             }
-            for(ProblemSolver68 p : removal) {
-                removeCharacter(p);
-            }
+        }
+        for(ProblemSolver68 p : removal) {
+            removeCharacter(p);
         }
         dyingPlayer.clear();
         AbstractDungeon.player = problemSolverPlayer.get(0);
     }
     public void onVictorySub() {
-        heal(1);
-        AbstractDungeon.effectsQueue.add(new HealEffect(hb.cX - animX, hb.cY,1));
-        healthBarUpdatedEvent();
-        if (!this.isDying) {
-            Iterator var1 = this.blights.iterator();
-
-            while(var1.hasNext()) {
-                AbstractBlight b = (AbstractBlight)var1.next();
-                b.onVictory();
-            }
-
-            var1 = this.powers.iterator();
-
-            while(var1.hasNext()) {
-                AbstractPower p = (AbstractPower)var1.next();
-                p.onVictory();
-            }
+        if(currentHealth <= 0) {
+            heal(1);
+            AbstractDungeon.effectsQueue.add(new HealEffect(hb.cX - animX, hb.cY,1));
+            healthBarUpdatedEvent();
+            this.isDying = false;
+        }
+        Iterator var1 = this.blights.iterator();
+        while(var1.hasNext()) {
+            AbstractBlight b = (AbstractBlight)var1.next();
+            b.onVictory();
+        }
+        var1 = this.powers.iterator();
+        while(var1.hasNext()) {
+            AbstractPower p = (AbstractPower)var1.next();
+            p.onVictory();
         }
     }
 
@@ -439,6 +459,19 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+
+    public void renderPlayerImage(SpriteBatch sb) {
+        if(solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI
+                && hasPower(CaliforniaGurlsPower.POWER_ID)
+                && mutuski_animation != null){
+            animation_elapsed += Gdx.graphics.getDeltaTime()/2f;
+            sb.setColor(Color.WHITE);
+            sb.draw(mutuski_animation.getKeyFrame(animation_elapsed), this.drawX - 306.0f * Settings.scale / 2.0F + this.animX, this.drawY - 150.0f * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
+        } else {
+            super.renderPlayerImage(sb);
+        }
+    }
+
     public void renderPlayerBattleUi(SpriteBatch sb) {
         for (ProblemSolver68 p : problemSolverPlayer) {
             p.renderPlayerBattleUi_(sb);
@@ -455,6 +488,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             if(p != this) {
                 p.powers.clear();
                 p.isEndingTurn = false;
+                p.endTurnQueued = false;
                 p.healthBarUpdatedEvent();
             }
         }

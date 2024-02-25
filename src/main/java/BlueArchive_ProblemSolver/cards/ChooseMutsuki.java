@@ -5,8 +5,11 @@ import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
@@ -35,6 +38,7 @@ public class ChooseMutsuki extends AbstractDynamicCard {
 
     public ChooseMutsuki() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.cardsToPreview = new ExplodingAria();
     }
 
     // Actions the card should do.
@@ -43,6 +47,7 @@ public class ChooseMutsuki extends AbstractDynamicCard {
     }
     @Override
     public void onChoseThisOption() {
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(cardsToPreview, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
         ProblemSolver68.addCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
     }
 

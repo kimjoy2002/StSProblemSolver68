@@ -34,13 +34,14 @@ public class FirstAid extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
 
     private static final int MAGIC = 10;
     private static final int UPGRADE_PLUS_MAGIC = 10;
     public FirstAid() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        exhaust = true;
     }
 
     // Actions the card should do.

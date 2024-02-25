@@ -38,6 +38,7 @@ public class ChooseAru extends AbstractDynamicCard {
 
     public ChooseAru() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.cardsToPreview = new NoirShoot();
     }
 
     // Actions the card should do.
@@ -47,6 +48,7 @@ public class ChooseAru extends AbstractDynamicCard {
 
     @Override
     public void onChoseThisOption() {
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(cardsToPreview, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
         ProblemSolver68.addCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
     }
 

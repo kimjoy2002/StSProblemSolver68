@@ -9,6 +9,7 @@ import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.patches.GridSelectScreenPatch;
 import BlueArchive_ProblemSolver.relics.*;
+import BlueArchive_ProblemSolver.util.GifDecoder;
 import BlueArchive_ProblemSolver.variables.SecondMagicNumber;
 import BlueArchive_ProblemSolver.variables.ThirdMagicNumber;
 import basemod.*;
@@ -17,6 +18,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -41,6 +43,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 import static BlueArchive_ProblemSolver.characters.Aru.Enums.PROBLEM_SOLVER;
+import static BlueArchive_ProblemSolver.characters.Aru.MUTSUKI_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.ProblemSolver68.problemSolverPlayer;
 
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -360,6 +363,9 @@ public class DefaultMod implements
 
     public static void ChooseAtGameStart() {
         if (AbstractDungeon.player instanceof Aru && !pureRandomMode) {
+            if(ProblemSolver68.mutuski_animation == null) {
+                ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
+            }
             choosingCharacters = 0;
             choosePS68 = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 

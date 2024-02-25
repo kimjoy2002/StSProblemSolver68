@@ -38,7 +38,7 @@ public class ApplyPowerToAllAllyAction extends AbstractGameAction {
                         copy_ = ((CloneablePowerInterface)powerToApply).makeCopy();
                     }
                     copy_.owner = p;
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, copy_, amount));
+                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, copy_));
                 }
             }
         } else {
