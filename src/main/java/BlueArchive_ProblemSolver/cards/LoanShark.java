@@ -35,7 +35,7 @@ public class LoanShark extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     public static final int MAGIC = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
     public static final int MAGIC2 = 2;
@@ -65,14 +65,12 @@ public class LoanShark extends AbstractDynamicCard {
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(!p.hasPower(StrengthPower.POWER_ID)) {
-            return true;
-        } else {
-            if(((StrengthPower)p.getPower(StrengthPower.POWER_ID)).amount >= 0) {
-                return true;
+        if(p.hasPower(StrengthPower.POWER_ID)) {
+            if(((StrengthPower)p.getPower(StrengthPower.POWER_ID)).amount < 0) {
+                this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+                return false;
             }
         }
-        this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-        return false;
+        return super.canUse(p, m);
     }
 }

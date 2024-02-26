@@ -63,10 +63,12 @@ public class CuteImpScheme extends AbstractDynamicCard {
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(p instanceof ProblemSolver68 &&
-          ((ProblemSolver68) p).solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI)
-            return true;
-        this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-        return false;
+        if(!(p instanceof ProblemSolver68) ||
+                ((ProblemSolver68) p).solverType != Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI){
+
+            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+            return false;
+        }
+        return super.canUse(p,m);
     }
 }

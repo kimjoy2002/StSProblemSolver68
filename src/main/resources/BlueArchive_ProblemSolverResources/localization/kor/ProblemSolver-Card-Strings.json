@@ -68,25 +68,25 @@
   },
   "BlueArchive_ProblemSolver:HireHelmetGang": {
     "NAME": "헬멧단 고용",
-    "DESCRIPTION": "이번 전투동안 체력 !M! 의 BlueArchive_ProblemSolver:용병을 고용합니다.",
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다.",
     "EXTENDED_DESCRIPTION": [
       "더 고용할 수 없어"
     ]
   },
   "BlueArchive_ProblemSolver:HireHelmetLeader": {
     "NAME": "정예 헬멧단 고용",
-    "DESCRIPTION": "이번 전투동안 체력 !M! 의 BlueArchive_ProblemSolver:용병을 고용합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷 !BlueArchive_ProblemSolver:M! 또는 힘을 !BlueArchive_ProblemSolver:M2! 들고 시작합니다.",
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷 !BlueArchive_ProblemSolver:M! 또는 힘을 !BlueArchive_ProblemSolver:M2! 들고 시작합니다.",
     "EXTENDED_DESCRIPTION": [
       "더 고용할 수 없어"
     ]
   },
   "BlueArchive_ProblemSolver:ChooseRabu": {
     "NAME": "코미카제 라브 고용",
-    "DESCRIPTION": "이번 전투동안 체력 !M! 의 BlueArchive_ProblemSolver:용병을 고용합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷을 !BlueArchive_ProblemSolver:M! 들고 시작합니다."
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷을 !BlueArchive_ProblemSolver:M! 들고 시작합니다."
   },
   "BlueArchive_ProblemSolver:ChooseSaori": {
     "NAME": "조마에 사오리 고용",
-    "DESCRIPTION": "이번 전투동안 체력 !M! 의 BlueArchive_ProblemSolver:용병을 고용합니다. 선택한 BlueArchive_ProblemSolver:용병이 힘을 !BlueArchive_ProblemSolver:M! 을 들고 시작합니다."
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 힘을 !BlueArchive_ProblemSolver:M! 을 들고 시작합니다."
   },
   "BlueArchive_ProblemSolver:FireSupport": {
     "NAME": "화력 지원",
@@ -163,10 +163,26 @@
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
     "NAME": "느와르 어택",
-    "DESCRIPTION": "피해를 !D! 줍니다. 그 후 적 전체에 피해를 !D! 줍니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 악행(!BlueArchive_ProblemSolver:M2!): 적 전체에 피해를 !D! 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 !D! 줍니다. NL ",
+      "악행(",
+      "/!BlueArchive_ProblemSolver:M2!): 적 전체에 피해를 !D! 줍니다."
+    ]
   },
   "BlueArchive_ProblemSolver:ShotABlank": {
     "NAME": "공포탄",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 이 캐릭터는 이번 턴 카드를 더 뽑을 수 없습니다."
+  },
+  "BlueArchive_ProblemSolver:CatsProtection": {
+    "NAME": "고양이의 시간",
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 이 BlueArchive_ProblemSolver:용병은 적 턴에 공격을 받지 않습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "더는 소환할 수 없어"
+    ]
+  },
+  "BlueArchive_ProblemSolver:OutlawsRock": {
+    "NAME": "무법자의 락",
+    "DESCRIPTION": "아군의 BlueArchive_ProblemSolver:악행이 발동할때마다 모든 적에게 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
   }
 }

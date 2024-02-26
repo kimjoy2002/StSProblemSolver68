@@ -54,7 +54,8 @@ public class Aru extends ProblemSolver68 {
         PROBLEM_SOLVER_68_HARUKA,
         PROBLEM_SOLVER_68_HELMETGANG,
         PROBLEM_SOLVER_68_RABU,
-        PROBLEM_SOLVER_68_SAORI
+        PROBLEM_SOLVER_68_SAORI,
+        PROBLEM_SOLVER_68_CAT
     }
 
     public static class Enums {
@@ -107,6 +108,9 @@ public class Aru extends ProblemSolver68 {
 
     public static final String SAORI_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.atlas";
     public static final String SAORI_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.json";
+    public static final String CAT_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.atlas";
+    public static final String CAT_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.json";
+    public static final String CAT_SKELETON_GIF = "BlueArchive_ProblemSolverResources/images/char/problemsolver/happy-cat.gif";
 
     // =============== /STRINGS/ =================
 
@@ -345,6 +349,10 @@ public class Aru extends ProblemSolver68 {
             case PROBLEM_SOLVER_68_SAORI:
                 atlas = SAORI_SKELETON_ATLAS;
                 json = SAORI_SKELETON_JSON;
+                break;
+            case PROBLEM_SOLVER_68_CAT:
+                atlas = CAT_SKELETON_ATLAS;
+                json = CAT_SKELETON_JSON;
                 break;
         }
 

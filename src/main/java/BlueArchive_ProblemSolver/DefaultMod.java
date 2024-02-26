@@ -42,6 +42,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
+import static BlueArchive_ProblemSolver.characters.Aru.CAT_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.Aru.Enums.PROBLEM_SOLVER;
 import static BlueArchive_ProblemSolver.characters.Aru.MUTSUKI_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.ProblemSolver68.problemSolverPlayer;
@@ -366,6 +367,11 @@ public class DefaultMod implements
             if(ProblemSolver68.mutuski_animation == null) {
                 ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
             }
+            if(ProblemSolver68.cat_animation == null) {
+                ProblemSolver68.cat_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+            }
+
+
             choosingCharacters = 0;
             choosePS68 = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 

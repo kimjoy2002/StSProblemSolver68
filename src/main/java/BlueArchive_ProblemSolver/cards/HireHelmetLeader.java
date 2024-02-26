@@ -79,9 +79,10 @@ public class HireHelmetLeader extends AbstractDynamicCard {
         }
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(ProblemSolver68.getMemberNum(false ,false) < 5)
-            return true;
-        this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-        return false;
+        if(ProblemSolver68.getMemberNum(false ,false) >= 5) {
+            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+            return false;
+        }
+        return super.canUse(p,m);
     }
 }

@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class NoirShoot extends AbstractDynamicCard {
+public class NoirShoot extends EvilDeedsCard {
     public static final String ID = DefaultMod.makeID(NoirShoot.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -38,7 +38,7 @@ public class NoirShoot extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 5;
     private static final int UPGRADE_PLUS_DMG = 2;
 
     public NoirShoot() {
@@ -46,6 +46,12 @@ public class NoirShoot extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
         this.isMultiDamage = true;
+        setRequireEvil(2);
+    }
+
+    @Override
+    public CardStrings getCardStrings() {
+        return cardStrings;
     }
 
     // Actions the card should do.
@@ -54,11 +60,15 @@ public class NoirShoot extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        super.use(p, m);
+    }
+
+    @Override
+    public void onEvilDeeds(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("ATTACK_HEAVY"));
         this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
     }
-
 
     // Upgraded stats.
     @Override
@@ -66,7 +76,7 @@ public class NoirShoot extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            makeDescrption();
         }
     }
 }

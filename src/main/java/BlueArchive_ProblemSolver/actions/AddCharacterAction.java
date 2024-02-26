@@ -3,6 +3,8 @@ package BlueArchive_ProblemSolver.actions;
 import BlueArchive_ProblemSolver.cards.HireHelmetLeader;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.powers.CannotAttackedPower;
+import BlueArchive_ProblemSolver.powers.ChangeWhenHitPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -28,6 +30,8 @@ public class AddCharacterAction extends AbstractGameAction {
                 this.addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, HireHelmetLeader.MAGIC2), HireHelmetLeader.MAGIC2));
             } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_SAORI) {
                 this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, HireHelmetLeader.MAGIC3), HireHelmetLeader.MAGIC3));
+            } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT) {
+                this.addToBot(new ApplyPowerAction(p, p, new CannotAttackedPower(p)));
             }
         }
     }

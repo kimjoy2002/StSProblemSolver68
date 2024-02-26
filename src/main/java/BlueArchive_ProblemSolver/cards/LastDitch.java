@@ -39,7 +39,7 @@ public class LastDitch extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int DAMAGE = 0;
 
     public LastDitch() {

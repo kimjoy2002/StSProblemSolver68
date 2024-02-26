@@ -32,5 +32,18 @@
       "모턴이 끝날때마다 #y힘과 #y민첩을 #g",
       " 얻습니다. 이 효과는 이 캐릭터가 카드를 사용하면 사라집니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:CannotAttackedPower": {
+    "NAME": "귀여움",
+    "DESCRIPTIONS": [
+      "적에게 공격 받지 않습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:OutlawsRockPower": {
+    "NAME": "무법자의 락",
+    "DESCRIPTIONS": [
+      "아군의 #y악행이 발동할때마다 모든 적에게 피해를 #r",
+      " 줍니다."
+    ]
   }
 }

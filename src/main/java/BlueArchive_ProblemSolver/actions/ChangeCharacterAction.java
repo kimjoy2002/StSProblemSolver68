@@ -30,7 +30,7 @@ public class ChangeCharacterAction extends AbstractGameAction {
         }
         AbstractPlayer temp = AbstractDungeon.player;
         if(targetPlayer == null) {
-            targetPlayer = ProblemSolver68.getRandomMember(temp);
+            targetPlayer = ProblemSolver68.getRandomMember(temp, true);
             if(targetPlayer == null || targetPlayer == temp) {
                 return;
             }
