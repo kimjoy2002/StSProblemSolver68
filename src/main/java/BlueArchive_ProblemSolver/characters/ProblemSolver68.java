@@ -39,7 +39,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 import java.util.*;
 
-import static BlueArchive_ProblemSolver.DefaultMod.makeCharPath;
+import static BlueArchive_ProblemSolver.DefaultMod.*;
 import static BlueArchive_ProblemSolver.characters.Aru.CAT_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.Aru.MUTSUKI_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
@@ -52,8 +52,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static final ArrayList<ProblemSolver68> dyingPlayer = new ArrayList<>();
     private static final Texture SELECTED_IMG = TextureLoader.getTexture(makeCharPath("select.png"));
     public static ProblemSolverSave savedata;
-    private float holdProgress = 0.0f;
     private boolean enabled = false;
+    private static boolean changeCharacter = false;
     private boolean isDisabled = false;
     private boolean isHovered = false;
     public Aru.ProblemSolver68Type solverType = PROBLEM_SOLVER_68_NONE;
@@ -71,6 +71,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         ProblemSolverSave.currentCharacters.clear();
         savedata = new ProblemSolverSave();
         BaseMod.addSaveField("BlueArchive_ProblemSolver:Character",savedata);
+        changeCharacter = true;
     }
 
     public static Aru.ProblemSolver68Type stringToEnum(String name) {
@@ -325,7 +326,21 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         for(AbstractPlayer p : delete_) {
             problemSolverPlayer.remove(p);
         }
+        if(changeCharacter) {
+            ProblemSolver68 temp = problemSolverPlayer.get(0);
+            float tempBeforeDrawX = temp.drawX;
+            float tempAfterDrawX = temp.drawX;
+            problemSolverPlayer.remove(0);
+            for (ProblemSolver68 p : problemSolverPlayer) {
+                tempAfterDrawX = p.drawX;
+                p.movePosition_(tempBeforeDrawX, p.drawY);
+                tempBeforeDrawX = tempAfterDrawX;
+            }
+            problemSolverPlayer.add(temp);
+            temp.movePosition_(tempAfterDrawX, temp.drawY);
 
+            changeCharacter = false;
+        }
     }
     public void update_(boolean dying) {
         super.update();
@@ -655,8 +670,6 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             this.disable();
         }
 
-
-        updateHoldProgress();
         if(enabled) {
             isDisabled = false;
             if (AbstractDungeon.isScreenUp || AbstractDungeon.player.isDraggingCard || AbstractDungeon.player.inSingleTargetMode) {
@@ -676,52 +689,87 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             }
         }
 
-        if (this.holdProgress == 0.4F && !this.isDisabled && !AbstractDungeon.isScreenUp) {
-            this.disable(true);
-            this.holdProgress = 0.0F;
-        }
-
-        if ((!Settings.USE_LONG_PRESS || !Settings.isControllerMode && !isPressed())
-                && (this.hb.clicked || (isJustPressed() || CInputActionSet.proceed.isJustPressed()) && !this.isDisabled && this.enabled)) {
+        if (this.hb.clicked  && !this.isDisabled && this.enabled) {
             this.hb.clicked = false;
-            if (!this.isDisabled && !AbstractDungeon.isScreenUp) {
+            if (!AbstractDungeon.isScreenUp) {
                 this.disable(true);
             }
         }
-    }
-    public int getKeyCode() {
-        return 0; //TODO
-    }
-    public boolean isJustPressed() {
-        return Gdx.input.isKeyJustPressed(getKeyCode());
-    }
 
-    public boolean isPressed() {
-        return Gdx.input.isKeyPressed(getKeyCode());
-    }
-
-    private void updateHoldProgress() {
-        if (!Settings.USE_LONG_PRESS || !Settings.isControllerMode && !InputHelper.isMouseDown) {
-            this.holdProgress -= Gdx.graphics.getDeltaTime();
-            if (this.holdProgress < 0.0F) {
-                this.holdProgress = 0.0F;
+        if (isLeftJustPressed() && !this.isDisabled && this.enabled) {
+            int index = problemSolverPlayer.size()-1;
+            for (int i = 0; i < problemSolverPlayer.size(); i++) {
+                if(problemSolverPlayer.get(i) == AbstractDungeon.player)
+                    break;
+                index = i;
             }
 
-        } else {
-            if ((this.hb.hovered && InputHelper.isMouseDown) && !this.isDisabled && this.enabled) {
-                this.holdProgress += Gdx.graphics.getDeltaTime();
-                if (this.holdProgress > 0.4F) {
-                    this.holdProgress = 0.4F;
-                }
-            } else {
-                this.holdProgress -= Gdx.graphics.getDeltaTime();
-                if (this.holdProgress < 0.0F) {
-                    this.holdProgress = 0.0F;
+            if (problemSolverPlayer.get(index) == this) {
+                this.hb.clicked = false;
+                if (!AbstractDungeon.isScreenUp) {
+                    this.disable(true);
                 }
             }
+        }
 
+        if (isRightJustPressed() && !this.isDisabled && this.enabled) {
+            int index = 0;
+            for (int i = problemSolverPlayer.size()-1; i >= 0; i--) {
+                if(problemSolverPlayer.get(i) == AbstractDungeon.player)
+                    break;
+                index = i;
+            }
+
+            if (problemSolverPlayer.get(index) == this) {
+                this.hb.clicked = false;
+                if (!AbstractDungeon.isScreenUp) {
+                    this.disable(true);
+                }
+            }
+        }
+
+
+        if (isRollJustPressed() && !this.isDisabled && this.enabled) {
+            if (AbstractDungeon.player == this) {
+                this.hb.clicked = false;
+                if (!AbstractDungeon.isScreenUp) {
+                    changeCharacter = true;
+                }
+            }
         }
     }
+    public int getLeftKeyCode() {
+        return leftKey;
+    }
+    public int getRightKeyCode() {
+        return rightKey;
+    }
+    public int getRollKeyCode() {
+        return rollkey;
+    }
+    public boolean isLeftJustPressed() {
+        return Gdx.input.isKeyJustPressed(getLeftKeyCode());
+    }
+    public boolean isRightJustPressed() {
+        return Gdx.input.isKeyJustPressed(getRightKeyCode());
+    }
+
+    public boolean isLeftPressed() {
+        return Gdx.input.isKeyPressed(getLeftKeyCode());
+    }
+    public boolean isRightPressed() {
+        return Gdx.input.isKeyPressed(getRightKeyCode());
+    }
+
+    public boolean isRollJustPressed() {
+        return Gdx.input.isKeyJustPressed(getRollKeyCode());
+    }
+    public boolean isRollPressed() {
+        return Gdx.input.isKeyPressed(getRollKeyCode());
+    }
+
+
+
     public void enable() {
         this.enabled = true;
     }

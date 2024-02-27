@@ -3,5 +3,10 @@
     "TEXT": [
       "시작할 캐릭터를 선택하십시오."
     ]
+  },
+  "BlueArchive_ProblemSolver:ChallengeMode": {
+    "TEXT": [
+      "무작위 조합으로 게임을 시작합니다."
+    ]
   }
 }
