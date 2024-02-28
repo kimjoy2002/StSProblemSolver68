@@ -2,6 +2,7 @@ package BlueArchive_ProblemSolver.save;
 
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import basemod.abstracts.CustomSavable;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,17 @@ public class ProblemSolverSave implements CustomSavable<ArrayList<SaveData>> {
 
     @Override
     public ArrayList<SaveData> onSave() {
+        //update
+        if (AbstractDungeon.player instanceof ProblemSolver68) {
+            for (SaveData data : currentCharacters) {
+                ProblemSolver68 char_ = ProblemSolver68.getCharacter(data.name);
+                if(char_ != null) {
+                    data.hp = char_.currentHealth;
+                    data.max_hp = char_.maxHealth;
+                }
+            }
+        }
+
         return currentCharacters;
     }
     @Override

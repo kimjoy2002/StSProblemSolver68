@@ -476,8 +476,6 @@ public class DefaultMod implements
 
             choosingCharacters = 0;
             choosePS68 = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-
-
             choosePS68.addToTop(new ChooseAru());
             choosePS68.addToTop(new ChooseMutsuki());
             choosePS68.addToTop(new ChooseKayoko());
@@ -485,7 +483,16 @@ public class DefaultMod implements
             GridSelectScreenPatch.centerGridSelect = true;
             AbstractDungeon.gridSelectScreen.open(choosePS68, 1, false, CardCrawlGame.languagePack.getUIString("BlueArchive_ProblemSolver:CharSelectAction").TEXT[0]);
         }
-
+        if (AbstractDungeon.player instanceof Aru && DefaultMod.pureRandomMode) {
+            choosePS68 = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            choosePS68.addToRandomSpot(new ChooseAru());
+            choosePS68.addToRandomSpot(new ChooseMutsuki());
+            choosePS68.addToRandomSpot(new ChooseKayoko());
+            choosePS68.addToRandomSpot(new ChooseHaruka());
+            choosePS68.getTopCard().onChoseThisOption();
+            choosePS68.removeTopCard();
+            choosePS68.getTopCard().onChoseThisOption();
+        }
     }
     @Override
     public void receivePostUpdate() {

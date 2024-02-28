@@ -131,6 +131,14 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public static ProblemSolver68 getCharacter(String name) {
+        for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer){
+            if(enumToString(ps.solverType).equals(name)) {
+                return ps;
+            }
+        }
+        return null;
+    }
     public static void removeCharacter(ProblemSolver68 player) {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
         boolean isPrev = true;

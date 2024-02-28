@@ -36,7 +36,7 @@ public class HireHelmetLeader extends AbstractDynamicCard {
 
     private static final int COST = 4;
 
-    public static final int MAGIC = 15;
+    public static final int MAGIC = 20;
     private static final int UPGRADE_PLUS_MAGIC = 10;
     public static final int MAGIC2 = 4;
     public static final int MAGIC3 = 3;
@@ -74,7 +74,8 @@ public class HireHelmetLeader extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            this.upgradeBaseCost(3);
+            //upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

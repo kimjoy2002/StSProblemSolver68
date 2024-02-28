@@ -41,6 +41,7 @@ public class ChangeCharacterAction extends AbstractGameAction {
         }
         AbstractDungeon.player.cardInUse = null;
         AbstractDungeon.player = targetPlayer;
+        AbstractDungeon.player.gold = temp.gold;
         AbstractDungeon.player.hand.refreshHandLayout();
         AbstractDungeon.player.hand.applyPowers();
         AbstractDungeon.onModifyPower();
