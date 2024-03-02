@@ -45,5 +45,25 @@
       "아군의 #y악행이 발동할때마다 모든 적에게 피해를 #r",
       " 줍니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:CannotChangedPower": {
+    "NAME": "변경 불가",
+    "DESCRIPTIONS": [
+      "턴이 끝날때까지 교체할 수 없습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FreeCardPower": {
+    "NAME": "무료 사용",
+    "DESCRIPTIONS": [
+      "다음 카드의 에너지 비용을 무시합니다.",
+      "다음 #b",
+      " 장 카드의 에너지 비용을 무시합니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:TauntPower": {
+    "NAME": "도발",
+    "DESCRIPTIONS": [
+      "적의 턴에 공격을 받습니다."
+    ]
   }
 }

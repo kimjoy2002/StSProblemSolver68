@@ -163,10 +163,10 @@
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
     "NAME": "느와르 어택",
-    "DESCRIPTION": "피해를 !D! 줍니다. 악행(!BlueArchive_ProblemSolver:M2!): 적 전체에 피해를 !D! 줍니다.",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 적 전체에 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
       "피해를 !D! 줍니다. NL ",
-      "악행(",
+      "BlueArchive_ProblemSolver:악행 (",
       "/!BlueArchive_ProblemSolver:M2!): 적 전체에 피해를 !D! 줍니다."
     ]
   },
@@ -184,5 +184,21 @@
   "BlueArchive_ProblemSolver:OutlawsRock": {
     "NAME": "무법자의 락",
     "DESCRIPTION": "아군의 BlueArchive_ProblemSolver:악행이 발동할때마다 모든 적에게 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
+  },
+  "BlueArchive_ProblemSolver:OutlawsRoad": {
+    "NAME": "무법자의 길",
+    "DESCRIPTION": "이번 턴 선택한 캐릭터가 *아루로 고정됩니다. 에너지를 [E] 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "이번 턴 선택한 캐릭터가 *아루로 고정됩니다. 에너지를 [E] [E] 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "EXTENDED_DESCRIPTION": [
+      "아루가 없어!"
+    ]
+  },
+  "BlueArchive_ProblemSolver:RecklessBehavior": {
+    "NAME": "폭주하는 행동",
+    "DESCRIPTION": "카드를 전부 버립니다. NL 카드를 !M!X 장 뽑습니다. NL 다음 사용하는 카드의 비용이 0이 됩니다."
+  },
+  "BlueArchive_ProblemSolver:Taunt": {
+    "NAME": "도발",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 턴 동안에서 항상 이 캐릭터가 공격을 받습니다."
   }
 }

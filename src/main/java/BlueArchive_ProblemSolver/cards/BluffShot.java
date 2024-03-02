@@ -35,7 +35,7 @@ public class BluffShot extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int DAMAGE = 12;
     private static final int UPGRADE_PLUS_DMG = 5;
     private static final int MAGIC = 1;

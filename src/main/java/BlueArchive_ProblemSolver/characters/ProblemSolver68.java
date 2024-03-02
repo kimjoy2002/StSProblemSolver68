@@ -330,6 +330,18 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public static boolean hasCharacter(Aru.ProblemSolver68Type problemSolverType) {
+        if(!(AbstractDungeon.player instanceof ProblemSolver68)) {
+            return false;
+        }
+        for (ProblemSolver68 ps : problemSolverPlayer) {
+            if (ps.solverType == problemSolverType){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void movePosition(float x, float y) {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
         int i = 0;
