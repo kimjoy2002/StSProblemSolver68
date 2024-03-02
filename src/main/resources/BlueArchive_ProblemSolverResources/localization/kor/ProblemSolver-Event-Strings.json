@@ -1,2 +1,139 @@
 {
+  "BlueArchive_ProblemSolver:CursedTome": {
+    "OPTIONS": [
+      "[계속] #r모든 #r캐릭터가 #r체력을 #r1 #r잃습니다.",
+      "[계속] #r모든 #r캐릭터가 #r체력을 #r2 #r잃습니다.",
+      "[계속] #r모든 #r캐릭터가 #r체력을 #r3 #r잃습니다.",
+      "[그만] #r모든 #r캐릭터가 #r체력을 #r3 #r잃습니다.",
+      "[가져간다] #g책을 #g획득합니다. #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:KnowingSkull": {
+    "OPTIONS": [
+      "[정보?] #g보스를 #g보여줍니다. #r모든 #r캐릭터가 #r체력을 #r",
+      "[성공?] #g무색 #g카드를 #g얻습니다. #r모든 #r캐릭터가 #r체력을 #r",
+      "[정신자극제?] #g포션을 #g얻습니다. #r모든 #r캐릭터가 #r체력을 #r",
+      " #g잃습니다. #r모든 #r캐릭터가 #r체력을 #r",
+      "[어떻게 나가죠?] #r모든 #r캐릭터가 #r체력을 #r"
+
+    ]
+  },
+  "BlueArchive_ProblemSolver:Nest": {
+    "OPTIONS": [
+      "[줄에 서 있는다] 의식용 단검 #g카드를 #g획득합니다. 모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ScrapOoze": {
+    "OPTIONS": [
+      "[팔을 뻗어 뒤져본다] #r모든 #r캐릭터가 #r체력을 #r",
+      "[더욱 깊게 뒤져본다] #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:GoopPuddle": {
+    "OPTIONS": [
+      " #g획득합니다. #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:SensoryStone": {
+    "OPTIONS": [
+      "[회상] #g2장의 #g무색 #g카드 #b보상을 #g획득합니다. #r모든 #r캐릭터가 #r체력을 #r",
+      "[회상] #g3장의 #g무색 #g카드 #b보상을 #g획득합니다. #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:WingStatue": {
+    "OPTIONS": [
+      "[기도] #g카드 #g1장을 #g덱에서 #g제거합니다. #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Ghosts": {
+    "OPTIONS": [
+      "[승낙] #g영체화 #g카드 #g3장 #g획득. #r모든 #r캐릭터가 #r최대 #r체력을 #r절반 #r잃습니다.",
+      "[승낙] #g영체화 #g카드 #g5장 #g획득. #r모든 #r캐릭터가 #r최대 #r체력을 #r절반 #r잃습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:Vampires": {
+    "OPTIONS": [
+      "[승낙] #g모든 #g타격 #g카드 #g제거. #g흡혈 #g카드 #g5장 #g획득. #r모든 #r캐릭터가 #r최대 #r체력을 #r30% #r잃습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:BigFish": {
+    "OPTIONS": [
+      "[바나나] #g모든 #g캐릭터가 #g체력을 #g",
+      "[도넛] #g모든 #g캐릭터의 #g최대 #g체력 #g+"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Cleric": {
+    "OPTIONS": [
+      "[회복] #y35 #y골드 #y: #g전체 #g체력 #g회복 #g: #g"
+    ]
+  },
+  "BlueArchive_ProblemSolver:GoldenIdol": {
+    "OPTIONS": [
+      "[부순다] #r모든 #r캐릭터가 #r피해를 #r",
+      "[숨는다] #r모든 #r캐릭터가 #r최대 #r체력을 #r10% 잃습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:Mushrooms": {
+    "OPTIONS": [
+      "[식사] #g모든 #g캐릭터가 #g체력을 #g"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ShiningLight": {
+    "OPTIONS": [
+      "[들어간다] #g무작위의 #g카드 #g2장을 #g강화합니다. #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Designer": {
+    "OPTIONS": [
+      "[때린다] #r모든 #r캐릭터가 #r",
+      " #r체력을 #r잃습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FaceTrader": {
+    "OPTIONS": [
+      "[만진다] #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:GremlinWheelGame": {
+    "OPTIONS": [
+      "[보상!] #g모든 #g캐릭터가 #g체력을 #g전부 #g회복합니다.",
+      "[보상?] #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:WomanInBlue": {
+    "OPTIONS": [
+      "[떠난다] #r모든 #r캐릭터가 #r체력을 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ForgottenAltar": {
+    "OPTIONS": [
+      "[희생] #g모든 #g캐릭터가 #g최대 #g체력이 #g",
+      " 증가합니다. #r모든 #r캐릭터가 #r체력을 #r",
+      " #r잃습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:TheLibrary": {
+    "OPTIONS": [
+      "[잔다] #g모든 #g캐릭터가 #g체력을 #g"
+    ]
+  },
+  "BlueArchive_ProblemSolver:MindBloom": {
+    "OPTIONS": [
+      "[나는 건강하다] #g모든 #g캐릭터가 #g체력을 #g모두 #g회복합니다. #r저주를 #r받습니다. #r- #r부패."
+    ]
+  },
+  "BlueArchive_ProblemSolver:MoaiHead": {
+    "OPTIONS": [
+      "[안으로 들어간다] 모든 캐릭터가 #g체력을 #g전부 #g회복. #r손실: #r",
+      " #r최대 #r체력."
+    ]
+  },
+  "BlueArchive_ProblemSolver:WindingHalls": {
+    "OPTIONS": [
+      "[광기를 받아들인다] #g광기 #g카드를 #g2 #g장 #g획득합니다. #r모든 #r캐릭터가 #r체력을 #r",
+      "[집중] #r저주를 #r받습니다. #r- #r몸부림. #g모든 #g캐릭터가 #g체력을 #g",
+      "[왔던 길로 돌아간다] #r모든 #r캐릭터가 #r최대 #r체력을 #r"
+    ]
+  }
 }
+

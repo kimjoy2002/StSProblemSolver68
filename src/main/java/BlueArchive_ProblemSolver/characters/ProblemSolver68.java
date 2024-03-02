@@ -26,10 +26,13 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -71,7 +74,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         ProblemSolverSave.currentCharacters.clear();
         savedata = new ProblemSolverSave();
         BaseMod.addSaveField("BlueArchive_ProblemSolver:Character",savedata);
-        changeCharacter = true;
+        changeCharacter = false;
     }
 
     public static Aru.ProblemSolver68Type stringToEnum(String name) {
@@ -128,6 +131,13 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 return true;
             default:
                 return false;
+        }
+    }
+    public static void damageAll(int dmg) {
+        for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+            if(AbstractDungeon.player != ps) {
+                ps.damage(new DamageInfo((AbstractCreature) null, dmg, DamageInfo.DamageType.HP_LOSS));
+            }
         }
     }
 
@@ -261,6 +271,18 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             if(max_hp_ != -2) {
                 p.maxHealth = max_hp_;
             }
+            if(ProblemSolver68.isProblemSolver(p.solverType) && hp_ == -2 && max_hp_ == -2) {
+                if (AbstractDungeon.floorNum <= 1 && CardCrawlGame.dungeon instanceof Exordium) {
+                    if (AbstractDungeon.ascensionLevel >= 14) {
+                        p.decreaseMaxHealth(p.getAscensionMaxHPLoss());
+                    }
+
+                    if (AbstractDungeon.ascensionLevel >= 6) {
+                        p.currentHealth = MathUtils.round((float) p.maxHealth * 0.9F);
+                    }
+                }
+            }
+
             if(!ProblemSolver68.isProblemSolver(p.solverType) && GameActionManagerPatch.increaseMercenaryMaxHP > 0) {
                 p.increaseMaxHp(GameActionManagerPatch.increaseMercenaryMaxHP, false);
             }
@@ -506,7 +528,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 && cat_animation != null){
             animation_elapsed += Gdx.graphics.getDeltaTime()/4f;
             sb.setColor(Color.WHITE);
-            sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.drawX - 266.0f * Settings.scale / 2.0F + this.animX, this.drawY - 125.0f * Settings.scale / 2.0F+ this.animY,  188.0f/2,  200.0f/2, 188.0f, 200.0f, Settings.scale, Settings.scale, 90.0f, true);
+            sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.drawX - 306.0f * Settings.scale / 2.0F + this.animX, this.drawY - 150 * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
+            //sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.drawX - 266.0f * Settings.scale / 2.0F + this.animX, this.drawY - 125.0f * Settings.scale / 2.0F+ this.animY,  188.0f/2,  200.0f/2, 188.0f, 200.0f, Settings.scale, Settings.scale, 90.0f, true);
         } else {
             super.renderPlayerImage(sb);
         }

@@ -110,7 +110,7 @@ public class Aru extends ProblemSolver68 {
     public static final String SAORI_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.json";
     public static final String CAT_SKELETON_ATLAS = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.atlas";
     public static final String CAT_SKELETON_JSON = "BlueArchive_ProblemSolverResources/images/char/problemsolver/Saori.json";
-    public static final String CAT_SKELETON_GIF = "BlueArchive_ProblemSolverResources/images/char/problemsolver/happy-cat.gif";
+    public static final String CAT_SKELETON_GIF = "BlueArchive_ProblemSolverResources/images/char/problemsolver/dance-cat.gif";
 
     // =============== /STRINGS/ =================
 

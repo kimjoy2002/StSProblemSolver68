@@ -10,12 +10,15 @@ public class RushOnOffAction extends AbstractGameAction {
     boolean onoff;
     public RushOnOffAction(RushCard card, boolean onoff) {
         this.setValues(this.target, this.source, 0);
+        this.card = card;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.onoff = onoff;
     }
 
     public void update() {
-        card.rushActive = onoff;
+        if(card != null) {
+            card.rushActive = onoff;
+        }
         this.isDone = true;
     }
 }

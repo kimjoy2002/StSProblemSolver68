@@ -56,7 +56,7 @@ public class HPTooltipPatch {
                     sb.append(" NL ");
                 }
             });
-            sb.setLength(sb.length() - 4);
+            sb.setLength(sb.length()>4?(sb.length() - 4):1);
             TipHelper.renderGenericTip((float) InputHelper.mX - TIP_OFF_X, TIP_Y, LABEL[3], sb.toString());
             return SpireReturn.Return((Object)null);
         } else {

@@ -7,6 +7,7 @@ import BlueArchive_ProblemSolver.cards.ChooseKayoko;
 import BlueArchive_ProblemSolver.cards.ChooseMutsuki;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.effects.SaveEffect;
 import BlueArchive_ProblemSolver.patches.GridSelectScreenPatch;
 import BlueArchive_ProblemSolver.relics.*;
 import BlueArchive_ProblemSolver.util.GifDecoder;
@@ -33,8 +34,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.SaveHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import BlueArchive_ProblemSolver.util.IDCheckDontTouchPls;
@@ -492,6 +496,7 @@ public class DefaultMod implements
             choosePS68.getTopCard().onChoseThisOption();
             choosePS68.removeTopCard();
             choosePS68.getTopCard().onChoseThisOption();
+            AbstractDungeon.topLevelEffectsQueue.add(new SaveEffect());
         }
     }
     @Override
@@ -509,7 +514,7 @@ public class DefaultMod implements
             if (choosingCharacters == 1) {
                 choosingCharacters = 2;
                 GridSelectScreenPatch.centerGridSelect = false;
-
+                AbstractDungeon.topLevelEffectsQueue.add(new SaveEffect());
             } else if (choosingCharacters < 1) {
                 ++choosingCharacters;
                 AbstractDungeon.gridSelectScreen.open(choosePS68, 1, false, CardCrawlGame.languagePack.getUIString("BlueArchive_ProblemSolver:CharSelectAction").TEXT[0]);
