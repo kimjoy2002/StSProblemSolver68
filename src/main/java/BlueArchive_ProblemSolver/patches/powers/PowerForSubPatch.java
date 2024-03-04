@@ -33,7 +33,7 @@ public class PowerForSubPatch {
                     for(AbstractPower p : player.powers) {
                         if(p instanceof ForSubPower) {
                             ForSubPower forSubPower = (ForSubPower)p;
-                            tmp[0] = forSubPower.atDamageGiveForSub(tmp[0], __instance.damageTypeForTurn);
+                            tmp[0] = forSubPower.atDamageGiveForSub(tmp[0], __instance, __instance.damageTypeForTurn);
                         }
                     }
                 }
@@ -56,7 +56,7 @@ public class PowerForSubPatch {
                     for(AbstractPower p : player.powers) {
                         if(p instanceof ForSubPower) {
                             ForSubPower forSubPower = (ForSubPower)p;
-                            tmp[0][i] = forSubPower.atDamageGiveForSub(tmp[0][i], __instance.damageTypeForTurn);
+                            tmp[0][i] = forSubPower.atDamageGiveForSub(tmp[0][i], __instance, __instance.damageTypeForTurn);
                         }
                     }
                 }
@@ -82,7 +82,7 @@ public class PowerForSubPatch {
                     for(AbstractPower p : player.powers) {
                         if(p instanceof ForSubPower) {
                             ForSubPower forSubPower = (ForSubPower)p;
-                            tmp[0] = forSubPower.atDamageGiveForSub(tmp[0], __instance.damageTypeForTurn);
+                            tmp[0] = forSubPower.atDamageGiveForSub(tmp[0], __instance, __instance.damageTypeForTurn);
                         }
                     }
                 }
@@ -110,7 +110,7 @@ public class PowerForSubPatch {
                     for(AbstractPower p : player.powers) {
                         if(p instanceof ForSubPower) {
                             ForSubPower forSubPower = (ForSubPower)p;
-                            tmp[0][i] = forSubPower.atDamageGiveForSub(tmp[0][i], __instance.damageTypeForTurn);
+                            tmp[0][i] = forSubPower.atDamageGiveForSub(tmp[0][i], __instance, __instance.damageTypeForTurn);
                         }
                     }
                 }

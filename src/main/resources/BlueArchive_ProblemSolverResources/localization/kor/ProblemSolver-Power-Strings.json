@@ -65,5 +65,13 @@
     "DESCRIPTIONS": [
       "적의 턴에 공격을 받습니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:FixedImpPower": {
+    "NAME": "소악마 보호",
+    "DESCRIPTIONS": [
+      "이번 턴 #y소악마가 감소하지 않습니다.",
+      "다음 #g",
+      " 턴 #y소악마가 감소하지 않습니다."
+    ]
   }
 }

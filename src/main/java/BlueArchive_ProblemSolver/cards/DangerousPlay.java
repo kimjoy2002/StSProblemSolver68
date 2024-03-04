@@ -1,27 +1,21 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.ApplyPowerToAllAllyAction;
 import BlueArchive_ProblemSolver.actions.ImpAction;
 import BlueArchive_ProblemSolver.characters.Aru;
-import BlueArchive_ProblemSolver.characters.ProblemSolver68;
-import BlueArchive_ProblemSolver.powers.ImpPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class CuteImpScheme extends AbstractDynamicCard {
-    public static final String ID = DefaultMod.makeID(CuteImpScheme.class.getSimpleName());
+public class DangerousPlay extends AbstractDynamicCard {
+    public static final String ID = DefaultMod.makeID(DangerousPlay.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public static final String IMG = makeCardPath("CuteImpScheme.png");
+    public static final String IMG = makeCardPath("DangerousPlay.png");
 
 
     public static final String NAME = cardStrings.NAME;
@@ -32,19 +26,20 @@ public class CuteImpScheme extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    public static final int MAGIC = 4;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
+    public static final int MAGIC = 8;
+    private static final int UPGRADE_PLUS_MAGIC = 4;
 
-    public CuteImpScheme() {
+    public DangerousPlay() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
+        exhaust = true;
     }
 
     // Actions the card should do.

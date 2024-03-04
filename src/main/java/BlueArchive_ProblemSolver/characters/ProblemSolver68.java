@@ -35,6 +35,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
@@ -61,6 +63,13 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     private boolean isHovered = false;
     public Aru.ProblemSolver68Type solverType = PROBLEM_SOLVER_68_NONE;
 
+    private static final UIStrings characterStrings = CardCrawlGame.languagePack.getUIString("BlueArchive_ProblemSolver:CharSelectAction");
+
+    int myCount = 0;
+    static int HelmatNum = 0;
+    static int RabuNum = 0;
+    static int SaoriNum = 0;
+    static int CatNum = 0;
 
     public static Animation<TextureRegion> mutuski_animation;
     public static Animation<TextureRegion> cat_animation;
@@ -132,6 +141,52 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             default:
                 return false;
         }
+    }
+
+    private static void updateCharCount(ProblemSolver68 p) {
+        switch(p.solverType) {
+            case PROBLEM_SOLVER_68_HELMETGANG:
+                p.myCount = HelmatNum;
+                HelmatNum++;
+                break;
+            case PROBLEM_SOLVER_68_RABU:
+                p.myCount = RabuNum;
+                RabuNum++;
+                break;
+            case PROBLEM_SOLVER_68_SAORI:
+                p.myCount = SaoriNum;
+                SaoriNum++;
+                break;
+            case PROBLEM_SOLVER_68_CAT:
+                p.myCount = CatNum;
+                CatNum++;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static String getLocalizedName(ProblemSolver68 p) {
+
+        switch(p.solverType) {
+            case PROBLEM_SOLVER_68_ARU:
+                return characterStrings.TEXT[1];
+            case PROBLEM_SOLVER_68_MUTSUKI:
+                return characterStrings.TEXT[2];
+            case PROBLEM_SOLVER_68_KAYOKO:
+                return characterStrings.TEXT[3];
+            case PROBLEM_SOLVER_68_HARUKA:
+                return characterStrings.TEXT[4];
+            case PROBLEM_SOLVER_68_HELMETGANG:
+                return characterStrings.TEXT[5] + HelmatNum;
+            case PROBLEM_SOLVER_68_RABU:
+                return characterStrings.TEXT[6] + (RabuNum==1?"":RabuNum);
+            case PROBLEM_SOLVER_68_SAORI:
+                return characterStrings.TEXT[7] + (SaoriNum==1?"":SaoriNum);
+            case PROBLEM_SOLVER_68_CAT:
+                return characterStrings.TEXT[8] + CatNum;
+        }
+        return AbstractDungeon.player.getLocalizedCharacterName();
     }
     public static void damageAll(int dmg) {
         for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
@@ -243,6 +298,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 AbstractDungeon.player.healthBarUpdatedEvent();
                 AbstractDungeon.player.showHealthBar();
             }
+            updateCharCount((ProblemSolver68) AbstractDungeon.player);
             return AbstractDungeon.player;
         } else {
             float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
@@ -296,6 +352,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 p.healthBarUpdatedEvent();
                 p.showHealthBar();
             }
+            updateCharCount((ProblemSolver68)p);
             return p;
         }
     }
@@ -341,6 +398,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
         return false;
     }
+
 
     public void movePosition(float x, float y) {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
@@ -488,6 +546,11 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
         dyingPlayer.clear();
         AbstractDungeon.player = problemSolverPlayer.get(0);
+        HelmatNum = 0;
+        RabuNum = 0;
+        SaoriNum = 0;
+        CatNum = 0;
+
     }
     public void onVictorySub() {
         if(currentHealth <= 0) {

@@ -14,6 +14,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Vector;
+
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
 public class PanicShot extends AbstractDynamicCard {

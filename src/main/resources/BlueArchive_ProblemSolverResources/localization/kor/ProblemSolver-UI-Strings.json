@@ -1,7 +1,15 @@
 {
   "BlueArchive_ProblemSolver:CharSelectAction": {
     "TEXT": [
-      "시작할 캐릭터를 선택하십시오."
+      "시작할 캐릭터를 선택하십시오.",
+      "아루",
+      "무츠키",
+      "카요코",
+      "하루카",
+      "용병",
+      "라브",
+      "사오리",
+      "고양이"
     ]
   },
   "BlueArchive_ProblemSolver:ChallengeMode": {
