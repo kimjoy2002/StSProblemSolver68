@@ -5,10 +5,15 @@ import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.CannotAttackedPower;
 import BlueArchive_ProblemSolver.powers.ChangeWhenHitPower;
+import BlueArchive_ProblemSolver.powers.PerfectPresidentsIntegiblePower;
+import BlueArchive_ProblemSolver.powers.PerfectPresidentsStrPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
@@ -22,6 +27,10 @@ public class AddCharacterAction extends AbstractGameAction {
 
     public void update() {
         this.isDone = true;
+        if(!(AbstractDungeon.player instanceof ProblemSolver68)) {
+            return;
+        }
+
         if(ProblemSolver68.getMemberNum(false ,false) >= 5)
             return;
         AbstractPlayer p = ProblemSolver68.addCharacter(type, amount, amount, true);
@@ -32,6 +41,16 @@ public class AddCharacterAction extends AbstractGameAction {
                 this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, HireHelmetLeader.MAGIC3), HireHelmetLeader.MAGIC3));
             } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT) {
                 this.addToBot(new ApplyPowerAction(p, p, new CannotAttackedPower(p)));
+            }
+            for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                for (AbstractPower power_ : ps.powers) {
+                    if(power_ instanceof PerfectPresidentsStrPower) {
+                        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, power_.amount), power_.amount));
+                    }
+                    if(power_ instanceof PerfectPresidentsIntegiblePower) {
+                        this.addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, power_.amount), power_.amount));
+                    }
+                }
             }
         }
     }

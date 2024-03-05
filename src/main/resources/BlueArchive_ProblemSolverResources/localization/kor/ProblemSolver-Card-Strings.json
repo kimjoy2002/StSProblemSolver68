@@ -137,7 +137,7 @@
   },
   "BlueArchive_ProblemSolver:LoanShark": {
     "NAME": "사채",
-    "DESCRIPTION": "힘이 0 이상인 캐릭터만 사용가능합니다. NL 에너지를 !M! 얻습니다. NL 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
+    "DESCRIPTION": "힘이 0 이상인 캐릭터만 사용가능합니다. NL [E] [E] 를 얻습니다. NL 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
     "EXTENDED_DESCRIPTION": [
       "힘이 0 이상 필요해"
     ]
@@ -160,11 +160,11 @@
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
     "NAME": "느와르 어택",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 적 전체에 피해를 !D! 줍니다.",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 추가로 적 전체에 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
       "피해를 !D! 줍니다. NL ",
       "BlueArchive_ProblemSolver:악행 (",
-      "/!BlueArchive_ProblemSolver:M2!): 적 전체에 피해를 !D! 줍니다."
+      "/!BlueArchive_ProblemSolver:M2!): 추가로 적 전체에 피해를 !D! 줍니다."
     ]
   },
   "BlueArchive_ProblemSolver:ShotABlank": {
@@ -173,7 +173,7 @@
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "고양이의 시간",
-    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 이 BlueArchive_ProblemSolver:용병은 적 턴에 공격을 받지 않습니다.",
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 이 BlueArchive_ProblemSolver:용병은 적 턴에 공격을 받아줄 수 없습니다.",
     "EXTENDED_DESCRIPTION": [
       "더는 소환할 수 없어"
     ]
@@ -184,8 +184,8 @@
   },
   "BlueArchive_ProblemSolver:OutlawsRoad": {
     "NAME": "무법자의 길",
-    "DESCRIPTION": "이번 턴 선택한 캐릭터가 *아루로 고정됩니다. 에너지를 [E] 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "이번 턴 선택한 캐릭터가 *아루로 고정됩니다. 에너지를 [E] [E] 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "DESCRIPTION": "이번 턴 선택한 캐릭터가 *아루로 고정됩니다. [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "이번 턴 선택한 캐릭터가 *아루로 고정됩니다. [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       "아루가 없어!"
     ]
@@ -253,5 +253,44 @@
   "BlueArchive_ProblemSolver:DangerousPlay": {
     "NAME": "위험한 놀이",
     "DESCRIPTION": "*무츠키가 BlueArchive_ProblemSolver:소악마를 !M! 얻습니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:Debt": {
+    "NAME": "채무",
+    "DESCRIPTION": "보존. 소멸. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 카드를 1장 뽑습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "보존. 소멸. NL ",
+      "BlueArchive_ProblemSolver:악행 (",
+      "/!BlueArchive_ProblemSolver:M2!): 카드를 1장 뽑습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:InterestingProposal": {
+    "NAME": "흥미로운 제안",
+    "DESCRIPTION": "*채무 카드를 !M!장 얻습니다.",
+    "UPGRADE_DESCRIPTION": "*채무+ 카드를 !M!장 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:HardboiledHanetsukiShot": {
+    "NAME": "하드보일드풍 하네츠키 샷",
+    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): [E] [E] 를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "적 전체에 피해를 !D! 줍니다. NL ",
+      "BlueArchive_ProblemSolver:악행 (",
+      "/!BlueArchive_ProblemSolver:M2!): [E] [E] 를 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:Reputation": {
+    "NAME": "평판",
+    "DESCRIPTION": "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): *평판 카드를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): *평판+ 카드를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. NL ",
+      "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. NL ",
+      "BlueArchive_ProblemSolver:악행 (",
+      "/!BlueArchive_ProblemSolver:M2!): *평판을 얻습니다.",
+      "/!BlueArchive_ProblemSolver:M2!): *평판+을 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:PerfectPresidentsStyle": {
+    "NAME": "사장님의 퍼펙트한 용병술",
+    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:용병과 이후 소환될 BlueArchive_ProblemSolver:용병이 힘 !M! 과 불가침 !BlueArchive_ProblemSolver:M! 을 얻습니다."
   }
 }

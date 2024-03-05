@@ -11,6 +11,13 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class ApplyPowerToAllAllyAction extends AbstractGameAction {
     AbstractPower powerToApply;
     AbstractPlayer exclude;
+
+    PowerToCharacterType type = PowerToCharacterType.NONE;
+
+    public enum PowerToCharacterType {
+        NONE,
+        ONLY_MERCENARY
+    }
     public ApplyPowerToAllAllyAction(AbstractPower powerToApply) {
         this(powerToApply, 0);
     }
@@ -28,11 +35,23 @@ public class ApplyPowerToAllAllyAction extends AbstractGameAction {
         this.setValues(AbstractDungeon.player, AbstractDungeon.player, this.amount);
         this.actionType = ActionType.CARD_MANIPULATION;
     }
+    public ApplyPowerToAllAllyAction(AbstractPower powerToApply, int stackAmount, PowerToCharacterType type) {
+        this.amount = stackAmount;
+        this.powerToApply = powerToApply;
+        this.type = type;
+        this.setValues(AbstractDungeon.player, AbstractDungeon.player, this.amount);
+        this.actionType = ActionType.CARD_MANIPULATION;
+    }
     @Override
     public void update() {
         if(AbstractDungeon.player instanceof ProblemSolver68) {
             for (ProblemSolver68 p : ProblemSolver68.problemSolverPlayer) {
                 if(exclude != p && p.currentHealth > 0) {
+                    if(type == PowerToCharacterType.ONLY_MERCENARY &&
+                        ProblemSolver68.isProblemSolver(p.solverType)) {
+                        continue;
+                    }
+
                     AbstractPower copy_ = powerToApply;
                     if(powerToApply instanceof CloneablePowerInterface) {
                         copy_ = ((CloneablePowerInterface)powerToApply).makeCopy();

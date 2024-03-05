@@ -73,5 +73,19 @@
       "다음 #g",
       " 턴 #y소악마가 감소하지 않습니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:PerfectPresidentsStrPower": {
+    "NAME": "용병 힘",
+    "DESCRIPTIONS": [
+      "#y용병이 소환되면 #y힘을 ",
+      " 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:PerfectPresidentsIntegiblePower": {
+    "NAME": "용병 불가침",
+    "DESCRIPTIONS": [
+      "#y용병이 소환되면 #y불가침을 ",
+      " 얻습니다."
+    ]
   }
 }

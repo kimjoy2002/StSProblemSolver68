@@ -25,6 +25,11 @@ abstract public class EvilDeedsCard extends AbstractDynamicCard {
         baseThirdMagicNumber = thirdMagicNumber = require_evil;
     }
 
+    public void updateRequireEvil(int amount) {
+        this.require_evil = require_evil+amount;
+        upgradeThirdMagicNumber(amount);
+    }
+
     public abstract CardStrings getCardStrings();
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -59,7 +64,7 @@ abstract public class EvilDeedsCard extends AbstractDynamicCard {
             this.rawDescription = (upgraded&&getCardStrings().UPGRADE_DESCRIPTION!=null)?getCardStrings().UPGRADE_DESCRIPTION:getCardStrings().DESCRIPTION;
         } else if(getCardStrings().UPGRADE_DESCRIPTION!=null) {
             this.rawDescription = upgraded?getCardStrings().EXTENDED_DESCRIPTION[1]:getCardStrings().EXTENDED_DESCRIPTION[0];
-            this.rawDescription += getCardStrings().EXTENDED_DESCRIPTION[2] + evil + getCardStrings().EXTENDED_DESCRIPTION[3];
+            this.rawDescription += getCardStrings().EXTENDED_DESCRIPTION[2] + evil + (upgraded?getCardStrings().EXTENDED_DESCRIPTION[4]:getCardStrings().EXTENDED_DESCRIPTION[3]);
         } else {
             this.rawDescription = getCardStrings().EXTENDED_DESCRIPTION[0];
             this.rawDescription += getCardStrings().EXTENDED_DESCRIPTION[1] + evil + getCardStrings().EXTENDED_DESCRIPTION[2];
@@ -69,7 +74,9 @@ abstract public class EvilDeedsCard extends AbstractDynamicCard {
 
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
-        this.addToBot(new EvilDeedsAction(this, 1));
+        if (!(c instanceof Reputation)) {
+            this.addToBot(new EvilDeedsAction(this, 1));
+        }
     }
 
     public void onMoveToDiscard() {
