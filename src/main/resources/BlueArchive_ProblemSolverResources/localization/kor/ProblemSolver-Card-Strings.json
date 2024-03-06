@@ -45,7 +45,7 @@
   },
   "BlueArchive_ProblemSolver:VolleyFire": {
     "NAME": "일제 사격",
-    "DESCRIPTION": "피해를 !D! 살아 있는 아군 캐릭터 수 만큼 줍니다.",
+    "DESCRIPTION": "살아 있는 아군 캐릭터 수 만큼 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       " 번 공격합니다.)"
@@ -118,7 +118,7 @@
   },
   "BlueArchive_ProblemSolver:CaliforniaGurls": {
     "NAME": "캘리포니아 걸즈",
-    "DESCRIPTION": "*무츠키만 사용 가능합니다. NL 턴이 끝날때마다 힘, 민첩을 !M! 얻습니다. 이 효과는 이 캐릭터가 카드를 사용하면 사라집니다.",
+    "DESCRIPTION": "*무츠키만 사용 가능합니다. NL 턴을 시작할때마다 힘, 민첩을 !M! 얻습니다. 이 효과는 이 캐릭터가 카드를 사용하면 사라집니다.",
     "EXTENDED_DESCRIPTION": [
       "이 카드는 무츠키만 사용할 수 있어"
     ]
@@ -138,6 +138,7 @@
   "BlueArchive_ProblemSolver:LoanShark": {
     "NAME": "사채",
     "DESCRIPTION": "힘이 0 이상인 캐릭터만 사용가능합니다. NL [E] [E] 를 얻습니다. NL 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
+    "UPGRADE_DESCRIPTION": "힘이 0 이상인 캐릭터만 사용가능합니다. NL [E] [E] [E] 를 얻습니다. NL 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
     "EXTENDED_DESCRIPTION": [
       "힘이 0 이상 필요해"
     ]

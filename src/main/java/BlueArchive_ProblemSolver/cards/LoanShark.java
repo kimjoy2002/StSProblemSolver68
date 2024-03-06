@@ -59,6 +59,7 @@ public class LoanShark extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }

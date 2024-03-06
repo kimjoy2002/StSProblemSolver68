@@ -29,7 +29,7 @@
   "BlueArchive_ProblemSolver:CaliforniaGurlsPower": {
     "NAME": "캘리포니아 걸즈",
     "DESCRIPTIONS": [
-      "모턴이 끝날때마다 #y힘과 #y민첩을 #g",
+      "턴을 시작할때마다 #y힘과 #y민첩을 #g",
       " 얻습니다. 이 효과는 이 캐릭터가 카드를 사용하면 사라집니다."
     ]
   },
