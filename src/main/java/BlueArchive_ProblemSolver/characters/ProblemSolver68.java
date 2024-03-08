@@ -6,6 +6,7 @@ import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
 import BlueArchive_ProblemSolver.powers.CaliforniaGurlsPower;
 import BlueArchive_ProblemSolver.powers.CannotAttackedPower;
 import BlueArchive_ProblemSolver.powers.OnDeadPower;
+import BlueArchive_ProblemSolver.relics.OnDeadRelic;
 import BlueArchive_ProblemSolver.save.ProblemSolverSave;
 import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.util.GifDecoder;
@@ -23,6 +24,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -38,6 +40,7 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -104,6 +107,14 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_SAORI;
             case "Cat":
                 return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT;
+            case "Ironclad":
+                return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_IRONCLAD;
+            case "Silent":
+                return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_SILENT;
+            case "Defect":
+                return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_DEFECT;
+            case "Watcher":
+                return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_WATCHER;
             default:
                 return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
         }
@@ -126,6 +137,14 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 return "Saori";
             case PROBLEM_SOLVER_68_CAT:
                 return "Cat";
+            case PROBLEM_SOLVER_68_IRONCLAD:
+                return "Ironclad";
+            case PROBLEM_SOLVER_68_SILENT:
+                return "Silent";
+            case PROBLEM_SOLVER_68_DEFECT:
+                return "Defect";
+            case PROBLEM_SOLVER_68_WATCHER:
+                return "Watcher";
             default:
                 return "";
         }
@@ -185,6 +204,14 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 return characterStrings.TEXT[7] + (SaoriNum==1?"":SaoriNum);
             case PROBLEM_SOLVER_68_CAT:
                 return characterStrings.TEXT[8] + CatNum;
+            case PROBLEM_SOLVER_68_IRONCLAD:
+                return CardCrawlGame.languagePack.getCharacterString("Ironclad").NAMES[0];
+            case PROBLEM_SOLVER_68_SILENT:
+                return CardCrawlGame.languagePack.getCharacterString("Silent").NAMES[0];
+            case PROBLEM_SOLVER_68_DEFECT:
+                return CardCrawlGame.languagePack.getCharacterString("Defect").NAMES[0];
+            case PROBLEM_SOLVER_68_WATCHER:
+                return CardCrawlGame.languagePack.getCharacterString("Watcher").NAMES[0];
         }
         return AbstractDungeon.player.getLocalizedCharacterName();
     }
@@ -720,6 +747,11 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 if(power_ instanceof OnDeadPower) {
                     ((OnDeadPower)power_).onDead(dead);
                 }
+            }
+        }
+        for(AbstractRelic relic : AbstractDungeon.player.relics) {
+            if(relic instanceof OnDeadRelic) {
+                ((OnDeadRelic)relic).onDead(dead);
             }
         }
     }

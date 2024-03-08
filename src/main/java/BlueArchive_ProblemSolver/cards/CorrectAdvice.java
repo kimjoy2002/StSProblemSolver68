@@ -100,7 +100,7 @@ public class CorrectAdvice extends AbstractDynamicCard {
     public AbstractCard makeStatEquivalentCopy() {
         AbstractCard card = super.makeStatEquivalentCopy();
         if(card instanceof CorrectAdvice) {
-            ((CorrectAdvice)card).used_character = this.used_character;
+            ((CorrectAdvice)card).used_character.addAll(this.used_character);
         }
         return card;
     }

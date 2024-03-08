@@ -112,9 +112,11 @@ public class MultiCharacterPatch {
                 locator = Locator.class
         )
         public static void Insert(AbstractPlayer __instance, DamageInfo info) {
-            if (!ProblemSolver68.isAllDead()) {
-                ProblemSolver68.onDead(__instance);
-                GameActionManagerPatch.deadThisCombat++;
+            if (AbstractDungeon.player instanceof ProblemSolver68) {
+                if (!ProblemSolver68.isAllDead()) {
+                    ProblemSolver68.onDead(__instance);
+                    GameActionManagerPatch.deadThisCombat++;
+                }
             }
         }
 

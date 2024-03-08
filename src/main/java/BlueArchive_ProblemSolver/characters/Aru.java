@@ -55,7 +55,11 @@ public class Aru extends ProblemSolver68 {
         PROBLEM_SOLVER_68_HELMETGANG,
         PROBLEM_SOLVER_68_RABU,
         PROBLEM_SOLVER_68_SAORI,
-        PROBLEM_SOLVER_68_CAT
+        PROBLEM_SOLVER_68_CAT,
+        PROBLEM_SOLVER_68_IRONCLAD,
+        PROBLEM_SOLVER_68_SILENT,
+        PROBLEM_SOLVER_68_DEFECT,
+        PROBLEM_SOLVER_68_WATCHER
     }
 
     public static class Enums {
@@ -175,7 +179,7 @@ public class Aru extends ProblemSolver68 {
 
     public void setSolverType(ProblemSolver68Type solverType) {
         this.solverType = solverType;
-        newAnimation(BASE_ANIMATION);
+        newAnimation("");
     }
 
     // =============== /CHARACTER CLASS END/ =================
@@ -320,6 +324,7 @@ public class Aru extends ProblemSolver68 {
     public void newAnimation(String animation) {
         String atlas = "";
         String json = "";
+        String defaultAnimationName = BASE_ANIMATION;
 
         switch(solverType) {
             case PROBLEM_SOLVER_68_ARU:
@@ -354,6 +359,26 @@ public class Aru extends ProblemSolver68 {
                 atlas = CAT_SKELETON_ATLAS;
                 json = CAT_SKELETON_JSON;
                 break;
+            case PROBLEM_SOLVER_68_IRONCLAD:
+                atlas ="images/characters/ironclad/idle/skeleton.atlas";
+                json = "images/characters/ironclad/idle/skeleton.json";
+                defaultAnimationName ="Idle";
+                break;
+            case PROBLEM_SOLVER_68_SILENT:
+                atlas ="images/characters/theSilent/idle/skeleton.atlas";
+                json = "images/characters/theSilent/idle/skeleton.json";
+                defaultAnimationName ="Idle";
+                break;
+            case PROBLEM_SOLVER_68_DEFECT:
+                atlas ="images/characters/defect/idle/skeleton.atlas";
+                json = "images/characters/defect/idle/skeleton.json";
+                defaultAnimationName ="Idle";
+                break;
+            case PROBLEM_SOLVER_68_WATCHER:
+                atlas ="images/characters/watcher/idle/skeleton.atlas";
+                json = "images/characters/watcher/idle/skeleton.json";
+                defaultAnimationName ="Idle";
+                break;
         }
 
         if(!atlas.isEmpty() && !json.isEmpty()) {
@@ -361,7 +386,7 @@ public class Aru extends ProblemSolver68 {
                     atlas,
                     json,
                     0.9f);
-            AnimationState.TrackEntry e = state.setAnimation(0,animation.isEmpty()?BASE_ANIMATION:animation, true);
+            AnimationState.TrackEntry e = state.setAnimation(0,animation.isEmpty()?defaultAnimationName:animation, true);
             e.setTime(e.getEndTime() * MathUtils.random());
         }
     }

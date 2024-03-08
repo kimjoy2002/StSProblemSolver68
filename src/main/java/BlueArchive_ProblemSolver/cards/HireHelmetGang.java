@@ -37,14 +37,13 @@ public class HireHelmetGang extends AbstractDynamicCard {
     private static final int COST = 3;
 
     private static final int MAGIC = 5;
-    private static final int UPGRADE_PLUS_MAGIC = 5;
     public HireHelmetGang() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
     }
 
     public void updateVal () {
-        baseMagicNumber = MAGIC + (upgraded?UPGRADE_PLUS_MAGIC:0) + GameActionManagerPatch.increaseMercenaryMaxHP;
+        baseMagicNumber = MAGIC + GameActionManagerPatch.increaseMercenaryMaxHP;
     }
     public void applyPowers() {
         updateVal();
@@ -71,7 +70,6 @@ public class HireHelmetGang extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeBaseCost(2);
-            //upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }
