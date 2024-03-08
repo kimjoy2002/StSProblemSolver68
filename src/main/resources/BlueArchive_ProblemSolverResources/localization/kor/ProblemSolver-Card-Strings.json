@@ -222,7 +222,7 @@
   "BlueArchive_ProblemSolver:CorrectAdvice": {
     "NAME": "정확한 조언",
     "DESCRIPTION": "휘발성. NL 캐릭터마다 한 번만 쓸 수 있습니다. NL 카드를 !M! 장 뽑습니다.",
-    "UPGRADE_DESCRIPTION": "휘발성. 선천성. NL 캐릭터마다 한 번만 쓸 수 있습니다. NL 카드를 !M! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. 휘발성. NL 캐릭터마다 한 번만 쓸 수 있습니다. NL 카드를 !M! 장 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       "난 이 카드를 이미 사용했어!",
       " NL {",
