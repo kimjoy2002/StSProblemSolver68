@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:DeliveryRequest": {
     "NAME": "배달 의뢰",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. (변경 예정)"
   },
   "BlueArchive_ProblemSolver:MultiBlock": {
     "NAME": "흥신소 바리케이트",

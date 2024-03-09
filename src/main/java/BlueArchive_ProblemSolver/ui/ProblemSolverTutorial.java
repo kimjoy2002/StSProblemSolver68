@@ -21,10 +21,14 @@ public class ProblemSolverTutorial extends FtueTip {
     public static final String[] LABEL;
     private Texture img1 = ImageMaster.loadImage("BlueArchive_ProblemSolverResources/images/ui/t1.png");
     private Texture img2 = ImageMaster.loadImage("BlueArchive_ProblemSolverResources/images/ui/t2.png");
-    private Color screen = Color.valueOf("1c262a00");
+    private Texture img3 = ImageMaster.loadImage("BlueArchive_ProblemSolverResources/images/ui/t3.png");
+    private Texture img4 = ImageMaster.loadImage("BlueArchive_ProblemSolverResources/images/ui/t4.png");
+    private Color screen = Color.valueOf("85000000");
     private float x;
     private float x1;
     private float x2;
+    private float x3;
+    private float x4;
     private float targetX;
     private float startX;
     private float scrollTimer = 0.0F;
@@ -32,7 +36,7 @@ public class ProblemSolverTutorial extends FtueTip {
     private int closeScreen;
 
     public ProblemSolverTutorial() {
-        this.closeScreen = -1;
+        this.closeScreen = -3;
         AbstractDungeon.player.releaseCard();
         if (AbstractDungeon.isScreenUp) {
             AbstractDungeon.dynamicBanner.hide();
@@ -45,6 +49,8 @@ public class ProblemSolverTutorial extends FtueTip {
         this.x = 0.0F;
         this.x1 = 567.0F * Settings.scale;
         this.x2 = this.x1 + (float)Settings.WIDTH;
+        this.x3 = this.x2 + (float)Settings.WIDTH;
+        this.x4 = this.x3 + (float)Settings.WIDTH;
         AbstractDungeon.overlayMenu.proceedButton.show();
         AbstractDungeon.overlayMenu.proceedButton.setLabel(LABEL[0]);
     }
@@ -97,8 +103,12 @@ public class ProblemSolverTutorial extends FtueTip {
         sb.setColor(Color.WHITE);
         sb.draw(this.img1, this.x + this.x1 - img1.getWidth()/2, (float)Settings.HEIGHT / 2.0F - img1.getHeight()/2, img1.getWidth()/2, img1.getHeight()/2, img1.getWidth(), img1.getHeight(), Settings.scale, Settings.scale, 0.0F, 0, 0, img1.getWidth(), img1.getHeight(), false, false);
         sb.draw(this.img2, this.x + this.x2 - img2.getWidth()/2, (float)Settings.HEIGHT / 2.0F - img2.getHeight()/2, img2.getWidth()/2, img2.getHeight()/2, img2.getWidth(), img2.getHeight(), Settings.scale, Settings.scale, 0.0F, 0, 0, img2.getWidth(), img2.getHeight(), false, false);
+        sb.draw(this.img3, this.x + this.x3 - img3.getWidth()/2, (float)Settings.HEIGHT / 2.0F - img3.getHeight()/2, img3.getWidth()/2, img3.getHeight()/2, img3.getWidth(), img3.getHeight(), Settings.scale, Settings.scale, 0.0F, 0, 0, img3.getWidth(), img3.getHeight(), false, false);
+        sb.draw(this.img4, this.x + this.x4 - img4.getWidth()/2, (float)Settings.HEIGHT / 2.0F - img4.getHeight()/2, img4.getWidth()/2, img4.getHeight()/2, img4.getWidth(), img4.getHeight(), Settings.scale, Settings.scale, 0.0F, 0, 0, img4.getWidth(), img4.getHeight(), false, false);
         FontHelper.renderSmartText(sb, FontHelper.panelNameFont, TEXT[0], this.x + this.x1 + (img1.getWidth()/2+50) * Settings.scale, (float)Settings.HEIGHT / 2.0F - FontHelper.getSmartHeight(FontHelper.panelNameFont, TEXT[0], 700.0F * Settings.scale, 40.0F * Settings.scale) / 2.0F, 700.0F * Settings.scale, 40.0F * Settings.scale, Settings.CREAM_COLOR);
         FontHelper.renderSmartText(sb, FontHelper.panelNameFont, TEXT[1], this.x + this.x2 + (img2.getWidth()/2+50) * Settings.scale, (float)Settings.HEIGHT / 2.0F - FontHelper.getSmartHeight(FontHelper.panelNameFont,  TEXT[1], 700.0F * Settings.scale, 40.0F * Settings.scale) / 2.0F, 700.0F * Settings.scale, 40.0F * Settings.scale, Settings.CREAM_COLOR);
+        FontHelper.renderSmartText(sb, FontHelper.panelNameFont, TEXT[2], this.x + this.x3 + (img3.getWidth()/2+50) * Settings.scale, (float)Settings.HEIGHT / 2.0F - FontHelper.getSmartHeight(FontHelper.panelNameFont,  TEXT[1], 700.0F * Settings.scale, 40.0F * Settings.scale) / 2.0F, 700.0F * Settings.scale, 40.0F * Settings.scale, Settings.CREAM_COLOR);
+        FontHelper.renderSmartText(sb, FontHelper.panelNameFont, TEXT[3], this.x + this.x4 + (img4.getWidth()/2+50) * Settings.scale, (float)Settings.HEIGHT / 2.0F - FontHelper.getSmartHeight(FontHelper.panelNameFont,  TEXT[1], 700.0F * Settings.scale, 40.0F * Settings.scale) / 2.0F, 700.0F * Settings.scale, 40.0F * Settings.scale, Settings.CREAM_COLOR);
         FontHelper.renderFontCenteredWidth(sb, FontHelper.panelNameFont, LABEL[2], (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F - 360.0F * Settings.scale, Settings.GOLD_COLOR);
         FontHelper.renderFontCenteredWidth(sb, FontHelper.tipBodyFont, LABEL[3] + Integer.toString(Math.abs(this.currentSlot - 1)) + "/" + Math.abs(this.closeScreen - 1) + LABEL[4], (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F - 400.0F * Settings.scale, Settings.CREAM_COLOR);
         AbstractDungeon.overlayMenu.proceedButton.render(sb);
