@@ -220,7 +220,7 @@
     ]
   },
   "BlueArchive_ProblemSolver:CorrectAdvice": {
-    "NAME": "정확한 조언",
+    "NAME": "참모",
     "DESCRIPTION": "휘발성. NL 캐릭터마다 한 번만 쓸 수 있습니다. NL 카드를 !M! 장 뽑습니다.",
     "UPGRADE_DESCRIPTION": "선천성. 휘발성. NL 캐릭터마다 한 번만 쓸 수 있습니다. NL 카드를 !M! 장 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
@@ -311,5 +311,28 @@
   "BlueArchive_ProblemSolver:ShieldOfProblemSolver": {
     "NAME": "흥신소의 방패",
     "DESCRIPTION": "이번 턴 동안 다른 캐릭터가 카드를 사용할때마다 방어도를 !M! 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:Snipe": {
+    "NAME": "저격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드는 다른 아군이 지닌 양수의 힘을 추가로 적용합니다."
+  },
+  "BlueArchive_ProblemSolver:CantbeHelped": {
+    "NAME": "어쩔 수 없네",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적에게 부여된 BlueArchive_ProblemSolver:공포만큼 피해량이 증가합니다."
+  },
+  "BlueArchive_ProblemSolver:QuietPressure": {
+    "NAME": "조용한 위압",
+    "DESCRIPTION": "적의 힘을 이번 턴 동안 !M! 낮춥니다. NL BlueArchive_ProblemSolver:공포를 !BlueArchive_ProblemSolver:M! 부여합니다."
+  },
+  "BlueArchive_ProblemSolver:ButIllDoMyBest": {
+    "NAME": "히, 힘내겠습니다!",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 힘을 !M! 잃습니다."
+  },
+  "BlueArchive_ProblemSolver:ForAruSama": {
+    "NAME": "아루님을 위해서!",
+    "DESCRIPTION": "*하루카의 힘이 내려갈때마다, 그만큼 *아루의 힘을 올립니다.",
+    "EXTENDED_DESCRIPTION": [
+      "하루카가 필요해."
+    ]
   }
 }
