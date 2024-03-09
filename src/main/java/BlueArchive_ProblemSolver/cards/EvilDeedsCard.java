@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import static BlueArchive_ProblemSolver.patches.GameActionManagerPatch.evildeedThisTurn;
+
 abstract public class EvilDeedsCard extends AbstractDynamicCard {
 
     public int require_evil = 0;
@@ -35,6 +37,7 @@ abstract public class EvilDeedsCard extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(evil >= require_evil) {
             onEvilDeeds(p, m);
+            evildeedThisTurn++;
             if(AbstractDungeon.player instanceof ProblemSolver68) {
                 for (AbstractPlayer player_ : ProblemSolver68.problemSolverPlayer) {
                     for (AbstractPower power_ : player_.powers) {

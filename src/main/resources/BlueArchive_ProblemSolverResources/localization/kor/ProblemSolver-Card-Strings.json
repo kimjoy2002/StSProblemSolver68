@@ -181,7 +181,7 @@
   },
   "BlueArchive_ProblemSolver:OutlawsRock": {
     "NAME": "무법자의 락",
-    "DESCRIPTION": "아군의 BlueArchive_ProblemSolver:악행이 발동할때마다 모든 적에게 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
+    "DESCRIPTION": "아군이 BlueArchive_ProblemSolver:악행을 발동할때마다 모든 적에게 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
   },
   "BlueArchive_ProblemSolver:OutlawsRoad": {
     "NAME": "무법자의 길",
@@ -293,5 +293,23 @@
   "BlueArchive_ProblemSolver:PerfectPresidentsStyle": {
     "NAME": "사장님의 퍼펙트한 용병술",
     "DESCRIPTION": "모든 BlueArchive_ProblemSolver:용병과 이후 소환될 BlueArchive_ProblemSolver:용병이 힘 !M! 과 불가침 !BlueArchive_ProblemSolver:M! 을 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:HardboiledShot": {
+    "NAME": "하드보일드 샷",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!+): 피해량이 BlueArchive_ProblemSolver:악행 X !M! 만큼 증가합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 !D! 줍니다. NL ",
+      "BlueArchive_ProblemSolver:악행 (",
+      "/!BlueArchive_ProblemSolver:M2!+): 피해량이 BlueArchive_ProblemSolver:악행 X !M! 만큼 증가합니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:OneEvilDeedaDay": {
+    "NAME": "일일일악",
+    "DESCRIPTION": "아군이 턴마다 처음 BlueArchive_ProblemSolver:악행을 발동하면 [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 아군이 턴마다 처음 BlueArchive_ProblemSolver:악행을 발동하면 [E] 를 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:ShieldOfProblemSolver": {
+    "NAME": "흥신소의 방패",
+    "DESCRIPTION": "이번 턴 동안 다른 캐릭터가 카드를 사용할때마다 방어도를 !M! 얻습니다."
   }
 }

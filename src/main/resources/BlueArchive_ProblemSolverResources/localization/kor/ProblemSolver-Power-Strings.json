@@ -87,5 +87,20 @@
       "#y용병이 소환되면 #y불가침을 ",
       " 얻습니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:OneEvilDeedaDayPower": {
+    "NAME": "일일일악",
+    "DESCRIPTIONS": [
+      "턴마다 처음 #y악행을 사용하면 ",
+      "[E] ",
+      " 를 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ShieldOfProblemSolverPower": {
+    "NAME": "흥신소의 방패",
+    "DESCRIPTIONS": [
+      "다른 캐릭터가 카드를 사용하면 #y방어도를 #g",
+      " 얻습니다."
+    ]
   }
 }

@@ -18,9 +18,17 @@ public class FreeCardPatch {
     )
     public static class loadPlayerSavePatch {
         public static SpireReturn Prefix(AbstractCard __instance) {
-            if (AbstractDungeon.player != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
-                    && AbstractDungeon.player.hasPower(FreeCardPower.POWER_ID)){
-                return SpireReturn.Return(true);
+            if (AbstractDungeon.player != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT){
+                if(AbstractDungeon.player instanceof ProblemSolver68) {
+                    for (AbstractPlayer ps : ProblemSolver68.problemSolverPlayer) {
+                        if(ps.hasPower(FreeCardPower.POWER_ID)) {
+                            return SpireReturn.Return(true);
+                        }
+                    }
+                }
+                else if(AbstractDungeon.player.hasPower(FreeCardPower.POWER_ID)) {
+                    return SpireReturn.Return(true);
+                }
             }
             return SpireReturn.Continue();
         }
