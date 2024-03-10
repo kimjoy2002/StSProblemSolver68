@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.characters;
 import BlueArchive_ProblemSolver.actions.RemoveCharacterAction;
 import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
+import BlueArchive_ProblemSolver.patches.powers.PowerForSubPatch;
 import BlueArchive_ProblemSolver.powers.CaliforniaGurlsPower;
 import BlueArchive_ProblemSolver.powers.CannotAttackedPower;
 import BlueArchive_ProblemSolver.powers.OnDeadPower;
@@ -657,6 +658,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 p.healthBarUpdatedEvent();
             }
         }
+        PowerForSubPatch.prevCharacter = this;
     }
     public static void battleStartEffectForProblemSolver68(AbstractPlayer exclude) {
         for (ProblemSolver68 p : problemSolverPlayer) {
@@ -925,7 +927,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
     public void disable(boolean isEnemyTurn) {
-        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(this));
+        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(this, true));
     }
     //-----여기서부터 인풋 함수끝---------
 

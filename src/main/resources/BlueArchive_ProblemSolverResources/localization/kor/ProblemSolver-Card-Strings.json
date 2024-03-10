@@ -197,7 +197,7 @@
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "도발",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 턴 동안에서 항상 이 캐릭터가 공격을 받습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 적 턴 동안에서 항상 이 캐릭터가 공격을 받습니다."
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
     "NAME": "측면 공격",
@@ -270,7 +270,7 @@
     "UPGRADE_DESCRIPTION": "*채무+ 카드를 !M!장 얻습니다."
   },
   "BlueArchive_ProblemSolver:HardboiledHanetsukiShot": {
-    "NAME": "하드보일드풍 하네츠키 샷",
+    "NAME": "하드보일드 하네츠키 샷",
     "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): [E] [E] 를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "적 전체에 피해를 !D! 줍니다. NL ",
@@ -291,7 +291,7 @@
     ]
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsStyle": {
-    "NAME": "사장님의 퍼펙트한 용병술",
+    "NAME": "사장의 퍼펙트한 용병술",
     "DESCRIPTION": "모든 BlueArchive_ProblemSolver:용병과 이후 소환될 BlueArchive_ProblemSolver:용병이 힘 !M! 과 불가침 !BlueArchive_ProblemSolver:M! 을 얻습니다."
   },
   "BlueArchive_ProblemSolver:HardboiledShot": {

@@ -560,6 +560,7 @@ public class DefaultMod implements
         BaseMod.addRelicToCustomPool(new TNTRelic(), Aru.Enums.COLOR_RED);
 
         BaseMod.addRelicToCustomPool(new MercenaryCatalogueRelic(), Aru.Enums.COLOR_RED);
+        BaseMod.addRelicToCustomPool(new RadioTransceiverRelic(), Aru.Enums.COLOR_RED);
 
         logger.info("Done adding relics!");
     }

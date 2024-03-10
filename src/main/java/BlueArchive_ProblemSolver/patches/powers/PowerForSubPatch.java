@@ -4,6 +4,7 @@ import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
 import BlueArchive_ProblemSolver.patches.MultiCharacterPatch;
 import BlueArchive_ProblemSolver.powers.ForSubPower;
+import BlueArchive_ProblemSolver.relics.RadioTransceiverRelic;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,6 +19,11 @@ import javassist.CtBehavior;
 import java.util.Iterator;
 
 public class PowerForSubPatch {
+
+    public static AbstractPlayer prevCharacter = null;
+
+
+
     @SpirePatch(
             clz = AbstractCard.class,
             method = "applyPowers"
@@ -132,6 +138,17 @@ public class PowerForSubPatch {
         public static void Insert(UseCardAction __instance, AbstractCard card, AbstractCreature target) {
             if(AbstractDungeon.player instanceof ProblemSolver68) {
                 if (!card.dontTriggerOnUseCard) {
+                    if(prevCharacter == null) {
+                        prevCharacter = AbstractDungeon.player;
+                    }
+                    else if(prevCharacter != AbstractDungeon.player) {
+                        if (AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
+                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter++;
+                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
+                        }
+                        prevCharacter = AbstractDungeon.player;
+                    }
+
                     for (AbstractPlayer player : ProblemSolver68.problemSolverPlayer) {
                         for (AbstractPower p : player.powers) {
                             if (p instanceof ForSubPower) {

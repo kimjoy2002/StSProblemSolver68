@@ -2,9 +2,11 @@ package BlueArchive_ProblemSolver.actions;
 
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.patches.powers.PowerForSubPatch;
 import BlueArchive_ProblemSolver.powers.CannotChangedPower;
 import BlueArchive_ProblemSolver.powers.OutlawsRockPower;
 import BlueArchive_ProblemSolver.powers.TauntPower;
+import BlueArchive_ProblemSolver.relics.RadioTransceiverRelic;
 import BlueArchive_ProblemSolver.ui.ProblemSolverTutorial;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -19,18 +21,27 @@ import static BlueArchive_ProblemSolver.DefaultMod.*;
 
 public class ChangeCharacterAction extends AbstractGameAction {
     AbstractPlayer targetPlayer;
+    boolean manual;
     Aru.ProblemSolver68Type type = Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
     public ChangeCharacterAction(AbstractPlayer targetPlayer) {
         this.targetPlayer = targetPlayer;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.manual = false;
+    }
+    public ChangeCharacterAction(AbstractPlayer targetPlayer, boolean manual) {
+        this.targetPlayer = targetPlayer;
+        this.duration = Settings.ACTION_DUR_FAST;
+        this.manual = manual;
     }
     public ChangeCharacterAction(Aru.ProblemSolver68Type type) {
         this.type = type;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.manual = false;
     }
     public ChangeCharacterAction() {
         this.targetPlayer = null;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.manual = false;
     }
 
     public void update() {
@@ -41,6 +52,14 @@ public class ChangeCharacterAction extends AbstractGameAction {
         if (AbstractDungeon.player.hasPower(CannotChangedPower.POWER_ID)) {
             AbstractDungeon.player.getPower(CannotChangedPower.POWER_ID).flashWithoutSound();
             return;
+        }
+        if(manual) {
+            if(AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
+                if(AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter >= RadioTransceiverRelic.CHANGE_LIMIT) {
+                    AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).flash();
+                    return;
+                }
+            }
         }
         AbstractPlayer temp = AbstractDungeon.player;
         if(targetPlayer == null) {
@@ -75,6 +94,17 @@ public class ChangeCharacterAction extends AbstractGameAction {
         AbstractDungeon.player.hand.refreshHandLayout();
         AbstractDungeon.player.hand.applyPowers();
         AbstractDungeon.onModifyPower();
+        if(!manual) {
+            PowerForSubPatch.prevCharacter = AbstractDungeon.player;
+        }
+        if(AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
+            if(PowerForSubPatch.prevCharacter != AbstractDungeon.player) {
+                AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).beginLongPulse();
+            } else {
+                AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
+            }
+        }
+
         for (AbstractGameAction action : AbstractDungeon.actionManager.actions) {
             if (action instanceof DamageAction) {
                 DamageAction damageAction = (DamageAction)action;
