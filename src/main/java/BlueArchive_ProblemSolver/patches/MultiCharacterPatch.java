@@ -75,6 +75,7 @@ public class MultiCharacterPatch {
         public static SpireReturn Insert(AbstractPlayer __instance, DamageInfo info) {
             if (!ProblemSolver68.isAllDead()) {
                 __instance.currentHealth = 0;
+                __instance.powers.clear();
                 ProblemSolver68.changeToRandomCharacter();
                 if(__instance instanceof ProblemSolver68 &&
                    !ProblemSolver68.isProblemSolver(((ProblemSolver68)__instance).solverType)) {
@@ -82,7 +83,6 @@ public class MultiCharacterPatch {
                     ProblemSolver68.dyingPlayer.add((ProblemSolver68)__instance);
                     ProblemSolver68.removeCharacter((ProblemSolver68)__instance);
                     __instance.isEscaping = true;
-                    __instance.powers.clear();
                     __instance.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
                     __instance.escapeTimer = 2.5F;
                 }

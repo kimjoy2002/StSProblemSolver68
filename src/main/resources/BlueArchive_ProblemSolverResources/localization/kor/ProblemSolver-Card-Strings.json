@@ -9,7 +9,7 @@
   },
   "BlueArchive_ProblemSolver:ChooseAru": {
     "NAME": "라쿠하치마 아루",
-    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: 높은 공격력. 많은 광역. 에너지 회복"
+    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: 높은 공격력. 에너지 회복"
   },
   "BlueArchive_ProblemSolver:ChooseMutsuki": {
     "NAME": "아사기 무츠키",
@@ -334,5 +334,17 @@
     "EXTENDED_DESCRIPTION": [
       "하루카가 필요해."
     ]
+  },
+  "BlueArchive_ProblemSolver:RockSpirit": {
+    "NAME": "락 스피릿",
+    "DESCRIPTION": "공격으로 적의 체력을 감소시킬 때마다 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
+  },
+  "BlueArchive_ProblemSolver:NegativeThinking": {
+    "NAME": "부정적인 사고",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 나에게 디버프가 있으면 추가로 방어도를 !B! 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:UnwelcomeSchool": {
+    "NAME": "Unwelcome School",
+    "DESCRIPTION": "이번 전투동안 이 캐릭터를 조종할 수 없게 됩니다. NL 턴 시작 시, 이 캐릭터가 뽑을 카드 더미 맨 위에 있는 카드를 !M! 장 사용합니다."
   }
 }

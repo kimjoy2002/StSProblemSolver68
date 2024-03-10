@@ -1,11 +1,13 @@
 package BlueArchive_ProblemSolver.characters;
 
+import BlueArchive_ProblemSolver.actions.DelayAction;
 import BlueArchive_ProblemSolver.actions.RemoveCharacterAction;
 import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
 import BlueArchive_ProblemSolver.patches.powers.PowerForSubPatch;
 import BlueArchive_ProblemSolver.powers.CaliforniaGurlsPower;
 import BlueArchive_ProblemSolver.powers.CannotAttackedPower;
+import BlueArchive_ProblemSolver.powers.CannotSelectedPower;
 import BlueArchive_ProblemSolver.powers.OnDeadPower;
 import BlueArchive_ProblemSolver.relics.OnDeadRelic;
 import BlueArchive_ProblemSolver.save.ProblemSolverSave;
@@ -494,7 +496,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
 
     public void applyStartOfTurnPowers() {
         for (ProblemSolver68 p : problemSolverPlayer) {
-            p.applyStartOfTurnPowers_();
+            if(p.currentHealth > 0) {
+                p.applyStartOfTurnPowers_();
+            }
         }
     }
     public void applyStartOfTurnPowers_(){
@@ -502,7 +506,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
     public void applyTurnPowers() {
         for (ProblemSolver68 p : problemSolverPlayer) {
-            p.applyTurnPowers_();
+            if(p.currentHealth > 0) {
+                p.applyTurnPowers_();
+            }
         }
     }
     public void applyTurnPowers_(){
@@ -511,7 +517,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
 
     public void applyStartOfTurnPostDrawPowers() {
         for (ProblemSolver68 p : problemSolverPlayer) {
-            p.applyStartOfTurnPostDrawPowers_();
+            if(p.currentHealth > 0) {
+                p.applyStartOfTurnPostDrawPowers_();
+            }
         }
     }
     public void applyStartOfTurnPostDrawPowers_(){
@@ -520,7 +528,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
 
     public void applyEndOfTurnTriggers() {
         for (ProblemSolver68 p : problemSolverPlayer) {
-            p.applyEndOfTurnTriggers_();
+            if(p.currentHealth > 0) {
+                p.applyEndOfTurnTriggers_();
+            }
         }
     }
 
@@ -714,10 +724,11 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         return problemSolverPlayer.size();
     }
 
-    public static AbstractPlayer getRandomMember(AbstractPlayer exclude, boolean forDefend) {
+    public static AbstractPlayer getRandomMember(AbstractPlayer exclude, boolean forDefend, boolean unwelcome) {
         List<ProblemSolver68> ableCharacters = new ArrayList<>();
         for (ProblemSolver68 p : problemSolverPlayer) {
-            if(p.currentHealth > 0 && exclude != p && (!forDefend || !p.hasPower(CannotAttackedPower.POWER_ID) )) {
+            if(p.currentHealth > 0 && exclude != p && (!forDefend || !p.hasPower(CannotAttackedPower.POWER_ID) ) &&
+                    (!unwelcome || !p.hasPower(CannotSelectedPower.POWER_ID))) {
                 ableCharacters.add(p);
             }
         }
@@ -758,7 +769,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
     public static void changeToRandomCharacter() {
-        AbstractPlayer p = getRandomMember(null, true);
+        AbstractPlayer p = getRandomMember(null, true, false);
         if(p != null) {
             AbstractDungeon.actionManager.addToTop(new ChangeCharacterAction(p));
         }

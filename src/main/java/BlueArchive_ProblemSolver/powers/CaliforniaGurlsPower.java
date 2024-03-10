@@ -66,7 +66,9 @@ public class CaliforniaGurlsPower extends AbstractPower implements CloneablePowe
 
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        if(!card.isInAutoplay) {
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        }
     }
 
     @Override

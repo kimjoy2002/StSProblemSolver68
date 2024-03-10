@@ -22,7 +22,7 @@
   "BlueArchive_ProblemSolver:ImpPower": {
     "NAME": "소악마",
     "DESCRIPTIONS": [
-      "모든 아군 캐릭터가 공격 카드를 사용할때 그 피해량을 #g",
+      "모든 아군 캐릭터가 #y공격 카드를 사용할때 그 피해량을 #g",
       " 증가시키고 수치가 1 감소합니다."
     ]
   },
@@ -109,6 +109,26 @@
       "#y힘을 잃으면 그만큼 #y아루가 힘을 얻습니다.",
       "#y힘을 잃으면 그 #g",
       " 배만큼 #y아루가 힘을 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:RockSpiritPower": {
+    "NAME": "락 스피릿",
+    "DESCRIPTIONS": [
+      "방어되지 않은 #y공격 피해를 입힐 때마다 #b",
+      " 의 #y공포를 부여합니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:UnwelcomeSchoolPower": {
+    "NAME": "Unwelcome School",
+    "DESCRIPTIONS": [
+      "턴 시작 시, 이 캐릭터가 뽑을 카드 더미 맨 위에 있는 카드를 #b",
+      " 장 사용합니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:CannotSelectedPower": {
+    "NAME": "조종 불가",
+    "DESCRIPTIONS": [
+      "이 캐릭터는 조종 할 수 없습니다. 모든 아군이 조종불가면 강제로 턴을 종료합니다."
     ]
   }
 }
