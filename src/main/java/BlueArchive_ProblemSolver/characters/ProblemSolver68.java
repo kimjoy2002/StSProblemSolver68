@@ -59,6 +59,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static final float PROBLEM_SOLVER_WIDTH = 120.0F;
     public static final float PROBLEM_SOLVER_HEIGHT = 290.0F;
     public static final float PROBLEM_SOLVER_INTERVAL = 200.0F;
+    public static final int MAX_CHARACTER_NUM = 4;
     public static final ArrayList<ProblemSolver68> problemSolverPlayer = new ArrayList<>();
     public static final ArrayList<ProblemSolver68> dyingPlayer = new ArrayList<>();
     private static final Texture SELECTED_IMG = TextureLoader.getTexture(makeCharPath("select.png"));
@@ -562,7 +563,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         ArrayList<ProblemSolver68> removal = new ArrayList<>();
         for (ProblemSolver68 p : problemSolverPlayer) {
             TempHPField.tempHp.set(p, 0);
-            loseBlock();
+            p.loseBlock();
             if (AbstractDungeon.player == p) {
                 if (!this.isDying) {
                     if(currentHealth <= 0) {

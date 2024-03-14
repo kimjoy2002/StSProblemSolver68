@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.patches;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -60,6 +61,39 @@ public class MultiCharacterPatch {
     }
 
 
+    public static void onDead_(AbstractPlayer __instance) {
+        if (AbstractDungeon.player instanceof ProblemSolver68) {
+            if (!ProblemSolver68.isAllDead()) {
+                ProblemSolver68.onDead(__instance);
+                GameActionManagerPatch.deadThisCombat++;
+            }
+        }
+    }
+
+
+
+    public static boolean onDamage_(AbstractPlayer __instance) {
+        if(__instance instanceof ProblemSolver68) {
+            if (!ProblemSolver68.isAllDead()) {
+                __instance.isDead = true;
+                __instance.currentHealth = 0;
+                __instance.powers.clear();
+                ProblemSolver68.changeToRandomCharacter();
+                if (__instance instanceof ProblemSolver68 &&
+                        !ProblemSolver68.isProblemSolver(((ProblemSolver68) __instance).solverType)) {
+
+                    ProblemSolver68.dyingPlayer.add((ProblemSolver68) __instance);
+                    ProblemSolver68.removeCharacter((ProblemSolver68) __instance);
+                    __instance.isEscaping = true;
+                    __instance.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
+                    __instance.escapeTimer = 2.5F;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     @SpirePatch(
             clz = AbstractPlayer.class,
@@ -73,19 +107,7 @@ public class MultiCharacterPatch {
                 locator = Locator.class
         )
         public static SpireReturn Insert(AbstractPlayer __instance, DamageInfo info) {
-            if (!ProblemSolver68.isAllDead()) {
-                __instance.currentHealth = 0;
-                __instance.powers.clear();
-                ProblemSolver68.changeToRandomCharacter();
-                if(__instance instanceof ProblemSolver68 &&
-                   !ProblemSolver68.isProblemSolver(((ProblemSolver68)__instance).solverType)) {
-
-                    ProblemSolver68.dyingPlayer.add((ProblemSolver68)__instance);
-                    ProblemSolver68.removeCharacter((ProblemSolver68)__instance);
-                    __instance.isEscaping = true;
-                    __instance.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
-                    __instance.escapeTimer = 2.5F;
-                }
+            if (MultiCharacterPatch.onDamage_(__instance)) {
                 return SpireReturn.Return();
             }
             return SpireReturn.Continue();
@@ -101,6 +123,26 @@ public class MultiCharacterPatch {
 
 
     @SpirePatch(
+            clz = InstantKillAction.class,
+            method = "update"
+    )
+    public static class InstantKillActionPatch {
+        public static void Postfix(InstantKillAction __instance)
+        {
+            if(__instance.target instanceof ProblemSolver68) {
+                MultiCharacterPatch.onDead_((AbstractPlayer)__instance.target);
+                MultiCharacterPatch.onDamage_((AbstractPlayer)__instance.target);
+            }
+        }
+    }
+
+
+
+
+
+
+
+    @SpirePatch(
             clz = AbstractPlayer.class,
             method = "damage",
             paramtypez= {
@@ -112,12 +154,7 @@ public class MultiCharacterPatch {
                 locator = Locator.class
         )
         public static void Insert(AbstractPlayer __instance, DamageInfo info) {
-            if (AbstractDungeon.player instanceof ProblemSolver68) {
-                if (!ProblemSolver68.isAllDead()) {
-                    ProblemSolver68.onDead(__instance);
-                    GameActionManagerPatch.deadThisCombat++;
-                }
-            }
+            MultiCharacterPatch.onDead_(__instance);
         }
 
         private static class Locator extends SpireInsertLocator {

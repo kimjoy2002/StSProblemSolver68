@@ -5,6 +5,7 @@ import BlueArchive_ProblemSolver.actions.AddCharacterAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,7 +31,7 @@ public class CatsProtection extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
@@ -40,6 +41,7 @@ public class CatsProtection extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO);
+        this.cardsToPreview = new CatSnacks();
     }
 
     public void updateVal () {
@@ -62,6 +64,7 @@ public class CatsProtection extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         updateVal ();
         AbstractDungeon.actionManager.addToBottom(new AddCharacterAction(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT , magicNumber));
+        this.addToBot(new MakeTempCardInDrawPileAction(this.cardsToPreview.makeStatEquivalentCopy(), 1, true, true));
     }
 
     // Upgraded stats.
@@ -69,12 +72,13 @@ public class CatsProtection extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(0);
+            cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(ProblemSolver68.getMemberNum(false ,false) >= 5) {
+        if(ProblemSolver68.getMemberNum(false ,false) >= ProblemSolver68.MAX_CHARACTER_NUM) {
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return false;
         }

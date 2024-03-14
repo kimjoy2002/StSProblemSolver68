@@ -174,7 +174,8 @@
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "고양이의 시간",
-    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 이 BlueArchive_ProblemSolver:용병은 적 턴에 공격을 받아줄 수 없습니다.",
+    "DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식 카드를 1 장 섞어 넣습니다. NL 적의 공격을 막아줄 수 없는 체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다.",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식+ 카드를 1 장 섞어 넣습니다. NL 적의 공격을 막아줄 수 없는 체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다.",
     "EXTENDED_DESCRIPTION": [
       "더는 소환할 수 없어"
     ]
@@ -236,7 +237,7 @@
   },
   "BlueArchive_ProblemSolver:NewYearsSymphony": {
     "NAME": "신년의 심포니",
-    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL 데미지를 입힌 적의 수 만큼 *무츠키에게 BlueArchive_ProblemSolver:소악마를 !M! 부여합니다."
+    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL 피해를 입힌 적의 수 만큼 *무츠키에게 BlueArchive_ProblemSolver:소악마를 !M! 부여합니다."
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "소악마의 코러스",
@@ -305,8 +306,7 @@
   },
   "BlueArchive_ProblemSolver:OneEvilDeedaDay": {
     "NAME": "일일일악",
-    "DESCRIPTION": "아군이 턴마다 처음 BlueArchive_ProblemSolver:악행을 발동하면 [E] 를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성. NL 아군이 턴마다 처음 BlueArchive_ProblemSolver:악행을 발동하면 [E] 를 얻습니다."
+    "DESCRIPTION": "아군이 턴마다 처음 BlueArchive_ProblemSolver:악행을 발동하면 [E] 를 얻습니다."
   },
   "BlueArchive_ProblemSolver:ShieldOfProblemSolver": {
     "NAME": "흥신소의 방패",
@@ -346,5 +346,14 @@
   "BlueArchive_ProblemSolver:UnwelcomeSchool": {
     "NAME": "Unwelcome School",
     "DESCRIPTION": "이번 전투동안 이 캐릭터를 조종할 수 없게 됩니다. NL 턴 시작 시, 이 캐릭터가 뽑을 카드 더미 맨 위에 있는 카드를 !M! 장 사용합니다."
+  },
+  "BlueArchive_ProblemSolver:CatSnacks": {
+    "NAME": "고양이 간식",
+    "DESCRIPTION": "고양이 BlueArchive_ProblemSolver:용병이 남아있다면 그 중 하나의 체력을 0으로 만들고 카드를 !M! 장 뽑습니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:SharingWeapon": {
+    "NAME": "장비 나누기",
+    "DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다."
   }
 }

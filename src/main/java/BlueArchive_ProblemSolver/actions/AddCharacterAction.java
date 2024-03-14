@@ -31,7 +31,7 @@ public class AddCharacterAction extends AbstractGameAction {
             return;
         }
 
-        if(ProblemSolver68.getMemberNum(false ,false) >= 5)
+        if(ProblemSolver68.getMemberNum(false ,false) >= ProblemSolver68.MAX_CHARACTER_NUM)
             return;
         AbstractPlayer p = ProblemSolver68.addCharacter(type, amount, amount, true);
         if(p != null) {
