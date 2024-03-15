@@ -31,8 +31,17 @@ public class AddCharacterAction extends AbstractGameAction {
             return;
         }
 
-        if(ProblemSolver68.getMemberNum(false ,false) >= ProblemSolver68.MAX_CHARACTER_NUM)
+        if(ProblemSolver68.getMemberNum(false ,true) >= ProblemSolver68.MAX_CHARACTER_NUM)
             return;
+        if(ProblemSolver68.problemSolverPlayer.size() >= ProblemSolver68.MAX_CHARACTER_NUM) {
+            ProblemSolver68 ps = ProblemSolver68.getRandomDeadMember();
+            ProblemSolver68.saveDeathCharacter(ps);
+            if (ProblemSolver68.problemSolverPlayer.size() >= ProblemSolver68.MAX_CHARACTER_NUM) {
+                return;
+            }
+        }
+
+
         AbstractPlayer p = ProblemSolver68.addCharacter(type, amount, amount, true);
         if(p != null) {
             if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_RABU) {

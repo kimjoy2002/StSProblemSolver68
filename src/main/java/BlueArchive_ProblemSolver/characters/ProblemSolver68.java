@@ -62,6 +62,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static final int MAX_CHARACTER_NUM = 4;
     public static final ArrayList<ProblemSolver68> problemSolverPlayer = new ArrayList<>();
     public static final ArrayList<ProblemSolver68> dyingPlayer = new ArrayList<>();
+    public static final ArrayList<ProblemSolver68> mayRevivePlayer = new ArrayList<>();
     private static final Texture SELECTED_IMG = TextureLoader.getTexture(makeCharPath("select.png"));
     public static ProblemSolverSave savedata;
     private boolean enabled = false;
@@ -87,6 +88,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static void init() {
         problemSolverPlayer.clear();
         dyingPlayer.clear();
+        mayRevivePlayer.clear();
         ProblemSolverSave.currentCharacters.clear();
         savedata = new ProblemSolverSave();
         BaseMod.addSaveField("BlueArchive_ProblemSolver:Character",savedata);
@@ -235,6 +237,30 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
         return null;
     }
+
+    public static void saveDeathCharacter(ProblemSolver68 player) {
+        mayRevivePlayer.add(player);
+        removeCharacter(player);
+    }
+
+    public static void reviveDeathCharacter(ProblemSolver68 player) {
+        if(mayRevivePlayer.contains(player)) {
+            float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
+            for( ProblemSolver68 p_ : problemSolverPlayer) {
+                p_.movePosition_(p_.drawX-offset_, p_.drawY);
+            }
+            player.powers.clear();
+            player.heal(1);
+            player.movePosition_(player.drawX+offset_*problemSolverPlayer.size(), player.drawY);
+
+            player.isDead = false;
+            mayRevivePlayer.remove(player);
+            problemSolverPlayer.add(player);
+            player.healthBarUpdatedEvent();
+        }
+    }
+
+
     public static void removeCharacter(ProblemSolver68 player) {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
         boolean isPrev = true;
@@ -570,6 +596,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                         heal(1);
                         AbstractDungeon.effectsQueue.add(new HealEffect(hb.cX - animX, hb.cY,1));
                         healthBarUpdatedEvent();
+                        this.isDead = false;
                         this.isDying = false;
                     }
                     super.onVictory();
@@ -583,6 +610,13 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         for(ProblemSolver68 p : removal) {
             removeCharacter(p);
         }
+        while (mayRevivePlayer.size() > 0) {
+            ProblemSolver68 ps = mayRevivePlayer.get(0);
+            reviveDeathCharacter(ps);
+        }
+
+
+
         dyingPlayer.clear();
         AbstractDungeon.player = problemSolverPlayer.get(0);
         HelmatNum = 0;
@@ -707,6 +741,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 i++;
             }
         }
+        for (ProblemSolver68 ps : mayRevivePlayer) {
+            i++;
+        }
         return i;
     }
 
@@ -722,7 +759,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             }
             return num;
         }
-        return problemSolverPlayer.size();
+        return problemSolverPlayer.size() + mayRevivePlayer.size();
     }
 
     public static AbstractPlayer getRandomMember(AbstractPlayer exclude, boolean forDefend, boolean unwelcome) {
@@ -741,7 +778,19 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
 
-    public static AbstractPlayer getRandomDeadMember() {
+    public static ProblemSolver68 getRandomReviveMember() {
+        List<ProblemSolver68> ableCharacters = new ArrayList<>();
+        for (ProblemSolver68 p : mayRevivePlayer) {
+                ableCharacters.add(p);
+        }
+        if(!ableCharacters.isEmpty()) {
+            Collections.shuffle(ableCharacters, new java.util.Random(AbstractDungeon.miscRng.randomLong()));
+            return ableCharacters.get(0);
+        }
+        return null;
+    }
+
+    public static ProblemSolver68 getRandomDeadMember() {
         List<ProblemSolver68> ableCharacters = new ArrayList<>();
         for (ProblemSolver68 p : problemSolverPlayer) {
             if(p.currentHealth <= 0 && isProblemSolver(p.solverType)) {

@@ -74,7 +74,7 @@ public class HireHelmetGang extends AbstractDynamicCard {
         }
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(ProblemSolver68.getMemberNum(false ,false) >= ProblemSolver68.MAX_CHARACTER_NUM) {
+        if(ProblemSolver68.getMemberNum(false ,true) >= ProblemSolver68.MAX_CHARACTER_NUM) {
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return false;
         }
