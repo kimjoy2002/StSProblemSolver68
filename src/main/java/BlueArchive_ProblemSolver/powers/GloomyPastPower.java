@@ -6,34 +6,30 @@ import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-
-import java.util.Iterator;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
-import static BlueArchive_ProblemSolver.patches.GameActionManagerPatch.evildeedThisTurn;
 
-
-public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowerInterface, OnEvilDeedsPower {
-    public static final String POWER_ID = DefaultMod.makeID("OneEvilDeedaDayPower");
+public class GloomyPastPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = DefaultMod.makeID("GloomyPastPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("GloomyPastPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("GloomyPastPower32.png"));
 
-    // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
-    // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("OneEvilDeedaDayPower84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("OneEvilDeedaDayPower32.png"));
-
-    public OneEvilDeedaDayPower(final AbstractCreature owner, int amount) {
+    public GloomyPastPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -51,25 +47,21 @@ public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowe
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
-        for (int i = 0; i < amount; i++) {
-            this.description += DESCRIPTIONS[1];
-        }
-        this.description += DESCRIPTIONS[2];
-    }
-
     @Override
-    public void onEvilDeeds(AbstractCard card) {
-        if (this.amount > 0 && evildeedThisTurn <= 1) {
+    public void updateDescription() {
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+    }
+
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (power.type == PowerType.DEBUFF && !power.ID.equals("Shackled") && !target.hasPower("Artifact")) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(amount));
+            AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(owner,owner, amount));
         }
     }
+
     @Override
     public AbstractPower makeCopy() {
-        return new OneEvilDeedaDayPower(owner, amount);
+        return new GloomyPastPower(owner, amount);
     }
 
 }

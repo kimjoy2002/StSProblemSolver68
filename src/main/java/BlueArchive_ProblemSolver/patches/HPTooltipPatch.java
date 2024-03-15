@@ -37,6 +37,10 @@ public class HPTooltipPatch {
                     problemSolverMaxHps.put(ps.name,ps.maxHealth);
                 }
             }
+            for (ProblemSolver68 ps : ProblemSolver68.mayRevivePlayer) {
+                problemSolverHps.put(ps.name,ps.currentHealth);
+                problemSolverMaxHps.put(ps.name,ps.maxHealth);
+            }
 
             StringBuilder sb = new StringBuilder();
             problemSolverHps.forEach((name, hp) -> {

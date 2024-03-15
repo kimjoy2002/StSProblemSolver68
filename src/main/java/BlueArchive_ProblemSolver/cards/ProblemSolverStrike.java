@@ -50,7 +50,7 @@ public class ProblemSolverStrike extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                        AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
 
     // Upgraded stats.

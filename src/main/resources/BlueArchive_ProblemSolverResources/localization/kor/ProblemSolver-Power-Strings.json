@@ -134,9 +134,47 @@
   "BlueArchive_ProblemSolver:AllCardPower": {
     "NAME": "장비 나누기",
     "DESCRIPTIONS": [
-      "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다.",
+      "이번 턴에 사용하는 다음 #y공격 카드나 #y스킬 카드를 모든 다른 아군도 사용합니다.",
       "이번 턴에 사용하는 다음 #b",
-      " 개의 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다."
+      " 개의 #y공격 카드나 #y스킬 카드를 모든 다른 아군도 사용합니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FocusonAttackPower": {
+    "NAME": "공격 중시",
+    "DESCRIPTIONS": [
+      "방어도를 얻을 수 없게되는 대신 그 만큼 무작위 적에게 피해를 줍니다.",
+      "방어도를 얻을 수 없게되는 대신 그 #b",
+      " 배 만큼 무작위 적에게 피해를 줍니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:EntangleTurnPower": {
+    "NAME": "속박",
+    "DESCRIPTIONS": [
+      "#b",
+      " 턴 동안 #y공격 카드를 사용할 수 없습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:GloomyPastPower": {
+    "NAME": "우울한 과거",
+    "DESCRIPTIONS": [
+      "부정적인 효과를 부여받을 때마다 #y임시 #y체력을 #b",
+      " 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ReconnaissancePower": {
+    "NAME": "사전답사",
+    "DESCRIPTIONS": [
+      "내 턴 종료 시 뽑을 카드 더미에 #y원격 #y폭탄 카드를 #b",
+      " 장 섞어넣습니다.",
+      " 장 섞어넣습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ProperGreetingPower": {
+    "NAME": "확실하게 인사하기",
+    "DESCRIPTIONS": [
+      "다음 사용하는 카드의 #y돌격 효과가 무조건 발동합니다.",
+      "다음 사용하는 카드 #b",
+      " 장의 #y돌격 효과가 무조건 발동합니다."
     ]
   }
 }

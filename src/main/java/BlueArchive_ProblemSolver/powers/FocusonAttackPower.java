@@ -1,14 +1,16 @@
 package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,21 +21,17 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import java.util.Iterator;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
-import static BlueArchive_ProblemSolver.patches.GameActionManagerPatch.evildeedThisTurn;
 
 
-public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowerInterface, OnEvilDeedsPower {
-    public static final String POWER_ID = DefaultMod.makeID("OneEvilDeedaDayPower");
+public class FocusonAttackPower extends AbstractPower implements CloneablePowerInterface, OnGainedBlockModifierPower {
+    public static final String POWER_ID = DefaultMod.makeID("FocusonAttackPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("FocusonAttackPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("FocusonAttackPower32.png"));
 
-    // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
-    // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("OneEvilDeedaDayPower84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("OneEvilDeedaDayPower32.png"));
-
-    public OneEvilDeedaDayPower(final AbstractCreature owner, int amount) {
+    public FocusonAttackPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -51,25 +49,29 @@ public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowe
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
-        for (int i = 0; i < amount; i++) {
-            this.description += DESCRIPTIONS[1];
-        }
-        this.description += DESCRIPTIONS[2];
-    }
-
     @Override
-    public void onEvilDeeds(AbstractCard card) {
-        if (this.amount > 0 && evildeedThisTurn <= 1) {
-            this.flash();
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(amount));
+    public void updateDescription() {
+        if (amount <= 1) {
+            description = DESCRIPTIONS[0];
+        } else {
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
     }
+    @Override
+    public int onGainedBlockModifier(float blockAmount) {
+        this.flash();
+        AbstractGameAction.AttackEffect effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
+        if (blockAmount >= 10.0F) {
+            effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
+        }
+
+        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(this.owner, MathUtils.floor(blockAmount * amount), DamageInfo.DamageType.THORNS), effect));
+        return 0;
+    }
+
     @Override
     public AbstractPower makeCopy() {
-        return new OneEvilDeedaDayPower(owner, amount);
+        return new FocusonAttackPower(owner, amount);
     }
 
 }

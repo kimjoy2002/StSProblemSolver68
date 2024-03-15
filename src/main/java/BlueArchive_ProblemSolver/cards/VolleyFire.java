@@ -1,10 +1,11 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.AllCardAction;
 import BlueArchive_ProblemSolver.characters.Aru;
-import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -38,33 +39,30 @@ public class VolleyFire extends AbstractDynamicCard {
     private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DMG = 2;
 
+    private boolean isCopy = false;
 
     public VolleyFire() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        this.tags.add(CardTags.STRIKE);
     }
+
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int count = ProblemSolver68.getMemberNum(false,true);
-        for (int i = 0 ; i < count; i++) {
+        if (isCopy) {
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                             AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        } else {
+            AbstractCard card = makeStatEquivalentCopy();
+            if(card instanceof VolleyFire) {
+                ((VolleyFire)card).isCopy = true;
+            }
+            AbstractDungeon.actionManager.addToBottom(
+                    new AllCardAction(card, m, null));
         }
-    }
-
-
-    public void applyPowers() {
-        int count = ProblemSolver68.getMemberNum(false,true);
-        super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + count + cardStrings.EXTENDED_DESCRIPTION[1];
-        this.initializeDescription();
-    }
-    public void onMoveToDiscard() {
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
     }
 
     // Upgraded stats.
@@ -76,7 +74,11 @@ public class VolleyFire extends AbstractDynamicCard {
             initializeDescription();
         }
     }
-    public void atTurnStartPreDraw() {
-        initializeDescription();
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard card = super.makeStatEquivalentCopy();
+        if(card instanceof VolleyFire) {
+            ((VolleyFire)card).isCopy = this.isCopy;
+        }
+        return card;
     }
 }

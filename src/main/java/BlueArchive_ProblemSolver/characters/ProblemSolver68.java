@@ -456,6 +456,19 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         return false;
     }
 
+    public static boolean someoneHasPower(String powerID) {
+        if (!(AbstractDungeon.player instanceof ProblemSolver68)) {
+            return AbstractDungeon.player.hasPower(powerID);
+        }
+        boolean hasPower_ = false;
+        for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+            if(ps.hasPower(powerID)) {
+                hasPower_ = true;
+                break;
+            }
+        }
+        return hasPower_;
+    }
 
     public void movePosition(float x, float y) {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
@@ -669,12 +682,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         if(solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI
                 && hasPower(CaliforniaGurlsPower.POWER_ID)
                 && mutuski_animation != null){
-            animation_elapsed += Gdx.graphics.getDeltaTime()/2f;
+            animation_elapsed += Gdx.graphics.getDeltaTime();
             sb.setColor(Color.WHITE);
             sb.draw(mutuski_animation.getKeyFrame(animation_elapsed), this.drawX - 306.0f * Settings.scale / 2.0F + this.animX, this.drawY - 150.0f * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
         } else if(solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT
                 && cat_animation != null){
-            animation_elapsed += Gdx.graphics.getDeltaTime()/4f;
+            animation_elapsed += Gdx.graphics.getDeltaTime();
             sb.setColor(Color.WHITE);
             sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.drawX - 306.0f * Settings.scale / 2.0F + this.animX, this.drawY - 150 * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
             //sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.drawX - 266.0f * Settings.scale / 2.0F + this.animX, this.drawY - 125.0f * Settings.scale / 2.0F+ this.animY,  188.0f/2,  200.0f/2, 188.0f, 200.0f, Settings.scale, Settings.scale, 90.0f, true);

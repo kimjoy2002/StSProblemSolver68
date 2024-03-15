@@ -2,6 +2,8 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,48 +12,49 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class TriggerOver extends RushCard {
+public class RemoteBomb extends RushCard {
 
-    public static final String ID = DefaultMod.makeID(TriggerOver.class.getSimpleName());
-    public static final String IMG = makeCardPath("TriggerOver.png");
+    public static final String ID = DefaultMod.makeID(RemoteBomb.class.getSimpleName());
+    public static final String IMG = makeCardPath("RemoteBomb.png");
 
 
-    private static final CardRarity RARITY = CardRarity.BASIC;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardRarity RARITY = CardRarity.SPECIAL;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 1;
-    private static final int BLOCK = 8;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int COST = 0;
+    private static final int DAMAGE = 5;
+    private static final int UPGRADE_PLUS_DAM = 2;
 
     private static final int MAGIC = 1;
 
 
-    public TriggerOver() {
+    public RemoteBomb() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = BLOCK;
+        baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
+        this.isMultiDamage = true;
+        exhaust = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
         super.use(p,m);
     }
 
     @Override
     void onRush(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
     }
     //Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
+            upgradeDamage(UPGRADE_PLUS_DAM);
             initializeDescription();
         }
     }

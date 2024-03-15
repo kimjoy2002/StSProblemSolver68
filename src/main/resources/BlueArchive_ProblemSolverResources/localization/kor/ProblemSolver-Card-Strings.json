@@ -17,7 +17,7 @@
   },
   "BlueArchive_ProblemSolver:ChooseKayoko": {
     "NAME": "오니카타 카요코",
-    "DESCRIPTION": "*패닉샷 추가. NL 전용 키워드: BlueArchive_ProblemSolver:공포. NL 강점: 디버프. 낮은 비용. 드로우"
+    "DESCRIPTION": "*패닉샷 추가. NL 전용 키워드: BlueArchive_ProblemSolver:공포. NL 강점: 해로운 효과. 낮은 비용. 드로우"
   },
   "BlueArchive_ProblemSolver:ChooseHaruka": {
     "NAME": "이구사 하루카",
@@ -44,12 +44,8 @@
     ]
   },
   "BlueArchive_ProblemSolver:VolleyFire": {
-    "NAME": "일제 사격",
-    "DESCRIPTION": "살아 있는 아군 캐릭터 수 만큼 피해를 !D! 줍니다.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (",
-      " 번 공격합니다.)"
-    ]
+    "NAME": "일제 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 모든 아군이 사용합니다."
   },
   "BlueArchive_ProblemSolver:YouWillPayForThis": {
     "NAME": "대가를 치를 것이다!",
@@ -157,15 +153,15 @@
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
     "NAME": "트리거 오버",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:돌격: 카드를 !M! 장 뽑습니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL BlueArchive_ProblemSolver:돌격: 방어도를 !B! 얻습니다."
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
     "NAME": "느와르 어택",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 추가로 적 전체에 피해를 !D! 줍니다.",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 추가로 적 전체에게 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
       "피해를 !D! 줍니다. NL ",
       "BlueArchive_ProblemSolver:악행 (",
-      "/!BlueArchive_ProblemSolver:M2!): 추가로 적 전체에 피해를 !D! 줍니다."
+      "/!BlueArchive_ProblemSolver:M2!): 추가로 적 전체에게 피해를 !D! 줍니다."
     ]
   },
   "BlueArchive_ProblemSolver:ShotABlank": {
@@ -213,11 +209,11 @@
   },
   "BlueArchive_ProblemSolver:MeaningfulTansaction": {
     "NAME": "유익한 거래",
-    "DESCRIPTION": "이 캐릭터의 디버프를 모두 제거합니다. 소멸. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 디버프를 모두 제거합니다.",
+    "DESCRIPTION": "이 캐릭터의 부정적인 효과를 모두 제거합니다. 소멸. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 부정적인 효과를 모두 제거합니다.",
     "EXTENDED_DESCRIPTION": [
-      "이 캐릭터의 디버프를 모두 제거합니다. 소멸. NL ",
+      "이 캐릭터의 부정적인 효과를 모두 제거합니다. 소멸. NL ",
       "BlueArchive_ProblemSolver:악행 (",
-      "/!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 디버프를 모두 제거합니다."
+      "/!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 부정적인 효과를 모두 제거합니다."
     ]
   },
   "BlueArchive_ProblemSolver:CorrectAdvice": {
@@ -233,11 +229,11 @@
   },
   "BlueArchive_ProblemSolver:ScorchingSerenade": {
     "NAME": "작열의 세레나데",
-    "DESCRIPTION": "적 전체에 피해를 !D! 씩 !M! 번 줍니다."
+    "DESCRIPTION": "적 전체에게 피해를 !D! 씩 !M! 번 줍니다."
   },
   "BlueArchive_ProblemSolver:NewYearsSymphony": {
     "NAME": "신년의 심포니",
-    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL 피해를 입힌 적의 수 만큼 *무츠키에게 BlueArchive_ProblemSolver:소악마를 !M! 부여합니다."
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 피해를 입힌 적의 수 만큼 *무츠키에게 BlueArchive_ProblemSolver:소악마를 !M! 부여합니다."
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "소악마의 코러스",
@@ -272,9 +268,9 @@
   },
   "BlueArchive_ProblemSolver:HardboiledHanetsukiShot": {
     "NAME": "하드보일드 하네츠키 샷",
-    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): [E] [E] 를 얻습니다.",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): [E] [E] 를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      "적 전체에 피해를 !D! 줍니다. NL ",
+      "적 전체에게 피해를 !D! 줍니다. NL ",
       "BlueArchive_ProblemSolver:악행 (",
       "/!BlueArchive_ProblemSolver:M2!): [E] [E] 를 얻습니다."
     ]
@@ -322,7 +318,7 @@
   },
   "BlueArchive_ProblemSolver:QuietPressure": {
     "NAME": "조용한 위압",
-    "DESCRIPTION": "적의 힘을 이번 턴 동안 !M! 낮춥니다. NL BlueArchive_ProblemSolver:공포를 !BlueArchive_ProblemSolver:M! 부여합니다."
+    "DESCRIPTION": "적의 힘을 이번 턴 동안 !M! 낮춥니다. NL BlueArchive_ProblemSolver:공포를 !BlueArchive_ProblemSolver:M! 부여합니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:ButIllDoMyBest": {
     "NAME": "히, 힘내겠습니다!",
@@ -341,7 +337,7 @@
   },
   "BlueArchive_ProblemSolver:NegativeThinking": {
     "NAME": "부정적인 사고",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 나에게 디버프가 있으면 추가로 방어도를 !B! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 나에게 부정적인 효과가 있으면 추가로 방어도를 !B! 얻습니다."
   },
   "BlueArchive_ProblemSolver:UnwelcomeSchool": {
     "NAME": "Unwelcome School",
@@ -355,5 +351,52 @@
     "NAME": "장비 나누기",
     "DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다."
+  },
+  "BlueArchive_ProblemSolver:FocusonAttack": {
+    "NAME": "공격 중시",
+    "DESCRIPTION": "방어도를 얻을 수 없게되는 대신 그 만큼 무작위 적에게 피해를 줍니다."
+  },
+  "BlueArchive_ProblemSolver:AlertButton": {
+    "NAME": "경보 단추",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 !M! 턴 동안 공격 카드를 사용할 수 없습니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:SelfDestructButton": {
+    "NAME": "자폭 단추",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 다음 !M! 턴 동안 카드를 통해 방어도를 얻을 수 없습니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:GloomyPast": {
+    "NAME": "우울한 과거",
+    "DESCRIPTION": "부정적인 효과를 부여받을 때마다 *임시 BlueArchive_ProblemSolver:체력을 !M! 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:Detonator": {
+    "NAME": "기폭 장치",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 뽑을 카드 더미에 있는 비용이 0인 카드 !M! 장을 뽑습니다."
+  },
+  "BlueArchive_ProblemSolver:RemoteBomb": {
+    "NAME": "원격 폭탄",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 소멸. NL BlueArchive_ProblemSolver:돌격: 카드를 !M! 장 뽑습니다."
+  },
+  "BlueArchive_ProblemSolver:BuildingBomb": {
+    "NAME": "건물 폭탄 설치",
+    "DESCRIPTION": "뽑을 카드 더미에 *원격 *폭탄 카드를 !M! 장 섞어 넣습니다",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 *원격 *폭탄+ 카드를 !M! 장 섞어 넣습니다"
+  },
+  "BlueArchive_ProblemSolver:Reconnaissance": {
+    "NAME": "사전답사",
+    "DESCRIPTION": "내 턴 종료 시 뽑을 카드 더미에 *원격 *폭탄을 섞어넣습니다."
+  },
+  "BlueArchive_ProblemSolver:Assault": {
+    "NAME": "맹습",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 손에 있는 모든 BlueArchive_ProblemSolver:돌격 카드의 BlueArchive_ProblemSolver:돌격 효과를 발동합니다."
+  },
+  "BlueArchive_ProblemSolver:WithAllYourHeart": {
+    "NAME": "모두를 위한 마음",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:돌격: [E] [E] 를 얻습니다. 이 카드가 소멸합니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:돌격: [E] [E] [E] 를 얻습니다. 이 카드가 소멸합니다."
+  },
+  "BlueArchive_ProblemSolver:ProperGreeting": {
+    "NAME": "확실하게 인사하기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드의 BlueArchive_ProblemSolver:돌격 효과가 항상 발동합니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드 2장의 BlueArchive_ProblemSolver:돌격 효과가 항상 발동합니다."
   }
 }
