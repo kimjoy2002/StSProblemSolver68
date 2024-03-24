@@ -1,14 +1,19 @@
 package BlueArchive_ProblemSolver.patches;
 
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.city.KnowingSkull;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.BattleStartEffect;
 import javassist.CtBehavior;
 public class MultiCharacterPatch {
@@ -34,6 +39,23 @@ public class MultiCharacterPatch {
         }
     }
 
+    @SpirePatch(
+            clz = AbstractRoom.class,
+            method = "applyEndOfTurnPreCardPowers"
+    )
+    public static class applyEndOfTurnPreCardPowersPatch {
+        public static void Postfix(AbstractRoom __instance) {
+            if (AbstractDungeon.player instanceof ProblemSolver68) {
+                for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                    if(ps != AbstractDungeon.player) {
+                        for(AbstractPower p_ : ps.powers) {
+                            p_.atEndOfTurnPreEndTurnCards(true);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     @SpirePatch(
             clz = CardCrawlGame.class,
@@ -71,12 +93,33 @@ public class MultiCharacterPatch {
     }
 
 
+    @SpirePatch(
+            clz = ApplyPowerAction.class,
+            method = "update"
+    )
+    public static class SkullDamage {
+        public static SpireReturn Prefix(ApplyPowerAction __instance)
+        {
+            if(AbstractDungeon.player instanceof ProblemSolver68) {
+                if (__instance.target != null && __instance.target.isPlayer){
+                    if(!ProblemSolver68.problemSolverPlayer.contains(__instance.target)) {
+                        __instance.isDone = true;
+                        return SpireReturn.Return();
+                    }
+                }
+            }
+            return SpireReturn.Continue();
+        }
+    }
 
     public static boolean onDamage_(AbstractPlayer __instance) {
         if(__instance instanceof ProblemSolver68) {
             if (!ProblemSolver68.isAllDead()) {
                 __instance.isDead = true;
                 __instance.currentHealth = 0;
+                for(AbstractPower p_ : __instance.powers) {
+                    p_.onRemove();
+                }
                 __instance.powers.clear();
                 ProblemSolver68.changeToRandomCharacter();
                 if (__instance instanceof ProblemSolver68 &&

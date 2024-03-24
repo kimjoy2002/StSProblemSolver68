@@ -277,11 +277,11 @@
   },
   "BlueArchive_ProblemSolver:Reputation": {
     "NAME": "평판",
-    "DESCRIPTION": "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): *평판 카드를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): *평판+ 카드를 얻습니다.",
+    "DESCRIPTION": "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. 소멸. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): *평판 카드를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. 소멸. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): *평판+ 카드를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. NL ",
-      "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. NL ",
+      "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. 소멸. NL ",
+      "이 카드는 BlueArchive_ProblemSolver:악행을 증가시키지 않습니다. 피해를 !D! 줍니다. 소멸. NL ",
       "BlueArchive_ProblemSolver:악행 (",
       "/!BlueArchive_ProblemSolver:M2!): *평판을 얻습니다.",
       "/!BlueArchive_ProblemSolver:M2!): *평판+을 얻습니다."
@@ -354,7 +354,7 @@
   },
   "BlueArchive_ProblemSolver:FocusonAttack": {
     "NAME": "공격 중시",
-    "DESCRIPTION": "방어도를 얻을 수 없게되는 대신 그 만큼 무작위 적에게 피해를 줍니다."
+    "DESCRIPTION": "더 이상 방어도를 얻을 수 없게되는 대신 그 만큼 무작위 적에게 피해를 줍니다."
   },
   "BlueArchive_ProblemSolver:AlertButton": {
     "NAME": "경보 단추",
@@ -398,5 +398,25 @@
     "NAME": "확실하게 인사하기",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드의 BlueArchive_ProblemSolver:돌격 효과가 항상 발동합니다.",
     "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드 2장의 BlueArchive_ProblemSolver:돌격 효과가 항상 발동합니다."
+  },
+  "BlueArchive_ProblemSolver:InfiltrationTactics": {
+    "NAME": "잡입행동",
+    "DESCRIPTION": "다음에 사용하는 공격 카드의 피해량이 !M! 증가합니다. NL 이번 턴 이 캐릭터를 조종할 수 없습니다."
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengeAru": {
+    "NAME": "전술대항전 - 아루",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 전투동안 *전술대항전 카드를 쓴 횟수만큼 피해량이 !M! 증가합니다."
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengeMutsuki": {
+    "NAME": "전술대항전 - 무츠키",
+    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 이번 전투동안 *전술대항전 카드를 쓴 횟수만큼 비용이 1 감소합니다."
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengeKayoko": {
+    "NAME": "전술대항전 - 카요코",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 이번 전투동안 *전술대항전 카드를 !BlueArchive_ProblemSolver:M! 번 썼을때마다 카드를 1장 더 뽑습니다."
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengeHaruka": {
+    "NAME": "전술대항전 - 하루카",
+    "DESCRIPTION": "방어도를 !B! 줍니다. NL 이번 전투동안 *전술대항전 카드를 쓴 횟수만큼 방어도가 !M! 증가합니다."
   }
 }

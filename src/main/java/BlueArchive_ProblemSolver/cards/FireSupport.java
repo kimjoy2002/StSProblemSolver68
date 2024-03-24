@@ -49,7 +49,7 @@ public class FireSupport extends AbstractDynamicCard {
 
 
     public void updateVal () {
-        this.baseDamage = MAGIC;
+        this.baseDamage = magicNumber;
         if(AbstractDungeon.player instanceof ProblemSolver68) {
             for(ProblemSolver68 p : ProblemSolver68.problemSolverPlayer) {
                 this.baseDamage += TempHPField.tempHp.get(p);
@@ -59,7 +59,7 @@ public class FireSupport extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p, p, MAGIC));
+        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p, p, magicNumber));
         updateVal();
         this.calculateCardDamage(m);
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));

@@ -65,9 +65,9 @@ public class Aru extends ProblemSolver68 {
     public static class Enums {
         @SpireEnum
         public static PlayerClass PROBLEM_SOLVER;
-        @SpireEnum(name = "DEFAULT_YELLOW_COLOR") // These two HAVE to have the same absolutely identical name.
+        @SpireEnum(name = "BA_PROBLEMSOLVER68_COLOR") // These two HAVE to have the same absolutely identical name.
         public static AbstractCard.CardColor COLOR_RED;
-        @SpireEnum(name = "DEFAULT_YELLOW_COLOR") @SuppressWarnings("unused")
+        @SpireEnum(name = "BA_PROBLEMSOLVER68_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 

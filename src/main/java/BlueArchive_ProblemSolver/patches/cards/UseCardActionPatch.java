@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.stances.AbstractStance;
 import javassist.CtBehavior;
 
 public class UseCardActionPatch {
+    public static AbstractPlayer originCharacter = null;
 
     @SpirePatch(
             clz=AbstractCard.class,
@@ -55,8 +56,11 @@ public class UseCardActionPatch {
                     if(__instance.cardQueue.get(0).card != null) {
                         AbstractPlayer player_ = AbstractCardField.castPlayer.get(__instance.cardQueue.get(0).card);
                         if(player_ != null) {
+                            if (originCharacter == null) {
+                                originCharacter = AbstractDungeon.player;
+                            }
                             AbstractCardField.castPlayer.set(__instance.cardQueue.get(0).card, null);
-                            AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(player_));
+                            AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(player_, false, true));
                         }
                     }
                 }
@@ -133,6 +137,12 @@ public class UseCardActionPatch {
         public static void Postfix(UseCardAction __instance)
         {
             if(__instance.isDone) {
+                if (AbstractDungeon.actionManager.cardQueue.isEmpty()) {
+                    if (originCharacter != null) {
+                        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(originCharacter, false, true));
+                        originCharacter = null;
+                    }
+                }
                 if(AbstractDungeon.player.hasPower(CannotSelectedPower.POWER_ID)) {
                     if (AbstractDungeon.actionManager.cardQueue.isEmpty()) {
                         if (AbstractDungeon.player instanceof ProblemSolver68) {

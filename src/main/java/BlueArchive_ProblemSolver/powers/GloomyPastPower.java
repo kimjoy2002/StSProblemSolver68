@@ -21,12 +21,12 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
-public class GloomyPastPower extends AbstractPower implements CloneablePowerInterface {
+public class GloomyPastPower extends AbstractPower implements CloneablePowerInterface, OnApplyedPower {
     public static final String POWER_ID = DefaultMod.makeID("GloomyPastPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("GloomyPastPower84.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("GloomyPastPowe``r84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("GloomyPastPower32.png"));
 
     public GloomyPastPower(final AbstractCreature owner, int amount) {
@@ -52,7 +52,7 @@ public class GloomyPastPower extends AbstractPower implements CloneablePowerInte
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+    public void OnApplyed(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.type == PowerType.DEBUFF && !power.ID.equals("Shackled") && !target.hasPower("Artifact")) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(owner,owner, amount));

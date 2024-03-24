@@ -33,11 +33,12 @@ public class CannotSelectedPower extends AbstractPower implements CloneablePower
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("CannotSelectedPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("CannotSelectedPower32.png"));
 
-    public CannotSelectedPower(final AbstractCreature owner) {
+    public CannotSelectedPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
+        this.amount = amount;
 
         type = PowerType.DEBUFF;
         isTurnBased = false;
@@ -51,11 +52,29 @@ public class CannotSelectedPower extends AbstractPower implements CloneablePower
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        if (amount == 1) {
+            description = DESCRIPTIONS[1];
+        } else {
+            description = DESCRIPTIONS[0];
+        }
+    }
+    public void stackPower(int stackAmount) {
+        if (this.amount == -1) {
+        } else if (stackAmount == 0) {
+            this.amount = 0;
+        } else {
+            this.fontScale = 8.0F;
+            this.amount = stackAmount;
+        }
+    }
+    public void atEndOfRound() {
+        if(amount > 0) {
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new CannotSelectedPower(owner);
+        return new CannotSelectedPower(owner, amount);
     }
 }

@@ -26,8 +26,9 @@ import static BlueArchive_ProblemSolver.DefaultMod.*;
 public class ChangeCharacterAction extends AbstractGameAction {
     AbstractPlayer targetPlayer;
     boolean manual;
+    boolean force = false;
 
-    boolean unwelcome;
+    boolean unwelcome = false;
     Aru.ProblemSolver68Type type = Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
     public ChangeCharacterAction(AbstractPlayer targetPlayer) {
         this.targetPlayer = targetPlayer;
@@ -38,6 +39,12 @@ public class ChangeCharacterAction extends AbstractGameAction {
         this.targetPlayer = targetPlayer;
         this.duration = Settings.ACTION_DUR_FAST;
         this.manual = manual;
+    }
+    public ChangeCharacterAction(AbstractPlayer targetPlayer, boolean manual, boolean force) {
+        this.targetPlayer = targetPlayer;
+        this.duration = Settings.ACTION_DUR_FAST;
+        this.manual = manual;
+        this.force = force;
     }
     public ChangeCharacterAction(Aru.ProblemSolver68Type type) {
         this.type = type;
@@ -131,16 +138,16 @@ public class ChangeCharacterAction extends AbstractGameAction {
         if(!(AbstractDungeon.player instanceof ProblemSolver68) || targetPlayer == AbstractDungeon.player) {
             return;
         }
-        if (AbstractDungeon.player.hasPower(CannotChangedPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(CannotChangedPower.POWER_ID) && !force) {
             AbstractDungeon.player.getPower(CannotChangedPower.POWER_ID).flashWithoutSound();
             return;
         }
         if(manual) {
-            if (targetPlayer.hasPower(CannotSelectedPower.POWER_ID)) {
+            if (targetPlayer.hasPower(CannotSelectedPower.POWER_ID) && !force) {
                 targetPlayer.getPower(CannotSelectedPower.POWER_ID).flashWithoutSound();
                 return;
             }
-            if(AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
+            if(AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID) && !force) {
                 if(AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter >= RadioTransceiverRelic.CHANGE_LIMIT) {
                     AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).flash();
                     return;

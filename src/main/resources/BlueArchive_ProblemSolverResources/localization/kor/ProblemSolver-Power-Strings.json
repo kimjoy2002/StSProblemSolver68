@@ -128,7 +128,8 @@
   "BlueArchive_ProblemSolver:CannotSelectedPower": {
     "NAME": "조종 불가",
     "DESCRIPTIONS": [
-      "이 캐릭터는 조종 할 수 없습니다. 모든 아군이 조종불가면 강제로 턴을 종료합니다."
+      "이 캐릭터는 조종 할 수 없습니다. 모든 아군이 조종불가면 강제로 턴을 종료합니다.",
+      "이번 턴동안 이 캐릭터는 조종 할 수 없습니다. 모든 아군이 조종불가면 강제로 턴을 종료합니다."
     ]
   },
   "BlueArchive_ProblemSolver:AllCardPower": {

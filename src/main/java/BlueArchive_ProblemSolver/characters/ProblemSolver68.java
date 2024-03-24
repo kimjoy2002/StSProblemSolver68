@@ -249,6 +249,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             for( ProblemSolver68 p_ : problemSolverPlayer) {
                 p_.movePosition_(p_.drawX-offset_, p_.drawY);
             }
+            for(AbstractPower p_ : player.powers) {
+                p_.onRemove();
+            }
             player.powers.clear();
             player.heal(1);
             player.movePosition_(player.drawX+offset_*problemSolverPlayer.size(), player.drawY);
@@ -270,6 +273,10 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 isPrev = false;
             }
         }
+        for(AbstractPower p_ : player.powers) {
+            p_.onRemove();
+        }
+        player.powers.clear();
         problemSolverPlayer.remove(player);
     }
 
@@ -415,17 +422,19 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
     public static void afterLoad() {
-        if(ProblemSolver68.mutuski_animation == null) {
-            ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
-        }
-        if(ProblemSolver68.cat_animation == null) {
-            ProblemSolver68.cat_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
-        }
+        if(AbstractDungeon.player != null && AbstractDungeon.player instanceof ProblemSolver68) {
+            if(ProblemSolver68.mutuski_animation == null) {
+                ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
+            }
+            if(ProblemSolver68.cat_animation == null) {
+                ProblemSolver68.cat_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+            }
 
 
-        for (ProblemSolver68 p : problemSolverPlayer) {
-            if(AbstractDungeon.player != p){
-                p.energy = AbstractDungeon.player.energy;
+            for (ProblemSolver68 p : problemSolverPlayer) {
+                if(AbstractDungeon.player != p){
+                    p.energy = AbstractDungeon.player.energy;
+                }
             }
         }
     }
@@ -483,8 +492,13 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
     public void update() {
-        for (ProblemSolver68 p : problemSolverPlayer) {
-            p.update_(false);
+        ArrayList<ProblemSolver68> temp_ = new ArrayList<ProblemSolver68>();
+        for (ProblemSolver68 p : problemSolverPlayer)
+            temp_.add(p);
+        for (ProblemSolver68 p : temp_) {
+            if(problemSolverPlayer.contains(p)) {
+                p.update_(false);
+            }
         }
         AbstractList<AbstractPlayer> delete_ = new ArrayList<>();
         for(ProblemSolver68 p : dyingPlayer) {
@@ -643,6 +657,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             heal(1);
             AbstractDungeon.effectsQueue.add(new HealEffect(hb.cX - animX, hb.cY,1));
             healthBarUpdatedEvent();
+            this.isDead = false;
             this.isDying = false;
         }
         Iterator var1 = this.blights.iterator();
