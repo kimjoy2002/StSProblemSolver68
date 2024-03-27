@@ -428,8 +428,8 @@
   },
   "BlueArchive_ProblemSolver:MineField": {
     "NAME": "지뢰밭",
-    "DESCRIPTION": "카드를 !M! 장 버립니다. NL *지뢰 카드를 !BlueArchive_ProblemSolver:M! 장 얻습니다.",
-    "UPGRADE_DESCRIPTION": "카드를 !M! 장 버립니다. NL *지뢰+ 카드를 !BlueArchive_ProblemSolver:M! 장 얻습니다."
+    "DESCRIPTION": "카드를 !M! 장 버립니다. NL *지뢰 카드를 해당 위치에 !BlueArchive_ProblemSolver:M! 장 얻습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 !M! 장 버립니다. NL *지뢰+ 카드를 해당 위치에 !BlueArchive_ProblemSolver:M! 장 얻습니다."
   },
   "BlueArchive_ProblemSolver:BoobieTrap": {
     "NAME": "부비트랩",

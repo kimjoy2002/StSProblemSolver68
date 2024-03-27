@@ -1,11 +1,16 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.MakeTempCardInHandIndexAction;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.patches.SelectScreenPatch;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -47,8 +52,43 @@ public class MineField extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DiscardAction(p, p, magicNumber, false));
-        this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), this.secondMagicNumber));
+        this.addToBot(new DiscardAction(p, p, magicNumber, false) {
+            boolean first = true;
+            CardGroup prev_hand = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            boolean create = false;
+            @Override
+            public void update() {
+                if(!create) {
+                    if(first) {
+                        for(AbstractCard c : AbstractDungeon.player.hand.group) {
+                            prev_hand.addToTop(c);
+                        }
+
+                        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && p.hand.size() <= this.amount) {
+                            this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), secondMagicNumber));
+                            create = true;
+                        }
+                        first = false;
+                    }
+                    if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved &&
+                            AbstractDungeon.handCardSelectScreen.selectedCards.group.size() == 1) {
+                        AbstractCard card = AbstractDungeon.handCardSelectScreen.selectedCards.group.get(0);
+
+                        int index_ = prev_hand.group.indexOf(card);
+                        if(index_ >= 0) {
+                            this.addToBot(new MakeTempCardInHandIndexAction(cardsToPreview.makeStatEquivalentCopy(), secondMagicNumber, index_));
+                        } else {
+                            this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), secondMagicNumber));
+                        }
+                        create = true;
+                    }
+                }
+                super.update();
+
+            }
+
+        });
+        //this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), this.secondMagicNumber));
     }
 
 

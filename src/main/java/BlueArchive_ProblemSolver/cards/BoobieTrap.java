@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.MakeTempCardInHandIndexAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import guardian.actions.PlaceRandomCardInHandIntoStasisAction;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 import static java.lang.Math.abs;
@@ -34,7 +36,6 @@ public class BoobieTrap extends AbstractDynamicCard {
     private static final int COST = -2;
     private static final int MAGIC = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
-
 
 
     public BoobieTrap() {

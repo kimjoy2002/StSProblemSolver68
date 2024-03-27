@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.DelayAction;
 import BlueArchive_ProblemSolver.actions.RushOnOffAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
@@ -79,7 +80,7 @@ public class MutsukiMine extends AbstractDynamicCard {
             int index_ = AbstractDungeon.player.hand.group.indexOf(c);
             int index2_ = AbstractDungeon.player.hand.group.indexOf(this);
             if(index2_ >= 0 && index_ >= 0 && abs(index_ - index2_)<=1) {
-                this.addToBot(new DiscardSpecificCardAction(this));
+                this.addToBot(new DelayAction(new DiscardSpecificCardAction(this),3));
             }
         }
     }

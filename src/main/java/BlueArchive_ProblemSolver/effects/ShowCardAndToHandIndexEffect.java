@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.vfx.combat.CardPoofEffect;
 import java.util.Iterator;
 
 public class ShowCardAndToHandIndexEffect extends AbstractGameEffect {
-    private static final float EFFECT_DUR = 0.8F;
     private AbstractCard card;
     private static final float PADDING;
 
@@ -66,7 +65,7 @@ public class ShowCardAndToHandIndexEffect extends AbstractGameEffect {
         }
 
 
-        if( AbstractDungeon.player.hand.size() -1 <= index) {
+        if( AbstractDungeon.player.hand.size() -1 < index) {
             AbstractDungeon.player.hand.addToHand(card);
         } else {
             AbstractDungeon.player.hand.group.add(index, card);

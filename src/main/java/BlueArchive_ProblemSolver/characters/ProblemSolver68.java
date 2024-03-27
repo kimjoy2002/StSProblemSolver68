@@ -623,7 +623,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             for (ProblemSolver68 p : problemSolverPlayer) {
                 if (isProblemSolver(p.solverType) && !this.isDying) {
                     AbstractDungeon.player = p;
-                    break;
+                    AbstractDungeon.player.onVictory();
+                    return;
                 }
             }
         }
