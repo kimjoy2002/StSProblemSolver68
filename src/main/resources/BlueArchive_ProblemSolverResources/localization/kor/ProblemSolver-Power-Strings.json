@@ -177,5 +177,21 @@
       "다음 사용하는 카드 #b",
       " 장의 #y돌격 효과가 무조건 발동합니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:MineExpertPower": {
+    "NAME": "지뢰 전문가",
+    "DESCRIPTIONS": [
+      "아군 지뢰의 피해량이 #b",
+      " 증가합니다. 아군이 카드를 버릴때마다 #y방어도를 #b",
+      " 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:MineChainPower": {
+    "NAME": "지뢰 연쇄",
+    "DESCRIPTIONS": [
+      "이번 턴 동안, 손에서 카드를 사용하면 사용한 위치에 #y지뢰 카드를 얻습니다.",
+      "이번 턴 동안, 손에서 카드를 사용하면 사용한 위치에 #y지뢰 카드를 #b",
+      " 장 얻습니다."
+    ]
   }
 }

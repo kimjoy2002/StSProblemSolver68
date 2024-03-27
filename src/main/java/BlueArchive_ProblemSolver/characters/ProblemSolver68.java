@@ -479,6 +479,20 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         return hasPower_;
     }
 
+    public static int getPowerValue(String powerID) {
+        int val = 0;
+        if (!(AbstractDungeon.player instanceof ProblemSolver68)) {
+            if(AbstractDungeon.player.hasPower(powerID)) {
+                val += AbstractDungeon.player.getPower(powerID).amount;
+            }
+        }
+        for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+            if(ps.hasPower(powerID)) {
+                val += AbstractDungeon.player.getPower(powerID).amount;
+            }
+        }
+        return val;
+    }
     public void movePosition(float x, float y) {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
         int i = 0;
