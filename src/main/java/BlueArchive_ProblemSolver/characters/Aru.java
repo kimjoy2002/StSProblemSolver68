@@ -256,7 +256,7 @@ public class Aru extends ProblemSolver68 {
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return DefaultMod.DEFAULT_BLACK_RED;
+        return new Color(0.78f, 0.0f, 0.0f, 1.0f);
     }
 
     // Should return a BitmapFont object that you can use to customize how your

@@ -2,8 +2,7 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
-import BlueArchive_ProblemSolver.powers.OneEvilDeedaDayPower;
-import BlueArchive_ProblemSolver.powers.ShieldOfProblemSolverPower;
+import BlueArchive_ProblemSolver.powers.EmergencyBandagePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,9 +12,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class ShieldOfProblemSolver extends AbstractDynamicCard {
+public class EmergencyBandage extends AbstractDynamicCard {
 
-    public static final String ID = DefaultMod.makeID(ShieldOfProblemSolver.class.getSimpleName());
+    public static final String ID = DefaultMod.makeID(EmergencyBandage.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = makeCardPath("ShieldOfProblemSolver.png");
 
@@ -26,21 +25,21 @@ public class ShieldOfProblemSolver extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 0;
-    private static final int MAGIC = 3;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
+    private static final int MAGIC = 4;
+    private static final int UPGRADE_PLUS_MAGIC = 3;
 
 
 
-    public ShieldOfProblemSolver() {
+    public EmergencyBandage() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
+        setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ShieldOfProblemSolverPower(AbstractDungeon.player, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EmergencyBandagePower(AbstractDungeon.player, magicNumber), magicNumber));
     }
 
     //Upgraded stats.

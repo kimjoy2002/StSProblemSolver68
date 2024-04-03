@@ -8,6 +8,7 @@ import BlueArchive_ProblemSolver.powers.ChangeWhenHitPower;
 import BlueArchive_ProblemSolver.powers.TauntPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.unique.DoubleYourBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,7 +17,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class Taunt extends AbstractDynamicCard {
+public class Taunt extends RushCard {
     public static final String ID = DefaultMod.makeID(Taunt.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -37,8 +38,7 @@ public class Taunt extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 2;
-    private static final int BLOCK = 16;
-    private static final int UPGRADE_BLOCK = 5;
+    private static final int BLOCK = 6;
 
     public Taunt() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -50,7 +50,12 @@ public class Taunt extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TauntPower(AbstractDungeon.player)));
+        super.use(p,m);
+    }
+
+    @Override
+    void onRush(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new DoubleYourBlockAction(p));
     }
 
     // Upgraded stats.
@@ -58,7 +63,7 @@ public class Taunt extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_BLOCK);
+            this.upgradeBaseCost(1);
             initializeDescription();
         }
     }

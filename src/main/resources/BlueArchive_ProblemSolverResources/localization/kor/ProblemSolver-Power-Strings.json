@@ -193,5 +193,19 @@
       "이번 턴 동안, 손에서 카드를 사용하면 사용한 위치에 #y지뢰 카드를 #b",
       " 장 얻습니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:EmergencyBandagePower": {
+    "NAME": "비상용 붕대",
+    "DESCRIPTIONS": [
+      "이번 턴 동안, 아군이 카드를 버릴때마다 #y방어도를 #b",
+      " 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:TroubleMakerPower": {
+    "NAME": "트러블 메이커",
+    "DESCRIPTIONS": [
+      "비용이 0인 카드가 소멸될 때마다 카드를 #b",
+      " 장 뽑고 맨 왼쪽 카드를 버립니다."
+    ]
   }
 }

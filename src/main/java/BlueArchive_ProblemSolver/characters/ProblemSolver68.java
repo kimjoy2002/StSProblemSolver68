@@ -94,6 +94,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         BaseMod.addSaveField("BlueArchive_ProblemSolver:Character",savedata);
         changeCharacter = false;
     }
+    
 
     public static Aru.ProblemSolver68Type stringToEnum(String name) {
         switch(name) {

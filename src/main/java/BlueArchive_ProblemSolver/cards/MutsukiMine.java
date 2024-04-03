@@ -33,7 +33,7 @@ public class MutsukiMine extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = -2;
+    private static final int COST = 0;
     private static final int MAGIC = 5;
     private static final int UPGRADE_PLUS_MAGIC = 2;
 
@@ -43,6 +43,7 @@ public class MutsukiMine extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         selfRetain = true;
+        exhaust = true;
     }
     public void updateVal () {
         this.magicNumber = this.baseMagicNumber = MAGIC;
@@ -65,16 +66,7 @@ public class MutsukiMine extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        updateVal();
-        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(p, MathUtils.floor(magicNumber), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
-        this.addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
-        this.addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
     }
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-        return false;
-    }
-
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         if(AbstractDungeon.player.hand.contains(c)) {
             int index_ = AbstractDungeon.player.hand.group.indexOf(c);
@@ -86,7 +78,10 @@ public class MutsukiMine extends AbstractDynamicCard {
     }
 
     public void triggerOnManualDiscard() {
-        use(AbstractDungeon.player, null);
+        updateVal();
+        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, MathUtils.floor(magicNumber), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+        this.addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
+        this.addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
     }
     //Upgraded stats.
     @Override
