@@ -163,8 +163,17 @@ public class DefaultMod implements
     // Character assets
     private static final String PROBLEMSOLVER_BUTTON = "BlueArchive_ProblemSolverResources/images/charSelect/ProblemSolverButton.png";
     private static final String PROBLEMSOLVER_PORTRAIT = "BlueArchive_ProblemSolverResources/images/charSelect/ProblemSolverPortraitBG.png";
-    public static final String PROBLEMSOLVER_SHOULDER_1 = "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder.png";
-    public static final String PROBLEMSOLVER_SHOULDER_2 = "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder2.png";
+    public static final String[] PROBLEMSOLVER_SHOULDER_1 = {"BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder.png",
+                                                                "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder_2.png",
+                                                                "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder_3.png",
+                                                                "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder_4.png"
+
+                                                            };
+    public static final String[] PROBLEMSOLVER_SHOULDER_2 = {"BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder2.png",
+                                                                "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder_22.png",
+                                                                "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder_32.png",
+                                                                "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder_42.png"
+                                                            };
     public static final String PROBLEMSOLVER_CORPSE = "BlueArchive_ProblemSolverResources/images/char/problemsolver/corpse.png";
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.

@@ -1,17 +1,13 @@
 package BlueArchive_ProblemSolver.characters;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.cards.DeliveryRequest;
-import BlueArchive_ProblemSolver.cards.MultiBlock;
 import BlueArchive_ProblemSolver.cards.ProblemSolverDefend;
 import BlueArchive_ProblemSolver.cards.ProblemSolverStrike;
 import BlueArchive_ProblemSolver.relics.ProblemSolverBaseRelic;
-import BlueArchive_ProblemSolver.util.GifDecoder;
 import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
@@ -39,7 +35,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static BlueArchive_ProblemSolver.characters.Aru.Enums.COLOR_RED;
-import static BlueArchive_ProblemSolver.characters.Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
 
 public class Aru extends ProblemSolver68 {
     public static final Logger logger = LogManager.getLogger(Aru.class.getName());
@@ -146,8 +141,8 @@ public class Aru extends ProblemSolver68 {
 
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                DefaultMod.PROBLEMSOLVER_SHOULDER_2, // campfire pose
-                DefaultMod.PROBLEMSOLVER_SHOULDER_1, // another campfire pose
+                DefaultMod.PROBLEMSOLVER_SHOULDER_2[0], // campfire pose
+                DefaultMod.PROBLEMSOLVER_SHOULDER_1[0], // another campfire pose
                 DefaultMod.PROBLEMSOLVER_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, PROBLEM_SOLVER_WIDTH, PROBLEM_SOLVER_HEIGHT, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
@@ -164,10 +159,36 @@ public class Aru extends ProblemSolver68 {
                 new SpineAnimation(ARU_SKELETON_ATLAS,
                         ARU_SKELETON_JSON, 1f));
 
+        String shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[0];
+        String shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[0];
+
+
+        switch(type) {
+            case PROBLEM_SOLVER_68_ARU:
+                shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[0];
+                shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[0];
+                break;
+            case PROBLEM_SOLVER_68_MUTSUKI:
+                shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[1];
+                shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[1];
+                break;
+            case PROBLEM_SOLVER_68_KAYOKO:
+                shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[2];
+                shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[2];
+                break;
+            case PROBLEM_SOLVER_68_HARUKA:
+                shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[3];
+                shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[3];
+                break;
+            default:
+                break;
+        }
+
+
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                DefaultMod.PROBLEMSOLVER_SHOULDER_2, // campfire pose
-                DefaultMod.PROBLEMSOLVER_SHOULDER_1, // another campfire pose
+                shoulder_2, // campfire pose
+                shoulder_1, // another campfire pose
                 DefaultMod.PROBLEMSOLVER_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, PROBLEM_SOLVER_WIDTH, PROBLEM_SOLVER_HEIGHT, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 

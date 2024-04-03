@@ -45,6 +45,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 
@@ -53,7 +54,7 @@ import java.util.*;
 import static BlueArchive_ProblemSolver.DefaultMod.*;
 import static BlueArchive_ProblemSolver.characters.Aru.CAT_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.Aru.MUTSUKI_SKELETON_GIF;
-import static BlueArchive_ProblemSolver.characters.Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
+import static BlueArchive_ProblemSolver.characters.Aru.ProblemSolver68Type.*;
 
 public abstract class ProblemSolver68 extends CustomPlayer {
     public static final float PROBLEM_SOLVER_WIDTH = 120.0F;
@@ -689,11 +690,23 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
     public void render(SpriteBatch sb) {
-        for (ProblemSolver68 p : problemSolverPlayer) {
-            p.render_(sb);
-        }
-        for(ProblemSolver68 p : dyingPlayer) {
-            p.render_(sb);
+
+        if (!(AbstractDungeon.getCurrRoom() instanceof RestRoom)) {
+            for (ProblemSolver68 p : problemSolverPlayer) {
+                p.render_(sb);
+            }
+            for(ProblemSolver68 p : dyingPlayer) {
+                p.render_(sb);
+            }
+        } else {
+            Aru.ProblemSolver68Type orders[] = {PROBLEM_SOLVER_68_ARU,PROBLEM_SOLVER_68_HARUKA,PROBLEM_SOLVER_68_MUTSUKI, PROBLEM_SOLVER_68_KAYOKO};
+            for(Aru.ProblemSolver68Type order : orders) {
+                for (ProblemSolver68 p : problemSolverPlayer) {
+                    if(p.solverType == order) {
+                        p.render_(sb);
+                    }
+                }
+            }
         }
     }
     public void render_(SpriteBatch sb) {
