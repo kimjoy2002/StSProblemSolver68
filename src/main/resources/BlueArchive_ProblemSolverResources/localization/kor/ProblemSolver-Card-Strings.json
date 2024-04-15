@@ -9,23 +9,23 @@
   },
   "BlueArchive_ProblemSolver:ChooseAru": {
     "NAME": "라쿠하치마 아루",
-    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: 높은 공격력. 에너지 회복."
+    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: 높은 공격력. 에너지 회복. 힘 증가."
   },
   "BlueArchive_ProblemSolver:ChooseMutsuki": {
     "NAME": "아사기 무츠키",
-    "DESCRIPTION": "*폭열의 *아리아 추가. NL 전용 키워드: BlueArchive_ProblemSolver:소악마. NL 강점: 많은 버프. 연타 공격. 버리기."
+    "DESCRIPTION": "*폭열의 *아리아 추가. NL 전용 키워드: BlueArchive_ProblemSolver:소악마. NL 강점: 자가 버프. 연타 공격. 버리기."
   },
   "BlueArchive_ProblemSolver:ChooseKayoko": {
     "NAME": "오니카타 카요코",
-    "DESCRIPTION": "*패닉샷 추가. NL 전용 키워드: BlueArchive_ProblemSolver:공포. NL 강점: 해로운 효과. 낮은 비용. 드로우."
+    "DESCRIPTION": "*패닉샷 추가. NL 전용 키워드: BlueArchive_ProblemSolver:공포. NL 강점: 디버프 부여. 낮은 비용. 드로우."
   },
   "BlueArchive_ProblemSolver:ChooseHaruka": {
     "NAME": "이구사 하루카",
-    "DESCRIPTION": "*트리거 *오버 추가. NL 전용 키워드: BlueArchive_ProblemSolver:돌격. NL 강점: 높은 방어."
+    "DESCRIPTION": "*트리거 *오버 추가. NL 전용 키워드: BlueArchive_ProblemSolver:돌격. NL 강점: 높은 방어. 자가 디버프. 자해."
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 현재 BlueArchive_ProblemSolver:흥신소 캐릭터 카드를 포함합니다.",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 이 BlueArchive_ProblemSolver:흥신소 캐릭터 카드를 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       "카드를 !M! 장 뽑습니다.",
       " NL 가능하다면 *",
@@ -58,10 +58,7 @@
   },
   "BlueArchive_ProblemSolver:FirstAid": {
     "NAME": "응급 치료",
-    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소 캐릭터를 체력 1로 부활시키고 *임시 BlueArchive_ProblemSolver:체력을 !M! 만큼 얻습니다. NL 소멸.",
-    "EXTENDED_DESCRIPTION": [
-      "위급한 동료가 없어"
-    ]
+    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소 캐릭터를 체력 1로 부활시킵니다. NL 가장 체력이 낮은 BlueArchive_ProblemSolver:흥신소 캐릭터가 *임시 BlueArchive_ProblemSolver:체력을 !M! 만큼 얻습니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:DogFight": {
     "NAME": "난전",
@@ -111,7 +108,7 @@
   },
   "BlueArchive_ProblemSolver:WannaHaveSomeFun": {
     "NAME": "신나게 가볼까?",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 모든 아군 캐릭터의 힘이 !BlueArchive_ProblemSolver:M! 증가합니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 모든 아군의 힘이 !BlueArchive_ProblemSolver:M! 증가합니다."
   },
   "BlueArchive_ProblemSolver:CuteImpScheme": {
     "NAME": "소악마의 귀여운 꿍꿍이",
@@ -175,8 +172,8 @@
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "고양이의 시간",
-    "DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식 카드를 1 장 섞어 넣습니다. NL 적의 공격을 막아줄 수 없는 체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다.",
-    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식+ 카드를 1 장 섞어 넣습니다. NL 적의 공격을 막아줄 수 없는 체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다.",
+    "DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식 카드를 1 장 섞어 넣습니다. NL 적의 공격을 막아줄 수 없는 체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 소환합니다.",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식+ 카드를 1 장 섞어 넣습니다. NL 적의 공격을 막아줄 수 없는 체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 소환합니다.",
     "EXTENDED_DESCRIPTION": [
       "더는 소환할 수 없어"
     ]
@@ -199,7 +196,7 @@
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "도발",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:돌격: 그 후 캐릭터가 가진 방어도가 2배로 증가합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:돌격: 이 캐릭터가 가진 방어도가 2배로 증가합니다."
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
     "NAME": "측면 공격",
@@ -294,7 +291,7 @@
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsStyle": {
     "NAME": "사장의 퍼펙트한 용병술",
-    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:용병과 이후 소환될 BlueArchive_ProblemSolver:용병이 힘 !M! 과 불가침 !BlueArchive_ProblemSolver:M! 을 얻습니다."
+    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:용병과 이후 소환될 BlueArchive_ProblemSolver:용병이 힘 !M! 과 불가침을 !BlueArchive_ProblemSolver:M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:HardboiledShot": {
     "NAME": "하드보일드 샷",
@@ -331,7 +328,7 @@
   },
   "BlueArchive_ProblemSolver:ForAruSama": {
     "NAME": "아루님을 위해서!",
-    "DESCRIPTION": "*하루카의 힘이 내려갈때마다, 그만큼 *아루의 힘을 올립니다.",
+    "DESCRIPTION": "*하루카의 힘이 내려갈때마다, 그 !M! 배만큼 *아루의 힘을 올립니다.",
     "EXTENDED_DESCRIPTION": [
       "하루카가 필요해."
     ]
@@ -350,7 +347,7 @@
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "고양이 간식",
-    "DESCRIPTION": "고양이 BlueArchive_ProblemSolver:용병이 남아있다면 그 중 하나의 체력을 0으로 만들고 카드를 !M! 장 뽑습니다. NL 소멸."
+    "DESCRIPTION": "*고양이 BlueArchive_ProblemSolver:용병이 남아있다면 그 중 하나의 체력을 0으로 만들고 카드를 !M! 장 뽑습니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:SharingWeapon": {
     "NAME": "장비 나누기",
@@ -480,8 +477,8 @@
     "DESCRIPTION": "방어도를 !B! 얻습니다. 카드를 !M! 장 뽑습니다. 뽑은 카드 중 높은 비용의 카드를 버립니다. (같다면 무작위)"
   },
   "BlueArchive_ProblemSolver:TempHealthBarricade": {
-    "NAME": "몰루",
-    "DESCRIPTION": "모든 적과 아군에게 부여되어있는 해로운 효과 개수의 !M! 배만큼 *임시 BlueArchive_ProblemSolver:체력을 얻습니다. NL 소멸.",
+    "NAME": "마지노선",
+    "DESCRIPTION": "모든 캐릭터에게 부여되어있는 해로운 효과 개수의 !M! 배만큼 *임시 BlueArchive_ProblemSolver:체력을 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       "만큼 얻습니다.)"
@@ -490,5 +487,21 @@
   "BlueArchive_ProblemSolver:ShockAndAwe": {
     "NAME": "충격과 공포",
     "DESCRIPTION": "모든 캐릭터가 가진 BlueArchive_ProblemSolver:공포와 BlueArchive_ProblemSolver:소악마를 !M! 배로 합니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:SideDeck": {
+    "NAME": "사이드 덱",
+    "DESCRIPTION": "사이드 덱에서 카드를 1장 골라 얻거나, 전투가 끝나고 사이드 덱에 들어갈 카드 보상을 얻습니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:AddDeck": {
+    "NAME": "사이드 덱에 추가하기",
+    "DESCRIPTION": "전투가 끝나고 사이드덱에 들어갈 카드보상을 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:DeepClean": {
+    "NAME": "대청소",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL *아루가 사용하면 적 전체를 공격합니다. NL *무츠키가 사용하면 !M! 번 나눠서 공격합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "적 전체에게 피해를 !D! 줍니다.",
+      "피해를 !D! 만큼 !M! 번 줍니다."
+    ]
   }
 }

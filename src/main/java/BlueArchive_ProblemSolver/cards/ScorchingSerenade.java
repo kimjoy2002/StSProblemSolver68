@@ -2,6 +2,8 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -57,6 +59,11 @@ public class ScorchingSerenade extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0 ; i < magicNumber; i++) {
             this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        }
+
+        if(p instanceof ProblemSolver68 && ((ProblemSolver68)p).solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI) {
+            AnimationState.TrackEntry e = AbstractDungeon.player.state.setAnimation(0, Aru.SKILL_ANIMATION, false);
+            AbstractDungeon.player.state.addAnimation(0, Aru.BASE_ANIMATION, true, e.getEndTime());
         }
     }
 

@@ -1,13 +1,118 @@
 
 Haruka.png
-size: 1024,1024
+size: 256,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-haruka
+H_Halo
+  rotate: false
+  xy: 140, 1
+  size: 70, 59
+  orig: 70, 59
+  offset: 0, 0
+  index: -1
+H_Left_Leg
+  rotate: false
+  xy: 105, 188
+  size: 25, 41
+  orig: 25, 41
+  offset: 0, 0
+  index: -1
+H_Right_Leg
+  rotate: false
+  xy: 46, 205
+  size: 22, 37
+  orig: 22, 37
+  offset: 0, 0
+  index: -1
+H_Left_Foot
+  rotate: false
+  xy: 76, 188
+  size: 27, 50
+  orig: 27, 50
+  offset: 0, 0
+  index: -1
+H_Right_Foot
+  rotate: false
+  xy: 76, 149
+  size: 38, 37
+  orig: 38, 37
+  offset: 0, 0
+  index: -1
+H_Right_Arm
+  rotate: false
+  xy: 1, 205
+  size: 43, 23
+  orig: 43, 23
+  offset: 0, 0
+  index: -1
+H_Body
+  rotate: false
+  xy: 76, 1
+  size: 62, 74
+  orig: 62, 74
+  offset: 0, 0
+  index: -1
+H_Left_Arm
+  rotate: false
+  xy: 194, 134
+  size: 23, 33
+  orig: 23, 33
+  offset: 0, 0
+  index: -1
+H_Left_Hand
+  rotate: false
+  xy: 165, 206
+  size: 32, 30
+  orig: 32, 30
+  offset: 0, 0
+  index: -1
+H_Gun
+  rotate: false
+  xy: 76, 77
+  size: 57, 70
+  orig: 57, 70
+  offset: 0, 0
+  index: -1
+H_Gun_Skel
+  rotate: false
+  xy: 135, 134
+  size: 57, 70
+  orig: 57, 70
+  offset: 0, 0
+  index: -1
+H_Gun_Pump
+  rotate: false
+  xy: 140, 62
+  size: 57, 70
+  orig: 57, 70
+  offset: 0, 0
+  index: -1
+H_Left_Finger
+  rotate: false
+  xy: 105, 231
+  size: 13, 11
+  orig: 13, 11
+  offset: 0, 0
+  index: -1
+H_Right_Hand
+  rotate: false
+  xy: 132, 206
+  size: 31, 32
+  orig: 31, 32
+  offset: 0, 0
+  index: -1
+H_Head
   rotate: false
   xy: 1, 1
-  size: 601, 805
-  orig: 601, 805
+  size: 73, 100
+  orig: 73, 100
+  offset: 0, 0
+  index: -1
+H_Head_Shot
+  rotate: false
+  xy: 1, 103
+  size: 73, 100
+  orig: 73, 100
   offset: 0, 0
   index: -1

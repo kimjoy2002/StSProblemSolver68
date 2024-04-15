@@ -1,13 +1,139 @@
 
 Kayoko.png
-size: 1024,1024
+size: 256,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-kayoko
+K_Halo
+  rotate: false
+  xy: 82, 90
+  size: 59, 70
+  orig: 59, 70
+  offset: 0, 0
+  index: -1
+K_Wing
+  rotate: false
+  xy: 1, 179
+  size: 40, 44
+  orig: 40, 44
+  offset: 0, 0
+  index: -1
+K_Left_Leg
+  rotate: false
+  xy: 211, 173
+  size: 22, 33
+  orig: 22, 33
+  offset: 0, 0
+  index: -1
+K_Right_Leg
+  rotate: false
+  xy: 188, 136
+  size: 22, 35
+  orig: 22, 35
+  offset: 0, 0
+  index: -1
+K_Left_Foot
+  rotate: false
+  xy: 157, 199
+  size: 24, 48
+  orig: 24, 48
+  offset: 0, 0
+  index: -1
+K_Right_Foot
+  rotate: false
+  xy: 43, 179
+  size: 24, 58
+  orig: 24, 58
+  offset: 0, 0
+  index: -1
+K_Left_Arm2
+  rotate: false
+  xy: 143, 95
+  size: 22, 39
+  orig: 22, 39
+  offset: 0, 0
+  index: -1
+K_Left_Arm
+  rotate: false
+  xy: 188, 95
+  size: 22, 39
+  orig: 22, 39
+  offset: 0, 0
+  index: -1
+K_Bag
+  rotate: false
+  xy: 82, 162
+  size: 52, 62
+  orig: 52, 62
+  offset: 0, 0
+  index: -1
+K_Body
+  rotate: false
+  xy: 163, 1
+  size: 52, 92
+  orig: 52, 92
+  offset: 0, 0
+  index: -1
+K_Left_Hand2
+  rotate: false
+  xy: 69, 226
+  size: 41, 29
+  orig: 41, 29
+  offset: 0, 0
+  index: -1
+K_Left_Hand
+  rotate: false
+  xy: 167, 95
+  size: 18, 36
+  orig: 18, 36
+  offset: 0, 0
+  index: -1
+K_Head
   rotate: false
   xy: 1, 1
-  size: 601, 681
-  orig: 601, 681
+  size: 79, 87
+  orig: 79, 87
+  offset: 0, 0
+  index: -1
+K_Head_Panic
+  rotate: false
+  xy: 1, 90
+  size: 79, 87
+  orig: 79, 87
+  offset: 0, 0
+  index: -1
+K_Head_Sigh
+  rotate: false
+  xy: 82, 1
+  size: 79, 87
+  orig: 79, 87
+  offset: 0, 0
+  index: -1
+K_Right_Arm
+  rotate: false
+  xy: 183, 199
+  size: 26, 41
+  orig: 26, 41
+  offset: 0, 0
+  index: -1
+K_Gun
+  rotate: false
+  xy: 136, 162
+  size: 50, 35
+  orig: 50, 35
+  offset: 0, 0
+  index: -1
+K_Right_Hand
+  rotate: false
+  xy: 112, 226
+  size: 43, 27
+  orig: 43, 27
+  offset: 0, 0
+  index: -1
+K_Sigh
+  rotate: false
+  xy: 1, 225
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1

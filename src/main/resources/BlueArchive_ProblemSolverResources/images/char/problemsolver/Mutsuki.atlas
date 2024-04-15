@@ -1,13 +1,132 @@
 
 Mutsuki.png
-size: 1024,1024
+size: 512,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-mutsuki
+M_Halo
+  rotate: false
+  xy: 215, 171
+  size: 97, 64
+  orig: 97, 64
+  offset: 0, 0
+  index: -1
+M_Hair
+  rotate: false
+  xy: 154, 1
+  size: 59, 178
+  orig: 59, 178
+  offset: 0, 0
+  index: -1
+M_Left_Leg
+  rotate: false
+  xy: 40, 187
+  size: 31, 50
+  orig: 31, 50
+  offset: 0, 0
+  index: -1
+M_Right_Leg
+  rotate: false
+  xy: 133, 215
+  size: 23, 38
+  orig: 23, 38
+  offset: 0, 0
+  index: -1
+M_Left_Foot
+  rotate: false
+  xy: 1, 187
+  size: 37, 67
+  orig: 37, 67
+  offset: 0, 0
+  index: -1
+M_Right_Foot
+  rotate: false
+  xy: 86, 181
+  size: 45, 73
+  orig: 45, 73
+  offset: 0, 0
+  index: -1
+M_Left_Arm_Down
+  rotate: false
+  xy: 113, 89
+  size: 15, 24
+  orig: 15, 24
+  offset: 0, 0
+  index: -1
+M_Left_Arm_Up
+  rotate: false
+  xy: 176, 181
+  size: 25, 40
+  orig: 25, 40
+  offset: 0, 0
+  index: -1
+M_Body
+  rotate: false
+  xy: 1, 89
+  size: 83, 96
+  orig: 83, 96
+  offset: 0, 0
+  index: -1
+M_Left_Hand
+  rotate: false
+  xy: 86, 89
+  size: 25, 21
+  orig: 25, 21
+  offset: 0, 0
+  index: -1
+M_Right_Hand
+  rotate: false
+  xy: 158, 223
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+M_Right_Arm
+  rotate: false
+  xy: 133, 181
+  size: 41, 32
+  orig: 41, 32
+  offset: 0, 0
+  index: -1
+M_Head_Cute
+  rotate: false
+  xy: 215, 86
+  size: 83, 83
+  orig: 83, 83
+  offset: 0, 0
+  index: -1
+M_Head
+  rotate: false
+  xy: 215, 1
+  size: 83, 83
+  orig: 83, 83
+  offset: 0, 0
+  index: -1
+M_Gun
   rotate: false
   xy: 1, 1
-  size: 601, 700
-  orig: 601, 700
+  size: 151, 86
+  orig: 151, 86
+  offset: 0, 0
+  index: -1
+M_Right_Finger
+  rotate: false
+  xy: 184, 223
+  size: 27, 25
+  orig: 27, 25
+  offset: 0, 0
+  index: -1
+M_Left_Finger_V
+  rotate: false
+  xy: 59, 239
+  size: 17, 16
+  orig: 17, 16
+  offset: 0, 0
+  index: -1
+M_Left_Finger
+  rotate: false
+  xy: 40, 239
+  size: 17, 16
+  orig: 17, 16
   offset: 0, 0
   index: -1

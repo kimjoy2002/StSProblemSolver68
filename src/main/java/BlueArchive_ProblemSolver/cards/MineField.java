@@ -3,7 +3,9 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.MakeTempCardInHandIndexAction;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.patches.SelectScreenPatch;
+import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -88,6 +90,7 @@ public class MineField extends AbstractDynamicCard {
             }
 
         });
+
         //this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), this.secondMagicNumber));
     }
 

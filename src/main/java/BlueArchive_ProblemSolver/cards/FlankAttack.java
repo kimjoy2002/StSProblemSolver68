@@ -51,6 +51,9 @@ public class FlankAttack extends RushCard {
 
     @Override
     void onRush(AbstractPlayer p, AbstractMonster m) {
+        if(m == null) {
+            m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
+        }
         this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
     }
     //Upgraded stats.

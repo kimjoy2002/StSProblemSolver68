@@ -2,7 +2,9 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
+import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -83,6 +85,12 @@ public class HardboiledShot extends EvilDeedsCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+
+        if(p instanceof ProblemSolver68 && ((ProblemSolver68)p).solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU) {
+            AnimationState.TrackEntry e = AbstractDungeon.player.state.setAnimation(0, Aru.SKILL_ANIMATION, false);
+            AbstractDungeon.player.state.addAnimation(0, Aru.BASE_ANIMATION, true, e.getEndTime());
+        }
+
         super.use(p, m);
     }
 

@@ -41,7 +41,7 @@ public class MeaningfulTansaction extends EvilDeedsCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
 
     public MeaningfulTansaction() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -78,7 +78,7 @@ public class MeaningfulTansaction extends EvilDeedsCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(1);
+            updateRequireEvil(-1);
             makeDescrption();
         }
     }

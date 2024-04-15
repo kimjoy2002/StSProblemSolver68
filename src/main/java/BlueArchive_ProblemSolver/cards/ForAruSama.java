@@ -29,9 +29,13 @@ public class ForAruSama extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
+
 
     public ForAruSama() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
     }
@@ -39,7 +43,7 @@ public class ForAruSama extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new ForAruSamaPower(AbstractDungeon.player, 1), 1, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new ForAruSamaPower(AbstractDungeon.player, magicNumber), magicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA));
     }
 
     //Upgraded stats.
@@ -47,7 +51,7 @@ public class ForAruSama extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(0);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

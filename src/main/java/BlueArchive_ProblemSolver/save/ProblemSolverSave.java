@@ -27,8 +27,10 @@ public class ProblemSolverSave implements CustomSavable<ArrayList<SaveData>> {
     @Override
     public void onLoad(ArrayList<SaveData> characters) {
         currentCharacters.clear();
-        for(SaveData c : characters) {
-            ProblemSolver68.addCharacter(ProblemSolver68.stringToEnum(c.name), c.hp, c.max_hp, false);
+        if(characters != null) {
+            for(SaveData c : characters) {
+                ProblemSolver68.addCharacter(ProblemSolver68.stringToEnum(c.name), c.hp, c.max_hp, false);
+            }
         }
     }
     public void addCharacter(String character, int hp, int max_hp){

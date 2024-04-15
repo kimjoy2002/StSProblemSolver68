@@ -1,19 +1,32 @@
 package BlueArchive_ProblemSolver.patches;
 
 import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
+import BlueArchive_ProblemSolver.cards.AddDeck;
+import BlueArchive_ProblemSolver.cards.SideDeck;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.save.SideDeckSave;
+import BlueArchive_ProblemSolver.screens.SideDeckViewScreen;
+import basemod.BaseMod;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
+import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import javassist.CtBehavior;
 
 import java.lang.reflect.Field;
@@ -196,6 +209,107 @@ public class ProblemSolverCardPatch {
         }
     }
 
+    @SpirePatch(
+            clz=SingleCardViewPopup.class,
+            method=SpirePatch.CLASS
+    )
+    public static class singleCardViewPopupField
+    {
+        public static SpireField<Hitbox> sideDeckHb = new SpireField<>(() -> null);
+    }
+
+
+    @SpirePatch(
+            clz = SingleCardViewPopup.class,
+            method = "open",
+            paramtypez = {AbstractCard.class,
+                    CardGroup.class}
+    )
+    public static class singleCardOpenPatcher {
+
+        public static void Postfix(SingleCardViewPopup __instance, AbstractCard card, CardGroup group) {
+            singleCardViewPopupField.sideDeckHb.set(__instance, null);
+            if(card instanceof SideDeck) {
+                singleCardViewPopupField.sideDeckHb.set(__instance, new Hitbox(128.0F * Settings.scale, 128.0F * Settings.scale));
+                Hitbox sideDeckHb = singleCardViewPopupField.sideDeckHb.get(__instance);
+                sideDeckHb.move((float) Settings.WIDTH / 2.0F + 350.0F * Settings.scale, (float) Settings.HEIGHT / 2.0F + 300.0F * Settings.scale);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = SingleCardViewPopup.class,
+            method = "updateArrows"
+    )
+    public static class updateArrowsPatcher {
+
+        public static void Postfix(SingleCardViewPopup __instance) {
+            Hitbox sideDeckHb = singleCardViewPopupField.sideDeckHb.get(__instance);
+            if (sideDeckHb != null && AbstractDungeon.screen == AbstractDungeon.CurrentScreen.MASTER_DECK_VIEW) {
+
+                sideDeckHb.update();
+                if (sideDeckHb.justHovered) {
+                    CardCrawlGame.sound.play("UI_HOVER");
+                }
+
+                if (sideDeckHb.clicked) {
+                    sideDeckHb.clicked =  false;
+
+                    AbstractCard card =  ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
+                    if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.MASTER_DECK_VIEW) {
+                        if (SideDeckSave.decks.containsKey(card.misc)) {
+                            if (SideDeckSave.decks.get(card.misc).size() > 0) {
+                                CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                                group.group = SideDeckSave.decks.get(card.misc);
+                                BaseMod.openCustomScreen(EnumPatch.SIDEDECK_VIEW_SCREEN, group);
+                                __instance.close();
+                                ReflectionHacks.setPrivate(__instance, SingleCardViewPopup.class, "fadeTimer", 0.0F);
+                                Color fadeColor = (Color) ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "fadeColor");
+                                fadeColor.a = 0.9F;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractDungeon.class,
+            method = "closeCurrentScreen"
+    )
+    public static class closeCurrentScreenPatcher {
+
+        public static void Postfix() {
+            if(SideDeckViewScreen.preprevScreen != AbstractDungeon.CurrentScreen.NONE && AbstractDungeon.screen == AbstractDungeon.CurrentScreen.MASTER_DECK_VIEW) {
+                AbstractDungeon.previousScreen = SideDeckViewScreen.preprevScreen;
+                SideDeckViewScreen.preprevScreen = AbstractDungeon.CurrentScreen.NONE;
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = SingleCardViewPopup.class,
+            method = "updateInput"
+    )
+    public static class updateInputPatcher {
+
+        public static SpireReturn Prefix(SingleCardViewPopup __instance) {
+            Hitbox sideDeckHb = singleCardViewPopupField.sideDeckHb.get(__instance);
+            if(sideDeckHb != null && AbstractDungeon.screen == AbstractDungeon.CurrentScreen.MASTER_DECK_VIEW) {
+                if (InputHelper.justClickedLeft) {
+                    if (sideDeckHb.hovered) {
+                        sideDeckHb.clickStarted = true;
+                        CardCrawlGame.sound.play("UI_CLICK_1");
+                        return SpireReturn.Return();
+                    }
+                }
+            }
+            return SpireReturn.Continue();
+        }
+    }
+
+
 
     @SpirePatch(
             clz = SingleCardViewPopup.class,
@@ -209,6 +323,7 @@ public class ProblemSolverCardPatch {
         )
         public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb) {
             if(__instance != null) {
+                Hitbox sideDeckHb = singleCardViewPopupField.sideDeckHb.get(__instance);
                 AbstractCard card =  ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
                 if (card instanceof AbstractDynamicCard) {
                     sb.setColor(new Color(1.0F, 1.0F, 1.0F, 1.0F));
@@ -216,6 +331,26 @@ public class ProblemSolverCardPatch {
                     if(tex != null) {
                         sb.draw(tex, (float)Settings.WIDTH / 2.0F - 512.0F, (float)Settings.HEIGHT / 2.0F - 512.0F, 512.0F, 512.0F, 1024.0F, 1024.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 1024, 1024, false, false);
                     }
+
+                    if(sideDeckHb != null && AbstractDungeon.screen == AbstractDungeon.CurrentScreen.MASTER_DECK_VIEW) {
+                        sb.setColor(Color.WHITE);
+                        sb.draw(ImageMaster.DECK_BTN_BASE, sideDeckHb.cX - 64.0F, sideDeckHb.cY - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0f, 0, 0, 128, 128, false, false);
+                        if (sideDeckHb.hovered) {
+                            sb.setBlendFunction(770, 1);
+                            sb.setColor(new Color(1.0F, 1.0F, 1.0F, 0.25F));
+                            sb.draw(ImageMaster.DECK_BTN_BASE, sideDeckHb.cX - 64.0F, sideDeckHb.cY - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0f, 0, 0, 128, 128, false, false);
+                            sb.setBlendFunction(770, 771);
+                        }
+                        int size_ = 0;
+                        if(SideDeckSave.decks.containsKey(card.misc)) {
+                            size_ = SideDeckSave.decks.get(card.misc).size();
+                        }
+                        Color tmpColor = Color.WHITE.cpy();
+                        FontHelper.renderFontRightTopAligned(sb, FontHelper.topPanelAmountFont, Integer.toString(size_), sideDeckHb.cX + 48.0F * Settings.scale, sideDeckHb.cY + -25.0F * Settings.scale, tmpColor);
+                    }
+                }
+                if (sideDeckHb != null) {
+                    sideDeckHb.render(sb);
                 }
             }
         }

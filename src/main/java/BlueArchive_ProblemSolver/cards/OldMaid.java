@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.ArrayList;
+
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
 public class OldMaid extends AbstractDynamicCard {
@@ -46,7 +48,7 @@ public class OldMaid extends AbstractDynamicCard {
         this.addToBot(new AbstractGameAction() {
             public void update() {
                 CardGroup drawPiles = AbstractDungeon.player.drawPile;
-                AbstractCard card_ = null;
+                ArrayList<AbstractCard> cards_ = new ArrayList<AbstractCard>();
                 Aru.ProblemSolver68Type type = Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
                 if(p instanceof ProblemSolver68) {
                     type = ((ProblemSolver68)AbstractDungeon.player).solverType;
@@ -56,15 +58,16 @@ public class OldMaid extends AbstractDynamicCard {
                     for(AbstractCard card : drawPiles.group) {
                         if(card instanceof AbstractDynamicCard) {
                             if(((AbstractDynamicCard)card).isSolverType(type)) {
-                                card_ = card;
-                                break;
+                                cards_.add(card);
                             }
                         }
                     }
                 }
-                if(card_ != null) {
-                    AbstractDungeon.player.drawPile.removeCard(card_);
-                    AbstractDungeon.player.drawPile.addToTop(card_);
+                if(cards_.size() > 0) {
+                    for(int i = 0; i< magicNumber && i< cards_.size(); i++) {
+                        AbstractDungeon.player.drawPile.removeCard(cards_.get(i));
+                        AbstractDungeon.player.drawPile.addToTop(cards_.get(i));
+                    }
                 }
                 this.addToBot(new DrawCardAction(magicNumber));
                 this.isDone = true;

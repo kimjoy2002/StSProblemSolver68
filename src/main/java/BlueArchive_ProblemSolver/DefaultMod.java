@@ -8,8 +8,14 @@ import BlueArchive_ProblemSolver.cards.ChooseMutsuki;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.effects.SaveEffect;
+import BlueArchive_ProblemSolver.patches.EnumPatch;
 import BlueArchive_ProblemSolver.patches.GridSelectScreenPatch;
 import BlueArchive_ProblemSolver.relics.*;
+import BlueArchive_ProblemSolver.rewards.SideDeckReward;
+import BlueArchive_ProblemSolver.save.ProblemSolverSave;
+import BlueArchive_ProblemSolver.save.SideDeckSave;
+import BlueArchive_ProblemSolver.screens.SideDeckScreen;
+import BlueArchive_ProblemSolver.screens.SideDeckViewScreen;
 import BlueArchive_ProblemSolver.util.GifDecoder;
 import BlueArchive_ProblemSolver.variables.SecondMagicNumber;
 import BlueArchive_ProblemSolver.variables.ThirdMagicNumber;
@@ -36,6 +42,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.SaveHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
@@ -48,6 +55,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
+import java.util.UUID;
 
 import static BlueArchive_ProblemSolver.characters.Aru.CAT_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.Aru.Enums.PROBLEM_SOLVER;
@@ -94,6 +102,7 @@ public class DefaultMod implements
         AddAudioSubscriber,
         OnStartBattleSubscriber,
         StartGameSubscriber,
+        PreStartGameSubscriber,
         PostUpdateSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
@@ -464,7 +473,19 @@ public class DefaultMod implements
         // =============== EVENTS =================
         // https://github.com/daviscook477/BaseMod/wiki/Custom-Events
 
+        BaseMod.registerCustomReward(
+                EnumPatch.REWORD_SIDEDECK,
+                (rewardSave) -> { // this handles what to do when this quest type is loaded.
+                    return new SideDeckReward((rewardSave).amount);
+                },
+                (customReward) -> { // this handles what to do when this quest type is saved.
+                    return new RewardSave(customReward.type.toString(), null, ((SideDeckReward)customReward).card_misc, 0);
+                });
 
+
+        BaseMod.addCustomScreen(new SideDeckScreen());
+        BaseMod.addCustomScreen(new SideDeckViewScreen());
+        BaseMod.addSaveField("BlueArchive_ProblemSolver:SideDeck",new SideDeckSave());
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
     }
@@ -721,5 +742,10 @@ public class DefaultMod implements
     @Override
     public void receiveAddAudio() {
         BaseMod.addAudio("BlueArchive_ProblemSolver:ProblemSolverSelect", getModID() + "Resources/sound/ProblemSolver_select.mp3");
+    }
+
+    @Override
+    public void receivePreStartGame() {
+        SideDeckSave.clear();
     }
 }

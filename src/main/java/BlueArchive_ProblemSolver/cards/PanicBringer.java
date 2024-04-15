@@ -2,12 +2,15 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.FearPower;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -60,6 +63,7 @@ public class PanicBringer extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new WaitAction(1.0F));
         this.addToBot(new SFXAction("ATTACK_PIERCING_WAIL"));
         if (Settings.FAST_MODE) {
             this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.3F));
@@ -73,6 +77,11 @@ public class PanicBringer extends AbstractDynamicCard {
             AbstractMonster mo = (AbstractMonster)var3.next();
             this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber));
             this.addToBot(new ApplyPowerAction(mo, p, new FearPower(mo, secondMagicNumber), secondMagicNumber));
+        }
+
+        if(p instanceof ProblemSolver68 && ((ProblemSolver68)p).solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO) {
+            AnimationState.TrackEntry e = AbstractDungeon.player.state.setAnimation(0, Aru.SKILL_ANIMATION, false);
+            AbstractDungeon.player.state.addAnimation(0, Aru.BASE_ANIMATION, true, e.getEndTime());
         }
     }
 

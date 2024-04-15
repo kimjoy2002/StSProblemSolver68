@@ -1,13 +1,125 @@
 
 Aru.png
-size: 1024,1024
+size: 512,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-aru
+Halo
+  rotate: false
+  xy: 329, 129
+  size: 149, 50
+  orig: 149, 50
+  offset: 0, 0
+  index: -1
+Cloak_Back
+  rotate: false
+  xy: 127, 1
+  size: 131, 156
+  orig: 131, 156
+  offset: 0, 0
+  index: -1
+Left_Leg
+  rotate: false
+  xy: 437, 1
+  size: 39, 56
+  orig: 39, 56
+  offset: 0, 0
+  index: -1
+Left_Foot
+  rotate: false
+  xy: 480, 1
+  size: 30, 78
+  orig: 30, 78
+  offset: 0, 0
+  index: -1
+Right_Leg
+  rotate: false
+  xy: 480, 81
+  size: 31, 56
+  orig: 31, 56
+  offset: 0, 0
+  index: -1
+Right_Foot
+  rotate: false
+  xy: 403, 1
+  size: 32, 75
+  orig: 32, 75
+  offset: 0, 0
+  index: -1
+Body
+  rotate: false
+  xy: 329, 1
+  size: 72, 126
+  orig: 72, 126
+  offset: 0, 0
+  index: -1
+Left_Arm
+  rotate: false
+  xy: 48, 202
+  size: 43, 30
+  orig: 43, 30
+  offset: 0, 0
+  index: -1
+Right_Arm
+  rotate: false
+  xy: 403, 78
+  size: 30, 36
+  orig: 30, 36
+  offset: 0, 0
+  index: -1
+Left_Hand
+  rotate: false
+  xy: 279, 172
+  size: 48, 57
+  orig: 48, 57
+  offset: 0, 0
+  index: -1
+Right_Hand
+  rotate: false
+  xy: 437, 59
+  size: 35, 55
+  orig: 35, 55
+  offset: 0, 0
+  index: -1
+Left_Hand_front
+  rotate: false
+  xy: 329, 181
+  size: 48, 57
+  orig: 48, 57
+  offset: 0, 0
+  index: -1
+Gun
   rotate: false
   xy: 1, 1
-  size: 601, 804
-  orig: 601, 804
+  size: 124, 199
+  orig: 124, 199
+  offset: 0, 0
+  index: -1
+Cloak_Front
+  rotate: false
+  xy: 260, 1
+  size: 67, 169
+  orig: 67, 169
+  offset: 0, 0
+  index: -1
+Hair
+  rotate: false
+  xy: 216, 172
+  size: 61, 75
+  orig: 61, 75
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 127, 159
+  size: 87, 78
+  orig: 87, 78
+  offset: 0, 0
+  index: -1
+Head_Ahoge
+  rotate: false
+  xy: 1, 202
+  size: 45, 36
+  orig: 45, 36
   offset: 0, 0
   index: -1

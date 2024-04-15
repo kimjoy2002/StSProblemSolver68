@@ -40,6 +40,7 @@ public class Aru extends ProblemSolver68 {
     public static final Logger logger = LogManager.getLogger(Aru.class.getName());
 
     public static final String BASE_ANIMATION = "base_animation";
+    public static final String SKILL_ANIMATION = "shot_animation";
 
     public enum ProblemSolver68Type {
         PROBLEM_SOLVER_68_NONE,
@@ -201,6 +202,36 @@ public class Aru extends ProblemSolver68 {
     public void setSolverType(ProblemSolver68Type solverType) {
         this.solverType = solverType;
         newAnimation("");
+
+
+        String shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[0];
+        String shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[0];
+
+
+        switch(solverType) {
+            case PROBLEM_SOLVER_68_ARU:
+                shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[0];
+                shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[0];
+                break;
+            case PROBLEM_SOLVER_68_MUTSUKI:
+                shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[1];
+                shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[1];
+                break;
+            case PROBLEM_SOLVER_68_KAYOKO:
+                shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[2];
+                shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[2];
+                break;
+            case PROBLEM_SOLVER_68_HARUKA:
+                shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[3];
+                shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[3];
+                break;
+            default:
+                break;
+        }
+
+
+        this.shoulderImg = ImageMaster.loadImage(shoulder_1);
+        this.shoulder2Img = ImageMaster.loadImage(shoulder_2);
     }
 
     // =============== /CHARACTER CLASS END/ =================
@@ -346,6 +377,7 @@ public class Aru extends ProblemSolver68 {
         String atlas = "";
         String json = "";
         String defaultAnimationName = BASE_ANIMATION;
+        float scale_ = 0.9f;
 
         switch(solverType) {
             case PROBLEM_SOLVER_68_ARU:
@@ -359,10 +391,12 @@ public class Aru extends ProblemSolver68 {
             case PROBLEM_SOLVER_68_KAYOKO:
                 atlas = KAYOKO_SKELETON_ATLAS;
                 json = KAYOKO_SKELETON_JSON;
+                scale_ = 0.8f;
                 break;
             case PROBLEM_SOLVER_68_HARUKA:
                 atlas = HARUKA_SKELETON_ATLAS;
                 json = HARUKA_SKELETON_JSON;
+                scale_ = 0.75f;
                 break;
             case PROBLEM_SOLVER_68_HELMETGANG:
                 atlas = HELMETGANG_SKELETON_ATLAS;
@@ -406,7 +440,7 @@ public class Aru extends ProblemSolver68 {
             loadAnimation(
                     atlas,
                     json,
-                    0.9f);
+                    scale_);
             AnimationState.TrackEntry e = state.setAnimation(0,animation.isEmpty()?defaultAnimationName:animation, true);
             e.setTime(e.getEndTime() * MathUtils.random());
         }
