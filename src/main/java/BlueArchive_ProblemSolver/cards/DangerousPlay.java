@@ -32,7 +32,7 @@ public class DangerousPlay extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    public static final int MAGIC = 7;
+    public static final int MAGIC = 6;
     private static final int UPGRADE_PLUS_MAGIC = 2;
 
     public DangerousPlay() {

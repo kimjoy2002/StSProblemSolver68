@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static BlueArchive_ProblemSolver.patches.GameActionManagerPatch.evildeedThisTurn;
 
-abstract public class EvilDeedsCard extends AbstractDynamicCard {
+abstract public class EvilDeedsCard extends AbstractDynamicCard implements onAddToHandCards {
 
     public int require_evil = 0;
     public int evil = 0;
@@ -53,6 +53,12 @@ abstract public class EvilDeedsCard extends AbstractDynamicCard {
                     }
                 }
             }
+
+            for(AbstractCard card : AbstractDungeon.player.hand.group) {
+                if(card instanceof OnEvilDeedCards) {
+                    ((OnEvilDeedCards) card).onEvilDeeds(this);
+                }
+            }
         }
     }
 
@@ -60,6 +66,15 @@ abstract public class EvilDeedsCard extends AbstractDynamicCard {
 
     public void onAddToHand() {
         this.addToBot(new EvilDeedsAction(this));
+        int gain_evil = 0;
+        for(AbstractCard card : AbstractDungeon.player.hand.group) {
+            if(card instanceof SnsuspiciousRumor) {
+                gain_evil++;
+            }
+        }
+        if(gain_evil>0) {
+            this.addToBot(new EvilDeedsAction(this, gain_evil));
+        }
         makeDescrption();
     }
     public void makeDescrption() {

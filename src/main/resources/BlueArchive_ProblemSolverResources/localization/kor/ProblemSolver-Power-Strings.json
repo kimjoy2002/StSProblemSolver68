@@ -63,7 +63,7 @@
   "BlueArchive_ProblemSolver:TauntPower": {
     "NAME": "도발",
     "DESCRIPTIONS": [
-      "적의 턴에 공격을 받습니다."
+      "이번 전투동안 항상 우선적으로 공격을 받습니다."
     ]
   },
   "BlueArchive_ProblemSolver:FixedImpPower": {
@@ -206,6 +206,27 @@
     "DESCRIPTIONS": [
       "비용이 0인 카드가 소멸될 때마다 카드를 #b",
       " 장 뽑고 맨 왼쪽 카드를 버립니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:DexupPower": {
+    "NAME": "매턴 민첩 증가",
+    "DESCRIPTIONS": [
+      "턴 시작 시 #y민첩을 #b",
+      " 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:StrupPower": {
+    "NAME": "매턴 힘 증가",
+    "DESCRIPTIONS": [
+      "턴 시작 시 #y힘을 #b",
+      " 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:EnergyupPower": {
+    "NAME": "매턴 에너지 증가",
+    "DESCRIPTIONS": [
+      "턴 시작 시 ",
+      " 을 얻습니다."
     ]
   }
 }

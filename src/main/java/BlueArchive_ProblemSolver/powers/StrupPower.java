@@ -1,40 +1,40 @@
 package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 
 //Gain 1 dex for the turn for each card played.
 
-public class TauntPower extends AbstractPower implements CloneablePowerInterface, OnEndOverCharacterPower {
-    public static final String POWER_ID = DefaultMod.makeID("TauntPower");
+public class StrupPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = DefaultMod.makeID("StrupPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("TauntPower84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("TauntPower32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("StrupPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("StrupPower32.png"));
 
-    public TauntPower(final AbstractCreature owner) {
+    public StrupPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
+        this.amount = amount;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -47,22 +47,17 @@ public class TauntPower extends AbstractPower implements CloneablePowerInterface
     }
 
 
-    // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
-    @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        this.description = powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1];
     }
 
-
-    public void atEndOfTurnOverCharacer() {
-        if(owner.isPlayer) {
-            this.addToBot(new ChangeCharacterAction((AbstractPlayer) owner));
-        }
+    public void atStartOfTurnPostDraw() {
+        this.flash();
+        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, this.amount), this.amount));
     }
-
 
     @Override
     public AbstractPower makeCopy() {
-        return new TauntPower(owner);
+        return new StrupPower(owner, amount);
     }
 }

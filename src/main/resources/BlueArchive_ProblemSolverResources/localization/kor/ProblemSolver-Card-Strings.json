@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 이 BlueArchive_ProblemSolver:흥신소 캐릭터 카드를 뽑습니다.",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 현재 BlueArchive_ProblemSolver:흥신소 캐릭터 카드를 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       "카드를 !M! 장 뽑습니다.",
       " NL 가능하다면 *",
@@ -455,7 +455,7 @@
   },
   "BlueArchive_ProblemSolver:TacticalChallengePS68": {
     "NAME": "전술대항전 - 흥신소68",
-    "DESCRIPTION": "*전술대항전 카드 !M! 종을 손으로 가져옵니다. 이번 턴 동안 그 비용이 0이 됩니다. NL 소멸."
+    "DESCRIPTION": "*전술대항전 카드 !M! 종을 손으로 가져옵니다. NL 이번 턴 동안 그 비용이 0이 됩니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:EmergencyBandage": {
     "NAME": "비상용 붕대",
@@ -502,6 +502,25 @@
     "EXTENDED_DESCRIPTION": [
       "적 전체에게 피해를 !D! 줍니다.",
       "피해를 !D! 만큼 !M! 번 줍니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FixerForm": {
+    "NAME": "해결사의 형상",
+    "DESCRIPTION": "턴을 시작할때마다 *아루는 [E] , *카요코는 카드 !M! 장, *무츠키는 힘을 !BlueArchive_ProblemSolver:M!, *하루카는 민첩을 !BlueArchive_ProblemSolver:M2! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+       "BlueArchive_ProblemSolver:fixerform"
+    ]
+  },
+  "BlueArchive_ProblemSolver:AttractAttention": {
+    "NAME": "이목 끌기",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:금속화를 !M! 얻습니다. NL 이번 전투동안 항상 이 캐릭터가 공격받습니다."
+  },
+  "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
+    "NAME": "수상한 소문",
+    "DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 손에 있을때 한번만, BlueArchive_ProblemSolver:악행이 발동할때 [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 손에 있을때 한번만, BlueArchive_ProblemSolver:악행이 발동할때 [E] [E] 를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "사용할 수 없어."
     ]
   }
 }

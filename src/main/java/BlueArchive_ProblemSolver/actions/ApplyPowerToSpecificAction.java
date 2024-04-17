@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DrawPower;
 
 public class ApplyPowerToSpecificAction extends AbstractGameAction {
     AbstractPower powerToApply;
@@ -26,6 +27,7 @@ public class ApplyPowerToSpecificAction extends AbstractGameAction {
                     AbstractPower copy_ = powerToApply;
                     if(powerToApply instanceof CloneablePowerInterface) {
                         copy_ = ((CloneablePowerInterface)powerToApply).makeCopy();
+                        powerToApply.onRemove();
                     }
                     copy_.owner = p;
                     AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, copy_));
