@@ -183,7 +183,10 @@ public class DefaultMod implements
                                                                 "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder_32.png",
                                                                 "BlueArchive_ProblemSolverResources/images/char/problemsolver/shoulder_42.png"
                                                             };
-    public static final String PROBLEMSOLVER_CORPSE = "BlueArchive_ProblemSolverResources/images/char/problemsolver/corpse.png";
+    public static final String[] PROBLEMSOLVER_CORPSE = {"BlueArchive_ProblemSolverResources/images/char/problemsolver/corpse_aru.png",
+            "BlueArchive_ProblemSolverResources/images/char/problemsolver/corpse_mutsuki.png",
+            "BlueArchive_ProblemSolverResources/images/char/problemsolver/corpse_kayoko.png",
+            "BlueArchive_ProblemSolverResources/images/char/problemsolver/corpse_haruka.png"};
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "BlueArchive_ProblemSolverResources/images/Badge.png";

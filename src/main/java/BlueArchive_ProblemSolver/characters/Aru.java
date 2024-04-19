@@ -144,7 +144,7 @@ public class Aru extends ProblemSolver68 {
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
                 DefaultMod.PROBLEMSOLVER_SHOULDER_2[0], // campfire pose
                 DefaultMod.PROBLEMSOLVER_SHOULDER_1[0], // another campfire pose
-                DefaultMod.PROBLEMSOLVER_CORPSE, // dead corpse
+                DefaultMod.PROBLEMSOLVER_CORPSE[0], // dead corpse
                 getLoadout(), 20.0F, -10.0F, PROBLEM_SOLVER_WIDTH, PROBLEM_SOLVER_HEIGHT, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
@@ -162,24 +162,29 @@ public class Aru extends ProblemSolver68 {
 
         String shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[0];
         String shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[0];
+        String corpse = DefaultMod.PROBLEMSOLVER_CORPSE[0];
 
 
         switch(type) {
             case PROBLEM_SOLVER_68_ARU:
                 shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[0];
                 shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[0];
+                corpse = DefaultMod.PROBLEMSOLVER_CORPSE[0];
                 break;
             case PROBLEM_SOLVER_68_MUTSUKI:
                 shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[1];
                 shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[1];
+                corpse = DefaultMod.PROBLEMSOLVER_CORPSE[1];
                 break;
             case PROBLEM_SOLVER_68_KAYOKO:
                 shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[2];
                 shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[2];
+                corpse = DefaultMod.PROBLEMSOLVER_CORPSE[2];
                 break;
             case PROBLEM_SOLVER_68_HARUKA:
                 shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[3];
                 shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[3];
+                corpse = DefaultMod.PROBLEMSOLVER_CORPSE[3];
                 break;
             default:
                 break;
@@ -190,7 +195,7 @@ public class Aru extends ProblemSolver68 {
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
                 shoulder_2, // campfire pose
                 shoulder_1, // another campfire pose
-                DefaultMod.PROBLEMSOLVER_CORPSE, // dead corpse
+                corpse, // dead corpse
                 getLoadout(), 20.0F, -10.0F, PROBLEM_SOLVER_WIDTH, PROBLEM_SOLVER_HEIGHT, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
@@ -206,24 +211,29 @@ public class Aru extends ProblemSolver68 {
 
         String shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[0];
         String shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[0];
+        String corpse = DefaultMod.PROBLEMSOLVER_CORPSE[0];
 
 
         switch(solverType) {
             case PROBLEM_SOLVER_68_ARU:
                 shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[0];
                 shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[0];
+                corpse = DefaultMod.PROBLEMSOLVER_CORPSE[0];
                 break;
             case PROBLEM_SOLVER_68_MUTSUKI:
                 shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[1];
                 shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[1];
+                corpse = DefaultMod.PROBLEMSOLVER_CORPSE[1];
                 break;
             case PROBLEM_SOLVER_68_KAYOKO:
                 shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[2];
                 shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[2];
+                corpse = DefaultMod.PROBLEMSOLVER_CORPSE[2];
                 break;
             case PROBLEM_SOLVER_68_HARUKA:
                 shoulder_1 = DefaultMod.PROBLEMSOLVER_SHOULDER_1[3];
                 shoulder_2 = DefaultMod.PROBLEMSOLVER_SHOULDER_2[3];
+                corpse = DefaultMod.PROBLEMSOLVER_CORPSE[3];
                 break;
             default:
                 break;
@@ -232,6 +242,7 @@ public class Aru extends ProblemSolver68 {
 
         this.shoulderImg = ImageMaster.loadImage(shoulder_1);
         this.shoulder2Img = ImageMaster.loadImage(shoulder_2);
+        this.corpseImg = ImageMaster.loadImage(corpse);
     }
 
     // =============== /CHARACTER CLASS END/ =================

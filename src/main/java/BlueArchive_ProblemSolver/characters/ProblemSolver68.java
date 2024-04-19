@@ -15,6 +15,7 @@ import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.util.GifDecoder;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.BaseMod;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.Gdx;
@@ -49,6 +50,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.SurroundedPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -714,7 +716,19 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
     public void render_(SpriteBatch sb) {
-        super.render(sb);
+        if(this != AbstractDungeon.player && currentHealth < 1) {
+            Texture temp = img;
+            boolean temp_button = (boolean) ReflectionHacks.getPrivate(this, AbstractPlayer.class, "renderCorpse");
+            ReflectionHacks.setPrivate(this, AbstractPlayer.class, "renderCorpse", true);
+            img = corpseImg;
+            super.render(sb);
+            img = temp;
+            ReflectionHacks.setPrivate(this, AbstractPlayer.class, "renderCorpse", temp_button);
+        } else {
+            super.render(sb);
+        }
+
+
         if(this == AbstractDungeon.player && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             sb.setColor(Color.RED);
             sb.setColor(Color.WHITE);
@@ -725,6 +739,16 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public void playDeathAnimation() {
+        for (ProblemSolver68 ps : problemSolverPlayer) {
+            if(isProblemSolver(ps.solverType) ) {
+                ps.playDeathAnimation_();
+            }
+        }
+    }
+    public void playDeathAnimation_() {
+        super.playDeathAnimation();
+    }
 
     public void renderPlayerImage(SpriteBatch sb) {
         if(solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI
