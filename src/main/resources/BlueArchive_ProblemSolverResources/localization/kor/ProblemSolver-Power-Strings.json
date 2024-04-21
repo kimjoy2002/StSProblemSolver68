@@ -228,5 +228,13 @@
       "턴 시작 시 ",
       " 을 얻습니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:OmamoribondPower": {
+    "NAME": "보답받는 인연",
+    "DESCRIPTIONS": [
+      "아무에게 해로운 효과를 #b",
+      " 번 부여할때마다 카드를 #b",
+      " 장 뽑습니다."
+    ]
   }
 }

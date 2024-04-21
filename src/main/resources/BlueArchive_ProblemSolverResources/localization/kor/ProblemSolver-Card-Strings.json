@@ -522,5 +522,9 @@
     "EXTENDED_DESCRIPTION": [
       "사용할 수 없어."
     ]
+  },
+  "BlueArchive_ProblemSolver:Omamoribond": {
+    "NAME": "보답 받는 인연",
+    "DESCRIPTION": "아군이 아무에게 해로운 효과를 !M! 번 부여할때마다 카드를 !BlueArchive_ProblemSolver:M! 장 뽑습니다."
   }
 }

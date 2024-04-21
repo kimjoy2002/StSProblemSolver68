@@ -1,5 +1,7 @@
 package BlueArchive_ProblemSolver.patches.powers;
 
+import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.powers.AllApplyedPower;
 import BlueArchive_ProblemSolver.powers.OnApplyedPower;
 import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -10,6 +12,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
+
+import java.util.ArrayList;
 
 public class GloomyPastPatch {
 
@@ -25,6 +29,11 @@ public class GloomyPastPatch {
             if (__instance.target != null && !__instance.target.isDeadOrEscaped()) {
                 if (duration == startingDuration) {
                     if (!(powerToApply instanceof NoDrawPower && __instance.target.hasPower(powerToApply.ID))) {
+                         ArrayList<AbstractPower> list_ = ProblemSolver68.getAllPowerForProblem68(AllApplyedPower.class);
+                         for(AbstractPower power_ : list_) {
+                             ((AllApplyedPower)power_).AllApplyed(powerToApply, __instance.target, __instance.source);
+                         }
+
                         for(AbstractPower power_ : __instance.target.powers) {
                             if (power_ instanceof OnApplyedPower) {
                                 ((OnApplyedPower)power_).OnApplyed(powerToApply, __instance.target, __instance.source);

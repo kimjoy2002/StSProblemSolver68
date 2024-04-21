@@ -461,6 +461,30 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public static ArrayList<AbstractPower> getAllPowerForProblem68(Class power_class) {
+        ArrayList<AbstractPower> getList = new ArrayList<AbstractPower>();
+        if(!(AbstractDungeon.player instanceof ProblemSolver68)) {
+            for(AbstractPower power_ : AbstractDungeon.player.powers) {
+                if(power_class.isInstance(power_)) {
+                    getList.add(power_);
+                }
+            }
+        }
+        else {
+            for (ProblemSolver68 ps : problemSolverPlayer) {
+                if(ps.currentHealth > 0) {
+                    for(AbstractPower power_ : ps.powers) {
+                        if(power_class.isInstance(power_)) {
+                            getList.add(power_);
+                        }
+                    }
+                }
+            }
+        }
+        return getList;
+    }
+
+
     public static boolean hasCharacter(Aru.ProblemSolver68Type problemSolverType) {
         if(!(AbstractDungeon.player instanceof ProblemSolver68)) {
             return false;
