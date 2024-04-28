@@ -236,5 +236,12 @@
       " 번 부여할때마다 카드를 #b",
       " 장 뽑습니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:SupportShotPower": {
+    "NAME": "지원 사격",
+    "DESCRIPTIONS": [
+      "다른 아군이 #y공격 카드를 사용하면 #b",
+      " 의 피해를 줍니다."
+    ]
   }
 }

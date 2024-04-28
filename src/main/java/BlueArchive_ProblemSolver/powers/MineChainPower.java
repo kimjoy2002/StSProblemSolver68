@@ -63,7 +63,7 @@ public class MineChainPower extends AbstractPower implements CloneablePowerInter
 
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!card.purgeOnUse && this.amount > 0 && AbstractDungeon.player.hand.contains(card)) {
+        if (!card.purgeOnUse && this.amount > 0 && AbstractDungeon.player.hand.contains(card) && !(card instanceof MutsukiMine)) {
             this.flash();
             int index_ = AbstractDungeon.player.hand.group.indexOf(card);
             this.addToTop(new MakeTempCardInHandIndexAction(new MutsukiMine(), amount, index_));

@@ -37,8 +37,13 @@
     "DESCRIPTION": "모든 아군이 방어도를 !B! 얻습니다. NL 이번 턴 공격을 받을때마다 공격받는 대상이 다른 대상으로 바뀝니다."
   },
   "BlueArchive_ProblemSolver:DoubleTab": {
-    "NAME": "더블탭",
-    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다."
+    "NAME": "더블 탭",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL *두번째 *사격 카드를 1장 얻습니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL *두번째 *사격+ 카드를 1장 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:SecondTab": {
+    "NAME": "두번째 사격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:DiningTogether": {
     "NAME": "회식",
@@ -308,7 +313,7 @@
   },
   "BlueArchive_ProblemSolver:ShieldOfProblemSolver": {
     "NAME": "흥신소의 방패",
-    "DESCRIPTION": "이번 턴 동안 다른 캐릭터가 카드를 사용할때마다 방어도를 !M! 얻습니다."
+    "DESCRIPTION": "이번 턴 동안 다른 아군이 카드를 사용할때마다 방어도를 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:Snipe": {
     "NAME": "저격",
@@ -451,7 +456,7 @@
   },
   "BlueArchive_ProblemSolver:MineChain": {
     "NAME": "지뢰 연쇄",
-    "DESCRIPTION": "이번 턴 동안, 아군이 손에서 카드를 사용하면 사용한 위치에 *지뢰 카드를 얻습니다."
+    "DESCRIPTION": "이번 턴 동안, 아군이 손에서 *지뢰 카드가 아닌 카드를 사용하면 사용한 위치에 *지뢰 카드를 얻습니다."
   },
   "BlueArchive_ProblemSolver:TacticalChallengePS68": {
     "NAME": "전술대항전 - 흥신소68",
@@ -526,5 +531,13 @@
   "BlueArchive_ProblemSolver:Omamoribond": {
     "NAME": "보답 받는 인연",
     "DESCRIPTION": "아군이 아무에게 해로운 효과를 !M! 번 부여할때마다 카드를 !BlueArchive_ProblemSolver:M! 장 뽑습니다."
+  },
+  "BlueArchive_ProblemSolver:KayokoKick": {
+    "NAME": "무기 쳐내기",
+    "DESCRIPTION": "선천성. NL 피해를 !D! 줍니다. NL 적의 인공물을 제거합니다. NL 약화를 !M! 부여합니다."
+  },
+  "BlueArchive_ProblemSolver:SupportShot": {
+    "NAME": "지원 사격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 턴 동안 다른 아군이 공격 카드를 사용할때마다 반복합니다."
   }
 }
