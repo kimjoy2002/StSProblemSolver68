@@ -325,7 +325,7 @@
   },
   "BlueArchive_ProblemSolver:QuietPressure": {
     "NAME": "조용한 위압",
-    "DESCRIPTION": "적의 힘을 이번 턴 동안 !M! 낮춥니다. NL BlueArchive_ProblemSolver:공포를 !BlueArchive_ProblemSolver:M! 부여합니다. NL 소멸."
+    "DESCRIPTION": "적의 힘을 이번 턴 동안 !M! 낮춥니다. NL BlueArchive_ProblemSolver:공포를 !BlueArchive_ProblemSolver:M! 부여합니다."
   },
   "BlueArchive_ProblemSolver:ButIllDoMyBest": {
     "NAME": "히, 힘내겠습니다!",
@@ -360,7 +360,7 @@
     "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다."
   },
   "BlueArchive_ProblemSolver:FocusonAttack": {
-    "NAME": "공격 중시",
+    "NAME": "공격은 최선의 방어",
     "DESCRIPTION": "더 이상 방어도를 얻을 수 없게되는 대신 그 만큼 무작위 적에게 피해를 줍니다."
   },
   "BlueArchive_ProblemSolver:AlertButton": {
@@ -530,7 +530,7 @@
   },
   "BlueArchive_ProblemSolver:Omamoribond": {
     "NAME": "보답 받는 인연",
-    "DESCRIPTION": "아군이 아무에게 해로운 효과를 !M! 번 부여할때마다 카드를 !BlueArchive_ProblemSolver:M! 장 뽑습니다."
+    "DESCRIPTION": "아군이 아무에게 부정적인 효과를 !M! 번 부여할때마다 카드를 !BlueArchive_ProblemSolver:M! 장 뽑습니다."
   },
   "BlueArchive_ProblemSolver:KayokoKick": {
     "NAME": "무기 쳐내기",

@@ -36,9 +36,9 @@ public class QuietPressure extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int MAGIC = 7;
+    private static final int MAGIC = 4;
     private static final int UPGRADE_PLUS_MAGIC = 2;
-    private static final int MAGIC2 = 7;
+    private static final int MAGIC2 = 4;
     private static final int UPGRADE_PLUS_MAGIC2 = 2;
 
 
@@ -47,7 +47,6 @@ public class QuietPressure extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = MAGIC;
         baseSecondMagicNumber = secondMagicNumber = MAGIC2;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO);
-        exhaust = true;
     }
 
     // Actions the card should do.
