@@ -18,7 +18,7 @@ public class ImpAction extends AbstractGameAction {
     public void update() {
         if(AbstractDungeon.player instanceof ProblemSolver68 && amount > 0) {
             for(ProblemSolver68 p : ProblemSolver68.problemSolverPlayer) {
-                if(p.solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI) {
+                if(p.currentHealth > 0 &&  p.solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ImpPower(p, amount), amount));
                 }
             }

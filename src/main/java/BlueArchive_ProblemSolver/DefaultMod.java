@@ -54,6 +54,8 @@ import BlueArchive_ProblemSolver.util.TextureLoader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -521,14 +523,21 @@ public class DefaultMod implements
             AbstractDungeon.gridSelectScreen.open(choosePS68, 1, false, CardCrawlGame.languagePack.getUIString("BlueArchive_ProblemSolver:CharSelectAction").TEXT[0]);
         }
         if (AbstractDungeon.player instanceof Aru && DefaultMod.pureRandomMode) {
-            choosePS68 = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            choosePS68.addToRandomSpot(new ChooseAru());
-            choosePS68.addToRandomSpot(new ChooseMutsuki());
-            choosePS68.addToRandomSpot(new ChooseKayoko());
-            choosePS68.addToRandomSpot(new ChooseHaruka());
-            choosePS68.getTopCard().onChoseThisOption();
-            choosePS68.removeTopCard();
-            choosePS68.getTopCard().onChoseThisOption();
+            ArrayList<AbstractCard> cards = new ArrayList<AbstractCard>();
+            cards.add(new ChooseAru());
+            cards.add(new ChooseMutsuki());
+            cards.add(new ChooseKayoko());
+            cards.add(new ChooseHaruka());
+            Collections.shuffle(cards, new java.util.Random(AbstractDungeon.miscRng.randomLong()));
+            if((cards.get(0) instanceof ChooseMutsuki && cards.get(1) instanceof ChooseAru)  ||
+                    (cards.get(0) instanceof ChooseKayoko && (cards.get(1) instanceof ChooseAru || cards.get(1) instanceof ChooseMutsuki)) ||
+                    (cards.get(0) instanceof ChooseHaruka)) {
+                cards.get(1).onChoseThisOption();
+                cards.get(0).onChoseThisOption();
+            } else {
+                cards.get(0).onChoseThisOption();
+                cards.get(1).onChoseThisOption();
+            }
             AbstractDungeon.topLevelEffectsQueue.add(new SaveEffect());
         }
     }

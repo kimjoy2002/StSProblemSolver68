@@ -9,6 +9,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class CreateTacticalChallengeAction extends AbstractGameAction {
     boolean upgrade;
     public CreateTacticalChallengeAction(boolean upgrade) {
@@ -20,18 +23,19 @@ public class CreateTacticalChallengeAction extends AbstractGameAction {
     public void update() {
         CardGroup cardGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
-        cardGroup.addToRandomSpot(new TacticalChallengeAru());
-        cardGroup.addToRandomSpot(new TacticalChallengeMutsuki());
-        cardGroup.addToRandomSpot(new TacticalChallengeKayoko());
-        cardGroup.addToRandomSpot(new TacticalChallengeHaruka());
+        ArrayList<AbstractCard> cards = new ArrayList<AbstractCard>();
+        cards.add(new TacticalChallengeAru());
+        cards.add(new TacticalChallengeMutsuki());
+        cards.add(new TacticalChallengeKayoko());
+        cards.add(new TacticalChallengeHaruka());
+        Collections.shuffle(cards, new java.util.Random(AbstractDungeon.miscRng.randomLong()));
 
         if(!upgrade) {
-            cardGroup.removeTopCard();
+            cards.remove(3);
         }
 
 
-        while(cardGroup.size()>0) {
-            AbstractCard card = cardGroup.getTopCard();
+        for(AbstractCard card : cards) {
             card.setCostForTurn(0);
 
             card.current_x = -1000.0F * Settings.xScale;
@@ -40,7 +44,6 @@ public class CreateTacticalChallengeAction extends AbstractGameAction {
             } else {
                 AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(card, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
             }
-            cardGroup.removeTopCard();
         }
 
 

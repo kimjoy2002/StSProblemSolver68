@@ -132,9 +132,8 @@
   },
   "BlueArchive_ProblemSolver:LeadersDignity": {
     "NAME": "리더의 품격",
-    "DESCRIPTION": "*아루만 사용 가능합니다. NL 모든 아군이 힘 !M! 과 방어도를 !B! 얻습니다. NL 소멸.",
+    "DESCRIPTION": "모든 아군이 힘 !M! 과 방어도를 !B! 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
-      "이 카드는 아루만 사용할 수 있어",
       "자, 일할 시간이야!"
     ]
   },

@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.ApplyPowerToAllAllyAction;
 import BlueArchive_ProblemSolver.actions.GainBlockToAllAllyAction;
+import BlueArchive_ProblemSolver.actions.SolverTalkAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.ChangeWhenHitPower;
@@ -53,7 +54,13 @@ public class LeadersDignity extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, cardStrings.EXTENDED_DESCRIPTION[1], 2.0F, 2.0F));
+        if(p instanceof ProblemSolver68) {
+            for(ProblemSolver68 ps :  ProblemSolver68.problemSolverPlayer) {
+                if(ps.solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU && ps.currentHealth > 0) {
+                    AbstractDungeon.actionManager.addToBottom(new SolverTalkAction(ps, cardStrings.EXTENDED_DESCRIPTION[0], 2.0F, 2.0F));
+                }
+            }
+        }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerToAllAllyAction(new StrengthPower(AbstractDungeon.player, magicNumber)));
         AbstractDungeon.actionManager.addToBottom(new GainBlockToAllAllyAction(block));
     }
@@ -67,15 +74,5 @@ public class LeadersDignity extends AbstractDynamicCard {
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
-    }
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(!(p instanceof ProblemSolver68) ||
-                ((ProblemSolver68) p).solverType != Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU){
-
-            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            return false;
-        }
-        return super.canUse(p,m);
     }
 }

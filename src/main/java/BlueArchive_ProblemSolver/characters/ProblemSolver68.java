@@ -40,14 +40,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.BackAttackPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.SurroundedPower;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
@@ -66,6 +64,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static final float PROBLEM_SOLVER_WIDTH = 120.0F;
     public static final float PROBLEM_SOLVER_HEIGHT = 290.0F;
     public static final float PROBLEM_SOLVER_INTERVAL = 200.0F;
+    private static final float POWER_ICON_PADDING_Y;
     public static final int MAX_CHARACTER_NUM = 4;
     public static final ArrayList<ProblemSolver68> problemSolverPlayer = new ArrayList<>();
     public static final ArrayList<ProblemSolver68> dyingPlayer = new ArrayList<>();
@@ -802,7 +801,48 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         super.renderPlayerBattleUi(sb);
     }
 
+    @SpireOverride
+    protected void renderPowerIcons(SpriteBatch sb, float x, float y) {
+        float offset = 10.0F * Settings.scale;
+        float POWER_ICON_PADDING_X = (float) ReflectionHacks.getPrivate(this, AbstractCreature.class, "POWER_ICON_PADDING_X");
+
+        Color hbTextColor = (Color) ReflectionHacks.getPrivate(this, AbstractCreature.class, "hbTextColor");
+
+        Iterator var5;
+        AbstractPower p;
+        int count = 0;
+        float x_origin_offset= offset;
+
+        float offset_y = Settings.isMobile?(y - 53.0F * Settings.scale):(y - 48.0F * Settings.scale);
+        for(var5 = this.powers.iterator(); var5.hasNext(); offset += POWER_ICON_PADDING_X) {
+            if(count++ >= 4) {
+                offset = x_origin_offset;
+                offset_y -= POWER_ICON_PADDING_Y;
+                count = 0;
+            }
+            p = (AbstractPower)var5.next();
+            p.renderIcons(sb, x + offset, offset_y, hbTextColor);
+        }
+
+        offset = 0.0F * Settings.scale;
+        count = 0;
+        x_origin_offset= offset;
+        offset_y = Settings.isMobile?y - 75.0F * Settings.scale:y - 66.0F * Settings.scale;
+        for(var5 = this.powers.iterator(); var5.hasNext(); offset += POWER_ICON_PADDING_X) {
+            if(count++ >= 4) {
+                offset = x_origin_offset;
+                offset_y -= POWER_ICON_PADDING_Y;
+                count = 0;
+            }
+            p = (AbstractPower)var5.next();
+            p.renderAmount(sb, x + offset + 32.0F * Settings.scale, offset_y, hbTextColor);
+        }
+
+    }
+
+
     public void preBattlePrep() {
+        AbstractDungeon.player = getRandomMember(null, false, false);
         super.preBattlePrep();
         for (ProblemSolver68 p : problemSolverPlayer) {
             if(p != this) {
@@ -810,10 +850,26 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 p.isEndingTurn = false;
                 p.endTurnQueued = false;
                 p.healthBarUpdatedEvent();
+                if (ModHelper.isModEnabled("Lethality")) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 3), 3));
+                }
+
+                if (ModHelper.isModEnabled("Terminal")) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PlatedArmorPower(p, 5), 5));
+                }
             }
         }
         PowerForSubPatch.prevCharacter = this;
     }
+
+
+//    public void applyPreCombatLogic() {
+//        super.preBattlePrep();
+//
+//        this.addToTop(new ChangeCharacterAction());
+//    }
+
+
     public static void battleStartEffectForProblemSolver68(AbstractPlayer exclude) {
         for (ProblemSolver68 p : problemSolverPlayer) {
             if (p != exclude) {
@@ -1101,4 +1157,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
     //-----여기서부터 인풋 함수끝---------
 
+    static {
+        POWER_ICON_PADDING_Y = Settings.isMobile ? 45.0F * Settings.scale : 38.0F * Settings.scale;
+    }
 }
