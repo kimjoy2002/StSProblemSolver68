@@ -27,7 +27,7 @@ public class SolverTalkAction extends AbstractGameAction {
 
     public void update() {
         if (!this.used) {
-            AbstractDungeon.effectList.add(new SpeechBubble(this.source.hb.cX + this.source.dialogX, this.source.hb.cY + this.source.dialogY, this.bubbleDuration, this.msg, true));
+            AbstractDungeon.effectList.add(new SpeechBubble(this.source.dialogX, this.source.dialogY, this.bubbleDuration, this.msg, true));
             this.used = true;
         }
 

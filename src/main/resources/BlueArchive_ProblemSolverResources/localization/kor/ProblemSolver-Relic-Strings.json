@@ -29,7 +29,7 @@
   },
   "BlueArchive_ProblemSolver:TNTRelic": {
     "NAME": "TNT",
-    "FLAVOR": "걱정마세요. 키보토스에서 사용자는 안전합니다!",
+    "FLAVOR": "걱정마세요. 키보토스에선 자고 일어나면 낫습니다!",
     "DESCRIPTIONS": [
       "아군이 죽을때마다 모든 적에게 피해를 #r",
       " 줍니다."
@@ -41,6 +41,13 @@
     "DESCRIPTIONS": [
       "매 턴 시작 시 에너지를 1 추가로 얻습니다. 캐릭터 수동 교체가 매 턴 #r",
       " 번으로 제한됩니다. NL (카드 사용전까진 교체로 취급하지않습니다.)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:BottleSetRelic": {
+    "NAME": "물병 세트",
+    "FLAVOR": "흥신소에서 돈을 모아서 세트로 싸게 구매한 물병 세트",
+    "DESCRIPTIONS": [
+      "아군에게 적용되는 포션이 아군 캐릭터 모두에게 적용됩니다."
     ]
   }
 }

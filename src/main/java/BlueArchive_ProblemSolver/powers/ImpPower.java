@@ -2,13 +2,16 @@ package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.ImpFixedAction;
+import BlueArchive_ProblemSolver.actions.UnwelcomeSchoolAction;
 import BlueArchive_ProblemSolver.cards.ImpChorus;
+import BlueArchive_ProblemSolver.cards.ImpMine;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -27,7 +30,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class ImpPower extends AbstractPower implements CloneablePowerInterface, ForSubPower {
+public class ImpPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = DefaultMod.makeID("ImpPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -55,22 +58,17 @@ public class ImpPower extends AbstractPower implements CloneablePowerInterface, 
         updateDescription();
     }
 
+    public void atStartOfTurn() {
+        this.flash();
+        this.addToBot(new MakeTempCardInHandAction(new ImpMine(amount), 1));
+        this.addToBot(new ReducePowerAction(this.owner, this.owner, this, 1));
+    }
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
-    public float atDamageGiveForSub(float damage, AbstractCard card, DamageInfo.DamageType type) {
-        return (type == DamageInfo.DamageType.NORMAL && !(card instanceof ImpChorus )) ? damage + (float)this.amount : damage;
-    }
-
-    public void onUseCardForSub(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK && !owner.hasPower(FixedImpPower.POWER_ID)) {
-            this.flash();
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, this, 1));
-        }
-    }
 
     @Override
     public AbstractPower makeCopy() {

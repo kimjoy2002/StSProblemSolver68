@@ -718,8 +718,17 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
-    public void render(SpriteBatch sb) {
+    @Override
+    public void combatUpdate() {
+        super.combatUpdate();
+        for (ProblemSolver68 ps : problemSolverPlayer) {
+            if(ps != AbstractDungeon.player) {
+                ps.stance.update();
+            }
+        }
+    }
 
+    public void render(SpriteBatch sb) {
         if (!(AbstractDungeon.getCurrRoom() instanceof RestRoom)) {
             for (ProblemSolver68 p : problemSolverPlayer) {
                 p.render_(sb);

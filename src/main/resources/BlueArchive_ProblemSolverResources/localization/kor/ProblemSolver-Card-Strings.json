@@ -243,7 +243,7 @@
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "소악마의 코러스",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:소악마 하나당 피해를 !D! 줍니다. 이 카드는 BlueArchive_ProblemSolver:소악마에 의해 피해량이 오르지 않습니다.",
+    "DESCRIPTION": "*무츠키가 가진 BlueArchive_ProblemSolver:소악마 하나당 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
       "난 소악마가 아니야.",
       " NL (",
@@ -428,6 +428,11 @@
   "BlueArchive_ProblemSolver:MutsukiMine": {
     "NAME": "지뢰",
     "DESCRIPTION": "보존. 소멸. NL 양 옆의 카드가 사용되면 버려집니다. NL 이 카드가 버려지면 무작위 적에게 피해를 !M! 주고 소멸합니다."
+  },
+  "BlueArchive_ProblemSolver:ImpMine": {
+    "NAME": "지뢰",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:MineField": {
     "NAME": "지뢰밭",

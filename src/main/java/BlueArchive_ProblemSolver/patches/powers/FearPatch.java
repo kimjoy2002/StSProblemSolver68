@@ -5,6 +5,7 @@ import BlueArchive_ProblemSolver.patches.AbstractMonsterPatch;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
 import BlueArchive_ProblemSolver.powers.FearPower;
 import BlueArchive_ProblemSolver.powers.OnUsePotionPower;
+import BlueArchive_ProblemSolver.relics.OnUsePotionRelic;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.monsters.ending.SpireShield;
 import com.megacrit.cardcrawl.monsters.ending.SpireSpear;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
 import javassist.CtBehavior;
@@ -85,6 +87,12 @@ public class FearPatch {
                         ((OnUsePotionPower)power_).OnUsePotion(potion, target);
                     }
                 }
+            }
+        }
+
+        for(AbstractRelic relic_ : AbstractDungeon.player.relics) {
+            if(relic_ instanceof OnUsePotionRelic) {
+                ((OnUsePotionRelic)relic_).OnUsePotion(potion, target);
             }
         }
 

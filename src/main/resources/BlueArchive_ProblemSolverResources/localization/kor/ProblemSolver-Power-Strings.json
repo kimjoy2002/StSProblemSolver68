@@ -22,8 +22,8 @@
   "BlueArchive_ProblemSolver:ImpPower": {
     "NAME": "소악마",
     "DESCRIPTIONS": [
-      "아군이 #y공격 카드를 사용할때 그 피해량을 #g",
-      " 증가시키고 수치가 1 감소합니다."
+      "턴이 시작할때마다 #r",
+      " 피해를 주는 비용0 소멸 #y지뢰 카드를 얻고 수치가 1씩 감소합니다."
     ]
   },
   "BlueArchive_ProblemSolver:CaliforniaGurlsPower": {
