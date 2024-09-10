@@ -81,11 +81,7 @@ public class CheckFearAction extends AbstractGameAction {
                     return;
                 }
             }
-            if(owner.id == "Darkling") {
-                AbstractDungeon.actionManager.addToBottom(new InstantKillAction(owner));
-            } else {
-                AbstractDungeon.actionManager.addToBottom(new FearEscapeAction((AbstractMonster)owner));
-            }
+            AbstractDungeon.actionManager.addToBottom(new FearEscapeAction((AbstractMonster)owner));
         }
         this.isDone = true;
     }

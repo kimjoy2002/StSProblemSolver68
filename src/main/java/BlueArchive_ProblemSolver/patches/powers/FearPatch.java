@@ -63,6 +63,8 @@ public class FearPatch {
                 if(__instance.getPower(FearPower.POWER_ID).amount >= __instance.currentHealth) {
                     __instance.escaped = false;
                     __instance.isDead = true;
+                    __instance.isDying = true;
+                    __instance.currentHealth = 0;
                 }
             }
         }

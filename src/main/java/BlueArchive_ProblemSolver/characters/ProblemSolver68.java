@@ -72,6 +72,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     private static final Texture SELECTED_IMG = TextureLoader.getTexture(makeCharPath("select.png"));
     public static ProblemSolverSave savedata;
     private boolean enabled = false;
+    private static boolean inDamageAll = false;
     private static boolean changeCharacter = false;
     private boolean isDisabled = false;
     private boolean isHovered = false;
@@ -229,10 +230,15 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         return AbstractDungeon.player.getLocalizedCharacterName();
     }
     public static void damageAll(int dmg) {
+        inDamageAll = true;
         for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
             if(AbstractDungeon.player != ps) {
                 ps.damage(new DamageInfo((AbstractCreature) null, dmg, DamageInfo.DamageType.HP_LOSS));
             }
+        }
+        inDamageAll = false;
+        if(AbstractDungeon.player.currentHealth <= 0) {
+            changeToRandomCharacter();
         }
     }
 
@@ -994,8 +1000,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
     public static void changeToRandomCharacter() {
         AbstractPlayer p = getRandomMember(null, true, false);
-        if(p != null) {
-            AbstractDungeon.actionManager.addToTop(new ChangeCharacterAction(p));
+        if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            if(p != null) {
+                AbstractDungeon.actionManager.addToTop(new ChangeCharacterAction(p));
+            }
+        } else if(!inDamageAll) {
+            AbstractDungeon.player = p;
         }
     }
 

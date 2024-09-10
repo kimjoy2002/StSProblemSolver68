@@ -34,12 +34,35 @@ public class FearEscapeAction extends AbstractGameAction {
             boolean is_gremlin_leader = (source instanceof GremlinLeader);
 
             while(var2.hasNext()) {
-                m = (AbstractMonster)var2.next();
-                if (!m.isEscaping && !m.isDying) {
-                    if(m.currentHealth > 0 &&
-                            (m.hasPower(FearPower.POWER_ID) ? m.getPower(FearPower.POWER_ID).amount < m.currentHealth: true) &&
-                            (!m.hasPower(MinionPower.POWER_ID) && !is_gremlin_leader)) {
+                AbstractMonster m_ = (AbstractMonster)var2.next();
+                if (!m_.isEscaping && !m_.isDying) {
+                    if(m_.currentHealth > 0 &&
+                            (m_.hasPower(FearPower.POWER_ID) ? m_.getPower(FearPower.POWER_ID).amount < m_.currentHealth: true) &&
+                            (!m_.hasPower(MinionPower.POWER_ID) && !is_gremlin_leader)) {
                         all_minion = false;
+                    }
+                }
+            }
+            if(m.id == "Darkling") {
+                m.halfDead = true;
+                all_minion = true;
+                var2 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+                while(var2.hasNext()) {
+                    AbstractMonster m_ = (AbstractMonster)var2.next();
+                    if (m_.id.equals("Darkling") && !m_.halfDead) {
+                        all_minion = false;
+                    }
+                }
+                if(all_minion) {
+                    AbstractDungeon.getCurrRoom().cannotLose = false;
+
+                    var2 = AbstractDungeon.getMonsters().monsters.iterator();
+
+                    while(var2.hasNext()) {
+                        AbstractMonster m_ = (AbstractMonster)var2.next();
+                        if (m_.id.equals("Darkling")) {
+                            m_.die();
+                        }
                     }
                 }
             }
@@ -48,18 +71,18 @@ public class FearEscapeAction extends AbstractGameAction {
             if(all_minion) {
                 var2 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
                 while(var2.hasNext()) {
-                    m = (AbstractMonster) var2.next();
-                    if (!m.isEscaping && !m.isDying) {
-                        if (m.currentHealth > 0 && (m.hasPower(MinionPower.POWER_ID) || is_gremlin_leader)) {
+                    AbstractMonster m_ = (AbstractMonster) var2.next();
+                    if (!m_.isEscaping && !m_.isDying) {
+                        if (m_.currentHealth > 0 && (m_.hasPower(MinionPower.POWER_ID) || is_gremlin_leader)) {
                             if(is_gremlin_leader) {
                                 if (first) {
-                                    AbstractDungeon.actionManager.addToBottom(new ShoutAction(m, DIALOG[3], 0.5F, 1.2F));
+                                    AbstractDungeon.actionManager.addToBottom(new ShoutAction(m_, DIALOG[3], 0.5F, 1.2F));
                                     first = false;
                                 } else {
-                                    AbstractDungeon.actionManager.addToBottom(new ShoutAction(m, DIALOG[4], 0.5F, 1.2F));
+                                    AbstractDungeon.actionManager.addToBottom(new ShoutAction(m_, DIALOG[4], 0.5F, 1.2F));
                                 }
                             }
-                            AbstractDungeon.actionManager.addToBottom(new EscapeAction(m));
+                            AbstractDungeon.actionManager.addToBottom(new EscapeAction(m_));
                         }
                     }
                 }
