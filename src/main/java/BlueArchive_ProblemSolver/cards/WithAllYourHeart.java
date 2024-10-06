@@ -1,13 +1,17 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.KeepEnergyAction;
 import BlueArchive_ProblemSolver.characters.Aru;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.ArrayList;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
@@ -46,11 +50,16 @@ public class WithAllYourHeart extends FinishCard {
     }
 
     @Override
-    public void onFinish(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
-        exhaust = true;
+    public ArrayList<AbstractGameAction> onFinish(AbstractPlayer p, AbstractMonster m) {
+        ArrayList<AbstractGameAction> temp = new ArrayList<AbstractGameAction>();
+        temp.add(new GainEnergyAction(magicNumber));
+        temp.add(new KeepEnergyAction(magicNumber));
+        temp.add(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
+        return temp;
     }
+    public String getFinishString(){
+        return upgraded?cardStrings.EXTENDED_DESCRIPTION[1]:cardStrings.EXTENDED_DESCRIPTION[0];
+    };
     //Upgraded stats.
     @Override
     public void upgrade() {

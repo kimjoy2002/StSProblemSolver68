@@ -39,7 +39,7 @@ public class CuteImpScheme extends AbstractDynamicCard {
 
     private static final int COST = 1;
     public static final int MAGIC = 3;
-    private static final int UPGRADE_PLUS_MAGIC = 1;
+    private static final int UPGRADE_PLUS_MAGIC = 2;
 
     public CuteImpScheme() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

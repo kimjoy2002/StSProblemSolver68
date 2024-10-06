@@ -5,8 +5,12 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.ArrayList;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
@@ -14,6 +18,7 @@ public class RemoteBomb extends FinishCard {
 
     public static final String ID = DefaultMod.makeID(RemoteBomb.class.getSimpleName());
     public static final String IMG = makeCardPath("RemoteBomb.png");
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -44,9 +49,14 @@ public class RemoteBomb extends FinishCard {
     }
 
     @Override
-    public void onFinish(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
+    public ArrayList<AbstractGameAction> onFinish(AbstractPlayer p, AbstractMonster m) {
+        ArrayList<AbstractGameAction> temp = new ArrayList<AbstractGameAction>();
+        temp.add(new DrawCardAction(magicNumber));
+        return temp;
     }
+    public String getFinishString(){
+        return cardStrings.EXTENDED_DESCRIPTION[0];
+    };
     //Upgraded stats.
     @Override
     public void upgrade() {

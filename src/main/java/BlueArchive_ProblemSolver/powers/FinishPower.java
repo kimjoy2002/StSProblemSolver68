@@ -35,19 +35,15 @@ public class FinishPower extends AbstractPower implements CloneablePowerInterfac
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("FinishPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("FinishPower32.png"));
-    ArrayList<AbstractCard> cards;
+    ArrayList<AbstractGameAction> actions;
     String text;
-    public FinishPower(final AbstractCreature player, AbstractCard card, String text) {
-        this(player, new ArrayList(), text);
-        cards.add(card);
-    }
-    public FinishPower(final AbstractCreature player, ArrayList<AbstractCard> cards, String text) {
+    public FinishPower(final AbstractCreature player, ArrayList<AbstractGameAction> actions, String text) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = player;
-        this.cards = cards;
         this.text = text;
+        this.actions = actions;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -63,10 +59,8 @@ public class FinishPower extends AbstractPower implements CloneablePowerInterfac
     public void atEndOfTurn(boolean isPlayer) {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flash();
-            for (AbstractCard card : cards) {
-                if(card instanceof FinishCard && owner instanceof AbstractPlayer) {
-                    ((FinishCard)card).onFinish((AbstractPlayer)owner, null); //수정필요
-                }
+            for (AbstractGameAction action : actions) {
+                this.addToBot(action);
             }
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
@@ -81,7 +75,7 @@ public class FinishPower extends AbstractPower implements CloneablePowerInterfac
 
     @Override
     public AbstractPower makeCopy() {
-        return new FinishPower(owner, cards, text);
+        return new FinishPower(owner, actions, text);
     }
 
 }

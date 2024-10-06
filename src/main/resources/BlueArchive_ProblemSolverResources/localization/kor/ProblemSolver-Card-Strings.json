@@ -159,7 +159,10 @@
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
     "NAME": "트리거 오버",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL BlueArchive_ProblemSolver:마무리: 방어도를 !B! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 피해를 !M! 받습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 !M! 받습니다."
+    ]
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
     "NAME": "느와르 어택",
@@ -200,16 +203,23 @@
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "도발",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 이 캐릭터가 가진 방어도가 2배로 증가합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 이 캐릭터가 가진 방어도가 2배로 증가합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "이 캐릭터가 가진 방어도가 2배로 증가합니다."
+    ]
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
     "NAME": "측면 공격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:마무리: 취약을 !M! 부여합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 취약을 !BlueArchive_ProblemSolver:M! 부여합니다. NL BlueArchive_ProblemSolver:마무리: 추가로 약화를 !M! 부여합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "약화를 !M! 부여합니다."
+    ]
   },
   "BlueArchive_ProblemSolver:PumpPanning": {
     "NAME": "펌프패닝",
     "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:마무리: 이번 전투 동안 공격 횟수가 1 증가하고 뽑을 카드 더미에 섞어넣습니다.",
     "EXTENDED_DESCRIPTION": [
+      "펌프패닝의 공격 횟수가 1 증가하고 뽑을 카드 더미에 섞어넣습니다.",
       "피해를 !D! 만큼 !M! 번 줍니다. NL BlueArchive_ProblemSolver:마무리: 이번 전투 동안 공격 횟수가 1 증가하고 뽑을 카드 더미에 섞어넣습니다."
     ]
   },
@@ -243,7 +253,7 @@
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "소악마의 코러스",
-    "DESCRIPTION": "*무츠키가 가진 BlueArchive_ProblemSolver:소악마 하나당 피해를 !D! 줍니다.",
+    "DESCRIPTION": "아군의 BlueArchive_ProblemSolver:소악마를 전부 제거합니다. 제거한 소악마 하나당 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
       "난 소악마가 아니야.",
       " NL (",
@@ -376,11 +386,14 @@
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "기폭 장치",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 뽑을 카드 더미에 있는 비용이 0인 카드 !M! 장을 뽑습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 뽑을 카드 더미에 있는 비용이 0인 무작위 카드 !M! 장을 뽑습니다."
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "원격 폭탄",
-    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 소멸. NL BlueArchive_ProblemSolver:마무리: 카드를 !M! 장 뽑습니다."
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 소멸. NL BlueArchive_ProblemSolver:마무리: 카드를 !M! 장 뽑습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "카드를 !M! 장 뽑습니다."
+    ]
   },
   "BlueArchive_ProblemSolver:BuildingBomb": {
     "NAME": "건물 폭탄 설치",
@@ -393,17 +406,20 @@
   },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "맹습",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 손에 있는 모든 BlueArchive_ProblemSolver:마무리 카드의 BlueArchive_ProblemSolver:마무리 효과를 발동합니다."
+    "DESCRIPTION": "이번 턴동안 BlueArchive_ProblemSolver:마무리 효과는 카드 사용 즉시 발동합니다."
   },
   "BlueArchive_ProblemSolver:WithAllYourHeart": {
     "NAME": "모두를 위한 마음",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: [E] [E] 를 얻습니다. 이 카드가 소멸합니다.",
-    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: [E] [E] [E] 를 얻습니다. 이 카드가 소멸합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 다음 턴까지 유지되는 [E] [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 다음 턴까지 유지되는 [E] [E] [E] 를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "다음 턴까지 유지되는 [E] [E] 를 얻습니다.",
+      "다음 턴까지 유지되는 [E] [E] [E] 를 얻습니다."
+    ]
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
     "NAME": "확실하게 인사하기",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드의 BlueArchive_ProblemSolver:마무리 효과가 항상 발동합니다.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드 2장의 BlueArchive_ProblemSolver:마무리 효과가 항상 발동합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 현재 아군이 준비중인 BlueArchive_ProblemSolver:마무리 효과를 미리 발동하고 제거합니다."
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "잡입행동",
@@ -516,7 +532,7 @@
     "NAME": "해결사의 형상",
     "DESCRIPTION": "턴을 시작할때마다 *아루는 [E] , *카요코는 카드 !M! 장, *무츠키는 힘을 !BlueArchive_ProblemSolver:M!, *하루카는 민첩을 !BlueArchive_ProblemSolver:M2! 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-       "BlueArchive_ProblemSolver:fixerform"
+       "BlueArchive_ProblemSolver:__fixerform__"
     ]
   },
   "BlueArchive_ProblemSolver:AttractAttention": {

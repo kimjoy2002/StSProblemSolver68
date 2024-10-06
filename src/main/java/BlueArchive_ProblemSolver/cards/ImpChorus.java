@@ -1,9 +1,11 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.RemovePowerToAllAllyAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.ImpPower;
+import BlueArchive_ProblemSolver.powers.TauntPower;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -38,7 +40,7 @@ public class ImpChorus extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 5;
     private static final int UPGRADE_PLUS_DMG = 2;
     public ImpChorus() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -47,27 +49,41 @@ public class ImpChorus extends AbstractDynamicCard {
     }
 
 
-    public int getImpCount(AbstractPlayer p) {
-        return p.hasPower(ImpPower.POWER_ID)?p.getPower(ImpPower.POWER_ID).amount:0;
+    public int getImpCount() {
+        int impcount = 0;
+        if(AbstractDungeon.player instanceof ProblemSolver68) {
+            for(AbstractPlayer ps : ProblemSolver68.problemSolverPlayer) {
+                if(ps.hasPower(ImpPower.POWER_ID)) {
+                    impcount+=ps.getPower(ImpPower.POWER_ID).amount;
+                }
+            }
+
+        } else {
+            if(AbstractDungeon.player.hasPower(ImpPower.POWER_ID)) {
+                impcount+=AbstractDungeon.player.getPower(ImpPower.POWER_ID).amount;
+            }
+        }
+
+        return impcount;
     }
     // Actions the card should do.
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int count = getImpCount(p);
+        int count = getImpCount();
         for (int i = 0 ; i < count; i++) {
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                             AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
+        AbstractDungeon.actionManager.addToBottom(new RemovePowerToAllAllyAction(ImpPower.POWER_ID));
     }
 
 
     public void applyPowers() {
         super.applyPowers();
-        if(AbstractDungeon.player instanceof ProblemSolver68 &&
-                ((ProblemSolver68) AbstractDungeon.player).solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI) {
-            int count = getImpCount(AbstractDungeon.player);
+        int count = getImpCount();
+        if(count > 0) {
             this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1] + count + cardStrings.EXTENDED_DESCRIPTION[2];
         } else {
             this.rawDescription = cardStrings.DESCRIPTION;
@@ -90,9 +106,8 @@ public class ImpChorus extends AbstractDynamicCard {
         initializeDescription();
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(!(p instanceof ProblemSolver68) ||
-                ((ProblemSolver68) p).solverType != Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI){
-
+        int count = getImpCount();
+        if(count == 0){
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return false;
         }

@@ -14,16 +14,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class FinishAction extends AbstractGameAction {
     AbstractCard powerToCard;
 
-    AbstractPlayer player;
-    AbstractMonster monster;
+    ArrayList<AbstractGameAction> actions;
     String text;
-    public FinishAction(AbstractCard powerToCard, AbstractPlayer player, AbstractMonster monster, String text) {
+    public FinishAction(AbstractCard powerToCard, ArrayList<AbstractGameAction> actions, String text) {
         this.powerToCard = powerToCard;
-        this.player = player;
-        this.monster = monster;
+        this.actions = actions;
         this.text = text;
         this.setValues(AbstractDungeon.player, AbstractDungeon.player, this.amount);
     }
@@ -45,7 +46,7 @@ public class FinishAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, FinishPower.POWER_ID));
             }
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new FinishPower(player, powerToCard, text)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FinishPower(AbstractDungeon.player, actions, text)));
         this.isDone = true;
     }
 }

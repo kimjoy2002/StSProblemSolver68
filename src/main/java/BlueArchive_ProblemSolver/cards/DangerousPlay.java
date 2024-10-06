@@ -33,7 +33,7 @@ public class DangerousPlay extends AbstractDynamicCard {
 
     private static final int COST = 1;
     public static final int MAGIC = 6;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 3;
 
     public DangerousPlay() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

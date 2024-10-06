@@ -2,7 +2,9 @@ package BlueArchive_ProblemSolver.actions;
 
 import BlueArchive_ProblemSolver.cards.PumpPanning;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.unique.DeckToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class PumpPanningAction extends AbstractGameAction {
     private AbstractCard card;
@@ -15,9 +17,13 @@ public class PumpPanningAction extends AbstractGameAction {
     public void update() {
         if(card != null) {
             card.baseMagicNumber++;
-            card.rawDescription = PumpPanning.cardStrings.EXTENDED_DESCRIPTION[0];
+            card.rawDescription = PumpPanning.cardStrings.EXTENDED_DESCRIPTION[1];
+
+            if(AbstractDungeon.player.discardPile.contains(this.card)) {
+                AbstractDungeon.player.discardPile.removeCard(this.card);
+                AbstractDungeon.player.drawPile.moveToDeck(this.card, true);
+            }
             card.initializeDescription();
-            card.shuffleBackIntoDrawPile = true;
         }
         this.isDone = true;
     }

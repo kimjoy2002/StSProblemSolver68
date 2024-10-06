@@ -12,6 +12,7 @@ public class GameActionManagerPatch {
     public static int tacticalChallengeCount = 0;
     public static int evildeedThisTurn = 0;
     public static int increaseMercenaryMaxHP = 0;
+    public static int keepEnergy = 0;
 
     @SpirePatch(
             clz = GameActionManager.class,
@@ -44,6 +45,7 @@ public class GameActionManagerPatch {
             deadThisCombat = 0;
             increaseMercenaryMaxHP = 0;
             tacticalChallengeCount = 0;
+            keepEnergy = 0;
         }
     }
 

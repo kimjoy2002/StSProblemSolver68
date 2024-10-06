@@ -516,6 +516,20 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         return hasPower_;
     }
 
+    public static void flashPower(String powerID) {
+        if (!(AbstractDungeon.player instanceof ProblemSolver68)) {
+            if(AbstractDungeon.player.hasPower(powerID)){
+                AbstractDungeon.player.getPower(powerID).flash();
+            }
+        }
+        boolean hasPower_ = false;
+        for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+            if(ps.hasPower(powerID)) {
+                ps.getPower(powerID).flash();
+            }
+        }
+    }
+
     public static int getPowerValue(String powerID) {
         int val = 0;
         if (!(AbstractDungeon.player instanceof ProblemSolver68)) {

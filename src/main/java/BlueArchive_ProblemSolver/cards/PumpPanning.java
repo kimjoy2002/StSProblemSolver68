@@ -14,6 +14,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.ArrayList;
+
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
 public class PumpPanning extends FinishCard {
@@ -59,9 +61,14 @@ public class PumpPanning extends FinishCard {
     }
 
     @Override
-    public void onFinish(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new PumpPanningAction(this));
+    public ArrayList<AbstractGameAction> onFinish(AbstractPlayer p, AbstractMonster m) {
+        ArrayList<AbstractGameAction> temp = new ArrayList<AbstractGameAction>();
+        temp.add(new PumpPanningAction(this));
+        return temp;
     }
+    public String getFinishString(){
+        return cardStrings.EXTENDED_DESCRIPTION[0];
+    };
     //Upgraded stats.
     @Override
     public void upgrade() {

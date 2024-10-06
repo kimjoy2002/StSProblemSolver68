@@ -1,8 +1,12 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.ApplyPowerToSpecificAction;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.powers.AssaultPower;
+import BlueArchive_ProblemSolver.powers.ForAruSamaPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -35,30 +39,16 @@ public class Assault extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    public static final int MAGIC = 1;
-    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     public Assault() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
-        this.addToBot(new AbstractGameAction() {
-            public void update() {
-                CardGroup hands = AbstractDungeon.player.hand;
-                for(AbstractCard card : hands.group) {
-                    if(card instanceof FinishCard) {
-                        ((FinishCard)card).onFinish(p, m);
-                    }
-                }
-                this.isDone = true;
-            }
-        });
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AssaultPower(AbstractDungeon.player)));
     }
 
     // Upgraded stats.
@@ -66,7 +56,7 @@ public class Assault extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            this.upgradeBaseCost(0);
             initializeDescription();
         }
     }

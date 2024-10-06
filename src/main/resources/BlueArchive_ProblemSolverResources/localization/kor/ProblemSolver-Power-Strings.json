@@ -22,8 +22,10 @@
   "BlueArchive_ProblemSolver:ImpPower": {
     "NAME": "소악마",
     "DESCRIPTIONS": [
-      "턴이 끝날때 모든 적에게 피해를 #r",
-      " 주고 사라집니다."
+      "이번 턴 다음 아군 공격 카드의 피해량이 #g",
+      " 증가합니다. 턴 시작시 #g",
+      "턴 시작시 #g",
+      " 만큼 돌아옵니다."
     ]
   },
   "BlueArchive_ProblemSolver:FinishPower": {
@@ -176,14 +178,6 @@
       " 장 섞어넣습니다."
     ]
   },
-  "BlueArchive_ProblemSolver:ProperGreetingPower": {
-    "NAME": "확실하게 인사하기",
-    "DESCRIPTIONS": [
-      "다음 사용하는 카드의 #y돌격 효과가 무조건 발동합니다.",
-      "다음 사용하는 카드 #b",
-      " 장의 #y돌격 효과가 무조건 발동합니다."
-    ]
-  },
   "BlueArchive_ProblemSolver:MineExpertPower": {
     "NAME": "지뢰 전문가",
     "DESCRIPTIONS": [
@@ -233,6 +227,12 @@
     "DESCRIPTIONS": [
       "턴 시작 시 ",
       " 을 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:AssaultPower": {
+    "NAME": "맹습",
+    "DESCRIPTIONS": [
+      "이번 턴동안 #y마무리 효과는 카드 사용 즉시 발동합니다."
     ]
   },
   "BlueArchive_ProblemSolver:OmamoribondPower": {
