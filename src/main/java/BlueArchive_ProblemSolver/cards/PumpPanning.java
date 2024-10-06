@@ -6,7 +6,6 @@ import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,11 +13,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class PumpPanning extends RushCard {
+public class PumpPanning extends FinishCard {
 
     public static final String ID = DefaultMod.makeID(PumpPanning.class.getSimpleName());
     public static final String IMG = makeCardPath("PumpPanning.png");
@@ -57,12 +55,11 @@ public class PumpPanning extends RushCard {
             AnimationState.TrackEntry e = AbstractDungeon.player.state.setAnimation(0, Aru.SKILL_ANIMATION, false);
             AbstractDungeon.player.state.addAnimation(0, Aru.BASE_ANIMATION, true, e.getEndTime());
         }
-
         super.use(p,m);
     }
 
     @Override
-    void onRush(AbstractPlayer p, AbstractMonster m) {
+    public void onFinish(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new PumpPanningAction(this));
     }
     //Upgraded stats.

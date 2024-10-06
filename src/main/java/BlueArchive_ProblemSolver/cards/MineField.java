@@ -39,14 +39,14 @@ public class MineField extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
-    private static final int MAGIC2 = 3;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 2;
+
 
 
     public MineField() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        baseSecondMagicNumber = secondMagicNumber = MAGIC2;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
         this.cardsToPreview = new MutsukiMine();
     }
@@ -67,7 +67,7 @@ public class MineField extends AbstractDynamicCard {
                         }
 
                         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && p.hand.size() <= this.amount) {
-                            this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), secondMagicNumber));
+                            this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), magicNumber));
                             create = true;
                         }
                         first = false;
@@ -78,9 +78,9 @@ public class MineField extends AbstractDynamicCard {
 
                         int index_ = prev_hand.group.indexOf(card);
                         if(index_ >= 0) {
-                            this.addToBot(new MakeTempCardInHandIndexAction(cardsToPreview.makeStatEquivalentCopy(), secondMagicNumber, index_));
+                            this.addToBot(new MakeTempCardInHandIndexAction(cardsToPreview.makeStatEquivalentCopy(), magicNumber, index_));
                         } else {
-                            this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), secondMagicNumber));
+                            this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), magicNumber));
                         }
                         create = true;
                     }
@@ -91,7 +91,7 @@ public class MineField extends AbstractDynamicCard {
 
         });
 
-        //this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), this.secondMagicNumber));
+        //this.addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), this.magicNumber));
     }
 
 
@@ -100,8 +100,7 @@ public class MineField extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            cardsToPreview.upgrade();
+            this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

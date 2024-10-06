@@ -4,7 +4,6 @@ import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -53,8 +52,8 @@ public class Assault extends AbstractDynamicCard {
             public void update() {
                 CardGroup hands = AbstractDungeon.player.hand;
                 for(AbstractCard card : hands.group) {
-                    if(card instanceof RushCard) {
-                        ((RushCard)card).onRush(p, m);
+                    if(card instanceof FinishCard) {
+                        ((FinishCard)card).onFinish(p, m);
                     }
                 }
                 this.isDone = true;

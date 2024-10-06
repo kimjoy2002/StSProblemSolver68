@@ -1,18 +1,14 @@
 package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.ImpFixedAction;
-import BlueArchive_ProblemSolver.actions.UnwelcomeSchoolAction;
-import BlueArchive_ProblemSolver.cards.ImpChorus;
-import BlueArchive_ProblemSolver.cards.ImpMine;
-import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.cards.FinishCard;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -21,30 +17,37 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+
+import java.util.ArrayList;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 
 //Gain 1 dex for the turn for each card played.
 
-public class ImpPower extends AbstractPower implements CloneablePowerInterface {
-    public static final String POWER_ID = DefaultMod.makeID("ImpPower");
+public class FinishPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = DefaultMod.makeID("FinishPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ImpPower84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ImpPower32.png"));
-
-    public ImpPower(final AbstractCreature owner, int amount) {
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("FinishPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("FinishPower32.png"));
+    ArrayList<AbstractCard> cards;
+    String text;
+    public FinishPower(final AbstractCreature player, AbstractCard card, String text) {
+        this(player, new ArrayList(), text);
+        cards.add(card);
+    }
+    public FinishPower(final AbstractCreature player, ArrayList<AbstractCard> cards, String text) {
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = owner;
-        this.amount = amount;
+        this.owner = player;
+        this.cards = cards;
+        this.text = text;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -60,20 +63,25 @@ public class ImpPower extends AbstractPower implements CloneablePowerInterface {
     public void atEndOfTurn(boolean isPlayer) {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flash();
+            for (AbstractCard card : cards) {
+                if(card instanceof FinishCard && owner instanceof AbstractPlayer) {
+                    ((FinishCard)card).onFinish((AbstractPlayer)owner, null); //수정필요
+                }
+            }
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
-            this.addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        if(!text.isEmpty()) {
+            description = DESCRIPTIONS[0] + text;
+        }
     }
-
 
     @Override
     public AbstractPower makeCopy() {
-        return new ImpPower(owner, amount);
+        return new FinishPower(owner, cards, text);
     }
 
 }

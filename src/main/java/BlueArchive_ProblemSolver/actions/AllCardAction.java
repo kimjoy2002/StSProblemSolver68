@@ -1,6 +1,5 @@
 package BlueArchive_ProblemSolver.actions;
 
-import BlueArchive_ProblemSolver.cards.RushCard;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.patches.cards.UseCardActionPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

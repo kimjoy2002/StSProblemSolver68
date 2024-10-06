@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class TriggerOver extends RushCard {
+public class TriggerOver extends FinishCard {
 
     public static final String ID = DefaultMod.makeID(TriggerOver.class.getSimpleName());
     public static final String IMG = makeCardPath("TriggerOver.png");
@@ -43,7 +43,7 @@ public class TriggerOver extends RushCard {
     }
 
     @Override
-    void onRush(AbstractPlayer p, AbstractMonster m) {
+    public void onFinish(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
     //Upgraded stats.

@@ -21,7 +21,7 @@
   },
   "BlueArchive_ProblemSolver:ChooseHaruka": {
     "NAME": "이구사 하루카",
-    "DESCRIPTION": "*트리거 *오버 추가. NL 전용 키워드: BlueArchive_ProblemSolver:돌격. NL 강점: 높은 방어. 자가 디버프. 자해."
+    "DESCRIPTION": "*트리거 *오버 추가. NL 전용 키워드: BlueArchive_ProblemSolver:마무리. NL 강점: 높은 방어. 자가 디버프. 자해."
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
@@ -159,7 +159,7 @@
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
     "NAME": "트리거 오버",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL BlueArchive_ProblemSolver:돌격: 방어도를 !B! 얻습니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL BlueArchive_ProblemSolver:마무리: 방어도를 !B! 얻습니다."
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
     "NAME": "느와르 어택",
@@ -200,17 +200,17 @@
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "도발",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:돌격: 이 캐릭터가 가진 방어도가 2배로 증가합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 이 캐릭터가 가진 방어도가 2배로 증가합니다."
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
     "NAME": "측면 공격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:돌격: 취약을 !M! 부여합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:마무리: 취약을 !M! 부여합니다."
   },
   "BlueArchive_ProblemSolver:PumpPanning": {
     "NAME": "펌프패닝",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:돌격: 이번 전투 동안 공격 횟수가 1 증가하고 뽑을 카드 더미에 섞어넣습니다.",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:마무리: 이번 전투 동안 공격 횟수가 1 증가하고 뽑을 카드 더미에 섞어넣습니다.",
     "EXTENDED_DESCRIPTION": [
-      "피해를 !D! 만큼 !M! 번 줍니다. NL BlueArchive_ProblemSolver:돌격: 이번 전투 동안 공격 횟수가 1 증가하고 뽑을 카드 더미에 섞어넣습니다."
+      "피해를 !D! 만큼 !M! 번 줍니다. NL BlueArchive_ProblemSolver:마무리: 이번 전투 동안 공격 횟수가 1 증가하고 뽑을 카드 더미에 섞어넣습니다."
     ]
   },
   "BlueArchive_ProblemSolver:MeaningfulTansaction": {
@@ -380,7 +380,7 @@
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "원격 폭탄",
-    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 소멸. NL BlueArchive_ProblemSolver:돌격: 카드를 !M! 장 뽑습니다."
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 소멸. NL BlueArchive_ProblemSolver:마무리: 카드를 !M! 장 뽑습니다."
   },
   "BlueArchive_ProblemSolver:BuildingBomb": {
     "NAME": "건물 폭탄 설치",
@@ -393,17 +393,17 @@
   },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "맹습",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 손에 있는 모든 BlueArchive_ProblemSolver:돌격 카드의 BlueArchive_ProblemSolver:돌격 효과를 발동합니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 손에 있는 모든 BlueArchive_ProblemSolver:마무리 카드의 BlueArchive_ProblemSolver:마무리 효과를 발동합니다."
   },
   "BlueArchive_ProblemSolver:WithAllYourHeart": {
     "NAME": "모두를 위한 마음",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:돌격: [E] [E] 를 얻습니다. 이 카드가 소멸합니다.",
-    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:돌격: [E] [E] [E] 를 얻습니다. 이 카드가 소멸합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: [E] [E] 를 얻습니다. 이 카드가 소멸합니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: [E] [E] [E] 를 얻습니다. 이 카드가 소멸합니다."
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
     "NAME": "확실하게 인사하기",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드의 BlueArchive_ProblemSolver:돌격 효과가 항상 발동합니다.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드 2장의 BlueArchive_ProblemSolver:돌격 효과가 항상 발동합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드의 BlueArchive_ProblemSolver:마무리 효과가 항상 발동합니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 아군이 다음 사용하는 카드 2장의 BlueArchive_ProblemSolver:마무리 효과가 항상 발동합니다."
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "잡입행동",
@@ -426,8 +426,8 @@
     "DESCRIPTION": "방어도를 !B! 줍니다. NL 이번 전투동안 *전술대항전 카드를 쓴 횟수만큼 방어도가 !M! 증가합니다."
   },
   "BlueArchive_ProblemSolver:MutsukiMine": {
-    "NAME": "지뢰",
-    "DESCRIPTION": "보존. 소멸. NL 양 옆의 카드가 사용되면 버려집니다. NL 이 카드가 버려지면 무작위 적에게 피해를 !M! 주고 소멸합니다."
+    "NAME": "발목 지뢰",
+    "DESCRIPTION": "사용불가. 보존. NL BlueArchive_ProblemSolver:지뢰: *무츠키가 BlueArchive_ProblemSolver:소악마를 !M! 얻고 이 카드가 소멸합니다."
   },
   "BlueArchive_ProblemSolver:ImpMine": {
     "NAME": "지뢰",
@@ -436,8 +436,7 @@
   },
   "BlueArchive_ProblemSolver:MineField": {
     "NAME": "지뢰밭",
-    "DESCRIPTION": "카드를 !M! 장 버립니다. NL *지뢰 카드를 해당 위치에 !BlueArchive_ProblemSolver:M! 장 얻습니다.",
-    "UPGRADE_DESCRIPTION": "카드를 !M! 장 버립니다. NL *지뢰+ 카드를 해당 위치에 !BlueArchive_ProblemSolver:M! 장 얻습니다."
+    "DESCRIPTION": "카드를 1 장 버립니다. NL *발목 *지뢰 카드를 해당 위치에 !M! 장 얻습니다."
   },
   "BlueArchive_ProblemSolver:BoobieTrap": {
     "NAME": "부비트랩",

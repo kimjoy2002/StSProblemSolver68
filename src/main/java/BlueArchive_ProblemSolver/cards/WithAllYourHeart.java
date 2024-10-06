@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class WithAllYourHeart extends RushCard {
+public class WithAllYourHeart extends FinishCard {
 
     public static final String ID = DefaultMod.makeID(WithAllYourHeart.class.getSimpleName());
     public static final String IMG = makeCardPath("WithAllYourHeart.png");
@@ -46,7 +46,7 @@ public class WithAllYourHeart extends RushCard {
     }
 
     @Override
-    void onRush(AbstractPlayer p, AbstractMonster m) {
+    public void onFinish(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
         exhaust = true;

@@ -5,8 +5,6 @@ import BlueArchive_ProblemSolver.characters.Aru;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,7 +13,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class FlankAttack extends RushCard {
+public class FlankAttack extends FinishCard {
 
     public static final String ID = DefaultMod.makeID(FlankAttack.class.getSimpleName());
     public static final String IMG = makeCardPath("FlankAttack.png");
@@ -50,7 +48,7 @@ public class FlankAttack extends RushCard {
     }
 
     @Override
-    void onRush(AbstractPlayer p, AbstractMonster m) {
+    public void onFinish(AbstractPlayer p, AbstractMonster m) {
         if(m == null) {
             m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
         }

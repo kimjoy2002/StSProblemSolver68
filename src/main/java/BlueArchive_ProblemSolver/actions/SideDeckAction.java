@@ -1,7 +1,6 @@
 package BlueArchive_ProblemSolver.actions;
 
 import BlueArchive_ProblemSolver.cards.AddDeck;
-import BlueArchive_ProblemSolver.cards.RushCard;
 import BlueArchive_ProblemSolver.rewards.SideDeckReward;
 import BlueArchive_ProblemSolver.save.SideDeckSave;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -16,7 +15,6 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class SideDeckAction extends AbstractGameAction {

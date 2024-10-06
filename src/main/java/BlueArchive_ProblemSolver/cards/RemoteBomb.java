@@ -1,18 +1,16 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.characters.Aru;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class RemoteBomb extends RushCard {
+public class RemoteBomb extends FinishCard {
 
     public static final String ID = DefaultMod.makeID(RemoteBomb.class.getSimpleName());
     public static final String IMG = makeCardPath("RemoteBomb.png");
@@ -46,7 +44,7 @@ public class RemoteBomb extends RushCard {
     }
 
     @Override
-    void onRush(AbstractPlayer p, AbstractMonster m) {
+    public void onFinish(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
     }
     //Upgraded stats.

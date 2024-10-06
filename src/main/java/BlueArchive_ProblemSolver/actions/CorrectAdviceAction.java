@@ -1,7 +1,6 @@
 package BlueArchive_ProblemSolver.actions;
 
 import BlueArchive_ProblemSolver.cards.CorrectAdvice;
-import BlueArchive_ProblemSolver.cards.RushCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

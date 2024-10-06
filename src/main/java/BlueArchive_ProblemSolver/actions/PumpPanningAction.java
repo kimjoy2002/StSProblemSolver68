@@ -1,7 +1,6 @@
 package BlueArchive_ProblemSolver.actions;
 
 import BlueArchive_ProblemSolver.cards.PumpPanning;
-import BlueArchive_ProblemSolver.cards.RushCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 

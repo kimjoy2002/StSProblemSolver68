@@ -1,0 +1,35 @@
+package BlueArchive_ProblemSolver.cards;
+
+import BlueArchive_ProblemSolver.actions.DelayAction;
+import BlueArchive_ProblemSolver.actions.EvilDeedsAction;
+import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.powers.OnEvilDeedsPower;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import static BlueArchive_ProblemSolver.patches.GameActionManagerPatch.evildeedThisTurn;
+import static java.lang.Math.abs;
+
+abstract public class MineCard extends AbstractDynamicCard {
+
+    public MineCard(String id, String img, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target) {
+        super(id, img, cost, type, color, rarity, target);
+    }
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        if(AbstractDungeon.player.hand.contains(c)) {
+            int index_ = AbstractDungeon.player.hand.group.indexOf(c);
+            int index2_ = AbstractDungeon.player.hand.group.indexOf(this);
+            if(index2_ >= 0 && index_ >= 0 && abs(index_ - index2_)<=1) {
+                onMine(c);
+            }
+        }
+    }
+
+    public abstract void onMine(AbstractCard c);
+
+}

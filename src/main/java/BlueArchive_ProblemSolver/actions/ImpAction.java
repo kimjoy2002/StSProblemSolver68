@@ -1,12 +1,10 @@
 package BlueArchive_ProblemSolver.actions;
 
-import BlueArchive_ProblemSolver.cards.RushCard;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.ImpPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ImpAction extends AbstractGameAction {

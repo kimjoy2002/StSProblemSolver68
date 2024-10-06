@@ -1,12 +1,7 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.ApplyPowerToAllAllyAction;
-import BlueArchive_ProblemSolver.actions.GainBlockToAllAllyAction;
 import BlueArchive_ProblemSolver.characters.Aru;
-import BlueArchive_ProblemSolver.powers.ChangeWhenHitPower;
-import BlueArchive_ProblemSolver.powers.TauntPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.unique.DoubleYourBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -17,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class Taunt extends RushCard {
+public class Taunt extends FinishCard {
     public static final String ID = DefaultMod.makeID(Taunt.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -54,7 +49,7 @@ public class Taunt extends RushCard {
     }
 
     @Override
-    void onRush(AbstractPlayer p, AbstractMonster m) {
+    public void onFinish(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DoubleYourBlockAction(p));
     }
 
