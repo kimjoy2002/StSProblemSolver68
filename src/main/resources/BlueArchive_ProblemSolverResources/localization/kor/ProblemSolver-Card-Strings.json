@@ -558,5 +558,9 @@
   "BlueArchive_ProblemSolver:SupportShot": {
     "NAME": "지원 사격",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 턴 동안 다른 아군이 공격 카드를 사용할때마다 반복합니다."
+  },
+  "BlueArchive_ProblemSolver:OneInTheChamber": {
+    "NAME": "약실 장전",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드는 턴을 시작할때 뽑을 카드 더미나 버린 카드 더미에서 손으로 가져옵니다."
   }
 }

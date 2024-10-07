@@ -47,4 +47,8 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         }
         return false;
     }
+
+    public void atStartOfCombat() {
+
+    }
 }
