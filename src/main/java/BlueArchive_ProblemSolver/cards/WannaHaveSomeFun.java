@@ -3,12 +3,14 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.ApplyPowerToAllAllyAction;
 import BlueArchive_ProblemSolver.characters.Aru;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
@@ -36,7 +38,8 @@ public class WannaHaveSomeFun extends AbstractDynamicCard {
     private static final int COST = 1;
     public static final int MAGIC = 1;
     private static final int UPGRADE_PLUS_MAGIC = 1;
-    public static final int MAGIC2 = 1;
+    public static final int MAGIC2 = 2;
+    private static final int UPGRADE_PLUS_MAGIC2 = 1;
 
     public WannaHaveSomeFun() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -50,6 +53,7 @@ public class WannaHaveSomeFun extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerToAllAllyAction(new StrengthPower(AbstractDungeon.player, secondMagicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerToAllAllyAction(new LoseStrengthPower(AbstractDungeon.player, secondMagicNumber)));
     }
 
     // Upgraded stats.
@@ -58,6 +62,7 @@ public class WannaHaveSomeFun extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            upgradeSecondMagicNumber(UPGRADE_PLUS_MAGIC2);
             initializeDescription();
         }
     }

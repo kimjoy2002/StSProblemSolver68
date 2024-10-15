@@ -1,6 +1,5 @@
 package BlueArchive_ProblemSolver.characters;
 
-import BlueArchive_ProblemSolver.actions.DelayAction;
 import BlueArchive_ProblemSolver.actions.RemoveCharacterAction;
 import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
@@ -20,7 +19,6 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -28,7 +26,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -41,14 +38,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.ModHelper;
-import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -528,6 +522,26 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 ps.getPower(powerID).flash();
             }
         }
+    }
+
+    public static <T> ArrayList<T> getPowers(String powerID, Class<T> type) {
+        ArrayList<T> powers = new ArrayList<T>();
+        int val = 0;
+        if (!(AbstractDungeon.player instanceof ProblemSolver68)) {
+            if(AbstractDungeon.player.hasPower(powerID)) {
+                if (type.isInstance(AbstractDungeon.player.getPower(powerID))) {
+                    powers.add(type.cast(AbstractDungeon.player.getPower(powerID)));
+                }
+            }
+        }
+        for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+            if(ps.hasPower(powerID)) {
+                if (type.isInstance(ps.getPower(powerID))) {
+                    powers.add(type.cast(ps.getPower(powerID)));
+                }
+            }
+        }
+        return powers;
     }
 
     public static int getPowerValue(String powerID) {

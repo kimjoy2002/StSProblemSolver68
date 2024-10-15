@@ -1,8 +1,11 @@
 package BlueArchive_ProblemSolver.actions;
 
+import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.ImpPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+
+import java.util.ArrayList;
 
 public class ImpAmountAction extends AbstractGameAction {
     ImpPower power;
@@ -15,17 +18,29 @@ public class ImpAmountAction extends AbstractGameAction {
     }
 
     public void update() {
-        if(add) {
-            power.amount_imp += amount;
-        }
-        else if(amount == -1) {
-            if(power.amount_imp > power.amount) {
-                power.amount_imp = power.amount;
-            }
+        ArrayList<ImpPower> powers = new ArrayList<>();
+
+        if(power == null) {
+            powers.addAll(ProblemSolver68.getPowers(ImpPower.POWER_ID, ImpPower.class));
         } else {
-            power.amount_imp = amount;
+            powers.add(power);
         }
-        power.updateDescription();
+
+        for(ImpPower imppower : powers) {
+            if(add) {
+                imppower.amount_imp += amount;
+            }
+            else if(amount >= 999) {
+                imppower.amount_imp = imppower.amount;
+            }
+            else if(amount != -1) {
+                imppower.amount_imp = amount;
+            }
+            if(imppower.amount_imp > imppower.amount) {
+                imppower.amount_imp = imppower.amount;
+            }
+            imppower.updateDescription();
+        }
         AbstractDungeon.player.hand.applyPowers();
         this.isDone = true;
     }

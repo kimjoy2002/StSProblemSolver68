@@ -36,7 +36,7 @@ public class CatSnacks extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
-    public static final int MAGIC = 2;
+    public static final int MAGIC = 3;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
     public CatSnacks() {

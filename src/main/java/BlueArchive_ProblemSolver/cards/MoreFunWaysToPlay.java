@@ -2,6 +2,7 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.ImpAction;
+import BlueArchive_ProblemSolver.actions.ImpAmountAction;
 import BlueArchive_ProblemSolver.actions.ImpFixedAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -47,7 +48,7 @@ public class MoreFunWaysToPlay extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ImpFixedAction(1));
+        AbstractDungeon.actionManager.addToBottom(new ImpAmountAction(999, null, false));
     }
 
     // Upgraded stats.

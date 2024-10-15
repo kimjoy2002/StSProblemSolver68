@@ -113,7 +113,7 @@
   },
   "BlueArchive_ProblemSolver:WannaHaveSomeFun": {
     "NAME": "신나게 가볼까?",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 모든 아군의 힘이 !BlueArchive_ProblemSolver:M! 증가합니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 모든 아군이 힘을 !BlueArchive_ProblemSolver:M! 얻고 턴이 끝날때 힘을 !BlueArchive_ProblemSolver:M! 잃습니다."
   },
   "BlueArchive_ProblemSolver:CuteImpScheme": {
     "NAME": "소악마의 귀여운 꿍꿍이",
@@ -262,7 +262,7 @@
   },
   "BlueArchive_ProblemSolver:MoreFunWaysToPlay": {
     "NAME": "좀 더 즐겁게 노는 방법",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 턴 *무츠키의 BlueArchive_ProblemSolver:소악마가 감소하지않습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:소악마의 피해량 증가 효과를 다시 얻습니다."
   },
   "BlueArchive_ProblemSolver:DangerousPlay": {
     "NAME": "위험한 놀이",
@@ -338,7 +338,10 @@
   },
   "BlueArchive_ProblemSolver:ButIllDoMyBest": {
     "NAME": "히, 힘내겠습니다!",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 힘을 !M! 잃습니다."
+    "DESCRIPTION": "임시_체력 을 !BlueArchive_ProblemSolver:M! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 힘을 !M! 잃습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "힘을 !M! 잃습니다."
+    ]
   },
   "BlueArchive_ProblemSolver:ForAruSama": {
     "NAME": "아루님을 위해서!",
@@ -382,7 +385,7 @@
   },
   "BlueArchive_ProblemSolver:GloomyPast": {
     "NAME": "우울한 과거",
-    "DESCRIPTION": "부정적인 효과를 부여받을 때마다 *임시 BlueArchive_ProblemSolver:체력을 !M! 얻습니다."
+    "DESCRIPTION": "부정적인 효과를 부여받을 때마다 임시_체력 을 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "기폭 장치",
@@ -390,15 +393,14 @@
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "원격 폭탄",
-    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 소멸. NL BlueArchive_ProblemSolver:마무리: 카드를 !M! 장 뽑습니다.",
+    "DESCRIPTION": "사용불가. NL BlueArchive_ProblemSolver:지뢰: 적 전체에게 피해를 !BlueArchive_ProblemSolver:M! 줍니다. NL 카드 !M! 장을 뽑습니다. NL 그 후 소멸합니다.",
     "EXTENDED_DESCRIPTION": [
-      "카드를 !M! 장 뽑습니다."
+      "사용할 수 없어."
     ]
   },
   "BlueArchive_ProblemSolver:BuildingBomb": {
     "NAME": "건물 폭탄 설치",
-    "DESCRIPTION": "뽑을 카드 더미에 *원격 *폭탄 카드를 !M! 장 섞어 넣습니다",
-    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 *원격 *폭탄+ 카드를 !M! 장 섞어 넣습니다"
+    "DESCRIPTION": "뽑을 카드 더미에 *원격 *폭탄 카드를 !M! 장 섞어 넣습니다"
   },
   "BlueArchive_ProblemSolver:Reconnaissance": {
     "NAME": "사전답사",
