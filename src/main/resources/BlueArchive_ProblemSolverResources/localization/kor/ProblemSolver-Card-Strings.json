@@ -63,7 +63,7 @@
   },
   "BlueArchive_ProblemSolver:FirstAid": {
     "NAME": "응급 치료",
-    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소 캐릭터를 체력 1로 부활시킵니다. NL 가장 체력이 낮은 BlueArchive_ProblemSolver:흥신소 캐릭터가 *임시 BlueArchive_ProblemSolver:체력을 !M! 만큼 얻습니다. NL 소멸."
+    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소 캐릭터를 체력 1로 부활시킵니다. NL 가장 체력이 낮은 BlueArchive_ProblemSolver:흥신소 캐릭터가 임시_체력 을 !M! 만큼 얻습니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:DogFight": {
     "NAME": "난전",
@@ -93,7 +93,7 @@
   },
   "BlueArchive_ProblemSolver:FireSupport": {
     "NAME": "화력 지원",
-    "DESCRIPTION": "*임시 BlueArchive_ProblemSolver:체력을 !M! 얻습니다. 모든 아군 캐릭터의 *임시 BlueArchive_ProblemSolver:체력을 더한 만큼 피해를 줍니다.",
+    "DESCRIPTION": "임시_체력 을 !M! 얻습니다. 모든 아군 캐릭터의 임시_체력 을 더한 만큼 피해를 줍니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 ",
       " 줍니다.)"
@@ -101,7 +101,7 @@
   },
   "BlueArchive_ProblemSolver:CombatRation": {
     "NAME": "전투식량",
-    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:흥신소 캐릭터가 *임시 BlueArchive_ProblemSolver:체력을 !M! 얻습니다. NL 이번 전투동안 BlueArchive_ProblemSolver:용병들의 최대 체력이 !BlueArchive_ProblemSolver:M! 증가합니다."
+    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:흥신소 캐릭터가 임시_체력 을 !M! 얻습니다. NL 이번 전투동안 BlueArchive_ProblemSolver:용병들의 최대 체력이 !BlueArchive_ProblemSolver:M! 증가합니다."
   },
   "BlueArchive_ProblemSolver:PanicShot": {
     "NAME": "패닉샷",
@@ -504,7 +504,7 @@
   },
   "BlueArchive_ProblemSolver:TempHealthBarricade": {
     "NAME": "마지노선",
-    "DESCRIPTION": "모든 캐릭터에게 부여되어있는 해로운 효과 개수의 !M! 배만큼 *임시 BlueArchive_ProblemSolver:체력을 얻습니다. NL 소멸.",
+    "DESCRIPTION": "모든 캐릭터에게 부여되어있는 해로운 효과 개수의 !M! 배만큼 임시_체력 을 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       "만큼 얻습니다.)"
@@ -564,5 +564,21 @@
   "BlueArchive_ProblemSolver:OneInTheChamber": {
     "NAME": "약실 장전",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드는 턴을 시작할때 뽑을 카드 더미나 버린 카드 더미에서 손으로 가져옵니다."
+  },
+  "BlueArchive_ProblemSolver:SiphonSoul": {
+    "NAME": "영혼 착취",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 치명타라면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:HeadShot": {
+    "NAME": "헤드샷",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 해로운 효과를 가지고 있다면 피해가 2 배가 됩니다."
+  },
+  "BlueArchive_ProblemSolver:BrokenHead": {
+    "NAME": "하루만 기다리면!",
+    "DESCRIPTION": "왜냐면 이제부터 기다림이 24시간이 넘을 때마다 대가리를 존나 쎄게 쳐서 제 머릿속을 뒤죽박죽 엉망진창으로 만들 거거든요!"
+  },
+  "BlueArchive_ProblemSolver:WakeUpBoss": {
+    "NAME": "정신차려라 사장",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 손의 쌓인 모든 악행 하나당 방어도를 !M! 더 얻습니다."
   }
 }

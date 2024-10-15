@@ -3,7 +3,7 @@
     "NAME": "흥신소 뱃지",
     "FLAVOR": "흥신소의 일원임을 증명하는 뱃지",
     "DESCRIPTIONS": [
-      "전투 시작 시 모든 아군이 #ybluearchive_problemsolver:임시 #y체력을 #b",
+      "전투 시작 시 모든 아군이 #y임시_체력 을 #b",
       " 얻습니다."
     ]
   },
