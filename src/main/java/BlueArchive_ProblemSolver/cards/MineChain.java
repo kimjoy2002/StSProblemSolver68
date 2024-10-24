@@ -1,10 +1,13 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.MakeTempCardInHandIndexAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.powers.AllCardPower;
 import BlueArchive_ProblemSolver.powers.MineChainPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ModifyBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,7 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class MineChain extends AbstractDynamicCard {
+public class MineChain extends MineCard  {
     public static final String ID = DefaultMod.makeID(MineChain.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -33,7 +36,7 @@ public class MineChain extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 1;
+    private static final int COST = -2;
 
     public MineChain() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -44,7 +47,24 @@ public class MineChain extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MineChainPower(AbstractDungeon.player, 1)));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MineChainPower(AbstractDungeon.player, 1)));
+    }
+
+    @Override
+    public void onMine(AbstractCard c) {
+        int index_target_ = AbstractDungeon.player.hand.group.indexOf(c);
+        int index_ = AbstractDungeon.player.hand.group.indexOf(this);
+        if(index_ >= 0 && index_ < AbstractDungeon.player.hand.group.size()) {
+            if(index_target_ == -1 || index_target_ > index_) {
+                //오른쪽에 있음
+                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_));
+                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_+1));
+            } else {
+                //왼쪽에 있음 (구)
+                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_-1));
+                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_));
+            }
+        }
     }
 
     // Upgraded stats.
@@ -52,8 +72,13 @@ public class MineChain extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(0);
+            this.cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
+    }
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+        return false;
     }
 }

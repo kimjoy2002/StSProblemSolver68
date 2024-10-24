@@ -34,6 +34,7 @@ public class AttractAttention extends AbstractDynamicCard {
     public AttractAttention() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
     }
 
     // Actions the card should do.

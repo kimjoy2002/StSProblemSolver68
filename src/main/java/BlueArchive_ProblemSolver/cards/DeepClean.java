@@ -36,12 +36,12 @@ public class DeepClean extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 18;
-    private static final int UPGRADE_PLUS_DMG = 7;
-    private static final int DAMAGE_MUTSUKI = 6;
+    private static final int DAMAGE = 20;
+    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int DAMAGE_MUTSUKI = 5;
     private static final int UPGRADE_DMG_MUTSUKI = 5;
-    private static final int MAGIC = 3;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
+    private static final int MAGIC = 4;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
     public DeepClean() {

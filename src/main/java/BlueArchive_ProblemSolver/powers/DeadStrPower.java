@@ -2,11 +2,15 @@ package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
+import BlueArchive_ProblemSolver.actions.SolverTalkAction;
+import BlueArchive_ProblemSolver.cards.YouWillPayForThis;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -17,6 +21,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+
+import java.util.Random;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
@@ -60,8 +66,17 @@ public class DeadStrPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public void onDead(AbstractPlayer dead) {
-        if(dead != owner && dead instanceof ProblemSolver68 && ProblemSolver68.isProblemSolver(((ProblemSolver68)dead).solverType)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
+        if(dead != owner && dead instanceof ProblemSolver68) {
+            int increase = amount;
+            if(ProblemSolver68.isProblemSolver(((ProblemSolver68)dead).solverType)) {
+                if(YouWillPayForThis.cardStrings.EXTENDED_DESCRIPTION.length > 0) {
+                    String text = YouWillPayForThis.cardStrings.EXTENDED_DESCRIPTION[MathUtils.random(YouWillPayForThis.cardStrings.EXTENDED_DESCRIPTION.length-1)];
+                    text = String.format(text, ProblemSolver68.getLocalizedName((ProblemSolver68)dead));
+                    AbstractDungeon.actionManager.addToBottom(new SolverTalkAction(owner, text, 2.0F, 2.0F));
+                }
+                increase *= 2;
+            }
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new StrengthPower(owner, increase), increase));
         }
     }
     @Override

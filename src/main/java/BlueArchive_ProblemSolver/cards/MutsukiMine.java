@@ -52,10 +52,19 @@ public class MutsukiMine extends MineCard {
     }
     @Override
     public void onMine(AbstractCard c) {
-        AbstractDungeon.actionManager.addToBottom(new ImpAction(magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
     }
 
+    public void triggerOnExhaust() {
+        AbstractMonster m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
+        AbstractDungeon.actionManager.addToBottom(new LoseHPAction(m, AbstractDungeon.player, magicNumber, AbstractGameAction.AttackEffect.FIRE));
+    }
+
+    public void triggerOnManualDiscard() {
+
+        AbstractMonster m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
+        AbstractDungeon.actionManager.addToBottom(new LoseHPAction(m, AbstractDungeon.player, magicNumber, AbstractGameAction.AttackEffect.FIRE));
+    }
     //Upgraded stats.
     @Override
     public void upgrade() {

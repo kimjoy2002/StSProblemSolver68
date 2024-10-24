@@ -40,6 +40,7 @@ import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -72,6 +73,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     private boolean isHovered = false;
     public Aru.ProblemSolver68Type solverType = PROBLEM_SOLVER_68_NONE;
 
+    public static Comparator<AbstractPlayer> sortByPosition;
+
     private static final UIStrings characterStrings = CardCrawlGame.languagePack.getUIString("BlueArchive_ProblemSolver:CharSelectAction");
 
     int myCount = 0;
@@ -85,6 +88,10 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     float animation_elapsed = 0;
     public ProblemSolver68(String name, AbstractPlayer.PlayerClass playerClass, String[] orbTextures, String orbVfxPath, float[] layerSpeeds, AbstractAnimation animation) {
         super(name, playerClass, orbTextures, orbVfxPath, layerSpeeds, animation);
+
+        sortByPosition = (o1, o2) -> {
+            return (int)(o1.hb.cX - o2.hb.cX);
+        };
     }
     public static void init() {
         problemSolverPlayer.clear();

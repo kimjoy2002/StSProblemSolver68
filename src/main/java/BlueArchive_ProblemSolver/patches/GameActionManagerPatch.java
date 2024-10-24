@@ -1,7 +1,11 @@
 package BlueArchive_ProblemSolver.patches;
 
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import javassist.CtBehavior;
 
@@ -12,6 +16,7 @@ public class GameActionManagerPatch {
     public static int tacticalChallengeCount = 0;
     public static int evildeedThisTurn = 0;
     public static int increaseMercenaryMaxHP = 0;
+    public static int blockedThisCombat = 0;
     public static int keepEnergy = 0;
 
     @SpirePatch(
@@ -34,6 +39,37 @@ public class GameActionManagerPatch {
         }
     }
 
+
+
+    @SpirePatch(
+            clz = AbstractPlayer.class,
+            method = "damage",
+            paramtypez = {
+                    DamageInfo.class
+            }
+    )
+    public static class blockDamagedPatcher {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"damageAmount"}
+        )
+        public static void Insert(AbstractPlayer __instance, DamageInfo damage, int damageAmount) {
+            int block = __instance.currentBlock;
+            int tempHp = TempHPField.tempHp.get(__instance);
+            if(block < 0)
+                block = 0;
+            if(tempHp < 0)
+                tempHp = 0;
+            blockedThisCombat += Math.min(block+tempHp, damageAmount);
+        }
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "decrementBlock");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+    }
+
     @SpirePatch(
             clz = GameActionManager.class,
             method = "clear"
@@ -45,6 +81,7 @@ public class GameActionManagerPatch {
             deadThisCombat = 0;
             increaseMercenaryMaxHP = 0;
             tacticalChallengeCount = 0;
+            blockedThisCombat = 0;
             keepEnergy = 0;
         }
     }

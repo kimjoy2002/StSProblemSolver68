@@ -16,6 +16,7 @@ import BlueArchive_ProblemSolver.save.ProblemSolverSave;
 import BlueArchive_ProblemSolver.save.SideDeckSave;
 import BlueArchive_ProblemSolver.screens.SideDeckScreen;
 import BlueArchive_ProblemSolver.screens.SideDeckViewScreen;
+import BlueArchive_ProblemSolver.targeting.ALLTargeting;
 import BlueArchive_ProblemSolver.util.GifDecoder;
 import BlueArchive_ProblemSolver.variables.SecondMagicNumber;
 import BlueArchive_ProblemSolver.variables.ThirdMagicNumber;
@@ -30,6 +31,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.mod.stslib.patches.CustomTargeting;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -493,6 +495,9 @@ public class DefaultMod implements
         BaseMod.addSaveField("BlueArchive_ProblemSolver:SideDeck",new SideDeckSave());
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
+
+
+        CustomTargeting.registerCustomTargeting(ALLTargeting.CAN_ALL_TARGETING, new ALLTargeting());
     }
 
     @Override

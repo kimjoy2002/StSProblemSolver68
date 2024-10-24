@@ -59,7 +59,11 @@
   },
   "BlueArchive_ProblemSolver:YouWillPayForThis": {
     "NAME": "대가를 치를 것이다!",
-    "DESCRIPTION": "죽은 BlueArchive_ProblemSolver:흥신소 캐릭터가 있으면 힘을 !M! 얻습니다. NL 다른 BlueArchive_ProblemSolver:흥신소 캐릭터가 죽을때마다 힘을 !M! 얻습니다."
+    "DESCRIPTION": "아군이 죽을때마다 힘을 !M! 얻습니다. NL 죽은 캐릭터가 BlueArchive_ProblemSolver:흥신소 캐릭터라면 2배로 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "~아아아안~ ~돼,~ ~%s!~",
+      "~%s!!!!~"
+    ]
   },
   "BlueArchive_ProblemSolver:FirstAid": {
     "NAME": "응급 치료",
@@ -161,7 +165,7 @@
     "NAME": "트리거 오버",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 피해를 !M! 받습니다.",
     "EXTENDED_DESCRIPTION": [
-      "피해를 !M! 받습니다."
+      "피해를 !M! 받습니다. "
     ]
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
@@ -205,14 +209,14 @@
     "NAME": "도발",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 이 캐릭터가 가진 방어도가 2배로 증가합니다.",
     "EXTENDED_DESCRIPTION": [
-      "이 캐릭터가 가진 방어도가 2배로 증가합니다."
+      "이 캐릭터가 가진 방어도가 2배로 증가합니다. "
     ]
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
     "NAME": "측면 공격",
     "DESCRIPTION": "피해를 !D! 줍니다. 취약을 !BlueArchive_ProblemSolver:M! 부여합니다. NL BlueArchive_ProblemSolver:마무리: 추가로 약화를 !M! 부여합니다.",
     "EXTENDED_DESCRIPTION": [
-      "약화를 !M! 부여합니다."
+      "약화를 !M! 부여합니다. "
     ]
   },
   "BlueArchive_ProblemSolver:PumpPanning": {
@@ -235,7 +239,6 @@
   "BlueArchive_ProblemSolver:CorrectAdvice": {
     "NAME": "참모",
     "DESCRIPTION": "휘발성. NL 캐릭터마다 한 번만 쓸 수 있습니다. NL 카드를 !M! 장 뽑습니다.",
-    "UPGRADE_DESCRIPTION": "선천성. 휘발성. NL 캐릭터마다 한 번만 쓸 수 있습니다. NL 카드를 !M! 장 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       "난 이 카드를 이미 사용했어!",
       " NL {",
@@ -320,10 +323,6 @@
     "NAME": "일일일악",
     "DESCRIPTION": "아군이 턴마다 처음 BlueArchive_ProblemSolver:악행을 발동하면 [E] 를 얻습니다."
   },
-  "BlueArchive_ProblemSolver:ShieldOfProblemSolver": {
-    "NAME": "흥신소의 방패",
-    "DESCRIPTION": "이번 턴 동안 다른 아군이 카드를 사용할때마다 방어도를 !M! 얻습니다."
-  },
   "BlueArchive_ProblemSolver:Snipe": {
     "NAME": "저격",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드는 다른 아군이 지닌 양수의 힘을 추가로 적용합니다."
@@ -340,7 +339,7 @@
     "NAME": "히, 힘내겠습니다!",
     "DESCRIPTION": "임시_체력 을 !BlueArchive_ProblemSolver:M! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 힘을 !M! 잃습니다.",
     "EXTENDED_DESCRIPTION": [
-      "힘을 !M! 잃습니다."
+      "힘을 !M! 잃습니다. "
     ]
   },
   "BlueArchive_ProblemSolver:ForAruSama": {
@@ -389,11 +388,11 @@
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "기폭 장치",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 뽑을 카드 더미에 있는 비용이 0인 무작위 카드 !M! 장을 뽑습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 뽑을 카드 더미에 있는 BlueArchive_ProblemSolver:지뢰 또는 비용이 0인 무작위 카드 !M! 장을 뽑습니다."
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "원격 폭탄",
-    "DESCRIPTION": "사용불가. NL BlueArchive_ProblemSolver:지뢰: 적 전체에게 피해를 !BlueArchive_ProblemSolver:M! 줍니다. NL 카드 !M! 장을 뽑습니다. NL 그 후 소멸합니다.",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 소멸. NL BlueArchive_ProblemSolver:지뢰: 비용이 0이 됩니다.",
     "EXTENDED_DESCRIPTION": [
       "사용할 수 없어."
     ]
@@ -408,15 +407,18 @@
   },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "맹습",
-    "DESCRIPTION": "이번 턴동안 BlueArchive_ProblemSolver:마무리 효과는 카드 사용 즉시 발동합니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑고 손의 BlueArchive_ProblemSolver:마무리 카드를 전부 버립니다. NL BlueArchive_ProblemSolver:마무리: 이 효과로 버린 모든 BlueArchive_ProblemSolver:마무리 카드의 BlueArchive_ProblemSolver:마무리 효과를 발동합니다.",
+    "EXTENDED_DESCRIPTION": [
+       "아무것도 안합니다. "
+    ]
   },
   "BlueArchive_ProblemSolver:WithAllYourHeart": {
     "NAME": "모두를 위한 마음",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 다음 턴까지 유지되는 [E] [E] 를 얻습니다.",
     "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 다음 턴까지 유지되는 [E] [E] [E] 를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      "다음 턴까지 유지되는 [E] [E] 를 얻습니다.",
-      "다음 턴까지 유지되는 [E] [E] [E] 를 얻습니다."
+      "다음 턴까지 유지되는 [E] [E] 를 얻습니다. ",
+      "다음 턴까지 유지되는 [E] [E] [E] 를 얻습니다. "
     ]
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
@@ -445,12 +447,10 @@
   },
   "BlueArchive_ProblemSolver:MutsukiMine": {
     "NAME": "발목 지뢰",
-    "DESCRIPTION": "사용불가. 보존. NL BlueArchive_ProblemSolver:지뢰: *무츠키가 BlueArchive_ProblemSolver:소악마를 !M! 얻고 이 카드가 소멸합니다."
-  },
-  "BlueArchive_ProblemSolver:ImpMine": {
-    "NAME": "지뢰",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 소멸."
+    "DESCRIPTION": "사용불가. 보존. NL 버려지거나 소멸되면 무작위 적이 체력을 !M! 잃습니다. NL BlueArchive_ProblemSolver:지뢰: 소멸합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "사용할 수 없어."
+    ]
   },
   "BlueArchive_ProblemSolver:MineField": {
     "NAME": "지뢰밭",
@@ -458,7 +458,7 @@
   },
   "BlueArchive_ProblemSolver:BoobieTrap": {
     "NAME": "부비트랩",
-    "DESCRIPTION": "사용불가. NL 양 옆의 카드가 사용되면 버려집니다. NL 이 카드가 버려지면 *지뢰를 !M! 장 얻습니다.",
+    "DESCRIPTION": "사용하거나 버려지면 방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:지뢰: 이번 전투동안 이 카드로 얻는 방어도가 !M! 증가합니다.",
     "EXTENDED_DESCRIPTION": [
       "사용할 수 없어."
     ]
@@ -477,7 +477,11 @@
   },
   "BlueArchive_ProblemSolver:MineChain": {
     "NAME": "지뢰 연쇄",
-    "DESCRIPTION": "이번 턴 동안, 아군이 손에서 *지뢰 카드가 아닌 카드를 사용하면 사용한 위치에 *지뢰 카드를 얻습니다."
+    "DESCRIPTION": "사용불가. NL BlueArchive_ProblemSolver:지뢰: 양 옆에 *발목 *지뢰를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "사용불가. NL BlueArchive_ProblemSolver:지뢰: 양 옆에 *발목 *지뢰+를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "사용할 수 없어."
+    ]
   },
   "BlueArchive_ProblemSolver:TacticalChallengePS68": {
     "NAME": "전술대항전 - 흥신소68",
@@ -485,7 +489,7 @@
   },
   "BlueArchive_ProblemSolver:EmergencyBandage": {
     "NAME": "비상용 붕대",
-    "DESCRIPTION": "이번 턴 동안, 아군이 카드를 버릴때마다 방어도를 !M! 얻습니다."
+    "DESCRIPTION": "이번 턴 동안, 카드를 버릴때마다 방어도를 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:TroubleMaker": {
     "NAME": "트러블 메이커",
@@ -493,14 +497,14 @@
   },
   "BlueArchive_ProblemSolver:StaringContest": {
     "NAME": "눈싸움",
-    "DESCRIPTION": "자신에게 약화와 취약이 둘다 없을때만 사용가능합니다. NL 적과 자신에게 약화와 취약을 !M! 부여합니다. 소멸.",
-    "EXTENDED_DESCRIPTION": [
-      "약화나 취약이 있을땐 사용할 수 없어."
-    ]
+    "DESCRIPTION": "적과 자신에게 약화와 취약을 !M! 부여합니다. 소멸."
   },
   "BlueArchive_ProblemSolver:PokerFace": {
     "NAME": "포커페이스",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 카드를 !M! 장 뽑습니다. 뽑은 카드 중 높은 비용의 카드를 버립니다. (같다면 무작위)"
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 카드를 !M! 장 뽑습니다. 그 중 한 카드를 사용하면 다른 쪽을 버립니다. ",
+    "EXTENDED_DESCRIPTION": [
+      " 카드를 사용하면 버려집니다."
+    ]
   },
   "BlueArchive_ProblemSolver:TempHealthBarricade": {
     "NAME": "마지노선",
@@ -567,7 +571,7 @@
   },
   "BlueArchive_ProblemSolver:SiphonSoul": {
     "NAME": "영혼 착취",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 치명타라면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다."
+    "DESCRIPTION": "적이나 아군에게 피해를 !D! 줍니다. NL 치명타라면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:HeadShot": {
     "NAME": "헤드샷",
@@ -579,6 +583,64 @@
   },
   "BlueArchive_ProblemSolver:WakeUpBoss": {
     "NAME": "정신차려라 사장",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 손의 쌓인 모든 악행 하나당 방어도를 !M! 더 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 손의 쌓인 모든 BlueArchive_ProblemSolver:악행 하나당 방어도를 !M! 더 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:Stalemate": {
+    "NAME": "교착 상태",
+    "DESCRIPTION": "살아있는 아군의 수 만큼 방어도를 !B! 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:TakeABreather": {
+    "NAME": "숨 돌리기",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:마무리: 방어도를 !B! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "방어도를 !B! 얻습니다. "
+    ]
+  },
+  "BlueArchive_ProblemSolver:Retribution": {
+    "NAME": "되갚아주기",
+    "DESCRIPTION": "이번 전투동안 아군이 임시_체력, 방어도를 통해 방어한 만큼 피해를 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (피해를 !D! 줍니다.) "
+    ]
+  },
+  "BlueArchive_ProblemSolver:HoldBack": {
+    "NAME": "발목 잡기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적과 자신이 약화를 !M! 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:Pruning": {
+    "NAME": "가지 치기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:마무리: 민첩을 !M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "민첩을 !M! 얻습니다. "
+    ]
+  },
+  "BlueArchive_ProblemSolver:Backblast": {
+    "NAME": "후폭풍",
+    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:마무리: 적 전체에 피해를 !D! 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      "적 전체에 피해를 !D! 줍니다. "
+    ]
+  },
+  "BlueArchive_ProblemSolver:Obstinate": {
+    "NAME": "오기",
+    "DESCRIPTION": "보존. NL 방어도를 !B! 얻습니다. NL 소멸. NL BlueArchive_ProblemSolver:마무리: *오기 카드를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "보존. NL 방어도를 !B! 얻습니다. NL 소멸. NL BlueArchive_ProblemSolver:마무리: *오기+ 카드를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "#y오기 카드를 얻습니다. ",
+      "#y오기+ 카드를 얻습니다. "
+    ]
+  },
+  "BlueArchive_ProblemSolver:WarningShot": {
+    "NAME": "경고 사격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 힘을 !M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "피해를 !D! 줍니다. NL ",
+      "BlueArchive_ProblemSolver:악행 (",
+      "/!BlueArchive_ProblemSolver:M2!): 힘을 !M! 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:WhoGavePermission": {
+    "NAME": "누가 허락했죠...!?",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 해당 적을 공격할 때마다 피해를 !M! 줍니다. NL 소멸."
   }
 }

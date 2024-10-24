@@ -8,8 +8,8 @@
   "BlueArchive_ProblemSolver:DeadStrPower": {
     "NAME": "대가를 치를 것이다!",
     "DESCRIPTIONS": [
-      "#y흥신소 캐릭터가 죽을때마다 #y힘을 #b",
-      " 얻습니다."
+      "아군이 죽을때마다 #y힘을 #b",
+      " 얻습니다. 죽은 캐릭터가 #y흥신소 캐릭터라면 2배로 얻습니다."
     ]
   },
   "BlueArchive_ProblemSolver:FearPower": {
@@ -248,6 +248,13 @@
     "DESCRIPTIONS": [
       "다른 아군이 #y공격 카드를 사용하면 #b",
       " 의 피해를 줍니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:DamageReturnPower": {
+    "NAME": "누가 허락했죠...!?",
+    "DESCRIPTIONS": [
+      "공격받을 경우, 피해를 #r",
+      " 받습니다."
     ]
   }
 }

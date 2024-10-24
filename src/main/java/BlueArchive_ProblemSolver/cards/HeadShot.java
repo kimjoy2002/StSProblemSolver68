@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
@@ -34,7 +35,7 @@ public class HeadShot extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DMG = 3;
 
 
@@ -53,6 +54,18 @@ public class HeadShot extends AbstractDynamicCard {
 
     }
 
+
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        for(AbstractPower powers_ : mo.powers) {
+            if(powers_.type == AbstractPower.PowerType.DEBUFF) {
+                int plus_damage = this.damage;
+                this.damage += plus_damage;
+                this.isDamageModified = this.damage != this.baseDamage;
+                return;
+            }
+        }
+    }
 
     // Upgraded stats.
     @Override

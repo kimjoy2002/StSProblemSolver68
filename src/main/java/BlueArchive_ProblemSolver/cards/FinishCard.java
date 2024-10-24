@@ -17,17 +17,23 @@ abstract public class FinishCard extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        finishAfter(p, m, onFinish(p, m), makeFinishString());
+    }
+
+
+    public void finishAfter(AbstractPlayer p, AbstractMonster m, ArrayList<AbstractGameAction> actions, String finishstring) {
         if(ProblemSolver68.someoneHasPower(AssaultPower.POWER_ID)) {
             ProblemSolver68.flashPower(AssaultPower.POWER_ID);
-            ArrayList<AbstractGameAction> actions = onFinish(p, m);
             for (AbstractGameAction action : actions) {
                 this.addToBot(action);
             }
         } else {
-            this.addToBot(new FinishAction(this, onFinish(p, m), makeFinishString()));
+            this.addToBot(new FinishAction(this, actions, finishstring));
         }
     }
-    private String makeFinishString() {
+
+
+    String makeFinishString() {
         String temp = getFinishString();
         temp = temp.replaceAll("!M!", Integer.toString(magicNumber));
         temp = temp.replaceAll("!B!", Integer.toString(block));

@@ -39,8 +39,8 @@ public class MineField extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
+    private static final int MAGIC = 3;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
 
@@ -54,7 +54,7 @@ public class MineField extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DiscardAction(p, p, magicNumber, false) {
+        this.addToBot(new DiscardAction(p, p, 1, false) {
             boolean first = true;
             CardGroup prev_hand = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             boolean create = false;

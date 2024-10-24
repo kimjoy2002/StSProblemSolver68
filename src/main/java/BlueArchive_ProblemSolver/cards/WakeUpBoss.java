@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -32,9 +33,10 @@ public class WakeUpBoss extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int BLOCK = 3;
-    public static final int MAGIC = 3;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
+    private static final int BLOCK = 5;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
+    public static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     public WakeUpBoss() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -46,14 +48,33 @@ public class WakeUpBoss extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        applyPowers();
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 
+    public void applyPowers() {
+        this.baseBlock = BLOCK;
+        int count = 0;
+        for(AbstractCard c : AbstractDungeon.player.hand.group) {
+            if(c instanceof EvilDeedsCard) {
+                count+=((EvilDeedsCard)c).evil;
+            }
+        }
+        this.baseBlock += count*magicNumber;
+        super.applyPowers();
+        this.initializeDescription();
+    }
+
+    public void onMoveToDiscard() {
+        this.baseBlock = BLOCK;
+        this.initializeDescription();
+    }
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }

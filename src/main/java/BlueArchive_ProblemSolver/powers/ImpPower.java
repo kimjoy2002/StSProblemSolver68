@@ -5,8 +5,6 @@ import BlueArchive_ProblemSolver.actions.ImpAmountAction;
 import BlueArchive_ProblemSolver.actions.ImpFixedAction;
 import BlueArchive_ProblemSolver.actions.UnwelcomeSchoolAction;
 import BlueArchive_ProblemSolver.cards.ImpChorus;
-import BlueArchive_ProblemSolver.cards.ImpMine;
-import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;

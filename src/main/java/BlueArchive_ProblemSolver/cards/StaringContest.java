@@ -65,12 +65,4 @@ public class StaringContest extends AbstractDynamicCard {
             initializeDescription();
         }
     }
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(p.hasPower(WeakPower.POWER_ID) || p.hasPower(VulnerablePower.POWER_ID)){
-            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            return false;
-        }
-        return super.canUse(p,m);
-    }
 }

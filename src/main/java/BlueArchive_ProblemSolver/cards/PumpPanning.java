@@ -47,7 +47,6 @@ public class PumpPanning extends FinishCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.shuffleBackIntoDrawPile = false;
         for (int i = 0; i < magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),

@@ -42,6 +42,7 @@ public class CorrectAdvice extends AbstractDynamicCard {
 
     private static final int COST = 0;
     public static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     public Set<AbstractPlayer> used_character = new HashSet<>();
 
@@ -59,7 +60,7 @@ public class CorrectAdvice extends AbstractDynamicCard {
     }
 
     public void makeDescrption() {
-        this.rawDescription = upgraded?cardStrings.UPGRADE_DESCRIPTION:cardStrings.DESCRIPTION;
+        this.rawDescription = cardStrings.DESCRIPTION;
         if(used_character.size() > 0) {
             boolean first = true;
             this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
@@ -84,8 +85,7 @@ public class CorrectAdvice extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            isInnate = true;
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             makeDescrption();
         }
     }

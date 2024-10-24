@@ -56,7 +56,7 @@ public class Detonator extends AbstractDynamicCard {
                 CardGroup drawPiles = AbstractDungeon.player.drawPile;
                 AbstractCard card_ = null;
                 for(AbstractCard card : drawPiles.group) {
-                    if(card.cost == 0 || card.freeToPlayOnce) {
+                    if(card.cost == 0 || card.freeToPlayOnce || card instanceof MineCard) {
                         card_ = card;
                         break;
                     }
