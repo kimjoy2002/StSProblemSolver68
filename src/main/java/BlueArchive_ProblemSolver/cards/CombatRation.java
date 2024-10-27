@@ -51,7 +51,6 @@ public class CombatRation extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPToAllAllyAction(magicNumber, true));
-        AbstractDungeon.actionManager.addToBottom(new AddMaxHPToMercenaryAction(secondMagicNumber));
     }
 
     // Upgraded stats.

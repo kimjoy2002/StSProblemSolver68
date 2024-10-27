@@ -39,37 +39,18 @@ public class LastDitch extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 1;
-    private static final int DAMAGE = 0;
+    private static final int COST = 0;
+    private static final int DAMAGE = 18;
+    private static final int UPGRADE_PLUS_DMG = 7;
 
     public LastDitch() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        exhaust = true;
     }
 
-    public void updateVal () {
-        this.baseDamage = 0;
-        this.baseDamage += AbstractDungeon.player.maxHealth;
-    }
-    public void applyPowers() {
-        updateVal();
-        super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
-    }
-    public void onMoveToDiscard() {
-        updateVal();
-        super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
-    }
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        updateVal();
-        this.calculateCardDamage(m);
-
         if (m != null) {
             this.addToBot(new VFXAction(new SearingBlowEffect(m.hb.cX, m.hb.cY, AbstractDungeon.player.maxHealth/10), 0.2F));
         }
@@ -83,7 +64,7 @@ public class LastDitch extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(0);
+            upgradeDamage(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
     }

@@ -105,7 +105,7 @@
   },
   "BlueArchive_ProblemSolver:CombatRation": {
     "NAME": "전투식량",
-    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:흥신소 캐릭터가 임시_체력 을 !M! 얻습니다. NL 이번 전투동안 BlueArchive_ProblemSolver:용병들의 최대 체력이 !BlueArchive_ProblemSolver:M! 증가합니다."
+    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:흥신소 캐릭터가 임시_체력 을 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:PanicShot": {
     "NAME": "패닉샷",
@@ -132,7 +132,7 @@
   },
   "BlueArchive_ProblemSolver:LastDitch": {
     "NAME": "최후의 일격",
-    "DESCRIPTION": "피해를 자신의 최대 체력만큼 줍니다. NL 죽습니다. NL 소멸."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 죽습니다."
   },
   "BlueArchive_ProblemSolver:LeadersDignity": {
     "NAME": "리더의 품격",
@@ -447,7 +447,7 @@
   },
   "BlueArchive_ProblemSolver:MutsukiMine": {
     "NAME": "발목 지뢰",
-    "DESCRIPTION": "사용불가. 보존. NL 버려지거나 소멸되면 무작위 적이 체력을 !M! 잃습니다. NL BlueArchive_ProblemSolver:지뢰: 소멸합니다.",
+    "DESCRIPTION": "사용불가. 보존. NL 이 카드가 버려질때도 BlueArchive_ProblemSolver:지뢰 효과를 발동합니다.  NL BlueArchive_ProblemSolver:지뢰: 무작위 적이 체력을 !M! 잃습니다. 소멸합니다.",
     "EXTENDED_DESCRIPTION": [
       "사용할 수 없어."
     ]
@@ -642,5 +642,9 @@
   "BlueArchive_ProblemSolver:WhoGavePermission": {
     "NAME": "누가 허락했죠...!?",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 해당 적을 공격할 때마다 피해를 !M! 줍니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:Fireworks": {
+    "NAME": "불꽃놀이",
+    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 이번 턴에 버린 카드 수만큼 공격 횟수가 증가합니다."
   }
 }
