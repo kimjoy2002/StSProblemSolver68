@@ -200,9 +200,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
-    public static String getLocalizedName(ProblemSolver68 p) {
-
-        switch(p.solverType) {
+    public static String getLocalizedName(Aru.ProblemSolver68Type ptype) {
+        switch(ptype) {
             case PROBLEM_SOLVER_68_ARU:
                 return characterStrings.TEXT[1];
             case PROBLEM_SOLVER_68_MUTSUKI:
@@ -228,7 +227,17 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             case PROBLEM_SOLVER_68_WATCHER:
                 return CardCrawlGame.languagePack.getCharacterString("Watcher").NAMES[0];
         }
-        return AbstractDungeon.player.getLocalizedCharacterName();
+        return "";
+    }
+    public static String getLocalizedName(ProblemSolver68 p) {
+        String name = getLocalizedName(p.solverType);
+        if(name != null) {
+            return name;
+        } else if (AbstractDungeon.player != null) {
+            return AbstractDungeon.player.getLocalizedCharacterName();
+        } else {
+            return "UNKNOWN";
+        }
     }
     public static void damageAll(int dmg) {
         inDamageAll = true;
