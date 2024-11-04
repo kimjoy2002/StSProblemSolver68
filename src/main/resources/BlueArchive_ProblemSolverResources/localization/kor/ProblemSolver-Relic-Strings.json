@@ -9,13 +9,13 @@
   },
   "BlueArchive_ProblemSolver:MoreProblemSolverRelic": {
     "NAME": "흥신소 일원 추가",
-    "FLAVOR": "",
+    "FLAVOR": "\"자, 직원들! 일할 시간이야!\"",
     "DESCRIPTIONS": [
-      "흥신소 멤버에 #y아루를 추가합니다.",
-      "흥신소 멤버에 #y무츠키를 추가합니다.",
-      "흥신소 멤버에 #y카요코를 추가합니다.",
-      "흥신소 멤버에 #y하루카를 추가합니다.",
-      "알수없는 멤버.(버그)"
+      "획득시 흥신소 멤버에 #y아루를 추가합니다.",
+      "획득시 흥신소 멤버에 #y무츠키를 추가합니다.",
+      "획득시 흥신소 멤버에 #y카요코를 추가합니다.",
+      "획득시 흥신소 멤버에 #y하루카를 추가합니다.",
+      "획득시 흥신소 멤버를 추가합니다."
     ]
   },
   "BlueArchive_ProblemSolver:MercenaryCatalogueRelic": {

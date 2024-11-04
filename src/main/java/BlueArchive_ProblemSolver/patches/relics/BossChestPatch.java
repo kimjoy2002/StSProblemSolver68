@@ -6,6 +6,7 @@ import BlueArchive_ProblemSolver.relics.MoreProblemSolverRelic;
 import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ModHelper;
@@ -27,28 +28,34 @@ public class BossChestPatch {
     public static class BossChestCtorPatch {
         public static void Postfix(BossChest __instance) {
             if (AbstractDungeon.player instanceof Aru) {
-                ArrayList<Aru.ProblemSolver68Type> able = new ArrayList<>();
-                if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU))
-                    able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
-                if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI))
-                    able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
-                if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO))
-                    able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO);
-                if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA))
-                    able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
+                if (!(AbstractDungeon.actNum >= 4 && AbstractPlayer.customMods.contains("Blight Chests"))) {
+                    if(AbstractDungeon.actNum == 2 && ProblemSolver68.problemSolverPlayer.size() == 3) {
+                        ArrayList<Aru.ProblemSolver68Type> able = new ArrayList<>();
+                        if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU))
+                            able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
+                        if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI))
+                            able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
+                        if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO))
+                            able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO);
+                        if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA))
+                            able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
 
-                if(able.size() > 0) {
-                    __instance.relics.add(new MoreProblemSolverRelic(able.get(AbstractDungeon.relicRng.random(able.size() - 1))));
+                        if(able.size() > 0) {
+                            __instance.relics.remove(0);
+                            __instance.relics.add(new MoreProblemSolverRelic(able.get(AbstractDungeon.relicRng.random(able.size() - 1))));
+                        }
+
+                    }
                 }
             }
         }
     }
 
 
-    @SpirePatch(
-            clz = BossRelicSelectScreen.class,
-            method = "open"
-    )
+//    @SpirePatch(
+//            clz = BossRelicSelectScreen.class,
+//            method = "open"
+//    )
     public static class BossRelicSelectScreenPatch {
         public static void Postfix(BossRelicSelectScreen __instance, ArrayList<AbstractRelic> chosenRelics) {
             if (AbstractDungeon.player instanceof Aru) {
