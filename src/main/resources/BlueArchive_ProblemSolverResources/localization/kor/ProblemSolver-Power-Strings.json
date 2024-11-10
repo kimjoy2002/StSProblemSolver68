@@ -181,9 +181,8 @@
   "BlueArchive_ProblemSolver:MineExpertPower": {
     "NAME": "지뢰 전문가",
     "DESCRIPTIONS": [
-      "아군 지뢰의 피해량이 #b",
-      " 증가합니다. 아군이 카드를 버릴때마다 #y방어도를 #b",
-      " 얻습니다."
+      "아군이 #y지뢰 카드를 사용할때마다 적 전체에 피해를 #r",
+      " 줍니다."
     ]
   },
   "BlueArchive_ProblemSolver:MineChainPower": {
@@ -192,13 +191,6 @@
       "이번 턴 동안, 손에서 카드를 사용하면 사용한 위치에 #y지뢰 카드를 얻습니다.",
       "이번 턴 동안, 손에서 카드를 사용하면 사용한 위치에 #y지뢰 카드를 #b",
       " 장 얻습니다."
-    ]
-  },
-  "BlueArchive_ProblemSolver:EmergencyBandagePower": {
-    "NAME": "비상용 붕대",
-    "DESCRIPTIONS": [
-      "이번 턴 동안, 아군이 카드를 버릴때마다 #y방어도를 #b",
-      " 얻습니다."
     ]
   },
   "BlueArchive_ProblemSolver:TroubleMakerPower": {
@@ -243,18 +235,25 @@
       " 장 뽑습니다."
     ]
   },
-  "BlueArchive_ProblemSolver:SupportShotPower": {
-    "NAME": "지원 사격",
-    "DESCRIPTIONS": [
-      "다른 아군이 #y공격 카드를 사용하면 #b",
-      " 의 피해를 줍니다."
-    ]
-  },
   "BlueArchive_ProblemSolver:DamageReturnPower": {
     "NAME": "누가 허락했죠...!?",
     "DESCRIPTIONS": [
       "공격받을 경우, 피해를 #r",
       " 받습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:StealthPower": {
+    "NAME": "잡입행동",
+    "DESCRIPTIONS": [
+      "다음 공격카드가 피해를 #g",
+      " 배로 줍니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:HiddenPastPower": {
+    "NAME": "숨겨진 과거",
+    "DESCRIPTIONS": [
+      "카드를 뽑거나 손에 카드를 생성할때마다 무작위 적에게 피해를 #r",
+      " 줍니다."
     ]
   }
 }

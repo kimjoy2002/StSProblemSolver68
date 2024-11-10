@@ -70,7 +70,7 @@ public class ImpPower extends AbstractPower implements CloneablePowerInterface, 
     }
 
     public void onUseCardForSub(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK && !owner.hasPower(FixedImpPower.POWER_ID) && amount_imp > 0) {
+        if (card.type == AbstractCard.CardType.ATTACK && !owner.hasPower(FixedImpPower.POWER_ID) && amount_imp > 0 && !(card instanceof ImpChorus)) {
             this.flash();
             this.addToBot(new ImpAmountAction(0, this, false));
         }

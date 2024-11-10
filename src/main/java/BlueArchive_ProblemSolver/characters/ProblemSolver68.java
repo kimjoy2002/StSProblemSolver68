@@ -200,6 +200,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public static String getCommonName() {
+        return characterStrings.TEXT[9];
+    }
     public static String getLocalizedName(Aru.ProblemSolver68Type ptype) {
         switch(ptype) {
             case PROBLEM_SOLVER_68_ARU:

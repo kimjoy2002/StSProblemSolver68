@@ -31,6 +31,13 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         return solverType[type.ordinal()-1] == true;
     }
 
+    public boolean isGenericType() {
+        return !isSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU) &&
+                !isSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI) &&
+                !isSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO) &&
+                !isSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
+    }
+
     public boolean ableSolverType(boolean[] testTypes) {
         for(int i =0; i < 4; i++) {
             if(testTypes[i] == false && solverType[i] == true) {

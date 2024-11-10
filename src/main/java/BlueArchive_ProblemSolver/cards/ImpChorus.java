@@ -76,7 +76,6 @@ public class ImpChorus extends AbstractDynamicCard {
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                             AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
-        AbstractDungeon.actionManager.addToBottom(new RemovePowerToAllAllyAction(ImpPower.POWER_ID));
     }
 
 

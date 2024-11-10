@@ -5,11 +5,10 @@ import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -20,22 +19,15 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
-
-//Gain 1 dex for the turn for each card played.
-
-public class MineExpertPower extends AbstractPower implements CloneablePowerInterface, OnMinePower {
-    public static final String POWER_ID = DefaultMod.makeID("MineExpertPower");
+public class HiddenPastPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = DefaultMod.makeID("HiddenPastPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("HiddenPastPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("HiddenPastPower32.png"));
 
-    // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
-    // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("MineExpertPower84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("MineExpertPower32.png"));
-
-
-    public MineExpertPower(final AbstractCreature owner, int amount) {
+    public HiddenPastPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -58,14 +50,14 @@ public class MineExpertPower extends AbstractPower implements CloneablePowerInte
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
-    @Override
-    public void onMine(AbstractCard card) {
-        this.flash();
-        this.addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));
+    public void onCardDraw(AbstractCard card) {
+        AbstractGameAction.AttackEffect effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
+        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(this.owner, MathUtils.floor(amount), DamageInfo.DamageType.THORNS), effect));
     }
+
     @Override
     public AbstractPower makeCopy() {
-        return new MineExpertPower(owner, amount);
+        return new HiddenPastPower(owner, amount);
     }
 
 }

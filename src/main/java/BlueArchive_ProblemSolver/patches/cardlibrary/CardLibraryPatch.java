@@ -60,12 +60,12 @@ public class CardLibraryPatch {
                     basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.ColorTabBarFix.Fields.getModTab().color == Aru.Enums.COLOR_RED) {
                 if(!changeCheck) {
                     if(problemisDisable == null) {
-                        problemisDisable = new Boolean[4];
-                        for(int i = 0; i < 4; i++){
+                        problemisDisable = new Boolean[5];
+                        for(int i = 0; i < 5; i++){
                             problemisDisable[i] = new Boolean(false);
                         }
                     } else {
-                        for(int i = 0; i < 4; i++){
+                        for(int i = 0; i < 5; i++){
                             problemisDisable[i] = false;
                         }
                     }
@@ -78,9 +78,14 @@ public class CardLibraryPatch {
                     boolean skip = false;
                     if(temp instanceof AbstractDynamicCard) {
                         AbstractDynamicCard pscard = (AbstractDynamicCard)temp;
-                        for(int i = 0; i < 4; i++) {
+                        for(int i = 0; i < 5; i++) {
                             if(problemisDisable[i]) {
-                                if(pscard.isSolverType(Aru.ProblemSolver68Type.values()[i + 1])) {
+                                if(i == 4) {
+                                    if(pscard.isGenericType()){
+                                        skip = true;
+                                    }
+                                }
+                                else if(pscard.isSolverType(Aru.ProblemSolver68Type.values()[i + 1])) {
                                     skip = true;
                                 }
                             }
@@ -106,22 +111,33 @@ public class CardLibraryPatch {
         public static void Postfix(ColorTabBar __instance, float y) {
             ArrayList<ColorTabBarFix.ModColorTab> modColorTabs = ReflectionHacks.getPrivateStatic(ColorTabBarFix.Fields.class, "modTabs");
             if(problemCheckbox == null) {
-                problemCheckbox = new Hitbox[4];
-                for(int i = 0; i < 4; i++){
+                problemCheckbox = new Hitbox[5];
+                for(int i = 0; i < 5; i++){
                     problemCheckbox[i] = new Hitbox(235.0F * Settings.scale, 50.0F * Settings.scale);
                 }
             }
             if(problemisDisable == null) {
-                problemisDisable = new Boolean[4];
-                for(int i = 0; i < 4; i++){
+                problemisDisable = new Boolean[5];
+                for(int i = 0; i < 5; i++){
                     problemisDisable[i] = new Boolean(false);
                 }
             }
-            for(int i = 0; i < 4; i++){
+            for(int i = 0; i < 5; i++){
                 problemCheckbox[i].move(150.0F * Settings.scale, y - 64.0F * (float)(modColorTabs.size() + i + 1) * Settings.scale);
                 problemCheckbox[i].update();
                 if (InputHelper.justClickedLeft) {
                     if (problemCheckbox[i].hovered) {
+                        if(!problemisDisable[i]) {
+                            boolean cannot_disable = true;
+                            for(int j = 0; j < 5; j++) {
+                                if(j != i && !problemisDisable[j]) {
+                                    cannot_disable = false;
+                                }
+                            }
+                            if(cannot_disable) {
+                                continue;
+                            }
+                        }
                         problemisDisable[i] = !problemisDisable[i];
                         TabBarListener delegate =  ReflectionHacks.getPrivate(__instance, ColorTabBar.class, "delegate");
                         changeCheck = true;
@@ -159,13 +175,13 @@ public class CardLibraryPatch {
                 //sb.setColor(Settings.GOLD_COLOR);
                 //float doop = 1.0F + (1.0F + MathUtils.cosDeg((float)(System.currentTimeMillis() / 2L % 360L))) / 50.0F;
 
-                for(int i = 0; i < 4; i ++) {
+                for(int i = 0; i < 5; i ++) {
                     Color c = Settings.CREAM_COLOR;
                     if (problemCheckbox[i].hovered) {
                         c = Settings.GOLD_COLOR;
                     }
 
-                    String name = ProblemSolver68.getLocalizedName(Aru.ProblemSolver68Type.values()[i + 1]);
+                    String name = i==4? ProblemSolver68.getCommonName() :ProblemSolver68.getLocalizedName(Aru.ProblemSolver68Type.values()[i + 1]);
                     FontHelper.renderFontLeftTopAligned(sb, FontHelper.topPanelInfoFont, name, 100.0F * Settings.scale, y -  (-10.0F +64.0F * (float)(modColorTabs.size() + i+1)) * Settings.scale, c);
                     Texture img = (problemisDisable[i]==false) ? ImageMaster.COLOR_TAB_BOX_TICKED : ImageMaster.COLOR_TAB_BOX_UNTICKED;
                     sb.setColor(c);

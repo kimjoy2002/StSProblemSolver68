@@ -4,6 +4,7 @@ import BlueArchive_ProblemSolver.actions.DelayAction;
 import BlueArchive_ProblemSolver.actions.EvilDeedsAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.OnEvilDeedsPower;
+import BlueArchive_ProblemSolver.powers.OnMinePower;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -26,6 +27,21 @@ abstract public class MineCard extends AbstractDynamicCard {
             int index2_ = AbstractDungeon.player.hand.group.indexOf(this);
             if(index2_ >= 0 && index_ >= 0 && abs(index_ - index2_)<=1) {
                 onMine(c);
+                if(AbstractDungeon.player instanceof ProblemSolver68) {
+                    for(AbstractPlayer ps : ProblemSolver68.problemSolverPlayer) {
+                        for(AbstractPower p : ps.powers) {
+                            if(p instanceof OnMinePower) {
+                                ((OnMinePower)p).onMine(c);
+                            }
+                        }
+                    }
+                } else {
+                    for(AbstractPower p : AbstractDungeon.player.powers) {
+                        if(p instanceof OnMinePower) {
+                            ((OnMinePower)p).onMine(c);
+                        }
+                    }
+                }
             }
         }
     }

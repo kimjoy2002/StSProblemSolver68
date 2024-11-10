@@ -105,7 +105,7 @@
   },
   "BlueArchive_ProblemSolver:CombatRation": {
     "NAME": "전투식량",
-    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:흥신소 캐릭터가 임시_체력 을 !M! 얻습니다."
+    "DESCRIPTION": "모든 아군이 임시_체력 을 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:PanicShot": {
     "NAME": "패닉샷",
@@ -256,7 +256,7 @@
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "소악마의 코러스",
-    "DESCRIPTION": "아군의 BlueArchive_ProblemSolver:소악마를 전부 제거합니다. 제거한 소악마 하나당 피해를 !D! 줍니다.",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:소악마 하나당 피해를 !D! 줍니다. NL 이 카드는 BlueArchive_ProblemSolver:소악마로 피해량이 증가하지 않습니다.",
     "EXTENDED_DESCRIPTION": [
       "난 소악마가 아니야.",
       " NL (",
@@ -427,7 +427,7 @@
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "잡입행동",
-    "DESCRIPTION": "다음에 사용하는 공격 카드의 피해량이 !M! 증가합니다. NL 이번 턴 이 캐릭터를 조종할 수 없습니다."
+    "DESCRIPTION": "다음 공격 카드가 피해를 !M! 배로 줍니다. NL 이번 턴 이 캐릭터를 조종할 수 없습니다."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeAru": {
     "NAME": "전술대항전 - 아루",
@@ -465,15 +465,15 @@
   },
   "BlueArchive_ProblemSolver:MineExpert": {
     "NAME": "지뢰 전문가",
-    "DESCRIPTION": "아군이 사용하는 *지뢰의 피해량이 !M! 증가합니다. NL 아군이 카드를 버릴때마다 방어도를 !M! 얻습니다."
+    "DESCRIPTION": "*지뢰 효과가 발동할때마다 적 전체에 피해를 !M! 줍니다."
   },
   "BlueArchive_ProblemSolver:RouletteMisdirection": {
     "NAME": "룰렛 미스디렉션",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 맨 왼쪽 카드를 !BlueArchive_ProblemSolver:M! 장 버립니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 손의 맨 왼쪽 카드를 버립니다."
   },
   "BlueArchive_ProblemSolver:LoveAndViolence": {
     "NAME": "사랑과 폭력",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 무작위 카드를 !M! 장 버립니다."
+    "DESCRIPTION": "카드를 최대 !M! 장까지 버립니다. NL 버린 카드 1장당 피해를 !D! 줍니다. "
   },
   "BlueArchive_ProblemSolver:MineChain": {
     "NAME": "지뢰 연쇄",
@@ -486,10 +486,6 @@
   "BlueArchive_ProblemSolver:TacticalChallengePS68": {
     "NAME": "전술대항전 - 흥신소68",
     "DESCRIPTION": "*전술대항전 카드 !M! 종을 손으로 가져옵니다. NL 이번 턴 동안 그 비용이 0이 됩니다. NL 소멸."
-  },
-  "BlueArchive_ProblemSolver:EmergencyBandage": {
-    "NAME": "비상용 붕대",
-    "DESCRIPTION": "이번 턴 동안, 카드를 버릴때마다 방어도를 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:TroubleMaker": {
     "NAME": "트러블 메이커",
@@ -561,9 +557,9 @@
     "NAME": "무기 쳐내기",
     "DESCRIPTION": "선천성. NL 피해를 !D! 줍니다. NL 적의 인공물을 제거합니다. NL 약화를 !M! 부여합니다."
   },
-  "BlueArchive_ProblemSolver:SupportShot": {
-    "NAME": "지원 사격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 턴 동안 다른 아군이 공격 카드를 사용할때마다 반복합니다."
+  "BlueArchive_ProblemSolver:Claymore": {
+    "NAME": "크레모아",
+    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:지뢰: 이번 턴동안 이 카드의 피해량이 !M! 증가합니다."
   },
   "BlueArchive_ProblemSolver:OneInTheChamber": {
     "NAME": "약실 장전",
@@ -571,7 +567,7 @@
   },
   "BlueArchive_ProblemSolver:SiphonSoul": {
     "NAME": "영혼 착취",
-    "DESCRIPTION": "적이나 아군에게 피해를 !D! 줍니다. NL 치명타라면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다."
+    "DESCRIPTION": "적이나 아군에게 피해를 !D! 줍니다. NL 대상을 죽이면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:HeadShot": {
     "NAME": "헤드샷",
@@ -646,5 +642,28 @@
   "BlueArchive_ProblemSolver:Fireworks": {
     "NAME": "불꽃놀이",
     "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 이번 턴에 버린 카드 수만큼 공격 횟수가 증가합니다."
+  },
+  "BlueArchive_ProblemSolver:ShadowShot": {
+    "NAME": "그림자 사격",
+    "DESCRIPTION": "손에 있는 저주 나 상태이상이 아닌 카드 1장당 !M! 만큼 피해를 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (피해를 !D! 줍니다.)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ImpishPrank": {
+    "NAME": "소악마의 장난",
+    "DESCRIPTION": "카드를 전부 버립니다. NL 버린 카드 수만큼 *무츠키가 BlueArchive_ProblemSolver:소악마를 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:SecondDeal": {
+    "NAME": "세컨드 딜",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 1장 버립니다. NL 그 카드의 비용이 1 이상이면 그 위치에 이 카드를 다시 가져옵니다."
+  },
+  "BlueArchive_ProblemSolver:PartyPistol": {
+    "NAME": "깜짝 권총",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다."
+  },
+  "BlueArchive_ProblemSolver:HiddenPast": {
+    "NAME": "숨겨진 과거",
+    "DESCRIPTION": "카드를 뽑거나 손에 카드를 생성할때마다 무작위 적에게 피해를 1 줍니다."
   }
 }

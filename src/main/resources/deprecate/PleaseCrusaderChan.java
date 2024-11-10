@@ -42,7 +42,7 @@ public class PleaseCrusaderChan extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard card = new TwoPounderHighExplosives();
         this.addToBot(new MakeTempCardInHandAction(card, 1));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MineExpertPower(p, p, magicNumber)));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MineExpertPower(p, magicNumber)));
     }
 
     //Upgraded stats.

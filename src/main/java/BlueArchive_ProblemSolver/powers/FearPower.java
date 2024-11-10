@@ -74,6 +74,9 @@ public class FearPower extends AbstractPower implements CloneablePowerInterface,
         AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
     }
 
+    public void atStartOfTurn() {
+        AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
+    }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);

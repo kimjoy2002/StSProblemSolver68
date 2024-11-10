@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.powers.CannotSelectedPower;
+import BlueArchive_ProblemSolver.powers.StealthPower;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -25,8 +26,8 @@ public class InfiltrationTactics extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    public static final int MAGIC = 8;
-    private static final int UPGRADE_PLUS_MAGIC = 4;
+    public static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
     public InfiltrationTactics() {
@@ -38,7 +39,7 @@ public class InfiltrationTactics extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new StealthPower(p, this.magicNumber-1), this.magicNumber-1));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new CannotSelectedPower(AbstractDungeon.player, 1)));
     }
 
