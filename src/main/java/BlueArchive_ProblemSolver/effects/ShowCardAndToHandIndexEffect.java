@@ -1,5 +1,6 @@
 package BlueArchive_ProblemSolver.effects;
 
+import BlueArchive_ProblemSolver.patches.powers.HiddenPastPatch;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -78,6 +79,7 @@ public class ShowCardAndToHandIndexEffect extends AbstractGameEffect {
             card.setCostForTurn(-9);
         }
 
+        HiddenPastPatch.triggerHiddenPast(card);
     }
 
     private void playCardObtainSfx() {
