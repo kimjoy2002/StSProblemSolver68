@@ -669,7 +669,7 @@
   },
   "BlueArchive_ProblemSolver:DiligentPast": {
     "NAME": "성실한 과거",
-    "DESCRIPTION": "다른 캐릭터가 카드를 사용할 때마다 *임시 힘을 1 얻습니다."
+    "DESCRIPTION": "다른 캐릭터가 카드를 사용할 때마다 임시로 힘을 1 얻습니다."
   },
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "즐거운 과거",

@@ -38,7 +38,7 @@ public class SecondDeal extends AbstractDynamicCard {
 
     private static final int COST = 0;
     private static final int BLOCK = 3;
-    private static final int UPGRADE_BLOCK = 2;
+    private static final int UPGRADE_BLOCK = 1;
 
     public int return_index = -1;
 

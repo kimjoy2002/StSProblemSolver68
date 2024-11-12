@@ -68,7 +68,6 @@ public class PartyPistol extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            cardsToPreview.upgrade();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             selfRetain = true;
             initializeDescription();
