@@ -9,7 +9,7 @@
   },
   "BlueArchive_ProblemSolver:ChooseAru": {
     "NAME": "라쿠하치마 아루",
-    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: 높은 공격력. 에너지 회복. 힘 증가."
+    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: 높은 공격력. [E] 회복. 힘 증가."
   },
   "BlueArchive_ProblemSolver:ChooseMutsuki": {
     "NAME": "아사기 무츠키",
@@ -665,11 +665,11 @@
   },
   "BlueArchive_ProblemSolver:HiddenPast": {
     "NAME": "숨겨진 과거",
-    "DESCRIPTION": "카드를 뽑거나 손에 카드를 생성할 때마다 무작위 적에게 피해를 1 줍니다."
+    "DESCRIPTION": "카드를 뽑거나 손에 카드를 생성할 때마다 무작위 적에게 피해를 !M! 줍니다."
   },
   "BlueArchive_ProblemSolver:DiligentPast": {
     "NAME": "성실한 과거",
-    "DESCRIPTION": "다른 캐릭터가 카드를 사용할 때마다 임시로 힘을 1 얻습니다."
+    "DESCRIPTION": "다른 캐릭터가 카드를 사용할 때마다 임시로 힘을 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "즐거운 과거",
