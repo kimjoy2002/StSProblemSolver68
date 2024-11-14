@@ -36,6 +36,7 @@ public class PokerFace extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 8;
+    private static final int UPGRADE_PLUS_BLOCK = 1;
 
     public static final int MAGIC = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
@@ -70,6 +71,7 @@ public class PokerFace extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
 
             initializeDescription();

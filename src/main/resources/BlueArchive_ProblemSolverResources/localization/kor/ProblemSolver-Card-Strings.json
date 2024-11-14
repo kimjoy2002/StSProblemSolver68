@@ -159,7 +159,7 @@
   },
   "BlueArchive_ProblemSolver:ExplodingAria": {
     "NAME": "폭열의 아리아",
-    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다."
+    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 무작위 카드를 1장 버립니다."
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
     "NAME": "트리거 오버",
@@ -439,7 +439,7 @@
   },
   "BlueArchive_ProblemSolver:TacticalChallengeKayoko": {
     "NAME": "전술대항전 - 카요코",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 이번 전투동안 *전술대항전 카드를 !BlueArchive_ProblemSolver:M! 번 썼을때마다 카드를 1장 더 뽑습니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 이번 전투동안 *전술대항전 카드를 쓴 횟수 !BlueArchive_ProblemSolver:M! 번당 카드를 1장 더 뽑습니다."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeHaruka": {
     "NAME": "전술대항전 - 하루카",
@@ -485,7 +485,7 @@
   },
   "BlueArchive_ProblemSolver:TacticalChallengePS68": {
     "NAME": "전술대항전 - 흥신소68",
-    "DESCRIPTION": "*전술대항전 카드 !M! 종을 손으로 가져옵니다. NL 이번 턴 동안 그 비용이 0이 됩니다. NL 소멸."
+    "DESCRIPTION": "무작위 *전술대항전 카드 !M! 종을 손으로 가져옵니다. NL 이번 턴 동안 그 비용이 0이 됩니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:TroubleMaker": {
     "NAME": "트러블 메이커",
@@ -567,7 +567,7 @@
   },
   "BlueArchive_ProblemSolver:SiphonSoul": {
     "NAME": "영혼 착취",
-    "DESCRIPTION": "적이나 아군에게 피해를 !D! 줍니다. NL 대상을 죽이면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다."
+    "DESCRIPTION": "적이나 아군에게 피해를 !D! 줍니다. NL 이 공격이 대상을 죽이면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:HeadShot": {
     "NAME": "헤드샷",
@@ -674,5 +674,18 @@
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "즐거운 과거",
     "DESCRIPTION": "턴 종료 시 모든 아군의 양수의 힘과 BlueArchive_ProblemSolver:소악마의 합만큼 방어도를 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:DestinyDraw": {
+    "NAME": "데스티니 드로우",
+    "DESCRIPTION": "턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:AvatarOfFear": {
+    "NAME": "공포의 화신",
+    "DESCRIPTION": "아군이 공격할 의도가 있는 적에게 BlueArchive_ProblemSolver:공포를 부여할때마다 그만큼 1턴간 힘을 감소시킵니다."
+  },
+  "BlueArchive_ProblemSolver:Sweep": {
+    "NAME": "쓸어담기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 막히지 않은 피해만큼 힘을 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 막히지 않은 피해만큼 힘을 얻습니다."
   }
 }

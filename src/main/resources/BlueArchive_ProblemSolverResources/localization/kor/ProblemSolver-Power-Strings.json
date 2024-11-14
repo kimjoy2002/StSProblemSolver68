@@ -268,7 +268,23 @@
     "DESCRIPTIONS": [
       "턴 종료 시 모든 아군이 가진 양수의 #y힘과 #y소악마의 합만큼 #y방어도를 얻습니다.",
       "턴 종료 시 모든 아군이 가진 양수의 #y힘과 #y소악마의 합의 #b",
-      " 배만큼 y방어도를 얻습니다."
+      " 배만큼 #y방어도를 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:DestinyDrawPower": {
+    "NAME": "데스티니 드로우",
+    "DESCRIPTIONS": [
+      "턴마다 1번씩, 손이 0장이 되었을때 카드를 #b",
+      " 장 뽑고 그 비용만큼 [E] 를 얻습니다.",
+      " (사용함)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:AvatarOfFearPower": {
+    "NAME": "공포의 화신",
+    "DESCRIPTIONS": [
+      "아군이 적에게 #y공포를 부여할때마다 그만큼 1턴간 #y힘을 감소시킵니다.",
+      "아군이 적에게 #y공포를 부여할때마다 그 #b",
+      " 배만큼 1턴간 #y힘을 감소시킵니다."
     ]
   }
 }
