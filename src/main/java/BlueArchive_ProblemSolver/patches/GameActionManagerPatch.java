@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import javassist.CtBehavior;
@@ -14,6 +15,7 @@ public class GameActionManagerPatch {
 
     public static int deadThisCombat = 0;
     public static int tacticalChallengeCount = 0;
+    public static int zeroCostCount = 0;
     public static int evildeedThisTurn = 0;
     public static int increaseMercenaryMaxHP = 0;
     public static int blockedThisCombat = 0;
@@ -28,7 +30,7 @@ public class GameActionManagerPatch {
                 locator = Locator.class
         )
         public static void Insert(GameActionManager __instance) {
-
+            zeroCostCount = 0;
             evildeedThisTurn = 0;
         }
         private static class Locator extends SpireInsertLocator {
@@ -40,6 +42,27 @@ public class GameActionManagerPatch {
     }
 
 
+    @SpirePatch(
+            clz = GameActionManager.class,
+            method = "getNextAction"
+    )
+    public static class cardsPlayedThisTurnPatcher {
+        @SpireInsertPatch(
+                locator = Locator.class
+        )
+        public static void Insert(GameActionManager __instance) {
+            AbstractCard card = ((CardQueueItem)__instance.cardQueue.get(0)).card;
+            if(card.cost == 0 || card.freeToPlayOnce || card.costForTurn == 0) {
+                zeroCostCount++;
+            }
+        }
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.FieldAccessMatcher(GameActionManager.class, "cardsPlayedThisTurn");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+    }
 
     @SpirePatch(
             clz = AbstractPlayer.class,
@@ -81,6 +104,7 @@ public class GameActionManagerPatch {
             deadThisCombat = 0;
             increaseMercenaryMaxHP = 0;
             tacticalChallengeCount = 0;
+            zeroCostCount = 0;
             blockedThisCombat = 0;
             keepEnergy = 0;
         }

@@ -53,7 +53,7 @@ public class TroubleMakerPower extends AbstractPower implements CloneablePowerIn
 
     public void onExhaustForProblem(AbstractCard card) {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            if(card.cost == 0 || card.freeToPlayOnce) {
+            if(card.cost == 0 || card.costForTurn == 0 || card.freeToPlayOnce) {
                 this.addToBot(new DrawCardAction(amount));
                 this.addToBot(new DiscardLeftAction(1));
             }

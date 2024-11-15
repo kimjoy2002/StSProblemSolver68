@@ -31,7 +31,7 @@ public class SecondDealAction extends AbstractGameAction {
         this.duration = DURATION;
     }
     public void discardAction(AbstractCard target) {
-        if (original_hand.contains(target) && target.cost > 0 && !target.freeToPlayOnce) {
+        if (original_hand.contains(target) && target.cost > 0 && target.costForTurn > 0 && !target.freeToPlayOnce) {
             int index_ = original_hand.group.indexOf(target);
             secondDealCard.returnToHand = true;
             secondDealCard.return_index = index_;

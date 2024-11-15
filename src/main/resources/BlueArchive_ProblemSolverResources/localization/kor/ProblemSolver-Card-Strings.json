@@ -687,5 +687,13 @@
     "NAME": "쓸어담기",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 막히지 않은 피해만큼 힘을 얻습니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 막히지 않은 피해만큼 힘을 얻습니다."
+  },
+  "BlueArchive_ProblemSolver:PanicShotRetry": {
+    "NAME": "패닉샷 리트라이",
+    "DESCRIPTION": "버린 카드 더미에서 비용이 0인 무작위 카드를 !M! 장 손에 가져옵니다."
+  },
+  "BlueArchive_ProblemSolver:Silencer": {
+    "NAME": "소음기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 턴에 사용한 비용이 0인 카드 수 만큼 비용이 1 감소합니다."
   }
 }
