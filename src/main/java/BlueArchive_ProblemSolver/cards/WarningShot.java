@@ -70,7 +70,7 @@ public class WarningShot extends EvilDeedsCard {
 
     @Override
     public void onEvilDeeds(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, secondMagicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, magicNumber)));
     }
 
     // Upgraded stats.

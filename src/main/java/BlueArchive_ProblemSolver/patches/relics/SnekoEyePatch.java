@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.patches.relics;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.patches.AbstractMonsterPatch;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
+import BlueArchive_ProblemSolver.powers.OneTurnConfusionPower;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -35,7 +36,7 @@ public class SnekoEyePatch {
                 for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer){
                     if(ps != __instance) {
                         for(AbstractPower power_ : ps.powers) {
-                            if(power_ instanceof ConfusionPower) {
+                            if(power_ instanceof ConfusionPower || power_ instanceof OneTurnConfusionPower) {
                                 power_.onCardDraw(c);
                             }
                         }

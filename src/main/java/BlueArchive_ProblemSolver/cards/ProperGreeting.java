@@ -5,6 +5,7 @@ import BlueArchive_ProblemSolver.actions.ProperGreetingAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -31,7 +32,6 @@ public class ProperGreeting extends AbstractDynamicCard {
     private static final int UPGRADE_PLUS_DMG = 2;
 
     private static final int MAGIC = 1;
-    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
     public ProperGreeting() {
@@ -47,6 +47,7 @@ public class ProperGreeting extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        this.addToBot(new DrawCardAction(AbstractDungeon.player, magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ProperGreetingAction());
     }
 
@@ -55,7 +56,6 @@ public class ProperGreeting extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

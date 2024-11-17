@@ -203,7 +203,7 @@
   },
   "BlueArchive_ProblemSolver:RecklessBehavior": {
     "NAME": "폭주하는 행동",
-    "DESCRIPTION": "카드를 전부 버립니다. NL 카드를 !M!X 장 뽑습니다. NL 다음 사용하는 카드의 비용이 0이 됩니다."
+    "DESCRIPTION": "카드를 전부 버립니다. NL 방어도를 !B! 만큼 X 번 얻습니다. NL 카드를 X 장 뽑고 이번 턴동안 힘 과 민첩을 !M! 만큼 얻습니다."
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "도발",
@@ -423,7 +423,7 @@
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
     "NAME": "확실하게 인사하기",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 현재 아군이 준비중인 BlueArchive_ProblemSolver:마무리 효과를 미리 발동하고 제거합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 현재 아군이 준비중인 BlueArchive_ProblemSolver:마무리 효과를 미리 발동하고 제거합니다."
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "잡입행동",
@@ -573,9 +573,9 @@
     "NAME": "헤드샷",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 해로운 효과를 가지고 있다면 피해가 2 배가 됩니다."
   },
-  "BlueArchive_ProblemSolver:BrokenHead": {
-    "NAME": "하루만 기다리면!",
-    "DESCRIPTION": "왜냐면 이제부터 기다림이 24시간이 넘을 때마다 대가리를 존나 쎄게 쳐서 제 머릿속을 뒤죽박죽 엉망진창으로 만들 거거든요!"
+  "BlueArchive_ProblemSolver:MessUp": {
+    "NAME": "엉망진창",
+    "DESCRIPTION": "턴이 끝날때까지 *일시적 BlueArchive_ProblemSolver:혼란 상태를 얻습니다. NL 카드를 !M! 장 뽑습니다."
   },
   "BlueArchive_ProblemSolver:WakeUpBoss": {
     "NAME": "정신차려라 사장",

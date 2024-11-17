@@ -286,5 +286,11 @@
       "아군이 적에게 #y공포를 부여할때마다 그 #b",
       " 배만큼 1턴간 #y힘을 감소시킵니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:OneTurnConfusionPower": {
+    "NAME": "일시적 혼란",
+    "DESCRIPTIONS": [
+      "카드를 뽑을 때 마다 비용이 무작위로 정해집니다. 턴이 끝날때까지만 유효합니다."
+    ]
   }
 }
