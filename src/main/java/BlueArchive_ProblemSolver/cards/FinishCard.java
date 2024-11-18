@@ -28,10 +28,13 @@ abstract public class FinishCard extends AbstractDynamicCard {
                 this.addToBot(action);
             }
         } else {
-            this.addToBot(new FinishAction(this, actions, finishstring));
+            this.addToBot(new FinishAction(this, actions, finishstring, isDebuf()));
         }
     }
 
+    public boolean isDebuf() {
+        return false;
+    }
 
     String makeFinishString() {
         String temp = getFinishString();

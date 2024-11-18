@@ -489,7 +489,7 @@
   },
   "BlueArchive_ProblemSolver:TroubleMaker": {
     "NAME": "트러블 메이커",
-    "DESCRIPTION": "아군의 비용이 0인 카드가 소멸될 때마다 카드를 !M! 장 뽑은 후 맨 왼쪽 카드를 버립니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:지뢰 카드를 뽑거나 손에 생성했을때 즉시 BlueArchive_ProblemSolver:지뢰 효과를 발동합니다."
   },
   "BlueArchive_ProblemSolver:StaringContest": {
     "NAME": "눈싸움",
@@ -504,7 +504,7 @@
   },
   "BlueArchive_ProblemSolver:TempHealthBarricade": {
     "NAME": "마지노선",
-    "DESCRIPTION": "모든 캐릭터에게 부여되어있는 해로운 효과 개수의 !M! 배만큼 임시_체력 을 얻습니다. NL 소멸.",
+    "DESCRIPTION": "모든 캐릭터에게 부여되어있는 부정적인 효과 개수의 !M! 배만큼 임시_체력 을 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       "만큼 얻습니다.)"
@@ -571,7 +571,7 @@
   },
   "BlueArchive_ProblemSolver:HeadShot": {
     "NAME": "헤드샷",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 해로운 효과를 가지고 있다면 피해가 2 배가 됩니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 부정적인 효과를 가지고 있다면 피해가 2 배가 됩니다."
   },
   "BlueArchive_ProblemSolver:MessUp": {
     "NAME": "엉망진창",
@@ -673,7 +673,7 @@
   },
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "즐거운 과거",
-    "DESCRIPTION": "턴 종료 시 모든 아군의 양수의 힘과 BlueArchive_ProblemSolver:소악마의 합만큼 방어도를 얻습니다."
+    "DESCRIPTION": "아군이 BlueArchive_ProblemSolver:소악마와 힘을 얻을때마다 그 !M! 배만큼 이 캐릭터가 임시_체력 을 얻습니다."
   },
   "BlueArchive_ProblemSolver:DestinyDraw": {
     "NAME": "데스티니 드로우",

@@ -51,6 +51,10 @@ public class TriggerOver extends FinishCard {
     }
 
     @Override
+    public boolean isDebuf() {
+        return true;
+    }
+    @Override
     public ArrayList<AbstractGameAction> onFinish(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractGameAction> temp = new ArrayList<AbstractGameAction>();
         temp.add(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));

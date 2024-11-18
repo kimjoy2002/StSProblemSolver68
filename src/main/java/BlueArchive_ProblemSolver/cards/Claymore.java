@@ -50,7 +50,7 @@ public class Claymore extends MineCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
-    public void onMine(AbstractCard c) {
+    public boolean onMine(AbstractCard c) {
         AbstractCard mine_card = this;
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
@@ -64,6 +64,7 @@ public class Claymore extends MineCard {
                 this.isDone = true;
             }
         });
+        return true;
     }
 
     @Override

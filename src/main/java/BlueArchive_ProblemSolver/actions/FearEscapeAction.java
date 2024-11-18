@@ -1,5 +1,6 @@
 package BlueArchive_ProblemSolver.actions;
 
+import BlueArchive_ProblemSolver.patches.powers.FearPatch;
 import BlueArchive_ProblemSolver.powers.FearPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.ShoutAction;
@@ -26,6 +27,7 @@ public class FearEscapeAction extends AbstractGameAction {
         if (this.duration == 0.5F && !source.isEscaping && source.currentHealth > 0) {
             AbstractMonster m = (AbstractMonster)this.source;
             m.escape();
+            FearPatch.FearField.isFear.set(m, true);
 
 
 

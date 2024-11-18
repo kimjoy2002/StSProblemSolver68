@@ -50,8 +50,13 @@ public class RemoteBomb extends MineCard {
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
     }
-    public void onMine(AbstractCard c) {
-        AbstractDungeon.actionManager.addToBottom(new ReduceCostAction(this.uuid, 999));
+    public boolean onMine(AbstractCard c) {
+        AbstractDungeon.actionManager.addToTop(new ReduceCostAction(this.uuid, 999));
+        if(cost > 0 && costForTurn > 0 && !freeToPlayOnce){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

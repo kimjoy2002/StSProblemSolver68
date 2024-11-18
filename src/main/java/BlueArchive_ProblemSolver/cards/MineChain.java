@@ -51,7 +51,7 @@ public class MineChain extends MineCard  {
     }
 
     @Override
-    public void onMine(AbstractCard c) {
+    public boolean onMine(AbstractCard c) {
         int index_target_ = AbstractDungeon.player.hand.group.indexOf(c);
         int index_ = AbstractDungeon.player.hand.group.indexOf(this);
         if(index_ >= 0 && index_ < AbstractDungeon.player.hand.group.size()) {
@@ -65,6 +65,7 @@ public class MineChain extends MineCard  {
                 this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_));
             }
         }
+        return true;
     }
 
     // Upgraded stats.

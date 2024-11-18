@@ -53,6 +53,10 @@ public class ButIllDoMyBest extends FinishCard {
     }
 
     @Override
+    public boolean isDebuf() {
+        return true;
+    }
+    @Override
     public ArrayList<AbstractGameAction> onFinish(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractGameAction> temp = new ArrayList<AbstractGameAction>();
         temp.add(new ApplyPowerAction(p, p, new StrengthPower(p, -magicNumber), -magicNumber));

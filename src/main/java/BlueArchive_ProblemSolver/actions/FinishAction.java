@@ -22,11 +22,13 @@ public class FinishAction extends AbstractGameAction {
 
     ArrayList<AbstractGameAction> actions;
     String text;
-    public FinishAction(AbstractCard powerToCard, ArrayList<AbstractGameAction> actions, String text) {
+    boolean isDebuf;
+    public FinishAction(AbstractCard powerToCard, ArrayList<AbstractGameAction> actions, String text,boolean isDebuf) {
         this.powerToCard = powerToCard;
         this.actions = actions;
         this.text = text;
         this.setValues(AbstractDungeon.player, AbstractDungeon.player, this.amount);
+        this.isDebuf = isDebuf;
     }
     @Override
     public void update() {
@@ -46,7 +48,7 @@ public class FinishAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, FinishPower.POWER_ID));
             }
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FinishPower(AbstractDungeon.player, actions, text)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FinishPower(AbstractDungeon.player, actions, text, isDebuf)));
         this.isDone = true;
     }
 }

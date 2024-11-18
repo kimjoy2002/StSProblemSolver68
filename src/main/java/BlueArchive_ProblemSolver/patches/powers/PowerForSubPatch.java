@@ -138,13 +138,22 @@ public class PowerForSubPatch {
         public static void Insert(UseCardAction __instance, AbstractCard card, AbstractCreature target) {
             if(AbstractDungeon.player instanceof ProblemSolver68) {
                 if (!card.dontTriggerOnUseCard) {
+
+                    if (RadioTransceiverRelic.CHANGE_LIMIT == 1) {
+                        if (AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID) && AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter == 0) {
+                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter++;
+                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
+                        }
+                    }
                     if(prevCharacter == null) {
                         prevCharacter = AbstractDungeon.player;
                     }
                     else if(prevCharacter != AbstractDungeon.player) {
-                        if (AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
-                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter++;
-                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
+                        if (RadioTransceiverRelic.CHANGE_LIMIT != 1) {
+                            if (AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
+                                AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter++;
+                                AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
+                            }
                         }
                         prevCharacter = AbstractDungeon.player;
                     }

@@ -1,8 +1,10 @@
 package BlueArchive_ProblemSolver.patches.powers;
 
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.effects.ShowCardAndToHandIndexEffect;
 import BlueArchive_ProblemSolver.powers.FreeCardPower;
 import BlueArchive_ProblemSolver.powers.HiddenPastPower;
+import BlueArchive_ProblemSolver.powers.TroubleMakerPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -20,10 +22,18 @@ public class HiddenPastPatch {
                 if(ps.hasPower(HiddenPastPower.POWER_ID)) {
                     ps.getPower(HiddenPastPower.POWER_ID).onCardDraw(card);
                 }
+                if(ps.hasPower(TroubleMakerPower.POWER_ID)) {
+                    ps.getPower(TroubleMakerPower.POWER_ID).onCardDraw(card);
+                }
             }
         }
-        else if(AbstractDungeon.player.hasPower(HiddenPastPower.POWER_ID)) {
-            AbstractDungeon.player.getPower(HiddenPastPower.POWER_ID).onCardDraw(card);
+        else {
+            if(AbstractDungeon.player.hasPower(HiddenPastPower.POWER_ID)) {
+                AbstractDungeon.player.getPower(HiddenPastPower.POWER_ID).onCardDraw(card);
+            }
+            if(AbstractDungeon.player.hasPower(TroubleMakerPower.POWER_ID)) {
+                AbstractDungeon.player.getPower(TroubleMakerPower.POWER_ID).onCardDraw(card);
+            }
         }
     }
 
@@ -55,6 +65,43 @@ public class HiddenPastPatch {
     public static class showCardAndAddToHandEffect2Patch {
 
         public static void Postfix(ShowCardAndAddToHandEffect __instance, AbstractCard card) {
+            triggerHiddenPast(card);
+        }
+    }
+
+
+
+
+    @SpirePatch(
+            clz = ShowCardAndToHandIndexEffect.class,
+            method = "<ctor>",
+            paramtypez= {
+                    AbstractCard.class,
+                    float.class,
+                    float.class,
+                    int.class
+            }
+    )
+    public static class showCardAndToHandIndexEffectPatch {
+
+        public static void Postfix(ShowCardAndToHandIndexEffect __instance, AbstractCard card, float x, float y, int index) {
+            triggerHiddenPast(card);
+        }
+    }
+
+
+
+    @SpirePatch(
+            clz = ShowCardAndToHandIndexEffect.class,
+            method = "<ctor>",
+            paramtypez= {
+                    AbstractCard.class,
+                    int.class
+            }
+    )
+    public static class showCardAndToHandIndexEffect2Patch {
+
+        public static void Postfix(ShowCardAndToHandIndexEffect __instance, AbstractCard card, int index) {
             triggerHiddenPast(card);
         }
     }

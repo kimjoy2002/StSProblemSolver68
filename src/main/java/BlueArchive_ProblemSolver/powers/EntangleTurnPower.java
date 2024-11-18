@@ -34,7 +34,7 @@ public class EntangleTurnPower extends AbstractPower implements CloneablePowerIn
         this.owner = owner;
         this.amount = amount;
 
-        type = PowerType.BUFF;
+        type = PowerType.DEBUFF;
         isTurnBased = true;
 
         this.loadRegion("entangle");

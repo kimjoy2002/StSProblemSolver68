@@ -19,7 +19,7 @@ public class RadioTransceiverRelic extends CustomRelic {
     // ID, images, text.
     public static final String ID = DefaultMod.makeID("RadioTransceiverRelic");
 
-    public static final int CHANGE_LIMIT = 2;
+    public static final int CHANGE_LIMIT = 1;
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("RadioTransceiverRelic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("RadioTransceiverRelic.png"));
@@ -48,6 +48,6 @@ public class RadioTransceiverRelic extends CustomRelic {
     }
 
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + CHANGE_LIMIT + this.DESCRIPTIONS[1];
+        return this.DESCRIPTIONS[0];
     }
 }

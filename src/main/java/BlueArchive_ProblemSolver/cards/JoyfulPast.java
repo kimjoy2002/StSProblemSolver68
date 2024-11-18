@@ -22,18 +22,24 @@ public class JoyfulPast extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
+
+
+
+    private static final int MAGIC = 3;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
     public JoyfulPast() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new JoyfulPastPower(AbstractDungeon.player, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new JoyfulPastPower(AbstractDungeon.player, magicNumber), magicNumber));
     }
 
     //Upgraded stats.
@@ -41,7 +47,7 @@ public class JoyfulPast extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(1);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

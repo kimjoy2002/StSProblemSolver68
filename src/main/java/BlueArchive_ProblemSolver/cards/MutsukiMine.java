@@ -51,11 +51,12 @@ public class MutsukiMine extends MineCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
     }
     @Override
-    public void onMine(AbstractCard c) {
+    public boolean onMine(AbstractCard c) {
         AbstractMonster m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
-        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
-        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
-        AbstractDungeon.actionManager.addToBottom(new LoseHPAction(m, AbstractDungeon.player, magicNumber, AbstractGameAction.AttackEffect.FIRE));
+        AbstractDungeon.actionManager.addToTop(new LoseHPAction(m, AbstractDungeon.player, magicNumber, AbstractGameAction.AttackEffect.FIRE));
+        AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
+        AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
+        return true;
     }
 
     public void triggerOnManualDiscard() {

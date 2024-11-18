@@ -37,7 +37,7 @@ public class FinishPower extends AbstractPower implements CloneablePowerInterfac
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("FinishPower32.png"));
     ArrayList<AbstractGameAction> actions;
     String text;
-    public FinishPower(final AbstractCreature player, ArrayList<AbstractGameAction> actions, String text) {
+    public FinishPower(final AbstractCreature player, ArrayList<AbstractGameAction> actions, String text, boolean isDebuf) {
         name = NAME;
         ID = POWER_ID;
 
@@ -45,7 +45,7 @@ public class FinishPower extends AbstractPower implements CloneablePowerInterfac
         this.text = text;
         this.actions = actions;
 
-        type = PowerType.BUFF;
+        type = isDebuf?PowerType.DEBUFF:PowerType.BUFF;
         isTurnBased = false;
 
         // We load those txtures here.
@@ -75,7 +75,7 @@ public class FinishPower extends AbstractPower implements CloneablePowerInterfac
 
     @Override
     public AbstractPower makeCopy() {
-        return new FinishPower(owner, actions, text);
+        return new FinishPower(owner, actions, text, type == PowerType.BUFF);
     }
 
 }

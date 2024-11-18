@@ -27,6 +27,15 @@ import java.util.Iterator;
 
 public class FearPatch {
 
+    @SpirePatch(
+            clz=AbstractMonster.class,
+            method=SpirePatch.CLASS
+    )
+    public static class FearField
+    {
+        public static SpireField<Boolean> isFear = new SpireField<>(() -> false);
+    }
+
 
     @SpirePatch(
             clz = AbstractMonster.class,
@@ -59,13 +68,12 @@ public class FearPatch {
 
         )
         public static void Insert(AbstractMonster __instance) {
-            if(__instance.hasPower(FearPower.POWER_ID)) {
-                if(__instance.getPower(FearPower.POWER_ID).amount >= __instance.currentHealth) {
-                    __instance.escaped = false;
-                    __instance.isDead = true;
-                    __instance.isDying = true;
-                    __instance.currentHealth = 0;
-                }
+            Boolean isFear = FearField.isFear.get(__instance);
+            if(isFear) {
+                __instance.escaped = false;
+                __instance.isDead = true;
+                __instance.isDying = true;
+                __instance.currentHealth = 0;
             }
         }
 

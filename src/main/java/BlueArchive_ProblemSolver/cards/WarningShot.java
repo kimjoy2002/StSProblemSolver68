@@ -41,17 +41,16 @@ public class WarningShot extends EvilDeedsCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 2;
     public static final int MAGIC = 1;
-    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     public WarningShot() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
-        setRequireEvil(2);
+        setRequireEvil(3);
     }
 
     @Override
@@ -79,7 +78,7 @@ public class WarningShot extends EvilDeedsCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            updateRequireEvil(-1);
             makeDescrption();
         }
     }

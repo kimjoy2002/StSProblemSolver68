@@ -64,8 +64,8 @@ public class AvatarOfFearPower extends AbstractPower implements CloneablePowerIn
 
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power instanceof FearPower &&
-            source instanceof AbstractMonster &&
-                ((AbstractMonster)source).getIntentBaseDmg() >= 0 &&
+                target instanceof AbstractMonster &&
+                ((AbstractMonster)target).getIntentBaseDmg() >= 0 &&
                 power.amount > 0 &&
                 source == this.owner && target != this.owner && !target.hasPower("Artifact")) {
             int value = power.amount;

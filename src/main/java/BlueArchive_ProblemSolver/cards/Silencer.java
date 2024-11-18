@@ -41,7 +41,7 @@ public class Silencer extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 4;
+    private static final int COST = 3;
     private static final int DAMAGE = 15;
     private static final int UPGRADE_PLUS_DAMAGE = 6;
 

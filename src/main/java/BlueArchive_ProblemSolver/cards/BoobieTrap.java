@@ -50,8 +50,9 @@ public class BoobieTrap extends MineCard {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
     @Override
-    public void onMine(AbstractCard c) {
+    public boolean onMine(AbstractCard c) {
         this.addToBot(new ModifyBlockAction(this.uuid, magicNumber));
+        return true;
     }
 
     public void triggerOnManualDiscard() {
