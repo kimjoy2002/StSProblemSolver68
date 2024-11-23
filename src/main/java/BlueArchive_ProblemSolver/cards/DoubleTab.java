@@ -41,7 +41,7 @@ public class DoubleTab extends AbstractDynamicCard {
     public DoubleTab() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        this.cardsToPreview = new SecondTab();
+        this.cardsToPreview = new Shift();
     }
 
     // Actions the card should do.

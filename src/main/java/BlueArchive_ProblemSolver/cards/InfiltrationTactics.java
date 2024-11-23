@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.powers.CannotSelectedPower;
 import BlueArchive_ProblemSolver.powers.StealthPower;
@@ -39,8 +40,9 @@ public class InfiltrationTactics extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new ChangeCharacterAction(p, false, true, false));
         this.addToBot(new ApplyPowerAction(p, p, new StealthPower(p, this.magicNumber-1), this.magicNumber-1));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new CannotSelectedPower(AbstractDungeon.player, 1)));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new CannotSelectedPower(AbstractDungeon.player, 1)));
     }
 
     //Upgraded stats.

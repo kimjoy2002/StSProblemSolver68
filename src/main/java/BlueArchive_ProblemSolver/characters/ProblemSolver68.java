@@ -1,5 +1,6 @@
 package BlueArchive_ProblemSolver.characters;
 
+import BlueArchive_ProblemSolver.actions.CleanCharacterAction;
 import BlueArchive_ProblemSolver.actions.RemoveCharacterAction;
 import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
@@ -9,6 +10,7 @@ import BlueArchive_ProblemSolver.powers.CannotAttackedPower;
 import BlueArchive_ProblemSolver.powers.CannotSelectedPower;
 import BlueArchive_ProblemSolver.powers.OnDeadPower;
 import BlueArchive_ProblemSolver.relics.OnDeadRelic;
+import BlueArchive_ProblemSolver.relics.RadioTransceiverRelic;
 import BlueArchive_ProblemSolver.save.ProblemSolverSave;
 import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.util.GifDecoder;
@@ -82,6 +84,17 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     static int RabuNum = 0;
     static int SaoriNum = 0;
     static int CatNum = 0;
+
+    float slip_x = 0;
+
+    float slip_y = 0;
+
+    float slip_start_x = 0;
+
+    float slip_start_y = 0;
+    float moving_count = -1;
+    static float MOVING_SPEED = 0.5F;
+
 
     public static Animation<TextureRegion> mutuski_animation;
     public static Animation<TextureRegion> cat_animation;
@@ -165,6 +178,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public boolean isProblemSolver() {
+        return isProblemSolver(solverType);
+    }
     public static boolean isProblemSolver(Aru.ProblemSolver68Type type) {
         switch(type) {
             case PROBLEM_SOLVER_68_ARU:
@@ -251,7 +267,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
         inDamageAll = false;
         if(AbstractDungeon.player.currentHealth <= 0) {
-            changeToRandomCharacter();
+            changeToNextCharacter();
         }
     }
 
@@ -273,14 +289,14 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         if(mayRevivePlayer.contains(player)) {
             float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
             for( ProblemSolver68 p_ : problemSolverPlayer) {
-                p_.movePosition_(p_.drawX-offset_, p_.drawY);
+                p_.movePosition_(p_.drawX-offset_, p_.drawY, false);
             }
             for(AbstractPower p_ : player.powers) {
                 p_.onRemove();
             }
             player.powers.clear();
             player.heal(1);
-            player.movePosition_(player.drawX+offset_*problemSolverPlayer.size(), player.drawY);
+            player.movePosition_(player.drawX+offset_*problemSolverPlayer.size(), player.drawY, false);
 
             player.isDead = false;
             mayRevivePlayer.remove(player);
@@ -294,7 +310,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
         boolean isPrev = true;
         for( ProblemSolver68 p_ : problemSolverPlayer) {
-            p_.movePosition_(p_.drawX+offset_*(isPrev?1:-1), p_.drawY);
+            p_.movePosition_(p_.drawX+offset_*(isPrev?1:-1), p_.drawY, false);
             if(player == p_) {
                 isPrev = false;
             }
@@ -393,7 +409,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         } else {
             float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
             for( ProblemSolver68 p_ : problemSolverPlayer) {
-                p_.movePosition_(p_.drawX-offset_, p_.drawY);
+                p_.movePosition_(p_.drawX-offset_, p_.drawY, false);
             }
             Aru p = new Aru(name, Aru.Enums.PROBLEM_SOLVER, type);
             AbstractPlayer main = AbstractDungeon.player;
@@ -410,7 +426,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             p.hoveredCard = main.hoveredCard;
             p.toHover = main.toHover;
             p.cardInUse = null; //불필요
-            p.movePosition_(p.drawX+offset_*problemSolverPlayer.size(), p.drawY);
+            p.movePosition_(p.drawX+offset_*problemSolverPlayer.size(), p.drawY, false);
             if(hp_ != -2) {
                 p.currentHealth = hp_;
             }
@@ -502,6 +518,18 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         return getList;
     }
 
+    public static boolean isLive(Aru.ProblemSolver68Type problemSolverType) {
+        if(!(AbstractDungeon.player instanceof ProblemSolver68)) {
+            return false;
+        }
+        for (ProblemSolver68 ps : problemSolverPlayer) {
+            if (ps.solverType == problemSolverType && ps.currentHealth > 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public static boolean hasCharacter(Aru.ProblemSolver68Type problemSolverType) {
         if(!(AbstractDungeon.player instanceof ProblemSolver68)) {
@@ -581,11 +609,22 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
         int i = 0;
         for (ProblemSolver68 p : problemSolverPlayer) {
-            p.movePosition_(x-offset_*(problemSolverPlayer.size()-1-i), y);
+            p.movePosition_(x-offset_*(problemSolverPlayer.size()-1-i), y, false);
             i+=2;
         }
     }
-    public void movePosition_(float x, float y) {
+    public void movePosition_(float x, float y, boolean slip) {
+        if(slip) {
+            slip_start_x = this.slip_x;
+            slip_start_y = this.slip_y;
+            moving_count = MOVING_SPEED;
+        } else {
+            slip_start_x = x;
+            slip_start_y = y;
+            slip_x = x;
+            slip_y = y;
+            moving_count = -1;
+        }
         super.movePosition(x,y);
     }
 
@@ -615,11 +654,11 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             problemSolverPlayer.remove(0);
             for (ProblemSolver68 p : problemSolverPlayer) {
                 tempAfterDrawX = p.drawX;
-                p.movePosition_(tempBeforeDrawX, p.drawY);
+                p.movePosition_(tempBeforeDrawX, p.drawY, true);
                 tempBeforeDrawX = tempAfterDrawX;
             }
             problemSolverPlayer.add(temp);
-            temp.movePosition_(tempAfterDrawX, temp.drawY);
+            temp.movePosition_(tempAfterDrawX, temp.drawY, true);
 
             changeCharacter = false;
         }
@@ -631,12 +670,28 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public void updatePosition() {
+        moving_count-=Gdx.graphics.getDeltaTime();
+        moving_count = Math.max(0, moving_count);
+        if(moving_count> 0) {
+            float progress = 1 - (moving_count / MOVING_SPEED); // 0부터 1로 증가하는 progress
+            float easedProgress = 1 - (float) Math.pow(1 - progress, 2); // Ease-out 적용
+            slip_x = MathUtils.lerp(this.slip_start_x, drawX,  easedProgress);
+            slip_y = MathUtils.lerp(this.slip_start_y, drawY, easedProgress);
+        } else {
+            slip_x = drawX;
+            slip_y = drawY;
+        }
+    }
+
     public void updateAnimations() {
         for (ProblemSolver68 p : problemSolverPlayer) {
             p.updateAnimations_();
+            p.updatePosition();
         }
         for(ProblemSolver68 p : dyingPlayer) {
             p.updateAnimations_();
+            p.updatePosition();
         }
     }
 
@@ -679,6 +734,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
     public void applyEndOfTurnTriggers() {
+        AbstractDungeon.actionManager.addToTop(new CleanCharacterAction(false));
         for (ProblemSolver68 p : problemSolverPlayer) {
             if(p.currentHealth > 0) {
                 p.applyEndOfTurnTriggers_();
@@ -841,17 +897,43 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 && mutuski_animation != null){
             animation_elapsed += Gdx.graphics.getDeltaTime();
             sb.setColor(Color.WHITE);
-            sb.draw(mutuski_animation.getKeyFrame(animation_elapsed), this.drawX - 306.0f * Settings.scale / 2.0F + this.animX, this.drawY - 150.0f * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
+            sb.draw(mutuski_animation.getKeyFrame(animation_elapsed), this.slip_x - 306.0f * Settings.scale / 2.0F + this.animX, this.slip_y - 150.0f * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
         } else if(solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT
                 && cat_animation != null){
             animation_elapsed += Gdx.graphics.getDeltaTime();
             sb.setColor(Color.WHITE);
-            sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.drawX - 306.0f * Settings.scale / 2.0F + this.animX, this.drawY - 150 * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
+            sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.slip_x - 306.0f * Settings.scale / 2.0F + this.animX, this.slip_y - 150 * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
             //sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.drawX - 266.0f * Settings.scale / 2.0F + this.animX, this.drawY - 125.0f * Settings.scale / 2.0F+ this.animY,  188.0f/2,  200.0f/2, 188.0f, 200.0f, Settings.scale, Settings.scale, 90.0f, true);
         } else {
-            super.renderPlayerImage(sb);
+            switch (this.animation.type()) {
+                case NONE:
+                    if (this.atlas != null) {
+                        this.state.update(Gdx.graphics.getDeltaTime());
+                        this.state.apply(this.skeleton);
+                        this.skeleton.updateWorldTransform();
+                        this.skeleton.setPosition(this.slip_x + this.animX, this.slip_y + this.animY);
+                        this.skeleton.setColor(this.tint.color);
+                        this.skeleton.setFlip(this.flipHorizontal, this.flipVertical);
+                        sb.end();
+                        CardCrawlGame.psb.begin();
+                        sr.draw(CardCrawlGame.psb, this.skeleton);
+                        CardCrawlGame.psb.end();
+                        sb.begin();
+                    } else {
+                        sb.setColor(Color.WHITE);
+                        sb.draw(this.img, this.slip_x - (float)this.img.getWidth() * Settings.scale / 2.0F + this.animX, this.slip_y, (float)this.img.getWidth() * Settings.scale, (float)this.img.getHeight() * Settings.scale, 0, 0, this.img.getWidth(), this.img.getHeight(), this.flipHorizontal, this.flipVertical);
+                    }
+                    break;
+                case MODEL:
+                    BaseMod.publishAnimationRender(sb);
+                    break;
+                case SPRITE:
+                    this.animation.setFlip(this.flipHorizontal, this.flipVertical);
+                    this.animation.renderSprite(sb, this.slip_x + this.animX, this.slip_y + this.animY + AbstractDungeon.sceneOffsetY);
+            }
         }
     }
+
 
     public void renderPlayerBattleUi(SpriteBatch sb) {
         for (ProblemSolver68 p : problemSolverPlayer) {
@@ -904,7 +986,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
 
 
     public void preBattlePrep() {
-        AbstractDungeon.player = getRandomMember(null, false, false);
+        AbstractPlayer tempP = AbstractDungeon.player;
+        AbstractDungeon.player = getFrontMember();
+        AbstractDungeon.player.gold = tempP.gold;
+        AbstractDungeon.player.displayGold = tempP.displayGold;
+
+        AbstractDungeon.actionManager.addToTop(new CleanCharacterAction(false));
         super.preBattlePrep();
         for (ProblemSolver68 p : problemSolverPlayer) {
             if(p != this) {
@@ -950,6 +1037,10 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public void applyStartOfTurnPreDrawCards() {
+        AbstractDungeon.actionManager.addToTop(new CleanCharacterAction(true));
+        super.applyStartOfTurnPreDrawCards();
+    }
 
     public static boolean isAllDead() {
         if(!(AbstractDungeon.player instanceof ProblemSolver68))
@@ -1005,6 +1096,17 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
 
+    public static AbstractPlayer getFrontMember() {
+        AbstractPlayer p = null;
+        for (ProblemSolver68 ps : problemSolverPlayer) {
+            if(ps.currentHealth > 0) {
+                p = ps;
+            }
+        }
+        return p;
+    }
+
+
     public static ProblemSolver68 getRandomReviveMember() {
         List<ProblemSolver68> ableCharacters = new ArrayList<>();
         for (ProblemSolver68 p : mayRevivePlayer) {
@@ -1045,7 +1147,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             }
         }
     }
-    public static void changeToRandomCharacter() {
+    public static AbstractPlayer changeToRandomCharacter() {
         AbstractPlayer p = getRandomMember(null, true, false);
         if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             if(p != null) {
@@ -1054,9 +1156,26 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         } else if(!inDamageAll) {
             AbstractDungeon.player = p;
         }
+        return p;
     }
 
 
+    public static AbstractPlayer changeToNextCharacter() {
+        if(AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) {
+            return changeToRandomCharacter();
+        }
+        AbstractPlayer p = null;
+        for (ProblemSolver68 ps : problemSolverPlayer) {
+            if(ps.currentHealth > 0 && !ps.hasPower(CannotAttackedPower.POWER_ID) && !ps.hasPower(CannotSelectedPower.POWER_ID)) {
+                p = ps;
+            }
+        }
+
+        if(p != null) {
+            AbstractDungeon.actionManager.addToTop(new ChangeCharacterAction(p));
+        }
+        return p;
+    }
     @SpireOverride
     protected void updateEscapeAnimation() {
         if (this.escapeTimer != 0.0F) {
@@ -1128,7 +1247,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             }
         }
 
-        if (isLeftJustPressed() && !this.isDisabled && this.enabled) {
+        /*if (isLeftJustPressed() && !this.isDisabled && this.enabled) {
             int index = problemSolverPlayer.size()-1;
             for (int i = 0; i < problemSolverPlayer.size(); i++) {
                 if(problemSolverPlayer.get(i) == AbstractDungeon.player)
@@ -1168,7 +1287,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                     changeCharacter = true;
                 }
             }
-        }
+        }*/
     }
     public int getLeftKeyCode() {
         return leftKey;
@@ -1219,7 +1338,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
     public void disable(boolean isEnemyTurn) {
-        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(this, true));
+        if(AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(this, true, false, true));
+        }
     }
     //-----여기서부터 인풋 함수끝---------
 

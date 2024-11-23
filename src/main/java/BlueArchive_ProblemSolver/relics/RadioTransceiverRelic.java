@@ -19,32 +19,11 @@ public class RadioTransceiverRelic extends CustomRelic {
     // ID, images, text.
     public static final String ID = DefaultMod.makeID("RadioTransceiverRelic");
 
-    public static final int CHANGE_LIMIT = 1;
-
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("RadioTransceiverRelic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("RadioTransceiverRelic.png"));
 
     public RadioTransceiverRelic() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.SOLID);
-    }
-
-    public void onEquip() {
-        ++AbstractDungeon.player.energy.energyMaster;
-    }
-
-    public void onUnequip() {
-        --AbstractDungeon.player.energy.energyMaster;
-    }
-
-    public void atBattleStart() {
-        this.counter = 0;
-    }
-
-    public void atTurnStart() {
-        this.counter = 0;
-    }
-    public void onVictory() {
-        this.counter = -1;
     }
 
     public String getUpdatedDescription() {

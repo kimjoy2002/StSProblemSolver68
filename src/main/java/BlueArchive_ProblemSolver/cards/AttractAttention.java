@@ -26,7 +26,7 @@ public class AttractAttention extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 2;
-    private static final int MAGIC = 8;
+    private static final int MAGIC = 10;
     private static final int UPGRADE_PLUS_MAGIC = 4;
 
 

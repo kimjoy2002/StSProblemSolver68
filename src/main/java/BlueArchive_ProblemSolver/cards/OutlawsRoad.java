@@ -51,7 +51,7 @@ public class OutlawsRoad extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU));
+        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU, true));
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded?2:1));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
     }
@@ -70,6 +70,10 @@ public class OutlawsRoad extends AbstractDynamicCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU)) {
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+            return false;
+        }
+        if(ProblemSolver68.getFrontMember() != null &&((ProblemSolver68) ProblemSolver68.getFrontMember()).solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU) {
+            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[1];
             return false;
         }
         return super.canUse(p, m);

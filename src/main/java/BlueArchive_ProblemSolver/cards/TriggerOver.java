@@ -30,7 +30,7 @@ public class TriggerOver extends FinishCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int BLOCK = 11;
+    private static final int BLOCK = 12;
     private static final int UPGRADE_PLUS_BLOCK = 4;
     private static final int MAGIC = 4;
     private static final int UPGRADE_PLUS_MAGIC = 1;

@@ -27,16 +27,21 @@ public class FocusonAttack extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
+    public static final int MAGIC = 10;
+    private static final int UPGRADE_PLUS_MAGIC = 6;
+    public static final int MAGIC2 = 2;
 
 
     public FocusonAttack() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = MAGIC;
+        baseSecondMagicNumber = secondMagicNumber = MAGIC2;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FocusonAttackPower(AbstractDungeon.player, 1)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FocusonAttackPower(AbstractDungeon.player, magicNumber, secondMagicNumber)));
     }
 
     //Upgraded stats.
@@ -44,7 +49,8 @@ public class FocusonAttack extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(1);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            //upgradeSecondMagicNumber(UPGRADE_PLUS_MAGIC2);
             initializeDescription();
         }
     }

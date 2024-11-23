@@ -1,6 +1,8 @@
 package BlueArchive_ProblemSolver.patches;
 
+import BlueArchive_ProblemSolver.actions.ImpAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.powers.ImpPower;
 import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -16,6 +18,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.BattleStartEffect;
 import javassist.CtBehavior;
+
+import static BlueArchive_ProblemSolver.actions.ImpAction.resetImp;
+
 public class MultiCharacterPatch {
 
     @SpirePatch(
@@ -88,6 +93,7 @@ public class MultiCharacterPatch {
             if (!ProblemSolver68.isAllDead()) {
                 ProblemSolver68.onDead(__instance);
                 GameActionManagerPatch.deadThisCombat++;
+                GameActionManagerPatch.allyDeadThisCombat++;
             }
         }
     }
@@ -120,8 +126,22 @@ public class MultiCharacterPatch {
                 for(AbstractPower p_ : __instance.powers) {
                     p_.onRemove();
                 }
+                int imp_value = 0;
+                int imp_amount = 0;
+                if(__instance.hasPower(ImpPower.POWER_ID)) {
+                    imp_value = __instance.getPower(ImpPower.POWER_ID).amount;
+                    imp_amount = ((ImpPower)__instance.getPower(ImpPower.POWER_ID)).amount_imp;
+                }
                 __instance.powers.clear();
-                ProblemSolver68.changeToRandomCharacter();
+                if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+                    ProblemSolver68.changeToRandomCharacter();
+                } else {
+                    ProblemSolver68.changeToNextCharacter();
+                }
+                if(imp_value > 0) {
+                    AbstractDungeon.actionManager.addToBottom(new ImpAction(imp_value, imp_amount));
+                }
+
                 if (__instance instanceof ProblemSolver68 &&
                         !ProblemSolver68.isProblemSolver(((ProblemSolver68) __instance).solverType)) {
 

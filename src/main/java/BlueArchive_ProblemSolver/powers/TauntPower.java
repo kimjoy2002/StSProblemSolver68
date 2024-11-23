@@ -56,7 +56,7 @@ public class TauntPower extends AbstractPower implements CloneablePowerInterface
 
     public void atEndOfTurnOverCharacer() {
         if(owner.isPlayer) {
-            this.addToBot(new ChangeCharacterAction((AbstractPlayer) owner));
+            this.addToBot(new ChangeCharacterAction((AbstractPlayer) owner, false, true, true));
         }
     }
 

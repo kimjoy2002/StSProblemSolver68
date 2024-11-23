@@ -17,6 +17,7 @@ import BlueArchive_ProblemSolver.save.SideDeckSave;
 import BlueArchive_ProblemSolver.screens.SideDeckScreen;
 import BlueArchive_ProblemSolver.screens.SideDeckViewScreen;
 import BlueArchive_ProblemSolver.targeting.ALLTargeting;
+import BlueArchive_ProblemSolver.targeting.AllyTargeting;
 import BlueArchive_ProblemSolver.util.GifDecoder;
 import BlueArchive_ProblemSolver.variables.SecondMagicNumber;
 import BlueArchive_ProblemSolver.variables.ThirdMagicNumber;
@@ -498,6 +499,7 @@ public class DefaultMod implements
 
 
         CustomTargeting.registerCustomTargeting(ALLTargeting.CAN_ALL_TARGETING, new ALLTargeting());
+        CustomTargeting.registerCustomTargeting(AllyTargeting.CAN_ALLY_TARGETING, new AllyTargeting());
     }
 
     @Override
@@ -608,6 +610,7 @@ public class DefaultMod implements
         BaseMod.addRelicToCustomPool(new BottleSetRelic(), Aru.Enums.COLOR_RED);
 
 
+        BaseMod.addRelicToCustomPool(new ProblemSolverBaseRelicPlus(), Aru.Enums.COLOR_RED);
         BaseMod.addRelicToCustomPool(new MercenaryCatalogueRelic(), Aru.Enums.COLOR_RED);
         BaseMod.addRelicToCustomPool(new RadioTransceiverRelic(), Aru.Enums.COLOR_RED);
         BaseMod.addRelicToCustomPool(new MoreProblemSolverRelic(), Aru.Enums.COLOR_RED);

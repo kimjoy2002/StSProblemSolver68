@@ -14,6 +14,8 @@ import javassist.CtBehavior;
 public class GameActionManagerPatch {
 
     public static int deadThisCombat = 0;
+    public static int allyDeadThisCombat = 0;
+
     public static int tacticalChallengeCount = 0;
     public static int zeroCostCount = 0;
     public static int evildeedThisTurn = 0;
@@ -102,6 +104,7 @@ public class GameActionManagerPatch {
         {
             evildeedThisTurn = 0;
             deadThisCombat = 0;
+            allyDeadThisCombat = 0;
             increaseMercenaryMaxHP = 0;
             tacticalChallengeCount = 0;
             zeroCostCount = 0;

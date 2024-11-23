@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,7 +24,7 @@ import java.util.Iterator;
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 
-public class FocusonAttackPower extends AbstractPower implements CloneablePowerInterface, OnGainedBlockModifierPower {
+public class FocusonAttackPower extends AbstractPower implements CloneablePowerInterface, OnFrontPower {
     public static final String POWER_ID = DefaultMod.makeID("FocusonAttackPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -31,12 +32,14 @@ public class FocusonAttackPower extends AbstractPower implements CloneablePowerI
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("FocusonAttackPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("FocusonAttackPower32.png"));
 
-    public FocusonAttackPower(final AbstractCreature owner, int amount) {
+    public int draw_amount;
+    public FocusonAttackPower(final AbstractCreature owner, int amount, int draw_amount) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
         this.amount = amount;
+        this.draw_amount = draw_amount;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -51,27 +54,19 @@ public class FocusonAttackPower extends AbstractPower implements CloneablePowerI
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        if (amount <= 1) {
-            description = DESCRIPTIONS[0];
-        } else {
-            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
-        }
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + draw_amount + DESCRIPTIONS[2];
     }
-    @Override
-    public int onGainedBlockModifier(float blockAmount) {
-        this.flash();
-        AbstractGameAction.AttackEffect effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
-        if (blockAmount >= 10.0F) {
-            effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
-        }
 
-        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(this.owner, MathUtils.floor(blockAmount * amount), DamageInfo.DamageType.THORNS), effect));
-        return 0;
+    @Override
+    public void OnFront() {
+        this.flash();
+        this.addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(draw_amount));
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new FocusonAttackPower(owner, amount);
+        return new FocusonAttackPower(owner, amount, draw_amount);
     }
 
 }

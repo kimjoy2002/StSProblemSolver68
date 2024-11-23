@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.ApplyPowerToAllAllyAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.DeadStrPower;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
+import static BlueArchive_ProblemSolver.patches.GameActionManagerPatch.allyDeadThisCombat;
 
 public class YouWillPayForThis extends AbstractDynamicCard {
 
@@ -41,7 +43,11 @@ public class YouWillPayForThis extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DeadStrPower(AbstractDungeon.player, magicNumber), magicNumber));
+        if(allyDeadThisCombat > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerToAllAllyAction(new StrengthPower(AbstractDungeon.player, magicNumber)));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,new StrengthPower(AbstractDungeon.player, magicNumber)));
+        }
     }
 
     //Upgraded stats.
@@ -51,6 +57,12 @@ public class YouWillPayForThis extends AbstractDynamicCard {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
+        }
+    }
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractDynamicCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (allyDeadThisCombat > 0) {
+            this.glowColor = AbstractDynamicCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 }

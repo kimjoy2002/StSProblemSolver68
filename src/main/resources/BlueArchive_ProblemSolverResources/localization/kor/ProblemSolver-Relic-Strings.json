@@ -3,8 +3,14 @@
     "NAME": "흥신소 뱃지",
     "FLAVOR": "흥신소의 일원임을 증명하는 뱃지",
     "DESCRIPTIONS": [
-      "전투 시작 시 모든 아군이 #y임시_체력 을 #b",
-      " 얻습니다."
+      "매 전투 시작 시 #y교대를 손으로 가져옵니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ProblemSolverBaseRelicPlus": {
+    "NAME": "흥신소 베테랑 뱃지",
+    "FLAVOR": "흥신소의 베테랑임을 증명하는 뱃지",
+    "DESCRIPTIONS": [
+      "매 턴 시작 시 손에 #y교대 카드가 없다면 #y교대+를 손으로 가져옵니다."
     ]
   },
   "BlueArchive_ProblemSolver:MoreProblemSolverRelic": {
@@ -37,9 +43,9 @@
   },
   "BlueArchive_ProblemSolver:RadioTransceiverRelic": {
     "NAME": "무전기",
-    "FLAVOR": "\"이번 임무는 개별행동이야. 모두 무전을 통해 명령을 기다려!\"",
+    "FLAVOR": "\"모두 무전을 통해 명령을 기다려!\"",
     "DESCRIPTIONS": [
-      "매 턴 시작 시 에너지를 1 추가로 얻습니다. 매 턴마다 카드를 사용하면 더 이상 수동으로 교체할 수 없습니다."
+      "전투중 언제든 아군을 클릭해서 전열로 이동시킬 수 있습니다. 이때 이동시 발동하는 효과는 발동하지않습니다."
     ]
   },
   "BlueArchive_ProblemSolver:BottleSetRelic": {
@@ -47,6 +53,14 @@
     "FLAVOR": "흥신소에서 돈을 모아서 세트로 싸게 구매한 물병 세트",
     "DESCRIPTIONS": [
       "아군에게 적용되는 포션이 아군 캐릭터 모두에게 적용됩니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ArusTreasuredWalletRelic": {
+    "NAME": "아루의 엄청 귀중한 지갑",
+    "FLAVOR": "처음 흥신소를 차린 뒤 하루카, 카요코, 무츠키가 함께 돈을 모아 선물해 준 물건으로, 아루에게는 그 무엇과도 바꿀 수 없는 소중한 물건이다.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 모든 아군이 #y임시_체력 을 #b",
+      " 얻습니다."
     ]
   }
 }

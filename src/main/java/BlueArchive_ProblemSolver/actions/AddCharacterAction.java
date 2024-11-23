@@ -45,11 +45,16 @@ public class AddCharacterAction extends AbstractGameAction {
         AbstractPlayer p = ProblemSolver68.addCharacter(type, amount, amount, true);
         if(p != null) {
             if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_RABU) {
+                this.addToBot(new ChangeCharacterAction(p, false, true, true));
                 this.addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, HireHelmetLeader.MAGIC2), HireHelmetLeader.MAGIC2));
             } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_SAORI) {
+                this.addToBot(new ChangeCharacterAction(p, false, true, true));
                 this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, HireHelmetLeader.MAGIC3), HireHelmetLeader.MAGIC3));
             } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT) {
-                this.addToBot(new ApplyPowerAction(p, p, new CannotAttackedPower(p)));
+                this.addToBot(new ChangeCharacterAction(p, false, true, false));
+                //this.addToBot(new ApplyPowerAction(p, p, new CannotAttackedPower(p)));
+            } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HELMETGANG) {
+                this.addToBot(new ChangeCharacterAction(p, false, true, true));
             }
             for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
                 for (AbstractPower power_ : ps.powers) {

@@ -22,7 +22,7 @@
   "BlueArchive_ProblemSolver:ImpPower": {
     "NAME": "소악마",
     "DESCRIPTIONS": [
-      "이번 턴 다음 아군 공격 카드의 피해량이 #g",
+      "이번 턴 다음 공격 카드의 피해량이 #g",
       " 증가합니다. 턴 시작시 #g",
       "턴 시작시 #g",
       " 만큼 피해량 증가 효과를 다시 얻습니다."
@@ -38,7 +38,7 @@
     "NAME": "캘리포니아 걸즈",
     "DESCRIPTIONS": [
       "턴을 시작할때마다 #y힘과 #y민첩을 #g",
-      " 얻습니다. 이 효과는 이 캐릭터가 카드를 사용하면 사라집니다."
+      " 얻습니다. 이 효과는 전열일때 사라집니다."
     ]
   },
   "BlueArchive_ProblemSolver:CannotAttackedPower": {
@@ -71,7 +71,7 @@
   "BlueArchive_ProblemSolver:TauntPower": {
     "NAME": "도발",
     "DESCRIPTIONS": [
-      "이번 전투동안 항상 우선적으로 공격을 받습니다."
+      "턴이 끝날때마다 전열로 이동합니다."
     ]
   },
   "BlueArchive_ProblemSolver:FixedImpPower": {
@@ -149,11 +149,11 @@
     ]
   },
   "BlueArchive_ProblemSolver:FocusonAttackPower": {
-    "NAME": "공격 중시",
+    "NAME": "급습",
     "DESCRIPTIONS": [
-      "방어도를 얻을 수 없게되는 대신 그 만큼 무작위 적에게 피해를 줍니다.",
-      "방어도를 얻을 수 없게되는 대신 그 #b",
-      " 배 만큼 무작위 적에게 피해를 줍니다."
+      "전열로 이동할 때마다 적 전체에 피해를 #r",
+      " 주고 카드를 #b",
+      " 장 뽑습니다."
     ]
   },
   "BlueArchive_ProblemSolver:EntangleTurnPower": {

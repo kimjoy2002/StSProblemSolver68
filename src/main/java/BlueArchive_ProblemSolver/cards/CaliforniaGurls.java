@@ -1,9 +1,11 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.CaliforniaGurlsPower;
+import BlueArchive_ProblemSolver.powers.ImpPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -40,7 +42,19 @@ public class CaliforniaGurls extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new CaliforniaGurlsPower(AbstractDungeon.player, magicNumber), magicNumber));
+        AbstractPlayer target = null;
+        if(AbstractDungeon.player instanceof ProblemSolver68) {
+            for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                if(ps.currentHealth > 0 &&  ps.solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI) {
+                    target = ps;
+                    break;
+                }
+            }
+        }
+        if(target != null) {
+            AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(target, false, true, false));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new CaliforniaGurlsPower(target, magicNumber), magicNumber));
+        }
     }
 
     //Upgraded stats.
@@ -54,9 +68,7 @@ public class CaliforniaGurls extends AbstractDynamicCard {
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(!(p instanceof ProblemSolver68) ||
-                ((ProblemSolver68) p).solverType != Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI){
-
+        if(!(p instanceof ProblemSolver68) || !ProblemSolver68.isLive(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI)){
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return false;
         }

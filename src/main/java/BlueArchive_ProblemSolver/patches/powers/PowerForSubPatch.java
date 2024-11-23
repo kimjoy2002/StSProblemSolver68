@@ -139,22 +139,22 @@ public class PowerForSubPatch {
             if(AbstractDungeon.player instanceof ProblemSolver68) {
                 if (!card.dontTriggerOnUseCard) {
 
-                    if (RadioTransceiverRelic.CHANGE_LIMIT == 1) {
-                        if (AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID) && AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter == 0) {
-                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter++;
-                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
-                        }
-                    }
+//                    if (RadioTransceiverRelic.CHANGE_LIMIT == 1) {
+//                        if (AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID) && AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter == 0) {
+//                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter++;
+//                            AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
+//                        }
+//                    }
                     if(prevCharacter == null) {
                         prevCharacter = AbstractDungeon.player;
                     }
                     else if(prevCharacter != AbstractDungeon.player) {
-                        if (RadioTransceiverRelic.CHANGE_LIMIT != 1) {
-                            if (AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
-                                AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter++;
-                                AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
-                            }
-                        }
+//                        if (RadioTransceiverRelic.CHANGE_LIMIT != 1) {
+//                            if (AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
+//                                AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).counter++;
+//                                AbstractDungeon.player.getRelic(RadioTransceiverRelic.ID).stopPulse();
+//                            }
+//                        }
                         prevCharacter = AbstractDungeon.player;
                     }
 

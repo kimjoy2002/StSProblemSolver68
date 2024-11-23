@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 현재 BlueArchive_ProblemSolver:흥신소 캐릭터 카드를 뽑습니다.",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 현재 BlueArchive_ProblemSolver:흥신소 카드를 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       "카드를 !M! 장 뽑습니다.",
       " NL 가능하다면 *",
@@ -38,8 +38,8 @@
   },
   "BlueArchive_ProblemSolver:DoubleTab": {
     "NAME": "더블 탭",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL *두번째 *사격 카드를 1장 얻습니다.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL *두번째 *사격+ 카드를 1장 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL *교대 카드를 1장 얻습니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL *교대+ 카드를 1장 얻습니다."
   },
   "BlueArchive_ProblemSolver:SecondTab": {
     "NAME": "두번째 사격",
@@ -47,7 +47,7 @@
   },
   "BlueArchive_ProblemSolver:DiningTogether": {
     "NAME": "회식",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:흥신소 캐릭터 수만큼 [E] 를 얻습니다. NL 소멸.",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:흥신소 수만큼 [E] 를 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       " 만큼 얻습니다.)"
@@ -55,19 +55,18 @@
   },
   "BlueArchive_ProblemSolver:VolleyFire": {
     "NAME": "일제 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 모든 아군이 사용합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 전열부터 순서대로 모든 아군이 사용합니다."
   },
   "BlueArchive_ProblemSolver:YouWillPayForThis": {
     "NAME": "대가를 치를 것이다!",
-    "DESCRIPTION": "아군이 죽을때마다 힘을 !M! 얻습니다. NL 죽은 캐릭터가 BlueArchive_ProblemSolver:흥신소 캐릭터라면 2배로 얻습니다.",
+    "DESCRIPTION": "힘을 !M! 얻습니다. NL 이번 전투동안 죽은 아군이 있으면 모든 아군이 힘을 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      "~아아아안~ ~돼,~ ~%s!~",
-      "~%s!!!!~"
+      "대가를 치를 것이다!"
     ]
   },
   "BlueArchive_ProblemSolver:FirstAid": {
     "NAME": "응급 치료",
-    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소 캐릭터를 체력 1로 부활시킵니다. NL 가장 체력이 낮은 BlueArchive_ProblemSolver:흥신소 캐릭터가 임시_체력 을 !M! 만큼 얻습니다. NL 소멸."
+    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소를 체력 1로 부활시킵니다. NL 가장 체력이 낮은 BlueArchive_ProblemSolver:흥신소가 임시_체력 을 !M! 만큼 얻습니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:DogFight": {
     "NAME": "난전",
@@ -75,25 +74,25 @@
   },
   "BlueArchive_ProblemSolver:HireHelmetGang": {
     "NAME": "헬멧단 고용",
-    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다.",
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 전열에 소환합니다.",
     "EXTENDED_DESCRIPTION": [
       "더 고용할 수 없어"
     ]
   },
   "BlueArchive_ProblemSolver:HireHelmetLeader": {
     "NAME": "정예 헬멧단 고용",
-    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷 !BlueArchive_ProblemSolver:M! 또는 힘을 !BlueArchive_ProblemSolver:M2! 들고 시작합니다.",
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 전열에 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷 !BlueArchive_ProblemSolver:M! 또는 힘을 !BlueArchive_ProblemSolver:M2! 들고 시작합니다.",
     "EXTENDED_DESCRIPTION": [
       "더 고용할 수 없어"
     ]
   },
   "BlueArchive_ProblemSolver:ChooseRabu": {
     "NAME": "코미카제 라브 고용",
-    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷을 !BlueArchive_ProblemSolver:M! 들고 시작합니다."
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 전열에 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 *판금 *갑옷을 !BlueArchive_ProblemSolver:M! 들고 시작합니다."
   },
   "BlueArchive_ProblemSolver:ChooseSaori": {
     "NAME": "조마에 사오리 고용",
-    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 힘을 !BlueArchive_ProblemSolver:M! 을 들고 시작합니다."
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 전열에 소환합니다. 선택한 BlueArchive_ProblemSolver:용병이 힘을 !BlueArchive_ProblemSolver:M! 을 들고 시작합니다."
   },
   "BlueArchive_ProblemSolver:FireSupport": {
     "NAME": "화력 지원",
@@ -121,13 +120,13 @@
   },
   "BlueArchive_ProblemSolver:CuteImpScheme": {
     "NAME": "소악마의 귀여운 꿍꿍이",
-    "DESCRIPTION": "*무츠키가 BlueArchive_ProblemSolver:소악마를 !M! 얻습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:소악마를 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:CaliforniaGurls": {
     "NAME": "캘리포니아 걸즈",
-    "DESCRIPTION": "*무츠키만 사용 가능합니다. NL 턴을 시작할 때마다 힘, 민첩을 !M! 얻습니다. 이 효과는 이 캐릭터가 카드를 사용하면 사라집니다.",
+    "DESCRIPTION": "*무츠키가 후열로 이동하고 턴을 시작할 때마다 힘, 민첩을 !M! 얻습니다. 이 효과는 *무츠키가 전열일때 사라집니다.",
     "EXTENDED_DESCRIPTION": [
-      "이 카드는 무츠키만 사용할 수 있어"
+      "무츠키가 살아있어야해."
     ]
   },
   "BlueArchive_ProblemSolver:LastDitch": {
@@ -155,7 +154,7 @@
   },
   "BlueArchive_ProblemSolver:BluffShot": {
     "NAME": "블러프 샷",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 힘을 !M! 잃습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 힘을 !M! 잃습니다. NL 후열로 이동합니다."
   },
   "BlueArchive_ProblemSolver:ExplodingAria": {
     "NAME": "폭열의 아리아",
@@ -183,8 +182,8 @@
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "고양이의 시간",
-    "DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식 카드를 1 장 섞어 넣습니다. NL 적의 공격을 막아줄 수 없는 체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 소환합니다.",
-    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식+ 카드를 1 장 섞어 넣습니다. NL 적의 공격을 막아줄 수 없는 체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 소환합니다.",
+    "DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식 카드를 1 장 섞어 넣습니다. NL 체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 후열에 소환합니다.",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식+ 카드를 1 장 섞어 넣습니다. NL 체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 후열에 소환합니다.",
     "EXTENDED_DESCRIPTION": [
       "더는 소환할 수 없어"
     ]
@@ -195,10 +194,11 @@
   },
   "BlueArchive_ProblemSolver:OutlawsRoad": {
     "NAME": "무법자의 길",
-    "DESCRIPTION": "이번 턴 선택한 캐릭터가 *아루로 고정됩니다. [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "이번 턴 선택한 캐릭터가 *아루로 고정됩니다. [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "DESCRIPTION": "*아루가 전열이 아닐때 *아루가 전열로 이동한후 [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "*아루가 전열이 아닐때 *아루가 전열로 이동한후 [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
-      "아루가 없어!"
+      "아루가 없어!",
+      "아루가 전열이면 안돼!"
     ]
   },
   "BlueArchive_ProblemSolver:RecklessBehavior": {
@@ -252,7 +252,7 @@
   },
   "BlueArchive_ProblemSolver:NewYearsSymphony": {
     "NAME": "신년의 심포니",
-    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 피해를 입힌 적의 수 만큼 *무츠키에게 BlueArchive_ProblemSolver:소악마를 !M! 부여합니다."
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 피해를 입힌 적의 수 만큼 BlueArchive_ProblemSolver:소악마를 !M! 부여합니다."
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "소악마의 코러스",
@@ -269,7 +269,7 @@
   },
   "BlueArchive_ProblemSolver:DangerousPlay": {
     "NAME": "위험한 놀이",
-    "DESCRIPTION": "*무츠키가 BlueArchive_ProblemSolver:소악마를 !M! 얻습니다. NL 소멸."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:소악마를 !M! 얻습니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:Debt": {
     "NAME": "채무",
@@ -367,12 +367,12 @@
   },
   "BlueArchive_ProblemSolver:SharingWeapon": {
     "NAME": "장비 나누기",
-    "DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 모든 다른 아군도 사용합니다."
+    "DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 전열부터 순서대로 모든 아군이 사용합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 전열부터 순서대로 모든 아군이 사용합니다."
   },
   "BlueArchive_ProblemSolver:FocusonAttack": {
-    "NAME": "공격은 최선의 방어",
-    "DESCRIPTION": "더 이상 방어도를 얻을 수 없게되는 대신 그 만큼 무작위 적에게 피해를 줍니다."
+    "NAME": "급습",
+    "DESCRIPTION": "전열로 이동할 때마다 적 전체에 피해를 !M! 주고 카드를 !BlueArchive_ProblemSolver:M! 장 뽑습니다."
   },
   "BlueArchive_ProblemSolver:AlertButton": {
     "NAME": "경보 단추",
@@ -427,7 +427,7 @@
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "잡입행동",
-    "DESCRIPTION": "다음 공격 카드가 피해를 !M! 배로 줍니다. NL 이번 턴 이 캐릭터를 조종할 수 없습니다."
+    "DESCRIPTION": "다음 공격 카드가 피해를 !M! 배로 줍니다. NL 후열로 이동합니다."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeAru": {
     "NAME": "전술대항전 - 아루",
@@ -539,7 +539,7 @@
   },
   "BlueArchive_ProblemSolver:AttractAttention": {
     "NAME": "이목 끌기",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:금속화를 !M! 얻습니다. NL 이번 전투동안 항상 이 캐릭터가 공격받습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:금속화를 !M! 얻습니다. NL 턴이 끝날때마다 전열로 이동합니다."
   },
   "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
     "NAME": "수상한 소문",
@@ -652,7 +652,7 @@
   },
   "BlueArchive_ProblemSolver:ImpishPrank": {
     "NAME": "소악마의 장난",
-    "DESCRIPTION": "카드를 전부 버립니다. NL 버린 카드 수만큼 *무츠키가 BlueArchive_ProblemSolver:소악마를 얻습니다."
+    "DESCRIPTION": "카드를 전부 버립니다. NL 버린 카드 수만큼 BlueArchive_ProblemSolver:소악마를 얻습니다."
   },
   "BlueArchive_ProblemSolver:SecondDeal": {
     "NAME": "세컨드 딜",
@@ -695,5 +695,12 @@
   "BlueArchive_ProblemSolver:Silencer": {
     "NAME": "소음기",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 턴에 사용한 비용이 0인 카드 수 만큼 비용이 1 감소합니다."
+  },
+  "BlueArchive_ProblemSolver:Shift": {
+    "NAME": "교대",
+    "DESCRIPTION": "보존. NL 선택한 BlueArchive_ProblemSolver:흥신소가 방어도를 !B! 얻고 전열로 이동합니다. NL 소멸.",
+    "EXTENDED_DESCRIPTION": [
+      "흥신소를 대상으로 삼아야한다!"
+    ]
   }
 }

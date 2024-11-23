@@ -67,7 +67,8 @@ public class AllCardPower extends AbstractPower implements CloneablePowerInterfa
         if (!card.purgeOnUse && (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) && this.amount > 0) {
             this.flash();
             if (owner instanceof ProblemSolver68) {
-                for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                for(int i = ProblemSolver68.problemSolverPlayer.size() -1; i >= 0; i--) {
+                    ProblemSolver68 ps = ProblemSolver68.problemSolverPlayer.get(i);
                     if (ps != owner) {
                         AbstractMonster m = null;
                         if (action.target != null) {
