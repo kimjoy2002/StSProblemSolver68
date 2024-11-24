@@ -25,8 +25,7 @@ public class UnwelcomeSchool extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 3;
-    private static final int MAGIC = 4;
-    private static final int UPGRADE_PLUS_MAGIC = 1;
+    private static final int MAGIC = 1;
 
 
 
@@ -39,7 +38,7 @@ public class UnwelcomeSchool extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new UnwelcomeSchoolPower(AbstractDungeon.player, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new CannotSelectedPower(AbstractDungeon.player, 0)));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new CannotSelectedPower(AbstractDungeon.player, 0)));
     }
 
     //Upgraded stats.
@@ -47,7 +46,8 @@ public class UnwelcomeSchool extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            this.upgradeBaseCost(2);
+            //upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

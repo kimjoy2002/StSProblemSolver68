@@ -3,7 +3,9 @@ package BlueArchive_ProblemSolver.patches;
 import BlueArchive_ProblemSolver.actions.ImpAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.ImpPower;
+import BlueArchive_ProblemSolver.powers.SharedPower;
 import basemod.ReflectionHacks;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -18,6 +20,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.BattleStartEffect;
 import javassist.CtBehavior;
+
+import java.util.ArrayList;
 
 import static BlueArchive_ProblemSolver.actions.ImpAction.resetImp;
 
@@ -120,12 +124,21 @@ public class MultiCharacterPatch {
 
     public static boolean onDamage_(AbstractPlayer __instance) {
         if(__instance instanceof ProblemSolver68) {
+
             if (!ProblemSolver68.isAllDead()) {
                 __instance.isDead = true;
                 __instance.currentHealth = 0;
                 for(AbstractPower p_ : __instance.powers) {
                     p_.onRemove();
                 }
+
+                ArrayList<AbstractPower> newPowers = new ArrayList<AbstractPower>();
+                for(AbstractPower power_ : __instance.powers) {
+                    if(power_ instanceof CloneablePowerInterface && power_ instanceof SharedPower){
+                        newPowers.add(((CloneablePowerInterface)power_).makeCopy());
+                    }
+                }
+
                 int imp_value = 0;
                 int imp_amount = 0;
                 if(__instance.hasPower(ImpPower.POWER_ID)) {
@@ -133,17 +146,23 @@ public class MultiCharacterPatch {
                     imp_amount = ((ImpPower)__instance.getPower(ImpPower.POWER_ID)).amount_imp;
                 }
                 __instance.powers.clear();
+                AbstractPlayer next_ = null;
                 if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-                    ProblemSolver68.changeToRandomCharacter();
+                    next_ = ProblemSolver68.changeToNextCharacter();
                 } else {
-                    ProblemSolver68.changeToNextCharacter();
+                    next_ = ProblemSolver68.changeToRandomCharacter();
                 }
+                if(next_ != null) {
+                    for(AbstractPower power_ : newPowers) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(next_, next_, power_));
+                    }
+                }
+
                 if(imp_value > 0) {
                     AbstractDungeon.actionManager.addToBottom(new ImpAction(imp_value, imp_amount));
                 }
 
-                if (__instance instanceof ProblemSolver68 &&
-                        !ProblemSolver68.isProblemSolver(((ProblemSolver68) __instance).solverType)) {
+                if (!ProblemSolver68.isProblemSolver(((ProblemSolver68) __instance).solverType)) {
 
                     ProblemSolver68.dyingPlayer.add((ProblemSolver68) __instance);
                     ProblemSolver68.removeCharacter((ProblemSolver68) __instance);

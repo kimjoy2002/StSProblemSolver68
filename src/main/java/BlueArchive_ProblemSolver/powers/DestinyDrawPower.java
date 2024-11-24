@@ -21,7 +21,7 @@ import static com.megacrit.cardcrawl.actions.common.DrawCardAction.drawnCards;
 
 //Gain 1 dex for the turn for each card played.
 
-public class DestinyDrawPower extends AbstractPower implements CloneablePowerInterface, OnRefreshHandPower {
+public class DestinyDrawPower extends AbstractPower implements CloneablePowerInterface, OnRefreshHandPower, SharedPower {
     public static final String POWER_ID = DefaultMod.makeID("DestinyDrawPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

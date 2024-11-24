@@ -58,6 +58,11 @@ public class FocusonAttackPower extends AbstractPower implements CloneablePowerI
     }
 
     @Override
+    public void OnMoving() {
+
+    }
+
+    @Override
     public void OnFront() {
         this.flash();
         this.addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true));

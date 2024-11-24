@@ -24,7 +24,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class UnwelcomeSchoolPower extends AbstractPower implements CloneablePowerInterface {
+public class UnwelcomeSchoolPower extends AbstractPower implements CloneablePowerInterface, OnFrontPower {
     public static final String POWER_ID = DefaultMod.makeID("UnwelcomeSchoolPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -52,13 +52,6 @@ public class UnwelcomeSchoolPower extends AbstractPower implements CloneablePowe
         updateDescription();
     }
 
-    public void atStartOfTurn() {
-        this.flash();
-        if(owner instanceof AbstractPlayer) {
-            this.addToBot(new UnwelcomeSchoolAction((AbstractPlayer) owner, amount));
-        }
-    }
-
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
@@ -68,5 +61,18 @@ public class UnwelcomeSchoolPower extends AbstractPower implements CloneablePowe
     @Override
     public AbstractPower makeCopy() {
         return new UnwelcomeSchoolPower(owner, amount);
+    }
+
+    @Override
+    public void OnMoving() {
+        this.flash();
+        if(owner instanceof AbstractPlayer) {
+            this.addToBot(new UnwelcomeSchoolAction((AbstractPlayer) owner, amount));
+        }
+    }
+
+    @Override
+    public void OnFront() {
+
     }
 }

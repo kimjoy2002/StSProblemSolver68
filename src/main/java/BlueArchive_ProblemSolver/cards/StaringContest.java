@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.FearPower;
@@ -53,6 +54,7 @@ public class StaringContest extends AbstractDynamicCard {
         this.addToBot(new ApplyPowerAction(p, p, new VulnerablePower(p, magicNumber, false), magicNumber));
         this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
         this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
+        this.addToBot(new ChangeCharacterAction(p, false, true, false));
     }
 
 

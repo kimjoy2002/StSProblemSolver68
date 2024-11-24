@@ -21,7 +21,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class OutlawsRockPower extends AbstractPower implements CloneablePowerInterface, OnEvilDeedsPower {
+public class OutlawsRockPower extends AbstractPower implements CloneablePowerInterface, OnEvilDeedsPower, SharedPower {
     public static final String POWER_ID = DefaultMod.makeID("OutlawsRockPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

@@ -106,6 +106,16 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             return (int)(o1.hb.cX - o2.hb.cX);
         };
     }
+
+
+    public static void changeCurrentPlayer(AbstractPlayer change) {
+        change.gold = AbstractDungeon.player.gold;
+        change.displayGold = AbstractDungeon.player.displayGold;
+
+        AbstractDungeon.player = change;
+
+    }
+
     public static void init() {
         problemSolverPlayer.clear();
         dyingPlayer.clear();
@@ -759,10 +769,11 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     }
 
     public void onVictory() {
+
         if (!isProblemSolver(solverType)) {
             for (ProblemSolver68 p : problemSolverPlayer) {
                 if (isProblemSolver(p.solverType) && !this.isDying) {
-                    AbstractDungeon.player = p;
+                    changeCurrentPlayer(p);
                     AbstractDungeon.player.onVictory();
                     return;
                 }
@@ -800,7 +811,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
 
 
         dyingPlayer.clear();
-        AbstractDungeon.player = problemSolverPlayer.get(0);
+        changeCurrentPlayer(problemSolverPlayer.get(problemSolverPlayer.size() - 1));
         HelmatNum = 0;
         RabuNum = 0;
         SaoriNum = 0;
@@ -986,10 +997,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
 
 
     public void preBattlePrep() {
-        AbstractPlayer tempP = AbstractDungeon.player;
-        AbstractDungeon.player = getFrontMember();
-        AbstractDungeon.player.gold = tempP.gold;
-        AbstractDungeon.player.displayGold = tempP.displayGold;
+
+        changeCurrentPlayer(getFrontMember());
 
         AbstractDungeon.actionManager.addToTop(new CleanCharacterAction(false));
         super.preBattlePrep();
@@ -1046,7 +1055,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         if(!(AbstractDungeon.player instanceof ProblemSolver68))
             return true;
         for (ProblemSolver68 p : problemSolverPlayer) {
-            if(p.currentHealth >= 1 && !p.hasPower(CannotAttackedPower.POWER_ID)) {
+            if(p.currentHealth >= 1 && isProblemSolver(p.solverType) && !p.hasPower(CannotAttackedPower.POWER_ID)) {
                 return false;
             }
         }

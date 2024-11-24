@@ -16,7 +16,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 
 
-public class ReconnaissancePower extends AbstractPower implements CloneablePowerInterface {
+public class ReconnaissancePower extends AbstractPower implements CloneablePowerInterface, SharedPower {
     public static final String POWER_ID = DefaultMod.makeID("ReconnaissancePower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

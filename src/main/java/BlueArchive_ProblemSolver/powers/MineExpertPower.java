@@ -23,7 +23,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class MineExpertPower extends AbstractPower implements CloneablePowerInterface, OnMinePower {
+public class MineExpertPower extends AbstractPower implements CloneablePowerInterface, OnMinePower, SharedPower {
     public static final String POWER_ID = DefaultMod.makeID("MineExpertPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

@@ -45,7 +45,7 @@ public class RecklessBehavior extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = -1;
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 9;
     private static final int UPGRADE_PLUS_BLOCK = 2;
 
     public static final int MAGIC = 3;
@@ -63,11 +63,11 @@ public class RecklessBehavior extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DiscardAction(p,p,999,true));
         AbstractDungeon.actionManager.addToBottom(new ReinforcedBodyAction(p, this.block, this.freeToPlayOnce, this.energyOnUse));
-        AbstractDungeon.actionManager.addToBottom(new XDrawAction(p, magicNumber, this.freeToPlayOnce, this.energyOnUse));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber), magicNumber));
+        //AbstractDungeon.actionManager.addToBottom(new XDrawAction(p, 1, this.freeToPlayOnce, this.energyOnUse));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber), magicNumber));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber), magicNumber));
     }
 
     // Upgraded stats.

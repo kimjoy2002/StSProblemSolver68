@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 현재 BlueArchive_ProblemSolver:흥신소 카드를 뽑습니다.",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 선택한 BlueArchive_ProblemSolver:흥신소 캐릭터의 카드를 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       "카드를 !M! 장 뽑습니다.",
       " NL 가능하다면 *",
@@ -162,9 +162,9 @@
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
     "NAME": "트리거 오버",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 피해를 !M! 받습니다.",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 방어도를 !M! 잃습니다.",
     "EXTENDED_DESCRIPTION": [
-      "피해를 !M! 받습니다. "
+      "방어도를 !M! 잃습니다. "
     ]
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
@@ -182,20 +182,20 @@
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "고양이의 시간",
-    "DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식 카드를 1 장 섞어 넣습니다. NL 체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 후열에 소환합니다.",
-    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 *고양이 *간식+ 카드를 1 장 섞어 넣습니다. NL 체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 후열에 소환합니다.",
+    "DESCRIPTION": "체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 후열에 소환합니다.",
+    "UPGRADE_DESCRIPTION": "체력 !M! 의 *고양이 BlueArchive_ProblemSolver:용병을 최대 둘까지 후열에 소환합니다.",
     "EXTENDED_DESCRIPTION": [
       "더는 소환할 수 없어"
     ]
   },
   "BlueArchive_ProblemSolver:OutlawsRock": {
     "NAME": "무법자의 락",
-    "DESCRIPTION": "아군이 BlueArchive_ProblemSolver:악행을 발동할 때마다 모든 적에게 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL BlueArchive_ProblemSolver:악행을 발동할 때마다 모든 적에게 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
   },
   "BlueArchive_ProblemSolver:OutlawsRoad": {
     "NAME": "무법자의 길",
-    "DESCRIPTION": "*아루가 전열이 아닐때 *아루가 전열로 이동한후 [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "*아루가 전열이 아닐때 *아루가 전열로 이동한후 [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "DESCRIPTION": "*아루가 전열이 아닐때 *아루가 전열로 이동한후 [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "*아루가 전열이 아닐때 *아루가 전열로 이동한후 [E] [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       "아루가 없어!",
       "아루가 전열이면 안돼!"
@@ -203,7 +203,7 @@
   },
   "BlueArchive_ProblemSolver:RecklessBehavior": {
     "NAME": "폭주하는 행동",
-    "DESCRIPTION": "카드를 전부 버립니다. NL 방어도를 !B! 만큼 X 번 얻습니다. NL 카드를 X 장 뽑고 이번 턴동안 힘 과 민첩을 !M! 만큼 얻습니다."
+    "DESCRIPTION": "카드를 전부 버립니다. NL 방어도를 !B! 만큼 X 번 얻습니다."
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "도발",
@@ -308,7 +308,7 @@
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsStyle": {
     "NAME": "사장의 퍼펙트한 용병술",
-    "DESCRIPTION": "모든 BlueArchive_ProblemSolver:용병과 이후 소환될 BlueArchive_ProblemSolver:용병이 힘 !M! 과 불가침을 !BlueArchive_ProblemSolver:M! 얻습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 모든 BlueArchive_ProblemSolver:용병과 이후 소환될 BlueArchive_ProblemSolver:용병이 힘 !M! 과 불가침을 !BlueArchive_ProblemSolver:M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:HardboiledShot": {
     "NAME": "하드보일드 샷",
@@ -321,7 +321,7 @@
   },
   "BlueArchive_ProblemSolver:OneEvilDeedaDay": {
     "NAME": "일일일악",
-    "DESCRIPTION": "아군이 턴마다 처음 BlueArchive_ProblemSolver:악행을 발동하면 [E] 를 얻습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 턴마다 처음 BlueArchive_ProblemSolver:악행을 발동하면 [E] 를 얻습니다."
   },
   "BlueArchive_ProblemSolver:Snipe": {
     "NAME": "저격",
@@ -351,7 +351,7 @@
   },
   "BlueArchive_ProblemSolver:RockSpirit": {
     "NAME": "락 스피릿",
-    "DESCRIPTION": "공격으로 적의 체력을 감소시킬 때마다 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 공격으로 적의 체력을 감소시킬 때마다 BlueArchive_ProblemSolver:공포를 !M! 부여합니다."
   },
   "BlueArchive_ProblemSolver:NegativeThinking": {
     "NAME": "부정적인 사고",
@@ -359,7 +359,7 @@
   },
   "BlueArchive_ProblemSolver:UnwelcomeSchool": {
     "NAME": "Unwelcome School",
-    "DESCRIPTION": "이번 전투동안 이 캐릭터를 조종할 수 없게 됩니다. NL 턴 시작 시, 이 캐릭터가 뽑을 카드 더미 맨 위에 있는 카드를 !M! 장 사용합니다."
+    "DESCRIPTION": "이 캐릭터가 이동할때마다 뽑을 카드 더미 맨 위에 있는 카드를 !M! 장 사용합니다."
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "고양이 간식",
@@ -403,7 +403,7 @@
   },
   "BlueArchive_ProblemSolver:Reconnaissance": {
     "NAME": "사전답사",
-    "DESCRIPTION": "내 턴 종료 시 뽑을 카드 더미에 *원격 *폭탄을 섞어넣습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 내 턴 종료 시 뽑을 카드 더미에 *원격 *폭탄을 섞어넣습니다."
   },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "맹습",
@@ -465,7 +465,7 @@
   },
   "BlueArchive_ProblemSolver:MineExpert": {
     "NAME": "지뢰 전문가",
-    "DESCRIPTION": "*지뢰 효과가 발동할 때마다 적 전체에 피해를 !M! 줍니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL BlueArchive_ProblemSolver:지뢰 효과가 발동할 때마다 적 전체에 피해를 !M! 줍니다."
   },
   "BlueArchive_ProblemSolver:RouletteMisdirection": {
     "NAME": "룰렛 미스디렉션",
@@ -489,11 +489,11 @@
   },
   "BlueArchive_ProblemSolver:TroubleMaker": {
     "NAME": "트러블 메이커",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:지뢰 카드를 뽑거나 손에 생성했을때 즉시 BlueArchive_ProblemSolver:지뢰 효과를 발동합니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL BlueArchive_ProblemSolver:지뢰 카드를 뽑거나 손에 생성했을때 즉시 BlueArchive_ProblemSolver:지뢰 효과를 발동합니다."
   },
   "BlueArchive_ProblemSolver:StaringContest": {
     "NAME": "눈싸움",
-    "DESCRIPTION": "적과 자신에게 약화와 취약을 !M! 부여합니다. 소멸."
+    "DESCRIPTION": "적과 자신에게 약화와 취약을 !M! 부여합니다. NL 후열로 이동합니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:PokerFace": {
     "NAME": "포커페이스",
@@ -551,7 +551,7 @@
   },
   "BlueArchive_ProblemSolver:Omamoribond": {
     "NAME": "보답 받는 인연",
-    "DESCRIPTION": "아군이 아무에게 부정적인 효과를 !M! 번 부여할 때마다 카드를 !BlueArchive_ProblemSolver:M! 장 뽑습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 아군이 아무에게 부정적인 효과를 !M! 번 부여할 때마다 카드를 !BlueArchive_ProblemSolver:M! 장 뽑습니다."
   },
   "BlueArchive_ProblemSolver:KayokoKick": {
     "NAME": "무기 쳐내기",
@@ -619,12 +619,7 @@
   },
   "BlueArchive_ProblemSolver:Obstinate": {
     "NAME": "오기",
-    "DESCRIPTION": "보존. NL 방어도를 !B! 얻습니다. NL 소멸. NL BlueArchive_ProblemSolver:마무리: *오기 카드를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "보존. NL 방어도를 !B! 얻습니다. NL 소멸. NL BlueArchive_ProblemSolver:마무리: *오기+ 카드를 얻습니다.",
-    "EXTENDED_DESCRIPTION": [
-      "#y오기 카드를 얻습니다. ",
-      "#y오기+ 카드를 얻습니다. "
-    ]
+    "DESCRIPTION": "현재 방어도를 선택한 아군에게 옮깁니다. NL 선택한 아군이 방어도를 !B! 얻고 전열로 이동합니다."
   },
   "BlueArchive_ProblemSolver:WarningShot": {
     "NAME": "경고 사격",
@@ -665,7 +660,7 @@
   },
   "BlueArchive_ProblemSolver:HiddenPast": {
     "NAME": "숨겨진 과거",
-    "DESCRIPTION": "카드를 뽑거나 손에 카드를 생성할 때마다 무작위 적에게 피해를 !M! 줍니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 카드를 뽑거나 손에 카드를 생성할 때마다 무작위 적에게 피해를 !M! 줍니다."
   },
   "BlueArchive_ProblemSolver:DiligentPast": {
     "NAME": "성실한 과거",
@@ -677,11 +672,11 @@
   },
   "BlueArchive_ProblemSolver:DestinyDraw": {
     "NAME": "데스티니 드로우",
-    "DESCRIPTION": "턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다."
   },
   "BlueArchive_ProblemSolver:AvatarOfFear": {
     "NAME": "공포의 화신",
-    "DESCRIPTION": "아군이 공격할 의도가 있는 적에게 BlueArchive_ProblemSolver:공포를 부여할때마다 그만큼 1턴간 힘을 감소시킵니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 공격할 의도가 있는 적에게 BlueArchive_ProblemSolver:공포를 부여할때마다 그만큼 1턴간 힘을 감소시킵니다."
   },
   "BlueArchive_ProblemSolver:Sweep": {
     "NAME": "쓸어담기",
@@ -698,9 +693,6 @@
   },
   "BlueArchive_ProblemSolver:Shift": {
     "NAME": "교대",
-    "DESCRIPTION": "보존. NL 선택한 BlueArchive_ProblemSolver:흥신소가 방어도를 !B! 얻고 전열로 이동합니다. NL 소멸.",
-    "EXTENDED_DESCRIPTION": [
-      "흥신소를 대상으로 삼아야한다!"
-    ]
+    "DESCRIPTION": "보존. NL 선택한 아군이 방어도를 !B! 얻고 전열로 이동합니다. NL 소멸."
   }
 }

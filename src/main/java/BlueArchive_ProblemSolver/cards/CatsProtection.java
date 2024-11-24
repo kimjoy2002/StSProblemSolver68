@@ -41,7 +41,6 @@ public class CatsProtection extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO);
-        this.cardsToPreview = new CatSnacks();
     }
 
     public void updateVal () {
@@ -63,8 +62,11 @@ public class CatsProtection extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         updateVal ();
+        if(upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new AddCharacterAction(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT , magicNumber));
+        }
         AbstractDungeon.actionManager.addToBottom(new AddCharacterAction(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT , magicNumber));
-        this.addToBot(new MakeTempCardInDrawPileAction(this.cardsToPreview.makeStatEquivalentCopy(), 1, true, true));
+        //this.addToBot(new MakeTempCardInDrawPileAction(this.cardsToPreview.makeStatEquivalentCopy(), 1, true, true));
     }
 
     // Upgraded stats.
@@ -72,7 +74,7 @@ public class CatsProtection extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            cardsToPreview.upgrade();
+            //cardsToPreview.upgrade();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

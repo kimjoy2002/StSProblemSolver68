@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
-public class HiddenPastPower extends AbstractPower implements CloneablePowerInterface {
+public class HiddenPastPower extends AbstractPower implements CloneablePowerInterface, SharedPower {
     public static final String POWER_ID = DefaultMod.makeID("HiddenPastPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

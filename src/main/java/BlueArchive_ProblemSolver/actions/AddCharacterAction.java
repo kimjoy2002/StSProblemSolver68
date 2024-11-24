@@ -55,6 +55,8 @@ public class AddCharacterAction extends AbstractGameAction {
                 //this.addToBot(new ApplyPowerAction(p, p, new CannotAttackedPower(p)));
             } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HELMETGANG) {
                 this.addToBot(new ChangeCharacterAction(p, false, true, true));
+            } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_DEFECT || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_WATCHER || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_IRONCLAD || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_SILENT) {
+                this.addToBot(new ChangeCharacterAction(p, false, true, true));
             }
             for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
                 for (AbstractPower power_ : ps.powers) {

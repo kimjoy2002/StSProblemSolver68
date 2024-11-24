@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.monsters.ending.SpireSpear;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
 import javassist.CtBehavior;
@@ -87,14 +88,19 @@ public class FearPatch {
 
     private static void onUsePotionPower(AbstractPotion potion, AbstractCreature target) {
 
-        Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+        if(AbstractDungeon.getCurrRoom()  != null &&
+           AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
+                AbstractDungeon.getCurrRoom().monsters != null &&
+                AbstractDungeon.getCurrRoom().monsters.monsters != null) {
+            Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
-        while(var1.hasNext()) {
-            AbstractMonster m = (AbstractMonster) var1.next();
-            if (!m.isDead && !m.isDying) {
-                for(AbstractPower power_ : m.powers) {
-                    if(power_ instanceof OnUsePotionPower) {
-                        ((OnUsePotionPower)power_).OnUsePotion(potion, target);
+            while (var1.hasNext()) {
+                AbstractMonster m = (AbstractMonster) var1.next();
+                if (!m.isDead && !m.isDying) {
+                    for (AbstractPower power_ : m.powers) {
+                        if (power_ instanceof OnUsePotionPower) {
+                            ((OnUsePotionPower) power_).OnUsePotion(potion, target);
+                        }
                     }
                 }
             }

@@ -46,7 +46,7 @@ public class MeaningfulTansaction extends EvilDeedsCard {
     public MeaningfulTansaction() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
-        setRequireEvil(4);
+        setRequireEvil(3);
         exhaust = true;
     }
 

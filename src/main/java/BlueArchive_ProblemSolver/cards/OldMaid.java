@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -16,6 +17,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.ArrayList;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
+import static BlueArchive_ProblemSolver.targeting.AllyTargeting.CAN_ALLY_TARGETING;
+import static com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting.getTarget;
 
 public class OldMaid extends AbstractDynamicCard {
 
@@ -29,7 +32,7 @@ public class OldMaid extends AbstractDynamicCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CAN_ALLY_TARGETING;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
@@ -45,13 +48,19 @@ public class OldMaid extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractCreature c = getTarget(this);
+        if(!(c instanceof AbstractPlayer)) {
+            c = p!=null?p:AbstractDungeon.player;
+        }
+
+        ProblemSolver68 ps68 = (c instanceof ProblemSolver68)?(ProblemSolver68)c:null;
         this.addToBot(new AbstractGameAction() {
             public void update() {
                 CardGroup drawPiles = AbstractDungeon.player.drawPile;
                 ArrayList<AbstractCard> cards_ = new ArrayList<AbstractCard>();
                 Aru.ProblemSolver68Type type = Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
-                if(p instanceof ProblemSolver68) {
-                    type = ((ProblemSolver68)AbstractDungeon.player).solverType;
+                if(ps68 != null) {
+                    type = ps68.solverType;
                 }
 
                 if (type != Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE) {
@@ -78,7 +87,7 @@ public class OldMaid extends AbstractDynamicCard {
     private static String getImgPath(AbstractPlayer p) {
         if(p instanceof ProblemSolver68) {
 
-            switch(((ProblemSolver68)AbstractDungeon.player).solverType) {
+            switch(((ProblemSolver68)p).solverType) {
                 case PROBLEM_SOLVER_68_ARU:
                     return IMG_ARU;
                 case PROBLEM_SOLVER_68_MUTSUKI:
@@ -97,12 +106,19 @@ public class OldMaid extends AbstractDynamicCard {
     }
 
     public void applyPowers() {
+        AbstractCreature c = getTarget(this);
+        if(!(c instanceof AbstractPlayer)) {
+            c = AbstractDungeon.player;
+        }
+
+        ProblemSolver68 target = (c instanceof ProblemSolver68)?(ProblemSolver68)c:null;
+
         super.applyPowers();
-        if(AbstractDungeon.player instanceof ProblemSolver68 && ProblemSolver68.isProblemSolver(((ProblemSolver68)AbstractDungeon.player).solverType)) {
-            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.EXTENDED_DESCRIPTION[1] + ProblemSolver68.getLocalizedName((ProblemSolver68)AbstractDungeon.player) + cardStrings.EXTENDED_DESCRIPTION[2] ;
+        /*if(target != null && ProblemSolver68.isProblemSolver(target.solverType)) {
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.EXTENDED_DESCRIPTION[1] + ProblemSolver68.getLocalizedName(target) + cardStrings.EXTENDED_DESCRIPTION[2] ;
         } else {
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
-        }
+        }*/
         this.textureImg = getImgPath(AbstractDungeon.player);
         if (textureImg != null) {
             try {

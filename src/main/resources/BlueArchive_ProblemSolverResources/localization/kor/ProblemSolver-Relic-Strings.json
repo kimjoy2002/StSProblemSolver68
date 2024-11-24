@@ -30,7 +30,7 @@
     "DESCRIPTIONS": [
       "전투 시작 시 #r",
       " #y골드를 소모하고 체력 #g",
-      " 의 #ybluearchive_problemsolver:용병을 소환합니다."
+      " 의 #ybluearchive_problemsolver:용병을 전열에 소환합니다."
     ]
   },
   "BlueArchive_ProblemSolver:TNTRelic": {

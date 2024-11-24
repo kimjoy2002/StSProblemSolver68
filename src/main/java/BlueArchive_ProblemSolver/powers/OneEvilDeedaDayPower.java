@@ -22,7 +22,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 import static BlueArchive_ProblemSolver.patches.GameActionManagerPatch.evildeedThisTurn;
 
 
-public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowerInterface, OnEvilDeedsPower {
+public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowerInterface, OnEvilDeedsPower, SharedPower {
     public static final String POWER_ID = DefaultMod.makeID("OneEvilDeedaDayPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

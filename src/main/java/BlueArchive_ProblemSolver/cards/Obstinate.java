@@ -1,21 +1,27 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
+import static BlueArchive_ProblemSolver.targeting.AllyTargeting.CAN_ALLY_TARGETING;
+import static com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting.getTarget;
 
-public class Obstinate extends FinishCard {
+public class Obstinate extends AbstractDynamicCard {
     public static final String ID = DefaultMod.makeID(Obstinate.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -31,7 +37,7 @@ public class Obstinate extends FinishCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CAN_ALLY_TARGETING;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
@@ -42,39 +48,43 @@ public class Obstinate extends FinishCard {
     public Obstinate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
-        selfRetain = true;
-        exhaust = true;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, this.block));
-        super.use(p,m);
-    }
-
-    @Override
-    public ArrayList<AbstractGameAction> onFinish(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractGameAction> temp = new ArrayList<AbstractGameAction>();
-        AbstractCard card = new Obstinate();
-        if(upgraded){
-            card.upgrade();
+        AbstractCreature c = getTarget(this);
+        if(!(c instanceof AbstractPlayer)) {
+            c = p!=null?p: AbstractDungeon.player;
         }
-        temp.add(new MakeTempCardInHandAction(card));
-        return temp;
+
+        if(c != AbstractDungeon.player) {
+
+            AbstractPlayer target_p = (AbstractPlayer)c;
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    this.isDone = true;
+                    if (p.currentBlock != 0) {
+                        int bamount = p.currentBlock;
+                        p.loseBlock(bamount);
+                        AbstractDungeon.actionManager.addToTop(new GainBlockAction(target_p, bamount));
+                    }
+
+                }
+            });
+        }
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction((AbstractPlayer)c, block));
+        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction((AbstractPlayer)c, false, false, true));
     }
 
-    public String getFinishString(){
-        return upgraded?cardStrings.EXTENDED_DESCRIPTION[1]:cardStrings.EXTENDED_DESCRIPTION[0];
-    };
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_BLOCK);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

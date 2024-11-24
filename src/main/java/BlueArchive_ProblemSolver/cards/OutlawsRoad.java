@@ -38,7 +38,7 @@ public class OutlawsRoad extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 0;
-    public static final int MAGIC = 3;
+    public static final int MAGIC = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
     public OutlawsRoad() {
@@ -52,7 +52,7 @@ public class OutlawsRoad extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU, true));
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded?2:1));
+        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded?3:2));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
     }
 
@@ -68,7 +68,7 @@ public class OutlawsRoad extends AbstractDynamicCard {
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(!ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU)) {
+        if(!ProblemSolver68.isLive(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU)) {
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return false;
         }

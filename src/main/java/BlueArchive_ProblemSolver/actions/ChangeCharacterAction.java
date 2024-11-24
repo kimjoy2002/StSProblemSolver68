@@ -20,7 +20,10 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 
+import java.util.AbstractList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import static BlueArchive_ProblemSolver.DefaultMod.*;
 import static BlueArchive_ProblemSolver.actions.CleanCharacterAction.CleanCharacter;
@@ -84,6 +87,16 @@ public class ChangeCharacterAction extends AbstractGameAction {
         this.unwelcome = unwelcome;
     }
 
+    public void onMovingCharacter (AbstractPlayer p) {
+        if(manual) {
+            return;
+        }
+        for(AbstractPower power : p.powers) {
+            if(power instanceof OnFrontPower) {
+                ((OnFrontPower)power).OnMoving();
+            }
+        }
+    }
     public void onFrontCharacter (AbstractPlayer p) {
         if(manual) {
             return;
@@ -97,6 +110,9 @@ public class ChangeCharacterAction extends AbstractGameAction {
     public void movingCharacter () {
         CleanCharacter();
         int prev_index = ProblemSolver68.problemSolverPlayer.lastIndexOf(targetPlayer);
+
+        Set<AbstractPlayer> movingChar = new HashSet<AbstractPlayer>();
+
         if(to_front) {
             int next_index = ProblemSolver68.problemSolverPlayer.size() - 1;
 
@@ -112,6 +128,8 @@ public class ChangeCharacterAction extends AbstractGameAction {
                     if(start_+1 == next_index) {
                         onFrontCharacter(targetPlayer);
                     }
+                    movingChar.add(targetPlayer);
+                    movingChar.add(next_charecter);
                 }
             }
         } else {
@@ -132,10 +150,17 @@ public class ChangeCharacterAction extends AbstractGameAction {
                     if(start_ == ProblemSolver68.problemSolverPlayer.size() - 1) {
                         onFrontCharacter(next_charecter);
                     }
+                    movingChar.add(targetPlayer);
+                    movingChar.add(next_charecter);
                 }
             }
         }
+        for(AbstractPlayer p : movingChar) {
+            onMovingCharacter(p);
+        }
     }
+
+
 
     public void changeCharacter () {
 
@@ -144,7 +169,7 @@ public class ChangeCharacterAction extends AbstractGameAction {
         if(changeCharacter == null) {
             if (type != Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE) {
                 for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
-                    if(ps.solverType == type) {
+                    if(ps.solverType == type && ps.currentHealth > 0) {
                         changeCharacter = ps;
                         targetPlayer = ps;
                         //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(changeCharacter, changeCharacter, new CannotChangedPower(changeCharacter)));

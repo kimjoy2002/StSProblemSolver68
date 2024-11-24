@@ -72,18 +72,4 @@ public class Shift extends AbstractDynamicCard {
             initializeDescription();
         }
     }
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        AbstractCreature c = getTarget(this);
-        if(!(c instanceof AbstractPlayer)) {
-            c = p!=null?p:AbstractDungeon.player;
-        }
-
-        if(c instanceof ProblemSolver68 && !((ProblemSolver68)c).isProblemSolver()) {
-            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            setCardTarget(this, null);
-            return false;
-        }
-        return super.canUse(p, m);
-    }
 }

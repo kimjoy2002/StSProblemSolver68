@@ -34,7 +34,6 @@ public class MineExpert extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
-        this.cardsToPreview = new MutsukiMine();
     }
 
     // Actions the card should do.

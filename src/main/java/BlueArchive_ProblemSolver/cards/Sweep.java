@@ -45,7 +45,7 @@ public class Sweep extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 6;
 
 
     public Sweep() {
