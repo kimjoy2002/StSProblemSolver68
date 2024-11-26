@@ -50,7 +50,7 @@
   "BlueArchive_ProblemSolver:OutlawsRockPower": {
     "NAME": "무법자의 락",
     "DESCRIPTIONS": [
-      "아군의 #y악행이 발동할때마다 모든 적에게 피해를 #r",
+      "#g공유 NL #y악행이 발동할때마다 모든 적에게 피해를 #r",
       " 줍니다."
     ]
   },
@@ -85,21 +85,21 @@
   "BlueArchive_ProblemSolver:PerfectPresidentsStrPower": {
     "NAME": "용병 힘",
     "DESCRIPTIONS": [
-      "#y용병이 소환되면 #y힘을 ",
+      "#g공유 NL #y용병이 소환되면 #y힘을 ",
       " 얻습니다."
     ]
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsIntegiblePower": {
     "NAME": "용병 불가침",
     "DESCRIPTIONS": [
-      "#y용병이 소환되면 #y불가침을 ",
+      "#g공유 NL #y용병이 소환되면 #y불가침을 ",
       " 얻습니다."
     ]
   },
   "BlueArchive_ProblemSolver:OneEvilDeedaDayPower": {
     "NAME": "일일일악",
     "DESCRIPTIONS": [
-      "턴마다 처음 #y악행을 사용하면 ",
+      "#g공유 NL 턴마다 처음 #y악행을 사용하면 ",
       "[E] ",
       " 를 얻습니다."
     ]
@@ -122,7 +122,7 @@
   "BlueArchive_ProblemSolver:RockSpiritPower": {
     "NAME": "락 스피릿",
     "DESCRIPTIONS": [
-      "방어되지 않은 #y공격 피해를 입힐 때마다 #b",
+      "#g공유 NL 방어되지 않은 #y공격 피해를 입힐 때마다 #b",
       " 의 #y공포를 부여합니다."
     ]
   },
@@ -173,7 +173,7 @@
   "BlueArchive_ProblemSolver:ReconnaissancePower": {
     "NAME": "사전답사",
     "DESCRIPTIONS": [
-      "내 턴 종료 시 뽑을 카드 더미에 #y원격 #y폭탄 카드를 #b",
+      "#g공유 NL 내 턴 종료 시 뽑을 카드 더미에 #y원격 #y폭탄 카드를 #b",
       " 장 섞어넣습니다.",
       " 장 섞어넣습니다."
     ]
@@ -181,7 +181,7 @@
   "BlueArchive_ProblemSolver:MineExpertPower": {
     "NAME": "지뢰 전문가",
     "DESCRIPTIONS": [
-      "#y지뢰 효과가 발동할때마다 적 전체에 피해를 #r",
+      "#g공유 NL #y지뢰 효과가 발동할때마다 적 전체에 피해를 #r",
       " 줍니다."
     ]
   },
@@ -196,7 +196,7 @@
   "BlueArchive_ProblemSolver:TroubleMakerPower": {
     "NAME": "트러블 메이커",
     "DESCRIPTIONS": [
-      "#y지뢰 카드를 뽑거나 손에 생성했을때 즉시 #y지뢰 효과를 발동합니다.",
+      "#g공유 NL #y지뢰 카드를 뽑거나 손에 생성했을때 즉시 #y지뢰 효과를 발동합니다.",
       "#y지뢰 카드를 뽑거나 손에 생성했을때 즉시 #y지뢰 효과를 #b",
       " 번 발동합니다."
     ]
@@ -231,7 +231,7 @@
   "BlueArchive_ProblemSolver:OmamoribondPower": {
     "NAME": "보답받는 인연",
     "DESCRIPTIONS": [
-      "아무에게 해로운 효과를 #b",
+      "#g공유 NL 아무에게 해로운 효과를 #b",
       " 번 부여할때마다 카드를 #b",
       " 장 뽑습니다."
     ]
@@ -253,7 +253,7 @@
   "BlueArchive_ProblemSolver:HiddenPastPower": {
     "NAME": "숨겨진 과거",
     "DESCRIPTIONS": [
-      "카드를 뽑거나 손에 카드를 생성할때마다 무작위 적에게 피해를 #r",
+      "#g공유 NL 카드를 뽑거나 손에 카드를 생성할때마다 무작위 적에게 피해를 #r",
       " 줍니다."
     ]
   },
@@ -274,7 +274,7 @@
   "BlueArchive_ProblemSolver:DestinyDrawPower": {
     "NAME": "데스티니 드로우",
     "DESCRIPTIONS": [
-      "턴마다 1번씩, 손이 0장이 되었을때 카드를 #b",
+      "#g공유 NL 턴마다 1번씩, 손이 0장이 되었을때 카드를 #b",
       " 장 뽑고 그 비용만큼 [E] 를 얻습니다.",
       " (사용함)"
     ]
@@ -282,8 +282,8 @@
   "BlueArchive_ProblemSolver:AvatarOfFearPower": {
     "NAME": "공포의 화신",
     "DESCRIPTIONS": [
-      "아군이 공격할 의도가 있는 적에게 #y공포를 부여할때마다 그만큼 1턴간 #y힘을 감소시킵니다.",
-      "아군이 공격할 의도가 있는 적에게 #y공포를 부여할때마다 그 #b",
+      "#g공유 NL 공격할 의도가 있는 적에게 #y공포를 부여할때마다 그만큼 1턴간 #y힘을 감소시킵니다.",
+      "#g공유 NL 공격할 의도가 있는 적에게 #y공포를 부여할때마다 그 #b",
       " 배만큼 1턴간 #y힘을 감소시킵니다."
     ]
   },

@@ -66,7 +66,7 @@
   },
   "BlueArchive_ProblemSolver:FirstAid": {
     "NAME": "응급 치료",
-    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소를 체력 1로 부활시킵니다. NL 가장 체력이 낮은 BlueArchive_ProblemSolver:흥신소가 임시_체력 을 !M! 만큼 얻습니다. NL 소멸."
+    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소가 체력 1로 부활하고 전열로 이동합니다. NL 전열 캐릭터가 임시_체력 을 !M! 만큼 얻습니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:DogFight": {
     "NAME": "난전",
@@ -158,7 +158,7 @@
   },
   "BlueArchive_ProblemSolver:ExplodingAria": {
     "NAME": "폭열의 아리아",
-    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 무작위 카드를 1장 버립니다."
+    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 카드를 1장 버립니다."
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
     "NAME": "트리거 오버",
@@ -194,11 +194,10 @@
   },
   "BlueArchive_ProblemSolver:OutlawsRoad": {
     "NAME": "무법자의 길",
-    "DESCRIPTION": "*아루가 전열이 아닐때 *아루가 전열로 이동한후 [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "*아루가 전열이 아닐때 *아루가 전열로 이동한후 [E] [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "DESCRIPTION": "*아루가 전열로 이동합니다. NL [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "*아루가 전열로 이동합니다. NL [E] [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
-      "아루가 없어!",
-      "아루가 전열이면 안돼!"
+      "아루가 없어!"
     ]
   },
   "BlueArchive_ProblemSolver:RecklessBehavior": {
@@ -533,6 +532,7 @@
   "BlueArchive_ProblemSolver:FixerForm": {
     "NAME": "해결사의 형상",
     "DESCRIPTION": "턴을 시작할 때마다 *아루는 [E] , *카요코는 카드 !M! 장, *무츠키는 힘을 !BlueArchive_ProblemSolver:M!, *하루카는 민첩을 !BlueArchive_ProblemSolver:M2! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "턴을 시작할 때마다 *아루는 [E] [E] , *카요코는 카드 !M! 장, *무츠키는 힘을 !BlueArchive_ProblemSolver:M!, *하루카는 민첩을 !BlueArchive_ProblemSolver:M2! 얻습니다.",
     "EXTENDED_DESCRIPTION": [
        "BlueArchive_ProblemSolver:__fixerform__"
     ]
@@ -543,8 +543,8 @@
   },
   "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
     "NAME": "수상한 소문",
-    "DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 손에 있을때 한번만, BlueArchive_ProblemSolver:악행이 발동할때 [E] 를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 손에 있을때 한번만, BlueArchive_ProblemSolver:악행이 발동할때 [E] [E] 를 얻습니다.",
+    "DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 손에 있을때 한번만, BlueArchive_ProblemSolver:악행이 발동할때 [E] [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 손에 있을때 한번만, BlueArchive_ProblemSolver:악행이 발동할때 [E] [E] [E] 를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "사용할 수 없어."
     ]
@@ -567,7 +567,10 @@
   },
   "BlueArchive_ProblemSolver:SiphonSoul": {
     "NAME": "영혼 착취",
-    "DESCRIPTION": "적이나 아군에게 피해를 !D! 줍니다. NL 이 공격이 대상을 죽이면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다."
+    "DESCRIPTION": "적이나 다른 아군에게 피해를 !D! 줍니다. NL 이 공격이 대상을 죽이면 임시_체력 을 !M! 얻고 힘을 !BlueArchive_ProblemSolver:M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "자기 자신에는 쓸 수 없어."
+    ]
   },
   "BlueArchive_ProblemSolver:HeadShot": {
     "NAME": "헤드샷",
@@ -655,8 +658,7 @@
   },
   "BlueArchive_ProblemSolver:PartyPistol": {
     "NAME": "깜짝 권총",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다.",
-    "UPGRADE_DESCRIPTION": "보존. NL 피해를 !D! 줍니다. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다."
+    "DESCRIPTION": "보존. NL 피해를 !D! 줍니다. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다."
   },
   "BlueArchive_ProblemSolver:HiddenPast": {
     "NAME": "숨겨진 과거",
@@ -672,7 +674,8 @@
   },
   "BlueArchive_ProblemSolver:DestinyDraw": {
     "NAME": "데스티니 드로우",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. BlueArchive_ProblemSolver:공유. NL 턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다."
   },
   "BlueArchive_ProblemSolver:AvatarOfFear": {
     "NAME": "공포의 화신",
@@ -694,5 +697,14 @@
   "BlueArchive_ProblemSolver:Shift": {
     "NAME": "교대",
     "DESCRIPTION": "보존. NL 선택한 아군이 방어도를 !B! 얻고 전열로 이동합니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:TheGravityofaBoss": {
+    "NAME": "사장님의 위엄",
+    "DESCRIPTION": "보존. NL 방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 적 전체에게 약화와 취약을 !M! 부여합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "보존. NL 방어도를 !B! 얻습니다. NL ",
+      "BlueArchive_ProblemSolver:악행 (",
+      "/!BlueArchive_ProblemSolver:M2!): 적 전체에게 약화와 취약을 !M! 부여합니다."
+    ]
   }
 }

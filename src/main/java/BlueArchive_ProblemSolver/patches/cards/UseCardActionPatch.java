@@ -5,7 +5,6 @@ import BlueArchive_ProblemSolver.actions.DelayAction;
 import BlueArchive_ProblemSolver.cards.EvilDeedsCard;
 import BlueArchive_ProblemSolver.cards.ProblemSolverDefend;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
-import BlueArchive_ProblemSolver.powers.CannotSelectedPower;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -141,15 +140,6 @@ public class UseCardActionPatch {
                     if (originCharacter != null) {
                         AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(originCharacter, false, true));
                         originCharacter = null;
-                    }
-                }
-                if(AbstractDungeon.player.hasPower(CannotSelectedPower.POWER_ID)) {
-                    if (AbstractDungeon.actionManager.cardQueue.isEmpty()) {
-                        if (AbstractDungeon.player instanceof ProblemSolver68) {
-                            AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(true));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new PressEndTurnButtonAction());
-                        }
                     }
                 }
             }

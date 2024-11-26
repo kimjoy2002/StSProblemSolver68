@@ -23,6 +23,7 @@ import javassist.CtBehavior;
 
 import java.util.ArrayList;
 
+import static BlueArchive_ProblemSolver.actions.CleanCharacterAction.CleanCharacter;
 import static BlueArchive_ProblemSolver.actions.ImpAction.resetImp;
 
 public class MultiCharacterPatch {
@@ -170,6 +171,8 @@ public class MultiCharacterPatch {
                     __instance.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
                     __instance.escapeTimer = 2.5F;
                 }
+
+                CleanCharacter();
                 return true;
             }
         }

@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.SiphonSoulAction;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.effects.UpdateHandEffect;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -13,10 +14,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.vfx.combat.CardPoofEffect;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 import static BlueArchive_ProblemSolver.targeting.ALLTargeting.CAN_ALL_TARGETING;
 import static com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting.getTarget;
+import static com.evacipated.cardcrawl.mod.stslib.patches.CustomTargeting.setCardTarget;
 
 public class SiphonSoul extends AbstractDynamicCard {
     public static final String ID = DefaultMod.makeID(SiphonSoul.class.getSimpleName());
@@ -75,5 +79,17 @@ public class SiphonSoul extends AbstractDynamicCard {
             upgradeSecondMagicNumber(UPGRADE_PLUS_MAGIC2);
             initializeDescription();
         }
+    }
+
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        AbstractCreature c = getTarget(this);
+
+        if(c == AbstractDungeon.player) {
+            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+            setCardTarget(this, null);
+            AbstractDungeon.effectsQueue.add(new UpdateHandEffect());
+            return false;
+        }
+        return super.canUse(p, m);
     }
 }

@@ -40,8 +40,8 @@ public class Snipe extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 15;
-    private static final int UPGRADE_PLUS_DMG = 6;
+    private static final int DAMAGE = 16;
+    private static final int UPGRADE_PLUS_DMG = 7;
 
     public Snipe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

@@ -72,10 +72,6 @@ public class OutlawsRoad extends AbstractDynamicCard {
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return false;
         }
-        if(ProblemSolver68.getFrontMember() != null &&((ProblemSolver68) ProblemSolver68.getFrontMember()).solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU) {
-            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[1];
-            return false;
-        }
         return super.canUse(p, m);
     }
 }

@@ -60,7 +60,9 @@ public class ChangeWhenHitPower extends AbstractPower implements CloneablePowerI
 
 
     public int onAttacked(DamageInfo info, int damageAmount) {
-        this.addToTop(new ChangeCharacterAction());
+        if(AbstractDungeon.actionManager != null && AbstractDungeon.actionManager.turnHasEnded) {
+            this.addToTop(new ChangeCharacterAction());
+        }
         return damageAmount;
     }
 

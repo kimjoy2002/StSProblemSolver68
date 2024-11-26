@@ -33,6 +33,10 @@ public class CampfireRestPatch {
                 healAmt_mod = (int)((float)max_health * 0.3F);
             }
 
+            if (AbstractDungeon.player.hasRelic("Regal Pillow")) {
+                healAmt_mod += 15;
+            }
+
             ReflectionHacks.setPrivate(__instance, CampfireSleepEffect.class, "healAmount", healAmt_mod);
         }
     }

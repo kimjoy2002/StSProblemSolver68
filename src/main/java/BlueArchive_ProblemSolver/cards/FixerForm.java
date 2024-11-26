@@ -66,7 +66,7 @@ public class FixerForm extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(AbstractDungeon.player instanceof ProblemSolver68) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new EnergyupPower(AbstractDungeon.player, 1), 1, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new EnergyupPower(AbstractDungeon.player, upgraded?2:1),  upgraded?2:1, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new DrawPower(p, this.magicNumber), magicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new StrupPower(AbstractDungeon.player, secondMagicNumber), secondMagicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new DexupPower(AbstractDungeon.player, thirdMagicNumber), thirdMagicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA));
@@ -81,7 +81,7 @@ public class FixerForm extends AbstractDynamicCard {
             for(int i = 0; i < 2; i++) {
                 switch (array_power.get(i)) {
                     case 0:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergyupPower(AbstractDungeon.player, 1), 1));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergyupPower(AbstractDungeon.player,  upgraded?2:1),  upgraded?2:1));
                         break;
                     case 1:
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DrawPower(AbstractDungeon.player, this.magicNumber), magicNumber));
@@ -105,6 +105,7 @@ public class FixerForm extends AbstractDynamicCard {
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             upgradeSecondMagicNumber(UPGRADE_PLUS_MAGIC2);
             upgradeThirdMagicNumber(UPGRADE_PLUS_MAGIC3);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

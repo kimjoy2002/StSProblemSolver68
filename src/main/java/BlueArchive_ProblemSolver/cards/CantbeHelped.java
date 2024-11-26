@@ -36,7 +36,7 @@ public class CantbeHelped extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 4;
 
     public CantbeHelped() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

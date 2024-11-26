@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -82,11 +83,10 @@ public class FearPower extends AbstractPower implements CloneablePowerInterface,
         super.stackPower(stackAmount);
         AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
     }
-    public int onLoseHp(int damageAmount) {
+    public int onAttacked(DamageInfo info, int damageAmount) {
         AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
         return damageAmount;
     }
-
     @Override
     public AbstractPower makeCopy() {
         return new FearPower(owner, amount);

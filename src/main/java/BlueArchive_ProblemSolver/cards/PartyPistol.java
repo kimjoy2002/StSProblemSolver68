@@ -39,12 +39,14 @@ public class PartyPistol extends AbstractDynamicCard {
     private static final int DAMAGE = 8;
     private static final int UPGRADE_PLUS_DMG = 2;
     private static final int MAGIC = 1;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
     public PartyPistol() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
+        selfRetain = true;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
     }
 
@@ -68,8 +70,7 @@ public class PartyPistol extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            selfRetain = true;
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputActionSet;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -37,12 +38,20 @@ public class ALLTargeting  extends TargetingHandler<AbstractCreature> {
     }
 
     public void updateHovered() {
+        AbstractCreature prev_hovered = this.hovered;
         this.hovered = null;
         AbstractDungeon.player.hb.update();
         if (AbstractDungeon.player instanceof ProblemSolver68) {
             for(AbstractPlayer ps : ProblemSolver68.problemSolverPlayer) {
                 if(ps.currentHealth > 0 && ps.hb.hovered) {
                     this.hovered = ps;
+                    if(AbstractDungeon.player.hoveredCard != null && prev_hovered != this.hovered) {
+                        AbstractDungeon.player.hoveredCard.applyPowers();
+                        if(hovered.hasPower(VulnerablePower.POWER_ID)) {
+                            AbstractDungeon.player.hoveredCard.damage *= 1.5f;
+                            AbstractDungeon.player.hoveredCard.isDamageModified = true;
+                        }
+                    }
                     return;
                 }
             }
@@ -60,10 +69,17 @@ public class ALLTargeting  extends TargetingHandler<AbstractCreature> {
                     m.hb.update();
                     if (m.hb.hovered) {
                         this.hovered = m;
+                        if(AbstractDungeon.player.hoveredCard != null && prev_hovered != this.hovered) {
+                            AbstractDungeon.player.hoveredCard.calculateCardDamage(m);
+                        }
                         break;
                     }
                 }
             }
+        }
+
+        if(AbstractDungeon.player.hoveredCard != null && prev_hovered != this.hovered && hovered == null) {
+            AbstractDungeon.player.hoveredCard.applyPowers();
         }
 
     }
@@ -170,10 +186,25 @@ public class ALLTargeting  extends TargetingHandler<AbstractCreature> {
                 this.hovered = (AbstractCreature)newTarget;
                 ReflectionHacks.setPrivate(AbstractDungeon.player, AbstractPlayer.class, "isUsingClickDragControl", true);
                 AbstractDungeon.player.isDraggingCard = true;
+
+                if(AbstractDungeon.player.hoveredCard != null) {
+                    if(newTarget instanceof AbstractMonster) {
+                        AbstractDungeon.player.hoveredCard.calculateCardDamage((AbstractMonster)newTarget);
+                    } else if(newTarget instanceof  AbstractPlayer) {
+                        AbstractDungeon.player.hoveredCard.applyPowers();
+                        if(hovered.hasPower(VulnerablePower.POWER_ID)) {
+                            AbstractDungeon.player.hoveredCard.damage *= 1.5f;
+                            AbstractDungeon.player.hoveredCard.isDamageModified = true;
+                        }
+                    }
+                }
             }
 
             if (this.hovered instanceof AbstractMonster && this.hovered.halfDead) {
                 this.hovered = null;
+                if(AbstractDungeon.player.hoveredCard != null) {
+                    AbstractDungeon.player.hoveredCard.applyPowers();
+                }
             }
         }
 

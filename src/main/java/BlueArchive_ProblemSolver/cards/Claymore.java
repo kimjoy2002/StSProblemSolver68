@@ -34,7 +34,7 @@ public class Claymore extends MineCard {
 
     private static final int DAMAGE = 2;
 
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 6;
     private static final int UPGRADE_PLUS_MAGIC = 2;
 
     public Claymore() {

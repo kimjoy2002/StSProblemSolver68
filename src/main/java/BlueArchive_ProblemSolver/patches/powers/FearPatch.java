@@ -11,19 +11,25 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.city.Champ;
+import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
 import com.megacrit.cardcrawl.monsters.ending.SpireShield;
 import com.megacrit.cardcrawl.monsters.ending.SpireSpear;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
+import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
 import javassist.CtBehavior;
 
+import java.awt.peer.CheckboxMenuItemPeer;
 import java.util.Iterator;
 
 public class FearPatch {
@@ -55,6 +61,29 @@ public class FearPatch {
                 }
             }
             return SpireReturn.Continue();
+        }
+
+        @SpireInsertPatch(
+                locator = Locator.class
+
+        )
+        public static void insert(AbstractMonster __instance) {
+            if(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss) {
+                ReflectionHacks.RMethod onBossVictoryLogic = ReflectionHacks.privateMethod(AbstractMonster.class, "onBossVictoryLogic");
+                onBossVictoryLogic.invoke(__instance);
+                if(__instance instanceof CorruptHeart) {
+                    ReflectionHacks.RMethod onFinalBossVictoryLogic = ReflectionHacks.privateMethod(AbstractMonster.class, "onFinalBossVictoryLogic");
+                    onFinalBossVictoryLogic.invoke(__instance);
+                    CardCrawlGame.stopClock = true;
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractRoom.class, "endBattle");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
         }
     }
 

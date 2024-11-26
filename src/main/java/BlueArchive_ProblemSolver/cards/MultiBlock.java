@@ -36,7 +36,7 @@ public class MultiBlock extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 2;
-    private static final int BLOCK = 12;
+    private static final int BLOCK = 13;
     private static final int UPGRADE_BLOCK = 3;
 
     public MultiBlock() {

@@ -63,7 +63,7 @@ public class SnsuspiciousRumor extends AbstractDynamicCard implements OnEvilDeed
     }
     public void onEvilDeeds(AbstractCard c) {
         if(gainEnergy) {
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded?2:1));
+            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded?3:2));
             gainEnergy = false;
         }
     }

@@ -33,7 +33,7 @@ public class ButIllDoMyBest extends FinishCard {
 
     private static final int COST = 1;
 
-    private static final int MAGIC2 = 7;
+    private static final int MAGIC2 = 8;
     private static final int UPGRADE_PLUS_MAGIC2 = 3;
     private static final int MAGIC = 2;
 

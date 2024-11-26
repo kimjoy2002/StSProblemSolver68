@@ -37,7 +37,7 @@ public class ExplodingAria extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 2;
     private static final int UPGRADE_PLUS_DMG = 1;
     private static final int MAGIC = 3;
 
@@ -57,7 +57,7 @@ public class ExplodingAria extends AbstractDynamicCard {
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                             AbstractGameAction.AttackEffect.FIRE));
         }
-        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, true));
+        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, false));
     }
 
 

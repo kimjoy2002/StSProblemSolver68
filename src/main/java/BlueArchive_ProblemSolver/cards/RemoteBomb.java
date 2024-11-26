@@ -10,10 +10,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
@@ -51,7 +53,16 @@ public class RemoteBomb extends MineCard {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
     }
     public boolean onMine(AbstractCard c) {
-        AbstractDungeon.actionManager.addToTop(new ReduceCostAction(this.uuid, 999));
+        AbstractCard thisCard = this;
+        AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
+            @Override
+            public void update() {
+                thisCard.cost = 0;
+                thisCard.costForTurn = 0;
+                thisCard.isCostModified = true;
+                this.isDone = true;
+            }
+        });
         if(cost > 0 && costForTurn > 0 && !freeToPlayOnce){
             return true;
         } else {

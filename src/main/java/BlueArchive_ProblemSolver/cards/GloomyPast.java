@@ -2,9 +2,7 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
-import BlueArchive_ProblemSolver.powers.CannotSelectedPower;
 import BlueArchive_ProblemSolver.powers.GloomyPastPower;
-import BlueArchive_ProblemSolver.powers.UnwelcomeSchoolPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

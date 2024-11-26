@@ -62,11 +62,6 @@ public class ChangeCharacterAction extends AbstractGameAction {
         this.moving = true;
         this.to_front = to_front;
     }
-    public ChangeCharacterAction(Aru.ProblemSolver68Type type) {
-        this.type = type;
-        this.duration = Settings.ACTION_DUR_FAST;
-        this.manual = false;
-    }
     public ChangeCharacterAction(Aru.ProblemSolver68Type type, boolean to_front) {
         this.type = type;
         this.duration = Settings.ACTION_DUR_FAST;
@@ -80,12 +75,6 @@ public class ChangeCharacterAction extends AbstractGameAction {
         this.manual = false;
     }
 
-    public ChangeCharacterAction(boolean unwelcome) {
-        this.targetPlayer = null;
-        this.duration = Settings.ACTION_DUR_FAST;
-        this.manual = false;
-        this.unwelcome = unwelcome;
-    }
 
     public void onMovingCharacter (AbstractPlayer p) {
         if(manual) {
@@ -178,7 +167,7 @@ public class ChangeCharacterAction extends AbstractGameAction {
                 }
             }
             else {
-                changeCharacter = ProblemSolver68.getRandomMember(temp, true, unwelcome);
+                changeCharacter = ProblemSolver68.getRandomMember(temp, true);
                 targetPlayer = changeCharacter;
                 if(changeCharacter == null && unwelcome) {
                     this.addToBot(new PressEndTurnButtonAction());
@@ -238,9 +227,6 @@ public class ChangeCharacterAction extends AbstractGameAction {
             if(!(AbstractDungeon.player instanceof ProblemSolver68)) {
                 return;
             }
-            if (AbstractDungeon.player.hasPower(CannotSelectedPower.POWER_ID)) {
-                changeCharacter();
-            }
             resetImp();
             return;
         }
@@ -250,12 +236,6 @@ public class ChangeCharacterAction extends AbstractGameAction {
         if (AbstractDungeon.player.hasPower(CannotChangedPower.POWER_ID) && !force) {
             AbstractDungeon.player.getPower(CannotChangedPower.POWER_ID).flashWithoutSound();
             return;
-        }
-        if(manual) {
-            if (targetPlayer.hasPower(CannotSelectedPower.POWER_ID) && !force) {
-                targetPlayer.getPower(CannotSelectedPower.POWER_ID).flashWithoutSound();
-                return;
-            }
         }
         changeCharacter ();
         resetImp();

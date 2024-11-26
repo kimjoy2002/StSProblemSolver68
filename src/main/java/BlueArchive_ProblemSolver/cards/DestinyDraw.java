@@ -6,7 +6,9 @@ import BlueArchive_ProblemSolver.powers.DestinyDrawPower;
 import BlueArchive_ProblemSolver.powers.OutlawsRockPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
@@ -15,6 +17,7 @@ public class DestinyDraw extends AbstractDynamicCard {
 
     public static final String ID = DefaultMod.makeID(DestinyDraw.class.getSimpleName());
     public static final String IMG = makeCardPath("DestinyDraw.png");
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
     private static final CardRarity RARITY = CardRarity.RARE;
@@ -22,7 +25,7 @@ public class DestinyDraw extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int MAGIC = 1;
 
 
@@ -43,7 +46,8 @@ public class DestinyDraw extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(0);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.isInnate = true;
             initializeDescription();
         }
     }

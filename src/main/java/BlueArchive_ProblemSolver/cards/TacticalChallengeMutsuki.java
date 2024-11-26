@@ -39,7 +39,7 @@ public class TacticalChallengeMutsuki extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
     private static final int MAGIC = 3;
 

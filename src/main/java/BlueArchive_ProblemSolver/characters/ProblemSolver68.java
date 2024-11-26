@@ -6,8 +6,6 @@ import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
 import BlueArchive_ProblemSolver.patches.powers.PowerForSubPatch;
 import BlueArchive_ProblemSolver.powers.CaliforniaGurlsPower;
-import BlueArchive_ProblemSolver.powers.CannotAttackedPower;
-import BlueArchive_ProblemSolver.powers.CannotSelectedPower;
 import BlueArchive_ProblemSolver.powers.OnDeadPower;
 import BlueArchive_ProblemSolver.relics.OnDeadRelic;
 import BlueArchive_ProblemSolver.relics.RadioTransceiverRelic;
@@ -281,6 +279,26 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
+    public static void healAll(int amount) {
+        if(AbstractDungeon.player instanceof ProblemSolver68 ) {
+            for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                if(amount == -1) {
+                    ps.heal(ps.maxHealth);
+                } else {
+                    ps.heal(amount);
+                }
+            }
+        }
+    }
+
+    public static void increaseMaxHpAll(int amount, boolean showEffect) {
+        if(AbstractDungeon.player instanceof ProblemSolver68 ) {
+            for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                ps.increaseMaxHp(amount, showEffect);
+            }
+        }
+    }
+
     public static ProblemSolver68 getCharacter(String name) {
         for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer){
             if(enumToString(ps.solverType).equals(name)) {
@@ -298,7 +316,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static void reviveDeathCharacter(ProblemSolver68 player) {
         if(mayRevivePlayer.contains(player)) {
             float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
+            float last_x = 0;
             for( ProblemSolver68 p_ : problemSolverPlayer) {
+                last_x = p_.drawX-offset_;
                 p_.movePosition_(p_.drawX-offset_, p_.drawY, false);
             }
             for(AbstractPower p_ : player.powers) {
@@ -306,7 +326,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             }
             player.powers.clear();
             player.heal(1);
-            player.movePosition_(player.drawX+offset_*problemSolverPlayer.size(), player.drawY, false);
+            player.movePosition_(last_x + 2*offset_, player.drawY, false);
 
             player.isDead = false;
             mayRevivePlayer.remove(player);
@@ -868,7 +888,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
     public void render_(SpriteBatch sb) {
-        if(this != AbstractDungeon.player && currentHealth < 1) {
+        if(this != AbstractDungeon.player && currentHealth < 1 && isProblemSolver(solverType)) {
             Texture temp = img;
             boolean temp_button = (boolean) ReflectionHacks.getPrivate(this, AbstractPlayer.class, "renderCorpse");
             ReflectionHacks.setPrivate(this, AbstractPlayer.class, "renderCorpse", true);
@@ -1055,7 +1075,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         if(!(AbstractDungeon.player instanceof ProblemSolver68))
             return true;
         for (ProblemSolver68 p : problemSolverPlayer) {
-            if(p.currentHealth >= 1 && isProblemSolver(p.solverType) && !p.hasPower(CannotAttackedPower.POWER_ID)) {
+            if(p.currentHealth >= 1 && isProblemSolver(p.solverType)) {
                 return false;
             }
         }
@@ -1089,11 +1109,10 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         return problemSolverPlayer.size() + mayRevivePlayer.size();
     }
 
-    public static AbstractPlayer getRandomMember(AbstractPlayer exclude, boolean forDefend, boolean unwelcome) {
+    public static AbstractPlayer getRandomMember(AbstractPlayer exclude, boolean forDefend) {
         List<ProblemSolver68> ableCharacters = new ArrayList<>();
         for (ProblemSolver68 p : problemSolverPlayer) {
-            if(p.currentHealth > 0 && exclude != p && (!forDefend || !p.hasPower(CannotAttackedPower.POWER_ID) ) &&
-                    (!unwelcome || !p.hasPower(CannotSelectedPower.POWER_ID))) {
+            if(p.currentHealth > 0 && exclude != p) {
                 ableCharacters.add(p);
             }
         }
@@ -1157,7 +1176,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
     public static AbstractPlayer changeToRandomCharacter() {
-        AbstractPlayer p = getRandomMember(null, true, false);
+        AbstractPlayer p = getRandomMember(null, true);
         if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             if(p != null) {
                 AbstractDungeon.actionManager.addToTop(new ChangeCharacterAction(p));
@@ -1175,7 +1194,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
         AbstractPlayer p = null;
         for (ProblemSolver68 ps : problemSolverPlayer) {
-            if(ps.currentHealth > 0 && !ps.hasPower(CannotAttackedPower.POWER_ID) && !ps.hasPower(CannotSelectedPower.POWER_ID)) {
+            if(ps.currentHealth > 0) {
                 p = ps;
             }
         }

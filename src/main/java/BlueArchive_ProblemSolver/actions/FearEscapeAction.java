@@ -51,7 +51,10 @@ public class FearEscapeAction extends AbstractGameAction {
                 var2 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
                 while(var2.hasNext()) {
                     AbstractMonster m_ = (AbstractMonster)var2.next();
-                    if (m_.id.equals("Darkling") && !m_.halfDead) {
+
+                    Boolean isFear = FearPatch.FearField.isFear.get(m_);
+
+                    if (m_.id.equals("Darkling") && !isFear && !m_.halfDead) {
                         all_minion = false;
                     }
                 }

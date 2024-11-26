@@ -105,7 +105,7 @@ public class SurroundedPowerPatch {
     )
     public static class takeTurnPatch {
 
-        public static void Postfix(CorruptHeart __instance) {
+        public static void Prefix(CorruptHeart __instance) {
             if(AbstractDungeon.player instanceof ProblemSolver68) {
                 if (__instance.nextMove == 3) {
                     for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {

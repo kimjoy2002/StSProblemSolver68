@@ -8,6 +8,7 @@ import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.effects.LoseRelicEffect;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
+import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -23,7 +24,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makeRelicOutlinePath;
 import static BlueArchive_ProblemSolver.DefaultMod.makeRelicPath;
 import static BlueArchive_ProblemSolver.characters.Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
 
-public class MoreProblemSolverRelic extends CustomRelic {
+public class MoreProblemSolverRelic extends CustomRelic implements CustomSavable<Integer> {
 
     // ID, images, text.
     public static final String ID = DefaultMod.makeID("MoreProblemSolverRelic");
@@ -65,6 +66,25 @@ public class MoreProblemSolverRelic extends CustomRelic {
         this.initializeTips();
     }
 
+    @Override
+    public Integer onSave() {
+        if (type != PROBLEM_SOLVER_68_NONE) {
+            return type.ordinal();
+        } else {
+            return -1;
+        }
+    }
+
+    @Override
+    public void onLoad(Integer relicType) {
+        if (relicType == null) {
+            return;
+        }
+        if (relicType != -1 && Aru.ProblemSolver68Type.values().length > relicType) {
+            type = Aru.ProblemSolver68Type.values()[relicType];
+        }
+    }
+
     public void onEquip() {
         if(type != PROBLEM_SOLVER_68_NONE) {
             ProblemSolver68.addCharacter(type);
@@ -102,7 +122,7 @@ public class MoreProblemSolverRelic extends CustomRelic {
                 able.add(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
 
             if(able.size() > 0) {
-                relic = new MoreProblemSolverRelic(able.get(AbstractDungeon.relicRng.random(able.size() - 1)));
+                relic = new MoreProblemSolverRelic(able.get(AbstractDungeon.relicRng==null?0:AbstractDungeon.relicRng.random(able.size() - 1)));
             }
         }
         return relic;
