@@ -21,7 +21,7 @@ public class AllCardAction extends AbstractGameAction {
     }
 
     public void update() {
-        for(int i = ProblemSolver68.problemSolverPlayer.size() -1; i >= 0; i--) {
+        for(int i = 0; i < ProblemSolver68.problemSolverPlayer.size(); i++) {
             ProblemSolver68 ps = ProblemSolver68.problemSolverPlayer.get(i);
             if(ps.currentHealth > 0) {
                 AbstractMonster m = null;
@@ -39,7 +39,7 @@ public class AllCardAction extends AbstractGameAction {
                 }
                 UseCardActionPatch.AbstractCardField.castPlayer.set(tmp, ps);
                 tmp.purgeOnUse = true;
-                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+                AbstractDungeon.actionManager.cardQueue.add(0, new CardQueueItem(tmp, m, card.energyOnUse, true, true));
             }
         }
         this.isDone = true;

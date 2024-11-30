@@ -27,7 +27,7 @@ public class RouletteMisdirection extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int BLOCK = 6;
+    private static final int BLOCK = 7;
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public static final int MAGIC = 2;

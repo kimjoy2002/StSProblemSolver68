@@ -267,8 +267,8 @@
   "BlueArchive_ProblemSolver:JoyfulPastPower": {
     "NAME": "즐거운 과거",
     "DESCRIPTIONS": [
-      "아군이 #y소악마와 #y힘을 얻을때마다 그 #b",
-      " 배만큼 #y임시 #y체력를 얻습니다."
+      "#g공유 NL 카드가 버려지거나 소멸할때마다 모든 아군이 방어도를 #b",
+      " 얻습니다."
     ]
   },
   "BlueArchive_ProblemSolver:DestinyDrawPower": {
@@ -291,6 +291,13 @@
     "NAME": "일시적 혼란",
     "DESCRIPTIONS": [
       "카드를 뽑을 때 마다 비용이 무작위로 정해집니다. 턴이 끝날때까지만 유효합니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:RunAwayPower": {
+    "NAME": "전략적 후퇴",
+    "DESCRIPTIONS": [
+      "후열로 이동할 때마다 #y임시 #y체력을 #b",
+      " 얻습니다."
     ]
   }
 }

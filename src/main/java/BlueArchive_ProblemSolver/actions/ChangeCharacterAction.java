@@ -96,9 +96,27 @@ public class ChangeCharacterAction extends AbstractGameAction {
             }
         }
     }
+
+    public void onBackCharacter (AbstractPlayer p) {
+        if(manual) {
+            return;
+        }
+        for(AbstractPower power : p.powers) {
+            if(power instanceof OnFrontPower) {
+                ((OnFrontPower)power).OnBack();
+            }
+        }
+    }
+
     public void movingCharacter () {
         CleanCharacter();
         int prev_index = ProblemSolver68.problemSolverPlayer.lastIndexOf(targetPlayer);
+        int dead_char= 0;
+        for(ProblemSolver68 ps: ProblemSolver68.problemSolverPlayer) {
+            if(ps.currentHealth <= 0) {
+                dead_char++;
+            }
+        }
 
         Set<AbstractPlayer> movingChar = new HashSet<AbstractPlayer>();
 
@@ -116,6 +134,9 @@ public class ChangeCharacterAction extends AbstractGameAction {
 
                     if(start_+1 == next_index) {
                         onFrontCharacter(targetPlayer);
+                    }
+                    if(start_ == dead_char) {
+                        onBackCharacter(next_charecter);
                     }
                     movingChar.add(targetPlayer);
                     movingChar.add(next_charecter);
@@ -138,6 +159,9 @@ public class ChangeCharacterAction extends AbstractGameAction {
 
                     if(start_ == ProblemSolver68.problemSolverPlayer.size() - 1) {
                         onFrontCharacter(next_charecter);
+                    }
+                    if(start_-1 == dead_char) {
+                        onBackCharacter(targetPlayer);
                     }
                     movingChar.add(targetPlayer);
                     movingChar.add(next_charecter);

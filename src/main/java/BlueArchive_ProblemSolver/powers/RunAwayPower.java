@@ -1,42 +1,34 @@
 package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
-import BlueArchive_ProblemSolver.actions.GainBlockToAllAllyAction;
-import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.GainStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
-public class JoyfulPastPower extends AbstractPower implements CloneablePowerInterface, SharedPower, OnManualDiscaedPower {
-    public static final String POWER_ID = DefaultMod.makeID("JoyfulPastPower");
+
+public class RunAwayPower extends AbstractPower implements CloneablePowerInterface, OnFrontPower {
+    public static final String POWER_ID = DefaultMod.makeID("RunAwayPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("JoyfulPastPower84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("JoyfulPastPower32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("RunAwayPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("RunAwayPower32.png"));
 
-    public JoyfulPastPower(final AbstractCreature owner, int amount) {
+    public int draw_amount;
+    public RunAwayPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -59,19 +51,25 @@ public class JoyfulPastPower extends AbstractPower implements CloneablePowerInte
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
+    @Override
+    public void OnMoving() {
+
+    }
 
     @Override
-    public void onManualDiscard() {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockToAllAllyAction(amount));
-    }
-    public void onExhaust(AbstractCard card) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockToAllAllyAction(amount));
+    public void OnFront() {
+
     }
 
+    @Override
+    public void OnBack() {
+        this.flash();
+        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(owner,owner, amount));
+    }
 
     @Override
     public AbstractPower makeCopy() {
-        return new JoyfulPastPower(owner, amount);
+        return new RunAwayPower(owner, amount);
     }
 
 }

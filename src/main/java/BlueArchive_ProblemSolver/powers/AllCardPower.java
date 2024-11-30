@@ -67,9 +67,9 @@ public class AllCardPower extends AbstractPower implements CloneablePowerInterfa
         if (!card.purgeOnUse && (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) && this.amount > 0) {
             this.flash();
             if (owner instanceof ProblemSolver68) {
-                for(int i = ProblemSolver68.problemSolverPlayer.size() -1; i >= 0; i--) {
+                for(int i = 0; i < ProblemSolver68.problemSolverPlayer.size(); i++) {
                     ProblemSolver68 ps = ProblemSolver68.problemSolverPlayer.get(i);
-                    if (ps != owner) {
+                    if (ps != owner && ps.currentHealth > 0) {
                         AbstractMonster m = null;
                         if (action.target != null) {
                             m = (AbstractMonster) action.target;
@@ -85,7 +85,7 @@ public class AllCardPower extends AbstractPower implements CloneablePowerInterfa
                         }
                         UseCardActionPatch.AbstractCardField.castPlayer.set(tmp, ps);
                         tmp.purgeOnUse = true;
-                        AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+                        AbstractDungeon.actionManager.cardQueue.add(0, new CardQueueItem(tmp, m, card.energyOnUse, true, true));
                     }
                 }
             }

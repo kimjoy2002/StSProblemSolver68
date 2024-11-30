@@ -17,14 +17,17 @@ import java.util.ArrayList;
 
 public class ImpAction extends AbstractGameAction {
     int imp_amount = -1;
+
+    boolean moving = false;
     public ImpAction(int amount) {
         this.setValues(this.target, this.source, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
     }
-    public ImpAction(int amount, int imp_amount) {
+    public ImpAction(int amount, int imp_amount, boolean moving) {
         this.setValues(this.target, this.source, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.imp_amount = imp_amount;
+        this.moving = moving;
     }
 
     public static void resetImp() {
@@ -52,12 +55,12 @@ public class ImpAction extends AbstractGameAction {
             }
         }
         if(amount>0) {
-            ImpPower power = new ImpPower(AbstractDungeon.player, amount);
+            ImpPower power = new ImpPower(AbstractDungeon.player, amount, true);
             power.amount_imp = value;
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, power, amount));
         }
-        for(AbstractPower power_ : newPowers) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, power_));
+        for(int i = newPowers.size()-1;i>=0;i--) {
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, newPowers.get(i)));
         }
     }
 
@@ -71,13 +74,13 @@ public class ImpAction extends AbstractGameAction {
         if(AbstractDungeon.player instanceof ProblemSolver68) {
             AbstractPlayer p = ProblemSolver68.getFrontMember();
             if(p != null) {
-                ImpPower imp = new ImpPower(p, amount);
+                ImpPower imp = new ImpPower(p, amount, moving);
                 if(imp_amount != -1)
                     imp.amount_imp = imp_amount;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, imp, amount));
             }
         } else {
-            ImpPower imp = new ImpPower(AbstractDungeon.player, amount);
+            ImpPower imp = new ImpPower(AbstractDungeon.player, amount, moving);
             if(imp_amount != -1)
                 imp.amount_imp = imp_amount;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, imp, amount));

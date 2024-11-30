@@ -122,6 +122,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         savedata = new ProblemSolverSave();
         BaseMod.addSaveField("BlueArchive_ProblemSolver:Character",savedata);
         changeCharacter = false;
+        if (ProblemSolver68.mutuski_animation == null) {
+            ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
+        }
+        if (ProblemSolver68.cat_animation == null) {
+            ProblemSolver68.cat_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+        }
     }
     
 
@@ -269,7 +275,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static void damageAll(int dmg) {
         inDamageAll = true;
         for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
-            if(AbstractDungeon.player != ps) {
+            if(AbstractDungeon.player != ps && isProblemSolver(ps.solverType)) {
                 ps.damage(new DamageInfo((AbstractCreature) null, dmg, DamageInfo.DamageType.HP_LOSS));
             }
         }
@@ -400,6 +406,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                     }
                 }
             }
+
+            Collections.sort( entry.getKey().group, Comparator.comparing(person -> person.cardID));
         }
     }
 
@@ -1017,7 +1025,6 @@ public abstract class ProblemSolver68 extends CustomPlayer {
 
 
     public void preBattlePrep() {
-
         changeCurrentPlayer(getFrontMember());
 
         AbstractDungeon.actionManager.addToTop(new CleanCharacterAction(false));

@@ -36,7 +36,7 @@ public class Taunt extends FinishCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 2;
-    private static final int BLOCK = 6;
+    private static final int BLOCK = 7;
 
     public Taunt() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

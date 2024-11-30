@@ -42,7 +42,7 @@ public class ZeroCostDiscardPileToHandAction  extends AbstractGameAction {
             if (!zeroGroup.isEmpty() && this.numberOfCards > 0) {
 
                 if(random) {
-                    zeroGroup.shuffle(AbstractDungeon.cardRng);
+                    zeroGroup.shuffle(AbstractDungeon.miscRng);
                     for(int i = 0; i < numberOfCards; i++) {
                         if(!zeroGroup.isEmpty() && this.player.hand.size() < 10) {
                             AbstractCard c = zeroGroup.getTopCard();

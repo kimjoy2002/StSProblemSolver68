@@ -146,6 +146,11 @@ public class MultiCharacterPatch {
                     imp_value = __instance.getPower(ImpPower.POWER_ID).amount;
                     imp_amount = ((ImpPower)__instance.getPower(ImpPower.POWER_ID)).amount_imp;
                 }
+
+                for(AbstractPower power_ : __instance.powers) {
+                    power_.onRemove();
+                }
+
                 __instance.powers.clear();
                 AbstractPlayer next_ = null;
                 if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
@@ -160,7 +165,7 @@ public class MultiCharacterPatch {
                 }
 
                 if(imp_value > 0) {
-                    AbstractDungeon.actionManager.addToBottom(new ImpAction(imp_value, imp_amount));
+                    AbstractDungeon.actionManager.addToBottom(new ImpAction(imp_value, imp_amount, true));
                 }
 
                 if (!ProblemSolver68.isProblemSolver(((ProblemSolver68) __instance).solverType)) {

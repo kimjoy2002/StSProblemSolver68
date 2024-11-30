@@ -70,6 +70,11 @@ public class FocusonAttackPower extends AbstractPower implements CloneablePowerI
     }
 
     @Override
+    public void OnBack() {
+
+    }
+
+    @Override
     public AbstractPower makeCopy() {
         return new FocusonAttackPower(owner, amount, draw_amount);
     }

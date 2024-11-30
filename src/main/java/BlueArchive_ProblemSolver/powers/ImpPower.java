@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.ImpAction;
 import BlueArchive_ProblemSolver.actions.ImpAmountAction;
 import BlueArchive_ProblemSolver.actions.ImpFixedAction;
 import BlueArchive_ProblemSolver.actions.UnwelcomeSchoolAction;
@@ -36,6 +37,7 @@ public class ImpPower extends AbstractPower implements CloneablePowerInterface, 
     public static final String POWER_ID = DefaultMod.makeID("ImpPower");
 
     public int amount_imp = 0;
+    public boolean moving = false;
     private Color greenColor_imp = new Color(0.0F, 1.0F, 0.0F, 1.0F);
     private Color normalColor_imp = new Color(1.0F, 1.0F, 1.0F, 1.0F);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -63,6 +65,10 @@ public class ImpPower extends AbstractPower implements CloneablePowerInterface, 
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
+    }
+    public ImpPower(final AbstractCreature owner, int amount, boolean moving) {
+        this(owner, amount);
+        this.moving = moving;
     }
 
     public float atDamageGiveForSub(float damage, AbstractCard card, DamageInfo.DamageType type) {

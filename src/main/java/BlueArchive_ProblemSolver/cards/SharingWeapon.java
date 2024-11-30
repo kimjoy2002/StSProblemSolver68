@@ -52,8 +52,7 @@ public class SharingWeapon extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            exhaust = false;
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.upgradeBaseCost(0);
             initializeDescription();
         }
     }

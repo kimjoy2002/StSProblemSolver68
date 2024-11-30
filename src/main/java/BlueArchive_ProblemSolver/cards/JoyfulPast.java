@@ -26,7 +26,7 @@ public class JoyfulPast extends AbstractDynamicCard {
 
 
 
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
 

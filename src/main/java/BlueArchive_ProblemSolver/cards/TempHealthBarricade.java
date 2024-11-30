@@ -33,6 +33,8 @@ public class TempHealthBarricade extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 2;
+    private static final int BLOCK = 14;
+    private static final int UPGRADE_PLUS_BLOCK = 4;
     private static final int MAGIC = 4;
     private static final int UPGRADE_PLUS_MAGIC = 2;
 
@@ -41,6 +43,7 @@ public class TempHealthBarricade extends AbstractDynamicCard {
     public TempHealthBarricade() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        baseBlock = BLOCK;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO);
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
         exhaust = true;
@@ -79,6 +82,7 @@ public class TempHealthBarricade extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         updateVal ();
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p, p, val));
     }
 
@@ -98,6 +102,7 @@ public class TempHealthBarricade extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }

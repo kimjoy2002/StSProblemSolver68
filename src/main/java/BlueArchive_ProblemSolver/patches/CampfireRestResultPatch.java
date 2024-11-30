@@ -69,6 +69,7 @@ public class CampfireRestResultPatch {
                     for(int j = 0;j < ProblemSolver68.problemSolverPlayer.size();j++) {
                         if (ProblemSolver68.isProblemSolver(ProblemSolver68.problemSolverPlayer.get(j).solverType)) {
                             ProblemSolver68.problemSolverPlayer.get(j).heal(will_heal[j], false);
+                            ProblemSolver68.problemSolverPlayer.get(j).isDead = false;
                         }
                     }
                 }

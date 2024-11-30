@@ -5,6 +5,7 @@ import BlueArchive_ProblemSolver.actions.ApplyPowerToAllAllyAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.DeadStrPower;
+import BlueArchive_ProblemSolver.powers.RunAwayPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -30,8 +31,8 @@ public class YouWillPayForThis extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_PLUS_MAGIC = 1;
+    private static final int MAGIC = 7;
+    private static final int UPGRADE_PLUS_MAGIC = 3;
 
 
 
@@ -43,11 +44,7 @@ public class YouWillPayForThis extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(allyDeadThisCombat > 0) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerToAllAllyAction(new StrengthPower(AbstractDungeon.player, magicNumber)));
-        } else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,new StrengthPower(AbstractDungeon.player, magicNumber)));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,new RunAwayPower(AbstractDungeon.player, magicNumber)));
     }
 
     //Upgraded stats.
@@ -57,12 +54,6 @@ public class YouWillPayForThis extends AbstractDynamicCard {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
-        }
-    }
-    public void triggerOnGlowCheck() {
-        this.glowColor = AbstractDynamicCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (allyDeadThisCombat > 0) {
-            this.glowColor = AbstractDynamicCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 }

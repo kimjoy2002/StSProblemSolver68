@@ -13,6 +13,23 @@ public class ProblemSolverSave implements CustomSavable<ArrayList<SaveData>> {
     public ArrayList<SaveData> onSave() {
         //update
         if (AbstractDungeon.player instanceof ProblemSolver68) {
+            ArrayList<SaveData> temp = new ArrayList<SaveData>();
+            if(ProblemSolver68.problemSolverPlayer.size() == currentCharacters.size()) {
+                for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                    for(SaveData saveData: currentCharacters) {
+                        if(ProblemSolver68.stringToEnum(saveData.name) == ps.solverType
+                                && saveData.max_hp == ps.maxHealth
+                               && saveData.hp == ps.currentHealth) {
+                            temp.add(saveData);
+                        }
+                    }
+                }
+                if(temp.size() == currentCharacters.size())  {
+                    currentCharacters = temp;
+                }
+            }
+
+
             for (SaveData data : currentCharacters) {
                 ProblemSolver68 char_ = ProblemSolver68.getCharacter(data.name);
                 if(char_ != null) {

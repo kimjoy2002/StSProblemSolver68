@@ -75,4 +75,9 @@ public class UnwelcomeSchoolPower extends AbstractPower implements CloneablePowe
     public void OnFront() {
 
     }
+
+    @Override
+    public void OnBack() {
+
+    }
 }

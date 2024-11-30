@@ -34,9 +34,10 @@ public class HireHelmetLeader extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 4;
+    private static final int COST = 3;
 
-    public static final int MAGIC = 20;
+    public static final int MAGIC = 14;
+    private static final int UPGRADE_PLUS_MAGIC = 6;
     public static final int MAGIC2 = 4;
     public static final int MAGIC3 = 3;
     public HireHelmetLeader() {
@@ -73,7 +74,7 @@ public class HireHelmetLeader extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(3);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

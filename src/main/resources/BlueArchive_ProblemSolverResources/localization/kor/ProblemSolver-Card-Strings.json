@@ -58,15 +58,12 @@
     "DESCRIPTION": "피해를 !D! 줍니다. NL 전열부터 순서대로 모든 아군이 사용합니다."
   },
   "BlueArchive_ProblemSolver:YouWillPayForThis": {
-    "NAME": "대가를 치를 것이다!",
-    "DESCRIPTION": "힘을 !M! 얻습니다. NL 이번 전투동안 죽은 아군이 있으면 모든 아군이 힘을 얻습니다.",
-    "EXTENDED_DESCRIPTION": [
-      "대가를 치를 것이다!"
-    ]
+    "NAME": "전략적 후퇴",
+    "DESCRIPTION": "후열로 이동할때마다 임시_체력 을 !M! 만큼 얻습니다."
   },
   "BlueArchive_ProblemSolver:FirstAid": {
     "NAME": "응급 치료",
-    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소가 체력 1로 부활하고 전열로 이동합니다. NL 전열 캐릭터가 임시_체력 을 !M! 만큼 얻습니다. NL 소멸."
+    "DESCRIPTION": "무작위 죽은 BlueArchive_ProblemSolver:흥신소가 체력 1로 부활하고 전열로 이동합니다. NL 전열 캐릭터가 임시_체력 을 !M! 얻습니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:DogFight": {
     "NAME": "난전",
@@ -158,7 +155,7 @@
   },
   "BlueArchive_ProblemSolver:ExplodingAria": {
     "NAME": "폭열의 아리아",
-    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 카드를 1장 버립니다."
+    "DESCRIPTION": "카드를 1 장 버립니다. NL 무작위 적들에게 피해를 !D! 만큼 !M! 번 줍니다."
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
     "NAME": "트리거 오버",
@@ -366,8 +363,7 @@
   },
   "BlueArchive_ProblemSolver:SharingWeapon": {
     "NAME": "장비 나누기",
-    "DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 전열부터 순서대로 모든 아군이 사용합니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 전열부터 순서대로 모든 아군이 사용합니다."
+    "DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드를 전열부터 순서대로 모든 아군이 사용합니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:FocusonAttack": {
     "NAME": "급습",
@@ -503,7 +499,7 @@
   },
   "BlueArchive_ProblemSolver:TempHealthBarricade": {
     "NAME": "마지노선",
-    "DESCRIPTION": "모든 캐릭터에게 부여되어있는 부정적인 효과 개수의 !M! 배만큼 임시_체력 을 얻습니다. NL 소멸.",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 모든 캐릭터에게 부여되어있는 부정적인 효과 개수의 !M! 배만큼 임시_체력 을 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       "만큼 얻습니다.)"
@@ -650,11 +646,11 @@
   },
   "BlueArchive_ProblemSolver:ImpishPrank": {
     "NAME": "소악마의 장난",
-    "DESCRIPTION": "카드를 전부 버립니다. NL 버린 카드 수만큼 BlueArchive_ProblemSolver:소악마를 얻습니다."
+    "DESCRIPTION": "카드를 원하는만큼 버립니다. NL 버린 카드 수만큼 BlueArchive_ProblemSolver:소악마를 얻습니다."
   },
   "BlueArchive_ProblemSolver:SecondDeal": {
     "NAME": "세컨드 딜",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 1장 버립니다. NL 그 카드의 비용이 1 이상이면 그 위치에 이 카드를 다시 가져옵니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 1 장 버립니다. NL 그 카드의 비용이 1 이상이면 그 위치에 이 카드를 다시 가져옵니다."
   },
   "BlueArchive_ProblemSolver:PartyPistol": {
     "NAME": "깜짝 권총",
@@ -670,7 +666,7 @@
   },
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "즐거운 과거",
-    "DESCRIPTION": "아군이 BlueArchive_ProblemSolver:소악마와 힘을 얻을때마다 그 !M! 배만큼 이 캐릭터가 임시_체력 을 얻습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 카드가 버려지거나 소멸할때마다 모든 아군이 방어도를 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:DestinyDraw": {
     "NAME": "데스티니 드로우",
@@ -706,5 +702,10 @@
       "BlueArchive_ProblemSolver:악행 (",
       "/!BlueArchive_ProblemSolver:M2!): 적 전체에게 약화와 취약을 !M! 부여합니다."
     ]
+  },
+  "BlueArchive_ProblemSolver:Lure": {
+    "NAME": "유인",
+    "DESCRIPTION": "카드를 1 장 버립니다. NL 선택한 아군이 전열로 이동합니다.",
+    "UPGRADE_DESCRIPTION": "보존. NL 카드를 1 장 버립니다. NL 선택한 아군이 전열로 이동합니다."
   }
 }
