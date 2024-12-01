@@ -3,10 +3,7 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
-import BlueArchive_ProblemSolver.powers.FearPower;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,16 +11,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class TempHealthBarricade extends AbstractDynamicCard {
+public class MaginotLine extends AbstractDynamicCard {
 
-    public static final String ID = DefaultMod.makeID(TempHealthBarricade.class.getSimpleName());
-    public static final String IMG = makeCardPath("TempHealthBarricade.png");
+    public static final String ID = DefaultMod.makeID(MaginotLine.class.getSimpleName());
+    public static final String IMG = makeCardPath("MaginotLine.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
@@ -40,7 +36,7 @@ public class TempHealthBarricade extends AbstractDynamicCard {
 
     private int val = 0;
 
-    public TempHealthBarricade() {
+    public MaginotLine() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         baseBlock = BLOCK;

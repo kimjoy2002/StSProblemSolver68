@@ -1,17 +1,11 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.ApplyPowerToSpecificAction;
 import BlueArchive_ProblemSolver.characters.Aru;
-import BlueArchive_ProblemSolver.powers.AssaultPower;
-import BlueArchive_ProblemSolver.powers.FinishPower;
-import BlueArchive_ProblemSolver.powers.ForAruSamaPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,7 +15,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.ArrayList;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
-import static com.megacrit.cardcrawl.actions.common.DrawCardAction.drawnCards;
 
 public class Assault extends FinishCard {
     public static final String ID = DefaultMod.makeID(Assault.class.getSimpleName());

@@ -2,7 +2,6 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.actions.FinishAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
-import BlueArchive_ProblemSolver.powers.AssaultPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -22,14 +21,7 @@ abstract public class FinishCard extends AbstractDynamicCard {
 
 
     public void finishAfter(AbstractPlayer p, AbstractMonster m, ArrayList<AbstractGameAction> actions, String finishstring) {
-        if(ProblemSolver68.someoneHasPower(AssaultPower.POWER_ID)) {
-            ProblemSolver68.flashPower(AssaultPower.POWER_ID);
-            for (AbstractGameAction action : actions) {
-                this.addToBot(action);
-            }
-        } else {
-            this.addToBot(new FinishAction(this, actions, finishstring, isDebuf()));
-        }
+        this.addToBot(new FinishAction(this, actions, finishstring, isDebuf()));
     }
 
     public boolean isDebuf() {

@@ -1,10 +1,7 @@
 package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.ImpAction;
 import BlueArchive_ProblemSolver.actions.ImpAmountAction;
-import BlueArchive_ProblemSolver.actions.ImpFixedAction;
-import BlueArchive_ProblemSolver.actions.UnwelcomeSchoolAction;
 import BlueArchive_ProblemSolver.cards.ImpChorus;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
@@ -76,7 +73,7 @@ public class ImpPower extends AbstractPower implements CloneablePowerInterface, 
     }
 
     public void onUseCardForSub(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK && !owner.hasPower(FixedImpPower.POWER_ID) && amount_imp > 0 && !(card instanceof ImpChorus)) {
+        if (card.type == AbstractCard.CardType.ATTACK && amount_imp > 0 && !(card instanceof ImpChorus)) {
             this.flash();
             this.addToBot(new ImpAmountAction(0, this, false));
         }

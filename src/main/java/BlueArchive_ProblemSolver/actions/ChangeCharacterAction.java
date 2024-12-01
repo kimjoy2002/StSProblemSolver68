@@ -258,10 +258,6 @@ public class ChangeCharacterAction extends AbstractGameAction {
         if(!(AbstractDungeon.player instanceof ProblemSolver68) || (targetPlayer == AbstractDungeon.player && (!moving || to_front))) {
             return;
         }
-        if (AbstractDungeon.player.hasPower(CannotChangedPower.POWER_ID) && !force) {
-            AbstractDungeon.player.getPower(CannotChangedPower.POWER_ID).flashWithoutSound();
-            return;
-        }
         changeCharacter ();
         resetImp();
         if (AbstractDungeon.player instanceof ProblemSolver68

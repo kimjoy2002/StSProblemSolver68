@@ -9,41 +9,32 @@
   },
   "BlueArchive_ProblemSolver:ChooseAru": {
     "NAME": "라쿠하치마 아루",
-    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: 높은 공격력. [E] 회복. 힘 증가."
+    "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: [E] 획득. 힘 증가."
   },
   "BlueArchive_ProblemSolver:ChooseMutsuki": {
     "NAME": "아사기 무츠키",
-    "DESCRIPTION": "*폭열의 *아리아 추가. NL 전용 키워드: BlueArchive_ProblemSolver:소악마. NL 강점: 자가 버프. 연타 공격. 버리기."
+    "DESCRIPTION": "*폭열의 *아리아 추가. NL 전용 키워드: BlueArchive_ProblemSolver:소악마. NL 강점: 연타 공격. 버리기."
   },
   "BlueArchive_ProblemSolver:ChooseKayoko": {
     "NAME": "오니카타 카요코",
-    "DESCRIPTION": "*패닉샷 추가. NL 전용 키워드: BlueArchive_ProblemSolver:공포. NL 강점: 디버프 부여. 낮은 비용. 드로우."
+    "DESCRIPTION": "*패닉샷 추가. NL 전용 키워드: BlueArchive_ProblemSolver:공포. NL 강점: 디버프. 낮은 비용. 드로우."
   },
   "BlueArchive_ProblemSolver:ChooseHaruka": {
     "NAME": "이구사 하루카",
-    "DESCRIPTION": "*트리거 *오버 추가. NL 전용 키워드: BlueArchive_ProblemSolver:마무리. NL 강점: 높은 방어. 자가 디버프. 자해."
+    "DESCRIPTION": "*트리거 *오버 추가. NL 전용 키워드: BlueArchive_ProblemSolver:마무리. NL 강점: 높은 방어. 자가 디버프."
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 선택한 BlueArchive_ProblemSolver:흥신소 캐릭터의 카드를 뽑습니다.",
-    "EXTENDED_DESCRIPTION": [
-      "카드를 !M! 장 뽑습니다.",
-      " NL 가능하다면 *",
-      " 캐릭터 카드를 포함합니다."
-    ]
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 선택한 BlueArchive_ProblemSolver:흥신소 캐릭터의 카드를 뽑습니다."
   },
-  "BlueArchive_ProblemSolver:MultiBlock": {
+  "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "흥신소 바리케이트",
     "DESCRIPTION": "모든 아군이 방어도를 !B! 얻습니다. NL 이번 턴 공격을 받을때마다 공격받는 대상이 다른 대상으로 바뀝니다."
   },
-  "BlueArchive_ProblemSolver:DoubleTab": {
-    "NAME": "더블 탭",
+  "BlueArchive_ProblemSolver:DistractingShot": {
+    "NAME": "견제 사격",
     "DESCRIPTION": "피해를 !D! 줍니다. NL *교대 카드를 1장 얻습니다.",
     "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL *교대+ 카드를 1장 얻습니다."
-  },
-  "BlueArchive_ProblemSolver:SecondTab": {
-    "NAME": "두번째 사격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:DiningTogether": {
     "NAME": "회식",
@@ -53,11 +44,11 @@
       " 만큼 얻습니다.)"
     ]
   },
-  "BlueArchive_ProblemSolver:VolleyFire": {
+  "BlueArchive_ProblemSolver:BurstStrike": {
     "NAME": "일제 타격",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 전열부터 순서대로 모든 아군이 사용합니다."
   },
-  "BlueArchive_ProblemSolver:YouWillPayForThis": {
+  "BlueArchive_ProblemSolver:StrategicWithdrawal": {
     "NAME": "전략적 후퇴",
     "DESCRIPTION": "후열로 이동할때마다 임시_체력 을 !M! 만큼 얻습니다."
   },
@@ -497,7 +488,7 @@
       " 카드를 사용하면 버려집니다."
     ]
   },
-  "BlueArchive_ProblemSolver:TempHealthBarricade": {
+  "BlueArchive_ProblemSolver:MaginotLine": {
     "NAME": "마지노선",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL 모든 캐릭터에게 부여되어있는 부정적인 효과 개수의 !M! 배만큼 임시_체력 을 얻습니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [

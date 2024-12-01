@@ -5,13 +5,6 @@
       "이번 턴 공격을 받을때마다 공격받는 대상이 다른 대상으로 바뀝니다."
     ]
   },
-  "BlueArchive_ProblemSolver:DeadStrPower": {
-    "NAME": "대가를 치를 것이다!",
-    "DESCRIPTIONS": [
-      "아군이 죽을때마다 #y힘을 #b",
-      " 얻습니다. 죽은 캐릭터가 #y흥신소 캐릭터라면 2배로 얻습니다."
-    ]
-  },
   "BlueArchive_ProblemSolver:FearPower": {
     "NAME": "공포",
     "DESCRIPTIONS": [
@@ -41,23 +34,11 @@
       " 얻습니다. 이 효과는 전열일때 사라집니다."
     ]
   },
-  "BlueArchive_ProblemSolver:CannotAttackedPower": {
-    "NAME": "귀여움",
-    "DESCRIPTIONS": [
-      "적에게 공격 받지 않습니다."
-    ]
-  },
   "BlueArchive_ProblemSolver:OutlawsRockPower": {
     "NAME": "무법자의 락",
     "DESCRIPTIONS": [
       "#g공유 NL #y악행이 발동할때마다 모든 적에게 피해를 #r",
       " 줍니다."
-    ]
-  },
-  "BlueArchive_ProblemSolver:CannotChangedPower": {
-    "NAME": "변경 불가",
-    "DESCRIPTIONS": [
-      "턴이 끝날때까지 교체할 수 없습니다."
     ]
   },
   "BlueArchive_ProblemSolver:FreeCardPower": {
@@ -72,14 +53,6 @@
     "NAME": "도발",
     "DESCRIPTIONS": [
       "턴이 끝날때마다 전열로 이동합니다."
-    ]
-  },
-  "BlueArchive_ProblemSolver:FixedImpPower": {
-    "NAME": "소악마 보호",
-    "DESCRIPTIONS": [
-      "이번 턴 #y소악마가 감소하지 않습니다.",
-      "다음 #g",
-      " 턴 #y소악마가 감소하지 않습니다."
     ]
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsStrPower": {
@@ -104,13 +77,6 @@
       " 를 얻습니다."
     ]
   },
-  "BlueArchive_ProblemSolver:ShieldOfProblemSolverPower": {
-    "NAME": "흥신소의 방패",
-    "DESCRIPTIONS": [
-      "다른 캐릭터가 카드를 사용하면 #y방어도를 #g",
-      " 얻습니다."
-    ]
-  },
   "BlueArchive_ProblemSolver:ForAruSamaPower": {
     "NAME": "아루님을 위해서",
     "DESCRIPTIONS": [
@@ -131,13 +97,6 @@
     "DESCRIPTIONS": [
       "이동할때마다 뽑을 카드 더미 맨 위에 있는 카드를 #b",
       " 장 사용합니다."
-    ]
-  },
-  "BlueArchive_ProblemSolver:CannotSelectedPower": {
-    "NAME": "조종 불가",
-    "DESCRIPTIONS": [
-      "이 캐릭터는 조종 할 수 없습니다. 모든 아군이 조종 불가라면 강제로 턴을 종료합니다.",
-      "이번 턴동안 이 캐릭터는 조종 할 수 없습니다. 모든 아군이 조종 불가라면 강제로 턴을 종료합니다."
     ]
   },
   "BlueArchive_ProblemSolver:AllCardPower": {
@@ -185,14 +144,6 @@
       " 줍니다."
     ]
   },
-  "BlueArchive_ProblemSolver:MineChainPower": {
-    "NAME": "지뢰 연쇄",
-    "DESCRIPTIONS": [
-      "이번 턴 동안, 손에서 카드를 사용하면 사용한 위치에 #y지뢰 카드를 얻습니다.",
-      "이번 턴 동안, 손에서 카드를 사용하면 사용한 위치에 #y지뢰 카드를 #b",
-      " 장 얻습니다."
-    ]
-  },
   "BlueArchive_ProblemSolver:TroubleMakerPower": {
     "NAME": "트러블 메이커",
     "DESCRIPTIONS": [
@@ -220,12 +171,6 @@
     "DESCRIPTIONS": [
       "턴 시작 시 ",
       " 을 얻습니다."
-    ]
-  },
-  "BlueArchive_ProblemSolver:AssaultPower": {
-    "NAME": "맹습",
-    "DESCRIPTIONS": [
-      "이번 턴동안 #y마무리 효과는 카드 사용 즉시 발동합니다."
     ]
   },
   "BlueArchive_ProblemSolver:OmamoribondPower": {

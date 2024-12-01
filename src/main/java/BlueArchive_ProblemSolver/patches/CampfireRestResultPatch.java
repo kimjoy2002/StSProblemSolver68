@@ -5,13 +5,9 @@ import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.campfire.CampfireSleepEffect;
-import com.megacrit.cardcrawl.vfx.combat.BattleStartEffect;
-import gremlin.characters.GremlinCharacter;
 import javassist.CtBehavior;
 
 import java.util.Iterator;

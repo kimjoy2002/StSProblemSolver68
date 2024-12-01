@@ -7,17 +7,13 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import guardian.actions.PlaceRandomCardInHandIntoStasisAction;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
-import static java.lang.Math.abs;
-
 public class BoobieTrap extends MineCard {
 
     public static final String ID = DefaultMod.makeID(BoobieTrap.class.getSimpleName());
