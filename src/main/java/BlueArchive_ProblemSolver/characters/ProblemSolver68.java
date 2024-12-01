@@ -278,9 +278,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
     public static void damageAll(int dmg) {
+        damageAll(dmg, AbstractDungeon.player);
+    }
+    public static void damageAll(int dmg, AbstractPlayer exclude) {
         inDamageAll = true;
         for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
-            if(AbstractDungeon.player != ps && isProblemSolver(ps.solverType)) {
+            if(exclude != ps && isProblemSolver(ps.solverType)) {
                 ps.damage(new DamageInfo((AbstractCreature) null, dmg, DamageInfo.DamageType.HP_LOSS));
             }
         }
@@ -302,10 +305,22 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
-    public static void increaseMaxHpAll(int amount, boolean showEffect) {
+
+    public static void decreaseMaxHpAll(int amount,AbstractPlayer exclude) {
         if(AbstractDungeon.player instanceof ProblemSolver68 ) {
             for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
-                ps.increaseMaxHp(amount, showEffect);
+                if(ps != exclude) {
+                    ps.decreaseMaxHealth(amount);
+                }
+            }
+        }
+    }
+    public static void increaseMaxHpAll(int amount, boolean showEffect, AbstractPlayer exclude) {
+        if(AbstractDungeon.player instanceof ProblemSolver68 ) {
+            for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                if(ps != exclude) {
+                    ps.increaseMaxHp(amount, showEffect);
+                }
             }
         }
     }

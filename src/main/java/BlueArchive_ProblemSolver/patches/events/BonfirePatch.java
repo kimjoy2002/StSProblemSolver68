@@ -63,7 +63,7 @@ public class BonfirePatch {
                         break;
                     case RARE:
                         dialog = dialog + strings.OPTIONS[2];
-                        ProblemSolver68.increaseMaxHpAll(5, false);
+                        ProblemSolver68.increaseMaxHpAll(5, false, null);
                         ProblemSolver68.healAll(-1);
                 }
 

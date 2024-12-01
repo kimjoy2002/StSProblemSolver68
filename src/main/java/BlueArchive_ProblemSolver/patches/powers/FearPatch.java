@@ -59,6 +59,15 @@ public class FearPatch {
                         return SpireReturn.Return();
                     }
                 }
+            } else if(__instance instanceof CorruptHeart) {
+                if (__instance.escapeTimer != 0.0F) {
+                    //__instance.flipHorizontal = true;
+                    __instance.escapeTimer -= Gdx.graphics.getDeltaTime();
+                    __instance.drawY += Gdx.graphics.getDeltaTime() * 400.0F * Settings.scale;
+                    if(__instance.escapeTimer > 0.0F) {
+                        return SpireReturn.Return();
+                    }
+                }
             }
             return SpireReturn.Continue();
         }
