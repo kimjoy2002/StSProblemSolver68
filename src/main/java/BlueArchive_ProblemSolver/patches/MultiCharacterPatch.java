@@ -1,5 +1,6 @@
 package BlueArchive_ProblemSolver.patches;
 
+import BlueArchive_ProblemSolver.actions.CheckApplyPowerAction;
 import BlueArchive_ProblemSolver.actions.ImpAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.ImpPower;
@@ -18,7 +19,9 @@ import com.megacrit.cardcrawl.events.city.KnowingSkull;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.vfx.combat.BattleStartEffect;
+import com.megacrit.cardcrawl.vfx.combat.HbBlockBrokenEffect;
 import javassist.CtBehavior;
 
 import java.util.ArrayList;
@@ -147,10 +150,6 @@ public class MultiCharacterPatch {
                     imp_amount = ((ImpPower)__instance.getPower(ImpPower.POWER_ID)).amount_imp;
                 }
 
-                for(AbstractPower power_ : __instance.powers) {
-                    power_.onRemove();
-                }
-
                 __instance.powers.clear();
                 AbstractPlayer next_ = null;
                 if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
@@ -160,7 +159,7 @@ public class MultiCharacterPatch {
                 }
                 if(next_ != null) {
                     for(AbstractPower power_ : newPowers) {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(next_, next_, power_));
+                        AbstractDungeon.actionManager.addToBottom(new CheckApplyPowerAction(next_, next_, power_));
                     }
                 }
 
@@ -207,6 +206,35 @@ public class MultiCharacterPatch {
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "isDead");
                 return LineFinder.findAllInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+    }
+
+
+    @SpirePatch(
+            clz = AbstractPlayer.class,
+            method = "damage",
+            paramtypez= {
+                    DamageInfo.class
+            }
+    )
+    public static class MercernyDeadPatch {
+        @SpireInsertPatch(
+                locator = Locator.class
+        )
+        public static SpireReturn Insert(AbstractPlayer __instance, DamageInfo info) {
+            if (__instance instanceof ProblemSolver68 && !((ProblemSolver68)__instance).isProblemSolver()) {
+                if (MultiCharacterPatch.onDamage_(__instance)) {
+                    return SpireReturn.Return();
+                }
+            }
+            return SpireReturn.Continue();
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
             }
         }
     }

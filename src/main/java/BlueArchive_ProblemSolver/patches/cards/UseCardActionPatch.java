@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.patches.cards;
 
 import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
+import BlueArchive_ProblemSolver.actions.CleanCharacterAction;
 import BlueArchive_ProblemSolver.actions.DelayAction;
 import BlueArchive_ProblemSolver.cards.EvilDeedsCard;
 import BlueArchive_ProblemSolver.cards.ProblemSolverDefend;
@@ -139,6 +140,7 @@ public class UseCardActionPatch {
                 if (AbstractDungeon.actionManager.cardQueue.isEmpty()) {
                     if (originCharacter != null) {
                         AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(originCharacter, false, true));
+                        AbstractDungeon.actionManager.addToBottom(new CleanCharacterAction(true));
                         originCharacter = null;
                     }
                 }

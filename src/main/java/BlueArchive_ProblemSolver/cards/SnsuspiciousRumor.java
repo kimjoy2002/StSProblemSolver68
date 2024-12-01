@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.EvilDeedsAction;
 import BlueArchive_ProblemSolver.characters.Aru;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
@@ -14,6 +15,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.cardManip.CardGlowBorder;
+
+import java.util.Iterator;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 import static java.lang.Math.abs;
@@ -74,5 +78,17 @@ public class SnsuspiciousRumor extends AbstractDynamicCard implements OnEvilDeed
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
+    }
+
+    public void stopGlowing() {
+        if(gainEnergy) {
+            super.beginGlowing();
+        } else{
+            super.stopGlowing();
+        }
+    }
+    protected static final Color RED_BORDER_GLOW_COLOR = new Color(1.0F, 0.2F, 0.2F, 0.25F);
+    public void triggerOnGlowCheck() {
+        this.glowColor = RED_BORDER_GLOW_COLOR.cpy();
     }
 }

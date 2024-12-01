@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.characters;
 import BlueArchive_ProblemSolver.actions.CleanCharacterAction;
 import BlueArchive_ProblemSolver.actions.RemoveCharacterAction;
 import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
+import BlueArchive_ProblemSolver.patches.AbstractMonsterPatch;
 import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
 import BlueArchive_ProblemSolver.patches.powers.PowerForSubPatch;
 import BlueArchive_ProblemSolver.powers.CaliforniaGurlsPower;
@@ -41,6 +42,8 @@ import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.ending.SpireShield;
+import com.megacrit.cardcrawl.monsters.ending.SpireSpear;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -109,6 +112,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     public static void changeCurrentPlayer(AbstractPlayer change) {
         change.gold = AbstractDungeon.player.gold;
         change.displayGold = AbstractDungeon.player.displayGold;
+        change.gameHandSize = AbstractDungeon.player.gameHandSize;
+
 
         AbstractDungeon.player = change;
 
@@ -446,10 +451,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             return AbstractDungeon.player;
         } else {
             float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
+            Aru p = new Aru(name, Aru.Enums.PROBLEM_SOLVER, type);
+            float last_offset = p.drawX;
             for( ProblemSolver68 p_ : problemSolverPlayer) {
+                last_offset = p_.drawX;
                 p_.movePosition_(p_.drawX-offset_, p_.drawY, false);
             }
-            Aru p = new Aru(name, Aru.Enums.PROBLEM_SOLVER, type);
             AbstractPlayer main = AbstractDungeon.player;
             p.hand = main.hand;
             p.masterDeck = main.masterDeck;
@@ -464,7 +471,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             p.hoveredCard = main.hoveredCard;
             p.toHover = main.toHover;
             p.cardInUse = null; //불필요
-            p.movePosition_(p.drawX+offset_*problemSolverPlayer.size(), p.drawY, false);
+            p.movePosition_(last_offset+offset_, p.drawY, false);
             if(hp_ != -2) {
                 p.currentHealth = hp_;
             }
@@ -495,6 +502,22 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 p.isEndingTurn = false;
                 p.healthBarUpdatedEvent();
                 p.showHealthBar();
+
+                if(AbstractDungeon.getMonsters() != null) {
+                    AbstractMonster isSpear = null;
+                    AbstractMonster isShield = null;
+                    for(AbstractMonster mon_ : AbstractDungeon.getMonsters().monsters) {
+                        if(mon_ instanceof SpireShield) {
+                            isShield = mon_;
+                        }
+                        if(mon_ instanceof SpireSpear) {
+                            isSpear = mon_;
+                        }
+                    }
+                    if(isShield != null && isSpear != null) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, isShield, new SurroundedPower(p)));
+                    }
+                }
             }
             updateCharCount((ProblemSolver68)p);
             return p;
@@ -864,6 +887,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             AbstractPower p = (AbstractPower)var1.next();
             p.onVictory();
         }
+        var1 = this.powers.iterator();
+        while(var1.hasNext()) {
+            AbstractPower p = (AbstractPower)var1.next();
+            p.onRemove();
+        }
+        powers.clear();
     }
 
     @Override
@@ -904,7 +933,10 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             super.render(sb);
             img = temp;
             ReflectionHacks.setPrivate(this, AbstractPlayer.class, "renderCorpse", temp_button);
-        } else {
+        } else if(!isProblemSolver(solverType) && currentHealth < 1 && escapeTimer <= 0.0f) {
+            return;
+        }
+        else {
             super.render(sb);
         }
 
@@ -1031,6 +1063,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         super.preBattlePrep();
         for (ProblemSolver68 p : problemSolverPlayer) {
             if(p != this) {
+                for (AbstractPower power_ : p.powers) {
+                    power_.onRemove();
+                }
                 p.powers.clear();
                 p.isEndingTurn = false;
                 p.endTurnQueued = false;

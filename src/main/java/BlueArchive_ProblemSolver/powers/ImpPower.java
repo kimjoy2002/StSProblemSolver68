@@ -115,7 +115,7 @@ public class ImpPower extends AbstractPower implements CloneablePowerInterface, 
     }
 
     public void atStartOfTurnPostDraw() {
-        this.addToBot(new ImpAmountAction(amount, this, false));
+        this.addToBot(new ImpAmountAction(999, null, false));
     }
 
     @Override

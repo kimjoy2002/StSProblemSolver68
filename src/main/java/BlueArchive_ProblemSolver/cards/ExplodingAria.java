@@ -53,10 +53,10 @@ public class ExplodingAria extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, false));
         for(int i = 0; i < this.magicNumber; ++i) {
             this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
-        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, false));
     }
 
 

@@ -216,6 +216,21 @@ public class BottleSetRelic extends CustomRelic implements OnUsePotionRelic {
     }
 
 
+    public void onEquip() {
+        AbstractPlayer var10000 = AbstractDungeon.player;
+        var10000.potionSlots += 1;
+        AbstractDungeon.player.potions.add(new PotionSlot(AbstractDungeon.player.potionSlots - 1));
+        if(AbstractDungeon.player instanceof ProblemSolver68) {
+            for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer){
+                if(ps != AbstractDungeon.player) {
+                    ps.potionSlots += 1;
+                }
+            }
+        }
+    }
+
+
+
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
     }

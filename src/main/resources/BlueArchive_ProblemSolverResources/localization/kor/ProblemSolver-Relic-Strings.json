@@ -52,7 +52,7 @@
     "NAME": "물병 세트",
     "FLAVOR": "흥신소에서 돈을 모아서 세트로 싸게 구매한 물병 세트",
     "DESCRIPTIONS": [
-      "아군에게 적용되는 포션이 아군 캐릭터 모두에게 적용됩니다."
+      "획득시 포션 슬롯을 #b1 개 얻습니다. 아군에게 적용되는 포션이 아군 캐릭터 모두에게 적용됩니다."
     ]
   },
   "BlueArchive_ProblemSolver:ArusTreasuredWalletRelic": {

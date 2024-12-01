@@ -39,7 +39,7 @@ public class HardboiledHanetsukiShot extends EvilDeedsCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 13;
+    private static final int DAMAGE = 12;
     private static final int UPGRADE_PLUS_DMG = 4;
     public static final int MAGIC = 2;
 
@@ -49,7 +49,7 @@ public class HardboiledHanetsukiShot extends EvilDeedsCard {
         baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
         this.isMultiDamage = true;
-        setRequireEvil(3);
+        setRequireEvil(2);
     }
 
     @Override

@@ -85,7 +85,7 @@ public class AllCardPower extends AbstractPower implements CloneablePowerInterfa
                         }
                         UseCardActionPatch.AbstractCardField.castPlayer.set(tmp, ps);
                         tmp.purgeOnUse = true;
-                        AbstractDungeon.actionManager.cardQueue.add(0, new CardQueueItem(tmp, m, card.energyOnUse, true, true));
+                        AbstractDungeon.actionManager.cardQueue.add(1, new CardQueueItem(tmp, m, card.energyOnUse, true, true));
                     }
                 }
             }

@@ -38,6 +38,9 @@ public class ReviveAllyAction extends AbstractGameAction {
         }
         AbstractPlayer p = ProblemSolver68.getRandomDeadMember();
         if(p != null) {
+            for(AbstractPower power_ : p.powers) {
+                power_.onRemove();
+            }
             p.powers.clear();
             p.heal(1);
             p.isDead = false;
