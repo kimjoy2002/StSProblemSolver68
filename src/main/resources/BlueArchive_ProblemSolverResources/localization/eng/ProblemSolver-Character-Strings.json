@@ -1,0 +1,23 @@
+{
+  "BlueArchive_ProblemSolver:ProblemSolver68": {
+    "NAMES": [
+      "Problem Solver 68",
+      "Problem Solver 68"
+    ],
+    "TEXT": [
+      "A request has come in!",
+      "NL Everyone prepares for a barrage...",
+      "While walking through a dark alley, you encounter a group conducting a shadowy ritual, their faces hidden behind masks. As you approach, they turn towards you with unsettling grins. The tallest among them, with elongated fangs protruding, extends a pale hand toward you. NL ~\"Join~ ~us,~ ~Solver.~ ~Feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+  "BlueArchive_ProblemSolver:NeowReward": {
+    "NAMES": [],
+    "TEXT": [
+      "[ #gIncrease #gALL #gallies' #gmaximum #gHP #gby ",
+      "#gIncrease #gALL #gallies' #gmaximum #gHP #gby ",
+      "[ #rLose #rmaximum #rHP #rfor #rALL #rallies by ",
+      " #rand gain ",
+      "[ #rALL #rallies take #rdamage of "
+    ]
+  }
+}
