@@ -43,7 +43,7 @@ public class WarningShot extends EvilDeedsCard {
     private static final int COST = 1;
     private static final int DAMAGE = 8;
     private static final int UPGRADE_PLUS_DMG = 2;
-    public static final int MAGIC = 1;
+    public static final int MAGIC = 2;
 
     public WarningShot() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

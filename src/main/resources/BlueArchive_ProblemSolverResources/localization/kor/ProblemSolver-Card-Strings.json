@@ -130,8 +130,8 @@
   },
   "BlueArchive_ProblemSolver:LoanShark": {
     "NAME": "사채",
-    "DESCRIPTION": "힘이 0 이상인 캐릭터만 사용가능합니다. NL [E] [E] 를 얻습니다. NL 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
-    "UPGRADE_DESCRIPTION": "힘이 0 이상인 캐릭터만 사용가능합니다. NL [E] [E] [E] 를 얻습니다. NL 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
+    "DESCRIPTION": "힘이 0 이상일때 사용가능합니다. NL [E] [E] 를 얻습니다. NL 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
+    "UPGRADE_DESCRIPTION": "힘이 0 이상일때 사용가능합니다. NL [E] [E] [E] 를 얻습니다. NL 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
     "EXTENDED_DESCRIPTION": [
       "힘이 0 이상 필요해"
     ]
@@ -166,7 +166,7 @@
   },
   "BlueArchive_ProblemSolver:ShotABlank": {
     "NAME": "공포탄",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 이 캐릭터는 이번 턴 카드를 더 뽑을 수 없습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 이번 턴 카드를 더 뽑을 수 없습니다."
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "고양이의 시간",
@@ -194,9 +194,9 @@
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "도발",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 이 캐릭터가 가진 방어도가 2배로 증가합니다.",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 가진 방어도가 2배로 증가합니다.",
     "EXTENDED_DESCRIPTION": [
-      "이 캐릭터가 가진 방어도가 2배로 증가합니다. "
+      "가진 방어도가 2배로 증가합니다. "
     ]
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
@@ -216,9 +216,9 @@
   },
   "BlueArchive_ProblemSolver:MeaningfulTansaction": {
     "NAME": "유익한 거래",
-    "DESCRIPTION": "이 캐릭터의 부정적인 효과를 모두 제거합니다. 소멸. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 부정적인 효과를 모두 제거합니다.",
+    "DESCRIPTION": "자신의 부정적인 효과를 모두 제거합니다. 소멸. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 부정적인 효과를 모두 제거합니다.",
     "EXTENDED_DESCRIPTION": [
-      "이 캐릭터의 부정적인 효과를 모두 제거합니다. 소멸. NL ",
+      "자신의 부정적인 효과를 모두 제거합니다. 소멸. NL ",
       "BlueArchive_ProblemSolver:악행 (",
       "/!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 부정적인 효과를 모두 제거합니다."
     ]
