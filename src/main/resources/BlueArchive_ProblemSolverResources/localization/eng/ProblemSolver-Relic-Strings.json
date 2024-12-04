@@ -1,0 +1,66 @@
+{
+  "BlueArchive_ProblemSolver:ProblemSolverBaseRelic": {
+    "NAME": "Problem Solver Badge",
+    "FLAVOR": "A badge proving membership in the Problem Solver.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, add #yShift to your hand."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ProblemSolverBaseRelicPlus": {
+    "NAME": "Veteran Problem Solver Badge",
+    "FLAVOR": "A badge proving veteran status in the Problem Solver.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, if you have no #yShift cards in hand, add an upgraded #yShift+ card."
+    ]
+  },
+  "BlueArchive_ProblemSolver:MoreProblemSolverRelic": {
+    "NAME": "Additional Problem Solver Member",
+    "FLAVOR": "\"Alright, staff! It's time to work!\"",
+    "DESCRIPTIONS": [
+      "Adds #yAru to the Problem Solver members when obtained.",
+      "Adds #yMutsuki to the Problem Solver members when obtained.",
+      "Adds #yKayoko to the Problem Solver members when obtained.",
+      "Adds #yHaruka to the Problem Solver members when obtained.",
+      "Adds a Problem Solver member when obtained."
+    ]
+  },
+  "BlueArchive_ProblemSolver:MercenaryCatalogueRelic": {
+    "NAME": "Mercenary Catalogue",
+    "FLAVOR": "\"Meet the finest mercenaries in the Spire! Only 189,990 gold!\"",
+    "DESCRIPTIONS": [
+      "At the start of combat, spend #r",
+      " #yGold to summon a mercenary with #g",
+      " HP in the front."
+    ]
+  },
+  "BlueArchive_ProblemSolver:TNTRelic": {
+    "NAME": "TNT",
+    "FLAVOR": "Don't worry. Everything heals after a night's sleep in Kivotos!",
+    "DESCRIPTIONS": [
+      "Whenever an ally dies, deal #r",
+      " damage to ALL enemies."
+    ]
+  },
+  "BlueArchive_ProblemSolver:RadioTransceiverRelic": {
+    "NAME": "Radio Transceiver",
+    "FLAVOR": "\"Everyone, await orders through the radio!\"",
+    "DESCRIPTIONS": [
+      "During combat, click on an ally to move them to the front. This does not trigger move-related effects."
+    ]
+  },
+  "BlueArchive_ProblemSolver:BottleSetRelic": {
+    "NAME": "Bottle Set",
+    "FLAVOR": "A bottle set bought cheaply as a group purchase in the Problem Solver.",
+    "DESCRIPTIONS": [
+      "Gain #b1 potion slot. Potions applied to allies affect all ally characters."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ArusTreasuredWalletRelic": {
+    "NAME": "Aru's Treasured Wallet",
+    "FLAVOR": "A priceless gift from Haruka, Kayoko, and Mutsuki when the Problem Solver was first established. It's Aru's most cherished possession.",
+    "DESCRIPTIONS": [
+      "At the start of combat, all allies gain #yTemporary HP by #b",
+      "."
+    ]
+  }
+}
