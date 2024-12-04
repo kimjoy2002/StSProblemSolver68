@@ -1,0 +1,17 @@
+{
+  "BlueArchive_ProblemSolver:ProblemSolverTutorial": {
+    "TEXT": [
+      "#bProblem Solver involves controlling multiple characters during combat. NL You can switch characters' positions using specific card effects.",
+      "During your turn, cards are played based on the buffs applied to the selected character. NL Additionally, unless stated otherwise, buffs or powers are granted to the selected character.",
+      "During the enemy's turn, the character in the front always takes the attacks. NL If the selected character dies, the next front character will take the attacks.",
+      "Characters who die during combat will revive with 1 HP after the battle. NL However, if all #bProblem Solver characters die before the battle ends, you lose the combat."
+    ],
+    "LABEL": [
+      "Next",
+      "Confirm",
+      "Tutorial",
+      "(Page: ",
+      ")"
+    ]
+  }
+}
