@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.patches;
 import BlueArchive_ProblemSolver.actions.CheckApplyPowerAction;
 import BlueArchive_ProblemSolver.actions.ImpAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.powers.ImmotalPower;
 import BlueArchive_ProblemSolver.powers.ImpPower;
 import BlueArchive_ProblemSolver.powers.SharedPower;
 import basemod.ReflectionHacks;
@@ -148,6 +149,12 @@ public class MultiCharacterPatch {
                 if(__instance.hasPower(ImpPower.POWER_ID)) {
                     imp_value = __instance.getPower(ImpPower.POWER_ID).amount;
                     imp_amount = ((ImpPower)__instance.getPower(ImpPower.POWER_ID)).amount_imp;
+                }
+
+
+                if (!ProblemSolver68.isProblemSolver(((ProblemSolver68) __instance).solverType) &&
+                        __instance.hasPower(ImmotalPower.POWER_ID)) {
+                    __instance.getPower(ImmotalPower.POWER_ID).onDeath();
                 }
 
                 __instance.powers.clear();

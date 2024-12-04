@@ -9,7 +9,7 @@
   },
   "BlueArchive_ProblemSolver:ChooseAru": {
     "NAME": "Rokuhachima Aru",
-    "DESCRIPTION": "Add *Noir *Attack. NL Unique Keyword: BlueArchive_ProblemSolver:Evil *Deeds. NL Strengths: Gain [E], increase Strength."
+    "DESCRIPTION": "Add *Noir *Attack. NL Unique Keyword: BlueArchive_ProblemSolver:Evil *Deeds. NL Strengths: Gain [E] , increase Strength."
   },
   "BlueArchive_ProblemSolver:ChooseMutsuki": {
     "NAME": "Asagi Mutsuki",
@@ -38,7 +38,7 @@
   },
   "BlueArchive_ProblemSolver:DiningTogether": {
     "NAME": "Team Dinner",
-    "DESCRIPTION": "Gain [E] equal to the number of BlueArchive_ProblemSolver:Solvers. NL Exhaust.",
+    "DESCRIPTION": "Gain [E] equal to the number of *Problem BlueArchive_ProblemSolver:Solver. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gain ",
       " [E] .)"
@@ -50,11 +50,11 @@
   },
   "BlueArchive_ProblemSolver:StrategicWithdrawal": {
     "NAME": "Strategic Withdrawal",
-    "DESCRIPTION": "Gain !M! temporary HP each time you move to the back."
+    "DESCRIPTION": "Gain !M! temporary_hp each time you move to back."
   },
   "BlueArchive_ProblemSolver:FirstAid": {
     "NAME": "First Aid",
-    "DESCRIPTION": "Revive a random fallen BlueArchive_ProblemSolver:Solver with 1 HP and move them to the front. NL Allies in the front gain !M! temporary HP. NL Exhaust."
+    "DESCRIPTION": "Revive a random fallen *Problem BlueArchive_ProblemSolver:Solver with 1 HP and move them to the front. NL Allies in the front gain !M! temporary_hp. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:DogFight": {
     "NAME": "Dogfight",
@@ -67,17 +67,24 @@
       "You can't hire more."
     ]
   },
+  "BlueArchive_ProblemSolver:HireHelmetLeader": {
+    "NAME": "Hire Helmet Leader",
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. The chosen BlueArchive_ProblemSolver:Mercenary starts with !BlueArchive_ProblemSolver:M! *Plated *Armor or !BlueArchive_ProblemSolver:M2! Strength.",
+    "EXTENDED_DESCRIPTION": [
+      "You can't hire more."
+    ]
+  },
   "BlueArchive_ProblemSolver:ChooseRabu": {
     "NAME": "Hire Komakaze Rabu",
-    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL The chosen BlueArchive_ProblemSolver:Mercenary starts with *Plated *Armor !BlueArchive_ProblemSolver:M!."
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL The chosen BlueArchive_ProblemSolver:Mercenary starts with !BlueArchive_ProblemSolver:M! *Plated *Armor."
   },
   "BlueArchive_ProblemSolver:ChooseSaori": {
     "NAME": "Hire Joumae Saori",
-    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL The chosen BlueArchive_ProblemSolver:Mercenary starts with Strength !BlueArchive_ProblemSolver:M!."
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL The chosen BlueArchive_ProblemSolver:Mercenary starts with !BlueArchive_ProblemSolver:M! Strength."
   },
   "BlueArchive_ProblemSolver:FireSupport": {
     "NAME": "Fire Support",
-    "DESCRIPTION": "Gain !M! temporary HP. NL Deal damage equal to the total temporary HP of all allies.",
+    "DESCRIPTION": "Gain !M! temporary_hp. NL Deal damage equal to the total temporary_hp of all allies.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deal ",
       " damage.)"
@@ -85,15 +92,15 @@
   },
   "BlueArchive_ProblemSolver:CombatRation": {
     "NAME": "Combat Ration",
-    "DESCRIPTION": "All allies gain !M! temporary HP."
+    "DESCRIPTION": "All allies gain !M! temporary_hp."
   },
   "BlueArchive_ProblemSolver:PanicShot": {
     "NAME": "Panic Shot",
-    "DESCRIPTION": "Apply !M! BlueArchive_ProblemSolver:Fear. NL Apply Weak !BlueArchive_ProblemSolver:M!."
+    "DESCRIPTION": "Apply !M! BlueArchive_ProblemSolver:Fear. NL Apply !BlueArchive_ProblemSolver:M! Weak."
   },
   "BlueArchive_ProblemSolver:PanicBringer": {
     "NAME": "Panic Bringer",
-    "DESCRIPTION": "Apply Weak !M! to ALL enemies. NL Apply !BlueArchive_ProblemSolver:M! BlueArchive_ProblemSolver:Fear to ALL enemies. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Apply !BlueArchive_ProblemSolver:M! BlueArchive_ProblemSolver:Fear to ALL enemies. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:WannaHaveSomeFun": {
     "NAME": "Wanna Have Some Fun?",
@@ -105,7 +112,7 @@
   },
   "BlueArchive_ProblemSolver:CaliforniaGurls": {
     "NAME": "California Gurls",
-    "DESCRIPTION": "*Mutsuki moves to the back. NL Gain Strength and Dexterity !M! at the start of your turn. NL This effect is lost if *Mutsuki is in the front.",
+    "DESCRIPTION": "*Mutsuki moves to back. NL Gain Strength and Dexterity !M! at the start of your turn. NL This effect is lost if *Mutsuki is in the front.",
     "EXTENDED_DESCRIPTION": [
       "Mutsuki must be alive."
     ]
@@ -131,15 +138,15 @@
   },
   "BlueArchive_ProblemSolver:ScaryFace": {
     "NAME": "Scary Face",
-    "DESCRIPTION": "Apply Weak !M!. NL Apply BlueArchive_ProblemSolver:Fear !BlueArchive_ProblemSolver:M!."
+    "DESCRIPTION": "Apply !M! Weak. NL Apply !BlueArchive_ProblemSolver:M! BlueArchive_ProblemSolver:Fear."
   },
   "BlueArchive_ProblemSolver:BluffShot": {
     "NAME": "Bluff Shot",
-    "DESCRIPTION": "Deal !D! damage. NL Lose Strength !M!. NL Move to the back."
+    "DESCRIPTION": "Deal !D! damage. NL Lose Strength !M!. NL Move to back."
   },
   "BlueArchive_ProblemSolver:ExplodingAria": {
     "NAME": "Exploding Aria",
-    "DESCRIPTION": "Discard 1 card. NL Deal !D! damage to random enemies !M! times."
+    "DESCRIPTION": "Discard 1 card. NL Deal !D! damage to a random enemy !M! times."
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
     "NAME": "Trigger Over",
@@ -159,7 +166,7 @@
   },
   "BlueArchive_ProblemSolver:ShotABlank": {
     "NAME": "Shot a Blank",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL This character cannot draw additional cards this turn."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL You cannot draw additional cards this turn."
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "Cat's Time",
@@ -175,15 +182,15 @@
   },
   "BlueArchive_ProblemSolver:OutlawsRoad": {
     "NAME": "Outlaw's Road",
-    "DESCRIPTION": "*Aru moves to the front. NL Gain [E] [E] and draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "*Aru moves to the front. NL Gain [E] [E] [E] and draw !M! cards. NL Exhaust.",
+    "DESCRIPTION": "*Aru moves to front. NL Gain [E] [E] and draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "*Aru moves to front. NL Gain [E] [E] [E] and draw !M! cards. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Aru is not available!"
     ]
   },
   "BlueArchive_ProblemSolver:RecklessBehavior": {
     "NAME": "Reckless Behavior",
-    "DESCRIPTION": "Discard all cards. NL Gain !B! Block X times."
+    "DESCRIPTION": "All allies gain !B! Block. Block is not removed from all allies at the start of the next turn."
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "Taunt",
@@ -194,26 +201,26 @@
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
     "NAME": "Flank Attack",
-    "DESCRIPTION": "Deal !D! damage. Apply Vulnerable !BlueArchive_ProblemSolver:M!. NL BlueArchive_ProblemSolver:Finisher: Apply additional Weak !M!.",
+    "DESCRIPTION": "Deal !D! damage. Apply !BlueArchive_ProblemSolver:M! Vulnerable. NL BlueArchive_ProblemSolver:Finisher: Apply additional !M! Weak.",
     "EXTENDED_DESCRIPTION": [
-      "Apply Weak !M!."
+      "Apply !M! Weak."
     ]
   },
   "BlueArchive_ProblemSolver:PumpPanning": {
     "NAME": "Pump Panning",
-    "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Finisher: Increase the attack count of this card by 1 for this combat, then shuffle it back into the draw pile.",
+    "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Finisher: Increase the attack count by 1 for this combat. shuffle this card into your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      "The attack count of Pump Panning increases by 1, then it is shuffled back into the draw pile.",
-      "Deal !D! damage !M! times. NL BlueArchive_ProblemSolver:Finisher: Increase the attack count of this card by 1 for this combat, then shuffle it back into the draw pile."
+      "Increase the attack count by 1 for this combat. shuffle this card into your draw pile.",
+      "Deal !D! damage !M! times. NL BlueArchive_ProblemSolver:Finisher: Increase the attack count by 1 for this combat. shuffle this card into your draw pile."
     ]
   },
   "BlueArchive_ProblemSolver:MeaningfulTansaction": {
     "NAME": "Meaningful Transaction",
-    "DESCRIPTION": "Remove all negative effects from this character. NL Exhaust. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Instead, remove all negative effects from ALL allies.",
+    "DESCRIPTION": "Remove all of your Debuffs. NL Exhaust. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Instead, remove of ALL allies Debuffs.",
     "EXTENDED_DESCRIPTION": [
-      "Remove all negative effects from this character. NL Exhaust. NL ",
+      "Remove all of your Debuffs. NL Exhaust. NL ",
       "BlueArchive_ProblemSolver:Evil *Deeds (",
-      "/!BlueArchive_ProblemSolver:M2!): Instead, remove all negative effects from ALL allies."
+      "/!BlueArchive_ProblemSolver:M2!): Instead, remove of ALL allies Debuffs."
     ]
   },
   "BlueArchive_ProblemSolver:CorrectAdvice": {
@@ -232,11 +239,11 @@
   },
   "BlueArchive_ProblemSolver:NewYearsSymphony": {
     "NAME": "New Year's Symphony",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Apply !M! BlueArchive_ProblemSolver:Imp per enemy hit."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! BlueArchive_ProblemSolver:Imp per enemy hit."
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "Imp Chorus",
-    "DESCRIPTION": "Deal !D! damage per BlueArchive_ProblemSolver:Imp. NL This card’s damage is not increased by BlueArchive_ProblemSolver:Imp effects.",
+    "DESCRIPTION": "Deal !D! damage per BlueArchive_ProblemSolver:Imp. NL This card’s damage is not increased by BlueArchive_ProblemSolver:Imp.",
     "EXTENDED_DESCRIPTION": [
       "I’m not an Imp.",
       " NL (",
@@ -245,7 +252,7 @@
   },
   "BlueArchive_ProblemSolver:MoreFunWaysToPlay": {
     "NAME": "More Fun Ways to Play",
-    "DESCRIPTION": "Gain !B! Block. NL Reapply the BlueArchive_ProblemSolver:Imp damage boost effect."
+    "DESCRIPTION": "Gain !B! Block. NL Regain the BlueArchive_ProblemSolver:Imp damage boost."
   },
   "BlueArchive_ProblemSolver:DangerousPlay": {
     "NAME": "Dangerous Play",
@@ -287,7 +294,7 @@
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsStyle": {
     "NAME": "President's Perfect Tactics",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL All current and future BlueArchive_ProblemSolver:Mercenaries gain Strength !M! and Invincible !BlueArchive_ProblemSolver:M!."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL All current and future BlueArchive_ProblemSolver:Mercenaries gain !M! Strength and !BlueArchive_ProblemSolver:M! Intangible."
   },
   "BlueArchive_ProblemSolver:HardboiledShot": {
     "NAME": "Hardboiled Shot",
@@ -312,11 +319,11 @@
   },
   "BlueArchive_ProblemSolver:QuietPressure": {
     "NAME": "Silent Pressure",
-    "DESCRIPTION": "Reduce enemy Strength by !M! this turn. NL Apply !BlueArchive_ProblemSolver:M! BlueArchive_ProblemSolver:Fear."
+    "DESCRIPTION": "Enemy lose !M! Strength this turn. NL Apply !BlueArchive_ProblemSolver:M! BlueArchive_ProblemSolver:Fear."
   },
   "BlueArchive_ProblemSolver:ButIllDoMyBest": {
     "NAME": "I'll Do My Best!",
-    "DESCRIPTION": "Gain !BlueArchive_ProblemSolver:M! temporary HP. NL BlueArchive_ProblemSolver:Finisher: Lose !M! Strength.",
+    "DESCRIPTION": "Gain !BlueArchive_ProblemSolver:M! temporary_hp. NL BlueArchive_ProblemSolver:Finisher: Lose !M! Strength.",
     "EXTENDED_DESCRIPTION": [
       "Lose !M! Strength."
     ]
@@ -350,7 +357,7 @@
   },
   "BlueArchive_ProblemSolver:FocusonAttack": {
     "NAME": "Sudden Strike",
-    "DESCRIPTION": "Each time you move to the front, deal !M! damage to ALL enemies and draw !BlueArchive_ProblemSolver:M! cards."
+    "DESCRIPTION": "Each time you move to front, deal !M! damage to ALL enemies and draw !BlueArchive_ProblemSolver:M! cards."
   },
   "BlueArchive_ProblemSolver:AlertButton": {
     "NAME": "Alert Button",
@@ -362,11 +369,11 @@
   },
   "BlueArchive_ProblemSolver:GloomyPast": {
     "NAME": "Gloomy Past",
-    "DESCRIPTION": "Gain !M! temporary HP whenever you receive a negative effect."
+    "DESCRIPTION": "Gain !M! temporary_hp whenever you receive a negative effect."
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "Detonator",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! random BlueArchive_ProblemSolver:Mines or 0-cost cards from the draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! random BlueArchive_ProblemSolver:Mine or 0-cost cards from the draw pile."
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "Remote Bomb",
@@ -405,27 +412,27 @@
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "Infiltration Tactics",
-    "DESCRIPTION": "The next Attack card you play deals !M! times its damage. NL Move to the back."
+    "DESCRIPTION": "The next Attack card you play deals !M! times its damage. NL Move to back."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeAru": {
     "NAME": "Tactical Challenge - Aru",
-    "DESCRIPTION": "Deal !D! damage. NL Increase damage by !M! for each *Tactical Challenge card played this combat."
+    "DESCRIPTION": "Deal !D! damage. NL Increase damage by !M! for each *Tactical *Challenge card played this combat."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeMutsuki": {
     "NAME": "Tactical Challenge - Mutsuki",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Reduce cost by 1 for each *Tactical Challenge card played this combat."
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Reduce cost by 1 for each *Tactical *Challenge card played this combat."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeKayoko": {
     "NAME": "Tactical Challenge - Kayoko",
-    "DESCRIPTION": "Draw !M! cards. NL Draw an additional card for every !BlueArchive_ProblemSolver:M! *Tactical Challenge cards played this combat."
+    "DESCRIPTION": "Draw !M! cards. NL Draw an additional card for every !BlueArchive_ProblemSolver:M! *Tactical *Challenge cards played this combat."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeHaruka": {
     "NAME": "Tactical Challenge - Haruka",
-    "DESCRIPTION": "Gain !B! Block. NL Increase Block by !M! for each *Tactical Challenge card played this combat."
+    "DESCRIPTION": "Gain !B! Block. NL Increase Block by !M! for each *Tactical *Challenge card played this combat."
   },
   "BlueArchive_ProblemSolver:MutsukiMine": {
     "NAME": "Ankle Mine",
-    "DESCRIPTION": "Unplayable. Retain. NL When discarded, triggers the BlueArchive_ProblemSolver:Mine effect. NL BlueArchive_ProblemSolver:Mine: A random enemy loses !M! HP. NL Exhaust.",
+    "DESCRIPTION": "Unplayable. Retain. NL When discarded, triggers the BlueArchive_ProblemSolver:Mine effect. NL BlueArchive_ProblemSolver:Mine: A random enemy loses !M! HP. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Cannot be used."
     ]
@@ -462,8 +469,8 @@
     ]
   },
   "BlueArchive_ProblemSolver:TacticalChallengePS68": {
-    "NAME": "Tactical Challenge - Problem Solver 68",
-    "DESCRIPTION": "Add !M! random *Tactical Challenge cards to your hand. NL They cost 0 this turn. NL Exhaust."
+    "NAME": "Tactical *Challenge - Problem Solver 68",
+    "DESCRIPTION": "Add !M! random *Tactical *Challenge cards to your hand. NL They cost 0 this turn. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:TroubleMaker": {
     "NAME": "Troublemaker",
@@ -471,7 +478,7 @@
   },
   "BlueArchive_ProblemSolver:StaringContest": {
     "NAME": "Staring Contest",
-    "DESCRIPTION": "Apply !M! Weak and Vulnerable to both you and the enemy. NL Move to the back. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Weak and Vulnerable to both you and the enemy. NL Move to back. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:PokerFace": {
     "NAME": "Poker Face",
@@ -482,10 +489,10 @@
   },
   "BlueArchive_ProblemSolver:MaginotLine": {
     "NAME": "Maginot Line",
-    "DESCRIPTION": "Gain !B! Block. NL Gain temporary HP equal to !M! times the number of negative effects applied to ALL characters. NL Exhaust.",
+    "DESCRIPTION": "Gain !B! Block. NL Gain temporary_hp equal to !M! times the number of negative effects applied to ALL characters. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gain ",
-      " temporary HP.)"
+      " temporary_hp.)"
     ]
   },
   "BlueArchive_ProblemSolver:ShockAndAwe": {
@@ -502,7 +509,7 @@
   },
   "BlueArchive_ProblemSolver:DeepClean": {
     "NAME": "Deep Clean",
-    "DESCRIPTION": "Deal !D! damage. NL *Aru: Deal damage to ALL enemies. NL *Mutsuki: Split the damage into !M! hits.",
+    "DESCRIPTION": "Deal !D! damage. NL *Aru *Use: Deal damage to ALL enemies. NL *Mutsuki *Use: Split the damage into !M! times.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage to ALL enemies.",
       "Deal !D! damage !M! times."
@@ -510,15 +517,15 @@
   },
   "BlueArchive_ProblemSolver:FixerForm": {
     "NAME": "Fixer's Form",
-    "DESCRIPTION": "At the start of your turn, *Aru gains [E], *Kayoko draws !M! cards, *Mutsuki gains !BlueArchive_ProblemSolver:M! Strength, and *Haruka gains !BlueArchive_ProblemSolver:M2! Dexterity.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, *Aru gains [E] [E], *Kayoko draws !M! cards, *Mutsuki gains !BlueArchive_ProblemSolver:M! Strength, and *Haruka gains !BlueArchive_ProblemSolver:M2! Dexterity.",
+    "DESCRIPTION": "At the start of your turn, *Aru gains [E] NL *Kayoko draws !M! card NL *Mutsuki gains !BlueArchive_ProblemSolver:M! Strength NL *Haruka gains !BlueArchive_ProblemSolver:M2! Dexterity",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, *Aru gains [E] [E]  NL *Kayoko draws !M! cards NL *Mutsuki gains !BlueArchive_ProblemSolver:M! Strength NL *Haruka gains !BlueArchive_ProblemSolver:M2! Dexterity",
     "EXTENDED_DESCRIPTION": [
       "BlueArchive_ProblemSolver:__fixerform__"
     ]
   },
   "BlueArchive_ProblemSolver:AttractAttention": {
     "NAME": "Draw Attention",
-    "DESCRIPTION": "Gain !M! Metallicize. NL Automatically move to the front at the end of each turn."
+    "DESCRIPTION": "Gain !M! BlueArchive_ProblemSolver:Metallicize. NL Automatically move to front at the end of each turn."
   },
   "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
     "NAME": "Suspicious Rumor",
@@ -529,8 +536,8 @@
     ]
   },
   "BlueArchive_ProblemSolver:Omamoribond": {
-    "NAME": "A Bond of Gratitude",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Draw !BlueArchive_ProblemSolver:M! cards whenever an ally applies !M! negative effects to anyone."
+    "NAME": "Omamori Bond",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Draw !BlueArchive_ProblemSolver:M! cards whenever an ally applies !M! Debuffs to anyone."
   },
   "BlueArchive_ProblemSolver:KayokoKick": {
     "NAME": "Weapon Disarm",
@@ -546,7 +553,7 @@
   },
   "BlueArchive_ProblemSolver:SiphonSoul": {
     "NAME": "Soul Siphon",
-    "DESCRIPTION": "Deal !D! damage to an enemy or ally. NL If this attack kills the target, gain !M! temporary HP and !BlueArchive_ProblemSolver:M! Strength.",
+    "DESCRIPTION": "Deal !D! damage to an enemy or ally. NL If this attack kills the target, gain !M! temporary_hp and !BlueArchive_ProblemSolver:M! Strength.",
     "EXTENDED_DESCRIPTION": [
       "Cannot be used on yourself."
     ]
@@ -576,7 +583,7 @@
   },
   "BlueArchive_ProblemSolver:Retribution": {
     "NAME": "Retribution",
-    "DESCRIPTION": "Deal damage equal to the total amount of temporary HP or Block used for defense by allies in this combat.",
+    "DESCRIPTION": "Deal damage equal to the total amount of temporary_hp or Block used for defense by allies in this combat.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -601,7 +608,7 @@
   },
   "BlueArchive_ProblemSolver:Obstinate": {
     "NAME": "Stubbornness",
-    "DESCRIPTION": "Transfer your current Block to a selected ally. NL The selected ally gains !B! Block and moves to the front."
+    "DESCRIPTION": "Transfer your current Block to a selected ally. NL The selected ally gains !B! Block and moves to front."
   },
   "BlueArchive_ProblemSolver:WarningShot": {
     "NAME": "Warning Shot",
@@ -622,7 +629,7 @@
   },
   "BlueArchive_ProblemSolver:ShadowShot": {
     "NAME": "Shadow Shot",
-    "DESCRIPTION": "Deal !M! damage for each non-Curse, non-Status card in your hand.",
+    "DESCRIPTION": "Deal !M! damage for each non Curse, non Status card in your hand.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -637,7 +644,7 @@
   },
   "BlueArchive_ProblemSolver:PartyPistol": {
     "NAME": "Surprise Pistol",
-    "DESCRIPTION": "Retain. NL Deal !D! damage. NL If discarded, draw !M! cards."
+    "DESCRIPTION": "Retain. NL Deal !D! damage. NL if this card is discarded from your hand, draw !M! card."
   },
   "BlueArchive_ProblemSolver:HiddenPast": {
     "NAME": "Hidden Past",
@@ -645,11 +652,11 @@
   },
   "BlueArchive_ProblemSolver:DiligentPast": {
     "NAME": "Diligent Past",
-    "DESCRIPTION": "Gain temporary Strength equal to !M! whenever another character plays a card."
+    "DESCRIPTION": "The first attack card you play each turn is played twice, then move to back."
   },
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "Joyful Past",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever a card is discarded or Exhausted, ALL allies gain !M! Block."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever a card is discarded or Exhausted, the front ally gains !M! Block."
   },
   "BlueArchive_ProblemSolver:DestinyDraw": {
     "NAME": "Destiny Draw",
@@ -675,7 +682,7 @@
   },
   "BlueArchive_ProblemSolver:Shift": {
     "NAME": "Shift",
-    "DESCRIPTION": "Retain. NL The chosen ally gains !B! Block and moves to the front. NL Exhaust."
+    "DESCRIPTION": "Retain. NL The chosen ally gains !B! Block and moves to front. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:TheGravityofaBoss": {
     "NAME": "The Boss’s Gravity",
@@ -688,7 +695,12 @@
   },
   "BlueArchive_ProblemSolver:Lure": {
     "NAME": "Lure",
-    "DESCRIPTION": "Discard 1 card. NL The chosen ally moves to the front.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Discard 1 card. NL The chosen ally moves to the front."
+    "DESCRIPTION": "Discard 1 card. NL The chosen ally moves to front.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Discard 1 card. NL The chosen ally moves to front."
+  },
+  "BlueArchive_ProblemSolver:ImmortalMercenary": {
+    "NAME": "Immortal Mercenary",
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL When this BlueArchive_ProblemSolver:Mercenary dies, add a cost 0 *Immortal* *Mercenary* card to the discard pile."
   }
+}
 }

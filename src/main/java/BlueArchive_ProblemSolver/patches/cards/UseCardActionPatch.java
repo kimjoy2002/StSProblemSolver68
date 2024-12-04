@@ -6,6 +6,7 @@ import BlueArchive_ProblemSolver.actions.DelayAction;
 import BlueArchive_ProblemSolver.cards.EvilDeedsCard;
 import BlueArchive_ProblemSolver.cards.ProblemSolverDefend;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -31,6 +32,7 @@ public class UseCardActionPatch {
     public static class AbstractCardField
     {
         public static SpireField<AbstractPlayer> castPlayer = new SpireField<>(() -> null);
+        public static SpireField<Boolean> castAfterMoveBack = new SpireField<>(() -> false);
     }
 
     @SpirePatch(
@@ -137,6 +139,14 @@ public class UseCardActionPatch {
         public static void Postfix(UseCardAction __instance)
         {
             if(__instance.isDone) {
+                if(AbstractDungeon.player instanceof ProblemSolver68) {
+                    AbstractCard targetCard =  ReflectionHacks.getPrivate(__instance, UseCardAction.class, "targetCard");
+                    Boolean castAfterMoveBack_ = AbstractCardField.castAfterMoveBack.get(targetCard);
+                    if(castAfterMoveBack_ != null && castAfterMoveBack_) {
+                        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(AbstractDungeon.player, false, true, false));
+                    }
+                }
+
                 if (AbstractDungeon.actionManager.cardQueue.isEmpty()) {
                     if (originCharacter != null) {
                         AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(originCharacter, false, true));

@@ -2,6 +2,7 @@ package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.ApplyPowerToAllAllyAction;
+import BlueArchive_ProblemSolver.patches.cards.UseCardActionPatch;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,18 +14,21 @@ import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
-public class DiligentPastPower extends AbstractPower implements ForSubPower, CloneablePowerInterface {
+public class DiligentPastPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = DefaultMod.makeID("DiligentPastPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -32,6 +36,7 @@ public class DiligentPastPower extends AbstractPower implements ForSubPower, Clo
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DiligentPastPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DiligentPastPower32.png"));
 
+    private int cardsDoubledThisTurn = 0;
     public DiligentPastPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
@@ -49,20 +54,53 @@ public class DiligentPastPower extends AbstractPower implements ForSubPower, Clo
         updateDescription();
     }
 
-    // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
-    @Override
+
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        if (this.amount == 1) {
+            this.description = DESCRIPTIONS[0];
+        } else {
+            this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+        }
+
     }
 
+    public void atStartOfTurn() {
+        this.cardsDoubledThisTurn = 0;
+    }
 
-    @Override
-    public void onUseCardForSub(AbstractCard card, UseCardAction action) {
-        if(AbstractDungeon.player != owner) {
-            this.flash();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, amount), amount));
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        int attack_count = 0;
+        for(AbstractCard card_ : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
+            if(card_.type == AbstractCard.CardType.ATTACK) {
+                attack_count++;
+            }
         }
+
+
+        if (!card.purgeOnUse && this.amount > 0 && attack_count - this.cardsDoubledThisTurn <= this.amount) {
+            ++this.cardsDoubledThisTurn;
+            this.flash();
+            AbstractMonster m = null;
+            if (action.target != null) {
+                m = (AbstractMonster)action.target;
+            }
+
+            AbstractCard tmp = card.makeSameInstanceOf();
+            UseCardActionPatch.AbstractCardField.castAfterMoveBack.set(tmp, true);
+            AbstractDungeon.player.limbo.addToBottom(tmp);
+            tmp.current_x = card.current_x;
+            tmp.current_y = card.current_y;
+            tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+            tmp.target_y = (float)Settings.HEIGHT / 2.0F;
+            if (m != null) {
+                tmp.calculateCardDamage(m);
+            }
+
+            tmp.purgeOnUse = true;
+            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+
+        }
+
     }
     @Override
     public AbstractPower makeCopy() {

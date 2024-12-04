@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 선택한 BlueArchive_ProblemSolver:흥신소 캐릭터의 카드를 뽑습니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 선택한 BlueArchive_ProblemSolver:흥신소 카드를 뽑습니다."
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "흥신소 바리케이트",
@@ -190,7 +190,7 @@
   },
   "BlueArchive_ProblemSolver:RecklessBehavior": {
     "NAME": "폭주하는 행동",
-    "DESCRIPTION": "카드를 전부 버립니다. NL 방어도를 !B! 만큼 X 번 얻습니다."
+    "DESCRIPTION": "모든 아군이 방어도를 !B! 얻습니다. 모든 아군이 한 턴간 다음 턴 시작시에도 방어도가 사라지지 않습니다."
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "도발",
@@ -653,11 +653,11 @@
   },
   "BlueArchive_ProblemSolver:DiligentPast": {
     "NAME": "성실한 과거",
-    "DESCRIPTION": "다른 캐릭터가 카드를 사용할 때마다 임시로 힘을 !M! 얻습니다."
+    "DESCRIPTION": "매 턴 처음으로 사용하는 공격 카드가 !M! 번 사용되고, 그 후 후열로 이동합니다."
   },
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "즐거운 과거",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 카드가 버려지거나 소멸할때마다 모든 아군이 방어도를 !M! 얻습니다."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 카드가 버려지거나 소멸할때마다 전열에 있는 아군이 방어도를 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:DestinyDraw": {
     "NAME": "데스티니 드로우",
@@ -698,5 +698,9 @@
     "NAME": "유인",
     "DESCRIPTION": "카드를 1 장 버립니다. NL 선택한 아군이 전열로 이동합니다.",
     "UPGRADE_DESCRIPTION": "보존. NL 카드를 1 장 버립니다. NL 선택한 아군이 전열로 이동합니다."
+  },
+  "BlueArchive_ProblemSolver:ImmortalMercenary": {
+    "NAME": "불사의 용병",
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 전열에 소환합니다. NL 이 BlueArchive_ProblemSolver:용병은 죽을때 버린 카드 더미에 비용 0의 *불사의 *용병 카드를 넣습니다."
   }
 }

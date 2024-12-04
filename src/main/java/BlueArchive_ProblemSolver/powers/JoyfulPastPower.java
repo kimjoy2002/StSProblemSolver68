@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.powers;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.actions.GainBlockToAllAllyAction;
+import BlueArchive_ProblemSolver.actions.GainBlockToFrontAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
@@ -62,10 +63,10 @@ public class JoyfulPastPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void onManualDiscard() {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockToAllAllyAction(amount));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockToFrontAction(amount));
     }
     public void onExhaust(AbstractCard card) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockToAllAllyAction(amount));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockToFrontAction(amount));
     }
 
 

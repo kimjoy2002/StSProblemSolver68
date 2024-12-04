@@ -205,14 +205,15 @@
   "BlueArchive_ProblemSolver:DiligentPastPower": {
     "NAME": "성실한 과거",
     "DESCRIPTIONS": [
-      "다른 캐릭터가 카드를 사용할 때마다 #y임시 #y힘을 #b",
-      " 얻습니다."
+      "매 턴 처음 사용하는 공격 카드가 두 번 사용되고 그 후 후열로 이동합니다.",
+      "매 턴 처음 사용하는 #b",
+      " 장의 공격 카드가 두 번 사용되고 그 후 후열로 이동합니다."
     ]
   },
   "BlueArchive_ProblemSolver:JoyfulPastPower": {
     "NAME": "즐거운 과거",
     "DESCRIPTIONS": [
-      "#g공유 NL 카드가 버려지거나 소멸할때마다 모든 아군이 방어도를 #b",
+      "#g공유 NL 카드가 버려지거나 소멸할때마다 전열의 아군이 방어도를 #b",
       " 얻습니다."
     ]
   },
@@ -243,6 +244,12 @@
     "DESCRIPTIONS": [
       "후열로 이동할 때마다 #y임시 #y체력을 #b",
       " 얻습니다."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ImmotalPower": {
+    "NAME": "불사",
+    "DESCRIPTIONS": [
+      "죽으면 버린 카드 더미에 비용이 #b0 인 #y불사의 #y용병 카드를 넣습니다."
     ]
   }
 }

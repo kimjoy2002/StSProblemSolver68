@@ -5,38 +5,38 @@
       "[Continue] #rALL #rcharacters #rlose #r2 #rHP.",
       "[Continue] #rALL #rcharacters #rlose #r3 #rHP.",
       "[Stop] #rALL #rcharacters #rlose #r3 #rHP.",
-      "[Take it] #gGain #gthe #gbook. #rALL #rcharacters #rlose #r"
+      "[Take] #gGain #gthe #gbook. #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:KnowingSkull": {
     "OPTIONS": [
-      "[Knowledge?] #gReveal #gthe #gboss. #rALL #rcharacters #rlose #r",
-      "[Success?] #gObtain #ga #gcolorless #gcard. #rALL #rcharacters #rlose #r",
-      "[Stimulant?] #gObtain #ga #gpotion. #rALL #rcharacters #rlose #r",
-      " #glose #gHP. #rALL #rcharacters #rlose #r",
+      "[Information?] #gReveal #gthe #gBoss. #rALL #rcharacters #rlose #r",
+      "[Success?] #gGet #ga #gColorless #gCard. #rALL #rcharacters #rlose #r",
+      "[A Pick Me Up?] #gGet #ga #gPotion. #rALL #rcharacters #rlose #r",
+      " #gGold. #rALL #rcharacters #rlose #r",
       "[How do I leave?] #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:Nest": {
     "OPTIONS": [
-      "[Stand in line] Gain the Ritual Dagger #gcard. ALL #rcharacters #rlose #r"
+      "[Stay in line] #gObtain Ritual Dagger. ALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:ScrapOoze": {
     "OPTIONS": [
-      "[Reach in and search] #rALL #rcharacters #rlose #r",
-      "[Search deeper] #rALL #rcharacters #rlose #r"
+      "[Reach Inside] #rALL #rcharacters #rlose #r",
+      "[Deeper] #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:GoopPuddle": {
     "OPTIONS": [
-      " #gGain something. #rALL #rcharacters #rlose #r"
+      " #gGold. #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:SensoryStone": {
     "OPTIONS": [
-      "[Recall] #gGain #g2 #gcolorless #gcard #grewards. #rALL #rcharacters #rlose #r",
-      "[Recall] #gGain #g3 #gcolorless #gcard #grewards. #rALL #rcharacters #rlose #r"
+      "[Recall] #gAdd #g2 #gColorless #gcards #gto #gyour #gdeck. #rALL #rcharacters #rlose #r",
+      "[Recall] #gAdd #g3 #gColorless #gcards #gto #gyour #gdeck. #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:WingStatue": {
@@ -46,35 +46,35 @@
   },
   "BlueArchive_ProblemSolver:Ghosts": {
     "OPTIONS": [
-      "[Accept] Gain #g3 #gApparition #gcards. #rALL #rcharacters #rlose #rhalf #rof #rtheir #rmax #rHP.",
-      "[Accept] Gain #g5 #gApparition #gcards. #rALL #rcharacters #rlose #rhalf #rof #rtheir #rmax #rHP."
+      "[Accept] #gReceive #g3 Apparition. #rALL #rcharacters #rlose #rhalf #rof #rMax #rHP.",
+      "[Accept] #gReceive #g5 Apparition. #rALL #rcharacters #rlose #rhalf #rof #rMax #rHP."
     ]
   },
   "BlueArchive_ProblemSolver:Vampires": {
     "OPTIONS": [
-      "[Accept] #gRemove #gall #gStrike #gcards. Gain #g5 #gBite #gcards. #rALL #rcharacters #rlose #r30% #rof #rtheir #rmax #rHP."
+      "[Accept] #gRemove #gall Strikes. #gReceive #g5 Bites. #rALL #rcharacters #rlose #r30% #rof #rMax #rHP."
     ]
   },
   "BlueArchive_ProblemSolver:BigFish": {
     "OPTIONS": [
-      "[Banana] #gALL #gcharacters #gheal #g",
-      "[Donut] #gALL #gcharacters' #gmax #gHP #gincreases #gby "
+      "[Banana] #gALL #gcharacters #gHeal #g",
+      "[Donut] #gALL #gcharacters' #gMax #gHP #g+"
     ]
   },
   "BlueArchive_ProblemSolver:Cleric": {
     "OPTIONS": [
-      "[Heal] #y35 #ygold #y: #gHeal #gall #gHP #gby #g"
+      "[Heal] #y35 #yGold: #gHeal #gall #gby #g"
     ]
   },
   "BlueArchive_ProblemSolver:GoldenIdol": {
     "OPTIONS": [
-      "[Break it] #rALL #rcharacters #rtake #rdamage #rof #r",
-      "[Hide] #rALL #rcharacters #rlose #r10% #rof #rmax #rHP."
+      "[Smash] #rALL #rcharacters #rTake #r",
+      "[Hide] #rALL #rcharacters #rlose #r10% #rof #rMax #rHP."
     ]
   },
   "BlueArchive_ProblemSolver:Mushrooms": {
     "OPTIONS": [
-      "[Feast] #gALL #gcharacters #gheal #g"
+      "[Eat] #gHeal #gall #g"
     ]
   },
   "BlueArchive_ProblemSolver:ShiningLight": {
@@ -84,61 +84,61 @@
   },
   "BlueArchive_ProblemSolver:Designer": {
     "OPTIONS": [
-      "[Hit them] #rALL #rcharacters #r",
-      " #rlose #rHP."
+      "[Punch] #rALL #rcharacters #rlose #r",
+      " #rHP."
     ]
   },
   "BlueArchive_ProblemSolver:FaceTrader": {
     "OPTIONS": [
-      "[Touch it] #rALL #rcharacters #rlose #r"
+      "[Touch] #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:GremlinWheelGame": {
     "OPTIONS": [
-      "[Reward!] #gALL #gcharacters #gheal #gto #gfull #gHP.",
-      "[Reward?] #rALL #rcharacters #rlose #r"
+      "[Prize!] #gALL #gcharacters #gheal #gto #gfull #gHP.",
+      "[Prize?] #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:WomanInBlue": {
     "OPTIONS": [
-      "[Leave] #rALL #rcharacters #rlose #r"
+      "[Leave] #rALL #rcharacters #rtake #r"
     ]
   },
   "BlueArchive_ProblemSolver:ForgottenAltar": {
     "OPTIONS": [
-      "[Sacrifice] #gIncrease #gALL #gcharacters' #gmax #gHP #gby ",
-      " Gain #rALL #rcharacters #rlose #r",
+      "[Sacrifice] #gALL #gcharacters' #gain #g",
+      " #gMax #gHP. #rALL #rcharacters #rlose #r",
       " #rHP."
     ]
   },
   "BlueArchive_ProblemSolver:TheLibrary": {
     "OPTIONS": [
-      "[Rest] #gALL #gcharacters #gheal #g"
+      "[Rest] #gheal #gall #g"
     ]
   },
   "BlueArchive_ProblemSolver:MindBloom": {
     "OPTIONS": [
-      "[I feel healthy] #gALL #gcharacters #gheal #gto #gfull #gHP. #rGain #ra #rCurse: #rDecay."
+      "[I am Healthy] #gALL #gcharacters #gHeal #gto #gfull #gHP. #rCursed #r- #rDoubt."
     ]
   },
   "BlueArchive_ProblemSolver:MoaiHead": {
     "OPTIONS": [
-      "[Enter] ALL characters #gheal #gto #gfull. #rLose #r",
-      " #rmax #rHP."
+      "[Enter] ALL characters #gHeal #gto #gfull #gHP. #rLose #r",
+      " #rMax #rHP."
     ]
   },
   "BlueArchive_ProblemSolver:WindingHalls": {
     "OPTIONS": [
-      "[Embrace Madness] Gain #g2 #gMadness #gcards. #rALL #rcharacters #rlose #r",
-      "[Focus] #rGain #ra #rCurse: #rWrithing. #gALL #gcharacters #gheal #g",
-      "[Backtrack] #rALL #rcharacters #rlose #r"
+      "[Embrace Madness] #gReceive #g2 Madness. #rALL #rcharacters #rlose #r",
+      "[Focus] #rBecome #rCursed #r- #rWrithe. #gHeal #gall #g",
+      "[Retrace Your Steps] #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:BonfireElementals": {
     "OPTIONS": [
-      "The flames burn a bit brighter. NL The elementals continue dancing, filling you with warmth. NL ALL characters heal #b3 #gHP.",
-      "The flames flare up! NL The elementals surround you, dancing energetically as you are filled with ~warmth.~ NL ALL characters heal to full HP.",
-      "The fire burns @twice@ @as@ @bright@ and @erupts!@ NL The elementals' dance overwhelms you, and then they ~merge~ ~into~ ~your~ ~body,~ filling you with strength and warmth. NL ALL characters' max HP increases by #b5 and fully heal."
+      "The flames grow slightly brighter. NL The spirits continue dancing. You feel slightly warmer from their presence.. NL  ALL characters heal #b3 HP.",
+      "The flames erupt, growing significantly stronger! NL The spirits dance around you excitedly, filling you with a ~sense~ ~of~ ~warmth.~ NL ALL characters heal to full HP.",
+      "The flames @burst,@ nearly knocking you off your feet, as the fire @doubles@ in strength. NL The spirits dance around you excitedly before ~merging~ ~into~ ~your~ ~form,~ filling you with warmth and strength. NL ALL characters Max HP increases by #b5 and #ghealed to full HP."
     ]
   }
 }

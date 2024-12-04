@@ -204,8 +204,9 @@
   "BlueArchive_ProblemSolver:DiligentPastPower": {
     "NAME": "Diligent Past",
     "DESCRIPTIONS": [
-      "Gain #yTemporary Strength by #b",
-      " whenever another ally plays a card."
+      "The first attack card you play each turn is played twice, then move to back",
+      "The first #b",
+      " attack cards you play each turn are played twice, then move to back"
     ]
   },
   "BlueArchive_ProblemSolver:JoyfulPastPower": {
@@ -242,6 +243,12 @@
     "DESCRIPTIONS": [
       "Gain #yTemporary HP by #b",
       " each time you move to the back."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ImmotalPower": {
+    "NAME": "Immortality",
+    "DESCRIPTIONS": [
+      "Upon death, add a cost #b0 #yImmortal #yMercenary card to the discard pile."
     ]
   }
 }

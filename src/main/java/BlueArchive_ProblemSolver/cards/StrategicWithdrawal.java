@@ -25,7 +25,7 @@ public class StrategicWithdrawal extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int MAGIC = 7;
+    private static final int MAGIC = 9;
     private static final int UPGRADE_PLUS_MAGIC = 3;
 
 

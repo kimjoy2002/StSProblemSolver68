@@ -82,6 +82,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
 
     int myCount = 0;
     static int HelmatNum = 0;
+    static int ImmortalNum = 0;
     static int RabuNum = 0;
     static int SaoriNum = 0;
     static int CatNum = 0;
@@ -148,6 +149,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA;
             case "Helmet Gang":
                 return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HELMETGANG;
+            case "Immortal Mercenary":
+                return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_IMMOTALGANG;
             case "Rabu":
                 return Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_RABU;
             case "Saori":
@@ -178,6 +181,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 return "Haruka";
             case PROBLEM_SOLVER_68_HELMETGANG:
                 return "Helmet Gang";
+            case PROBLEM_SOLVER_68_IMMOTALGANG:
+                return "Immortal Mercenary";
             case PROBLEM_SOLVER_68_RABU:
                 return "Rabu";
             case PROBLEM_SOLVER_68_SAORI:
@@ -218,6 +223,10 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 p.myCount = HelmatNum;
                 HelmatNum++;
                 break;
+            case PROBLEM_SOLVER_68_IMMOTALGANG:
+                p.myCount = ImmortalNum;
+                ImmortalNum ++;
+                break;
             case PROBLEM_SOLVER_68_RABU:
                 p.myCount = RabuNum;
                 RabuNum++;
@@ -250,6 +259,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 return characterStrings.TEXT[4];
             case PROBLEM_SOLVER_68_HELMETGANG:
                 return characterStrings.TEXT[5] + HelmatNum;
+            case PROBLEM_SOLVER_68_IMMOTALGANG:
+                return characterStrings.TEXT[10] + ImmortalNum;
             case PROBLEM_SOLVER_68_RABU:
                 return characterStrings.TEXT[6] + (RabuNum==1?"":RabuNum);
             case PROBLEM_SOLVER_68_SAORI:
@@ -879,6 +890,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         dyingPlayer.clear();
         changeCurrentPlayer(problemSolverPlayer.get(problemSolverPlayer.size() - 1));
         HelmatNum = 0;
+        ImmortalNum = 0;
         RabuNum = 0;
         SaoriNum = 0;
         CatNum = 0;

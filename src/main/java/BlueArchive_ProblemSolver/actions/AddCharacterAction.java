@@ -1,8 +1,10 @@
 package BlueArchive_ProblemSolver.actions;
 
 import BlueArchive_ProblemSolver.cards.HireHelmetLeader;
+import BlueArchive_ProblemSolver.cards.ImmortalMercenary;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.powers.ImmotalPower;
 import BlueArchive_ProblemSolver.powers.PerfectPresidentsIntegiblePower;
 import BlueArchive_ProblemSolver.powers.PerfectPresidentsStrPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -53,7 +55,13 @@ public class AddCharacterAction extends AbstractGameAction {
                 //this.addToBot(new ApplyPowerAction(p, p, new CannotAttackedPower(p)));
             } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HELMETGANG) {
                 this.addToBot(new ChangeCharacterAction(p, false, true, true));
-            } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_DEFECT || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_WATCHER || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_IRONCLAD || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_SILENT) {
+            } else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_IMMOTALGANG) {
+                this.addToBot(new ChangeCharacterAction(p, false, true, true));
+                ImmortalMercenary card_ = new ImmortalMercenary();
+                card_.modifyCostForCombat(0);
+                this.addToBot(new ApplyPowerAction(p, p, new ImmotalPower(p,card_)));
+            }
+            else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_DEFECT || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_WATCHER || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_IRONCLAD || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_SILENT) {
                 this.addToBot(new ChangeCharacterAction(p, false, true, true));
             }
             for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {

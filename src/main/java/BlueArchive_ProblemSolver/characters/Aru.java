@@ -49,6 +49,7 @@ public class Aru extends ProblemSolver68 {
         PROBLEM_SOLVER_68_KAYOKO,
         PROBLEM_SOLVER_68_HARUKA,
         PROBLEM_SOLVER_68_HELMETGANG,
+        PROBLEM_SOLVER_68_IMMOTALGANG,
         PROBLEM_SOLVER_68_RABU,
         PROBLEM_SOLVER_68_SAORI,
         PROBLEM_SOLVER_68_CAT,
@@ -410,6 +411,7 @@ public class Aru extends ProblemSolver68 {
                 scale_ = 0.75f;
                 break;
             case PROBLEM_SOLVER_68_HELMETGANG:
+            case PROBLEM_SOLVER_68_IMMOTALGANG:
                 atlas = HELMETGANG_SKELETON_ATLAS;
                 json = HELMETGANG_SKELETON_JSON;
                 break;
