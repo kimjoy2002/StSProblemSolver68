@@ -1,0 +1,247 @@
+{
+  "BlueArchive_ProblemSolver:ChangeWhenHitPower": {
+    "NAME": "Problem Solver Barricade",
+    "DESCRIPTIONS": [
+      "Each time a character is attacked this turn, the target switches to a different ally."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FearPower": {
+    "NAME": "Fear",
+    "DESCRIPTIONS": [
+      "If HP drops below #r",
+      ", the enemy will flee."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ImpPower": {
+    "NAME": "Cute Imp",
+    "DESCRIPTIONS": [
+      "The next attack card this turn deals #g",
+      " additional damage. At the start of the turn, regain #g",
+      " the damage increase effect by #g",
+      "."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FinishPower": {
+    "NAME": "Finisher",
+    "DESCRIPTIONS": [
+      "At the end of the turn, triggers the following effect: "
+    ]
+  },
+  "BlueArchive_ProblemSolver:CaliforniaGurlsPower": {
+    "NAME": "California Gurls",
+    "DESCRIPTIONS": [
+      "Gain #yStrength and #yDexterity by #g",
+      " at the start of each turn. This effect is lost while in the front."
+    ]
+  },
+  "BlueArchive_ProblemSolver:OutlawsRockPower": {
+    "NAME": "Outlaw’s Rock",
+    "DESCRIPTIONS": [
+      "#gShared NL Each time #yEvil Deeds is triggered, deal #r",
+      " damage to ALL enemies."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FreeCardPower": {
+    "NAME": "Free Play",
+    "DESCRIPTIONS": [
+      "Ignore the energy cost of the next card.",
+      "Ignore the energy cost of the next #b",
+      " cards."
+    ]
+  },
+  "BlueArchive_ProblemSolver:TauntPower": {
+    "NAME": "Taunt",
+    "DESCRIPTIONS": [
+      "Move to the front at the end of each turn."
+    ]
+  },
+  "BlueArchive_ProblemSolver:PerfectPresidentsStrPower": {
+    "NAME": "Mercenary Strength",
+    "DESCRIPTIONS": [
+      "#gShared NL Gain #yStrength by ",
+      " when a #yMercenary is summoned."
+    ]
+  },
+  "BlueArchive_ProblemSolver:PerfectPresidentsIntegiblePower": {
+    "NAME": "Mercenary Intangible",
+    "DESCRIPTIONS": [
+      "#gShared NL Gain #yIntangible by ",
+      " when a #yMercenary is summoned."
+    ]
+  },
+  "BlueArchive_ProblemSolver:OneEvilDeedaDayPower": {
+    "NAME": "One Evil Deed a Day",
+    "DESCRIPTIONS": [
+      "#gShared NL Gain ",
+      "[E] ",
+      " when #yEvil Deeds is triggered for the first time each turn."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ForAruSamaPower": {
+    "NAME": "For Aru-sama",
+    "DESCRIPTIONS": [
+      "When #yStrength is lost, Aru gains an equal amount of #yStrength.",
+      "When #yStrength is lost, Aru gains #g",
+      " times the amount."
+    ]
+  },
+  "BlueArchive_ProblemSolver:RockSpiritPower": {
+    "NAME": "Rock Spirit",
+    "DESCRIPTIONS": [
+      "#gShared NL Apply #b",
+      " #yFear each time unblocked #yAttack damage is dealt."
+    ]
+  },
+  "BlueArchive_ProblemSolver:UnwelcomeSchoolPower": {
+    "NAME": "Unwelcome School",
+    "DESCRIPTIONS": [
+      "Each time you move, automatically play the top #b",
+      " cards from the draw pile."
+    ]
+  },
+  "BlueArchive_ProblemSolver:AllCardPower": {
+    "NAME": "Sharing Equipment",
+    "DESCRIPTIONS": [
+      "All other allies use the next #yAttack or #ySkill card this turn.",
+      "All other allies use the next #b",
+      " #yAttack or #ySkill cards this turn."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FocusonAttackPower": {
+    "NAME": "Ambush",
+    "DESCRIPTIONS": [
+      "Each time you move to the front, deal #r",
+      " damage to ALL enemies and draw #b",
+      " cards."
+    ]
+  },
+  "BlueArchive_ProblemSolver:EntangleTurnPower": {
+    "NAME": "Entangled",
+    "DESCRIPTIONS": [
+      "Cannot play #yAttack cards for #b",
+      " turns."
+    ]
+  },
+  "BlueArchive_ProblemSolver:GloomyPastPower": {
+    "NAME": "Gloomy Past",
+    "DESCRIPTIONS": [
+      "Gain #yTemporary HP by #b",
+      " each time you receive a negative effect."
+    ]
+  },
+  "BlueArchive_ProblemSolver:ReconnaissancePower": {
+    "NAME": "Reconnaissance",
+    "DESCRIPTIONS": [
+      "#gShared NL Shuffle #b",
+      " #yRemote Bomb cards into the draw pile at the end of your turn."
+    ]
+  },
+  "BlueArchive_ProblemSolver:MineExpertPower": {
+    "NAME": "Mine Expert",
+    "DESCRIPTIONS": [
+      "#gShared NL Each time a #yMine triggers, deal #r",
+      " damage to ALL enemies."
+    ]
+  },
+  "BlueArchive_ProblemSolver:TroubleMakerPower": {
+    "NAME": "Trouble Maker",
+    "DESCRIPTIONS": [
+      "#gShared NL Instantly triggers #yMine effects when a #yMine card is drawn or created.",
+      "Triggers #yMine effects #b",
+      " times when a #yMine card is drawn or created."
+    ]
+  },
+  "BlueArchive_ProblemSolver:DexupPower": {
+    "NAME": "Gain Dexterity Each Turn",
+    "DESCRIPTIONS": [
+      "Gain #yDexterity by #b",
+      " at the start of each turn."
+    ]
+  },
+  "BlueArchive_ProblemSolver:StrupPower": {
+    "NAME": "Gain Strength Each Turn",
+    "DESCRIPTIONS": [
+      "Gain #yStrength by #b",
+      " at the start of each turn."
+    ]
+  },
+  "BlueArchive_ProblemSolver:EnergyupPower": {
+    "NAME": "Gain Energy Each Turn",
+    "DESCRIPTIONS": [
+      "Gain ",
+      " at the start of each turn."
+    ]
+  },
+  "BlueArchive_ProblemSolver:OmamoribondPower": {
+    "NAME": "Rewarded Bond",
+    "DESCRIPTIONS": [
+      "#gShared NL Draw #b",
+      " cards whenever a harmful effect is applied #b",
+      " times."
+    ]
+  },
+  "BlueArchive_ProblemSolver:DamageReturnPower": {
+    "NAME": "Who Gave Permission...!?",
+    "DESCRIPTIONS": [
+      "When attacked, deal #r",
+      " damage."
+    ]
+  },
+  "BlueArchive_ProblemSolver:StealthPower": {
+    "NAME": "Infiltration",
+    "DESCRIPTIONS": [
+      "The next attack card deals #g",
+      " times its damage."
+    ]
+  },
+  "BlueArchive_ProblemSolver:HiddenPastPower": {
+    "NAME": "Hidden Past",
+    "DESCRIPTIONS": [
+      "#gShared NL Deal #r",
+      " damage to a random enemy whenever you draw or create a card in hand."
+    ]
+  },
+  "BlueArchive_ProblemSolver:DiligentPastPower": {
+    "NAME": "Diligent Past",
+    "DESCRIPTIONS": [
+      "Gain #yTemporary Strength by #b",
+      " whenever another ally plays a card."
+    ]
+  },
+  "BlueArchive_ProblemSolver:JoyfulPastPower": {
+    "NAME": "Joyful Past",
+    "DESCRIPTIONS": [
+      "#gShared NL Gain #b",
+      " Block whenever a card is discarded or Exhausted."
+    ]
+  },
+  "BlueArchive_ProblemSolver:DestinyDrawPower": {
+    "NAME": "Destiny Draw",
+    "DESCRIPTIONS": [
+      "#gShared NL Once per turn, when your hand is empty, draw #b",
+      " cards and gain [E] equal to their total cost.",
+      " (Used)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:AvatarOfFearPower": {
+    "NAME": "Avatar of Fear",
+    "DESCRIPTIONS": [
+      "#gShared NL Decrease the #yStrength of enemies with attacking intents by the amount of #yFear applied.",
+      "#gShared NL Decrease the #yStrength of enemies with attacking intents by #b",
+      " times the amount of #yFear applied."
+    ]
+  },
+  "BlueArchive_ProblemSolver:OneTurnConfusionPower": {
+    "NAME": "Temporary Confusion",
+    "DESCRIPTIONS": [
+      "Card costs are randomized each time you draw. This lasts until the end of the turn."
+    ]
+  },
+  "BlueArchive_ProblemSolver:RunAwayPower": {
+    "NAME": "Strategic Withdrawal",
+    "DESCRIPTIONS": [
+      "Gain #yTemporary HP by #b",
+      " each time you move to the back."
+    ]
+  }
+}
