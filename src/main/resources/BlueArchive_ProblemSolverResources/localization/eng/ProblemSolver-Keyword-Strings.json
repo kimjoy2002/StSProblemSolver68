@@ -1,0 +1,83 @@
+[
+  {
+    "PROPER_NAME": "Evil Deeds",
+    "NAMES": [
+      "Evil",
+      "Deeds",
+      "EvilDeeds"
+    ],
+    "DESCRIPTION": "Accumulates Evil Deeds while in hand when other cards are played. Requires X Evil Deeds to activate its effect."
+  },
+  {
+    "PROPER_NAME": "Imp",
+    "NAMES": [
+      "Imp"
+    ],
+    "DESCRIPTION": "Increases the damage of attack cards once per turn. Cute Imps are shared across all allies."
+  },
+  {
+    "PROPER_NAME": "Mines",
+    "NAMES": [
+      "Mines"
+    ],
+    "DESCRIPTION": "Triggers when the cards on either side in hand are played."
+  },
+  {
+    "PROPER_NAME": "Fear",
+    "NAMES": [
+      "Fear"
+    ],
+    "DESCRIPTION": "If the #yFear applied to an enemy equals or exceeds their HP, they flee. (You receive rewards as if you won the fight.)"
+  },
+  {
+    "PROPER_NAME": "Problem Solver",
+    "NAMES": [
+      "Problem"
+      "Solver",
+      "ProblemSolver"
+    ],
+    "DESCRIPTION": "Problem Solver characters refer to #yAru, #yMutsuki, #yKayoko, and #yHaruka."
+  },
+  {
+    "PROPER_NAME": "Mercenaries",
+    "NAMES": [
+      "Mercenaries"
+    ],
+    "DESCRIPTION": "Temporary allies that participate in combat. Up to four allied characters can exist."
+  },
+  {
+    "PROPER_NAME": "Finisher",
+    "NAMES": [
+      "Finisher"
+    ],
+    "DESCRIPTION": "#yFinisher effects trigger at the end of the turn. Only the last #yFinisher card played will activate."
+  },
+  {
+    "PROPER_NAME": "Fixer Form",
+    "NAMES": [
+      "__fixerform__"
+    ],
+    "DESCRIPTION": "If no Problem Solver characters are present, gain 2 random effects from the list."
+  },
+  {
+    "PROPER_NAME": "Metallicize",
+    "NAMES": [
+      "Metallicize"
+    ],
+    "DESCRIPTION": "Gain that amount of #yBlock at the end of each turn."
+  },
+  {
+    "PROPER_NAME": "Temporary Confusion",
+    "NAMES": [
+      "Confusion"
+    ],
+    "DESCRIPTION": "Costs of cards drawn are randomized until the end of the turn."
+  },
+  {
+    "PROPER_NAME": "Shared",
+    "NAMES": [
+      "Shared"
+    ],
+    "DESCRIPTION": "This power always applies to the front character and persists even if the front character dies."
+  }
+]
