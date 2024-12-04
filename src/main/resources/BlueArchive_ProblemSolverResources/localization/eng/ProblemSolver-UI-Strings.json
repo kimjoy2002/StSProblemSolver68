@@ -1,0 +1,35 @@
+{
+  "BlueArchive_ProblemSolver:CharSelectAction": {
+    "TEXT": [
+      "Select your starting character.",
+      "Aru",
+      "Mutsuki",
+      "Kayoko",
+      "Haruka",
+      "Mercenary",
+      "Rabu",
+      "Saori",
+      "Cat",
+      "Shared"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ChallengeMode": {
+    "TEXT": [
+      "Start the game with a random combination."
+    ]
+  },
+  "BlueArchive_ProblemSolver:RestOption": {
+    "TEXT": [
+      "Heal 30% of the total Problem Solver's HP, distributed across all characters. (",
+      "Heal 100% of the total Problem Solver's HP. (",
+      "Heal additional HP based on the following effect: "
+    ]
+  },
+  "BlueArchive_ProblemSolver:SideDeck": {
+    "TEXT": [
+      "Select a card to bring from the side deck or a battle reward.",
+      "Add a card to the side deck.",
+      "Cards included in the side deck."
+    ]
+  }
+}
