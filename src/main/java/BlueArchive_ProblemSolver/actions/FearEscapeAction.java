@@ -2,15 +2,21 @@ package BlueArchive_ProblemSolver.actions;
 
 import BlueArchive_ProblemSolver.patches.powers.FearPatch;
 import BlueArchive_ProblemSolver.powers.FearPower;
+import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.ShoutAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
+import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.city.GremlinLeader;
+import com.megacrit.cardcrawl.monsters.city.Mugger;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.MinionPower;
+import com.megacrit.cardcrawl.powers.StasisPower;
+import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 
 import java.util.Iterator;
 
@@ -45,7 +51,7 @@ public class FearEscapeAction extends AbstractGameAction {
                     }
                 }
             }
-            if(m.id == "Darkling") {
+            if(m.id.equals("Darkling")) {
                 m.halfDead = true;
                 all_minion = true;
                 var2 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
@@ -70,6 +76,25 @@ public class FearEscapeAction extends AbstractGameAction {
                         }
                     }
                 }
+            }
+            if(m.id.equals("BlueArchive_Hoshino:Hifumi")) {
+                if(AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().monsters != null) {
+                    for(AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                        AbstractDungeon.actionManager.addToBottom(new SuicideAction(monster, false));
+                    }
+                }
+            }
+            if(m instanceof Mugger) {
+                int stolenGold = ReflectionHacks.getPrivate(m, Mugger.class, "stolenGold");
+                if (stolenGold > 0) {
+                    AbstractDungeon.getCurrRoom().addStolenGoldToRewards(stolenGold);
+                }
+            }
+            if(m.hasPower(StasisPower.POWER_ID)) {
+                ((StasisPower)m.getPower(StasisPower.POWER_ID)).onDeath();
+            }
+            if(m.hasPower( "BlueArchive_Hoshino:PeroroPower")) {
+                m.getPower("BlueArchive_Hoshino:PeroroPower").onDeath();
             }
 
             boolean first = true;

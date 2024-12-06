@@ -350,7 +350,8 @@
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "고양이 간식",
-    "DESCRIPTION": "*고양이 BlueArchive_ProblemSolver:용병이 남아있다면 그 중 하나의 체력을 0으로 만들고 카드를 !M! 장 뽑습니다. NL 소멸."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL BlueArchive_ProblemSolver:용병을 소환하면 이번 턴 동안 이 카드의 비용이 0이 됩니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL BlueArchive_ProblemSolver:용병을 소환하면 이번 턴 동안 이 카드의 비용이 0이 됩니다."
   },
   "BlueArchive_ProblemSolver:SharingWeapon": {
     "NAME": "장비 나누기",

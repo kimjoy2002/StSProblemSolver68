@@ -147,13 +147,13 @@ public class UseCardActionPatch {
                     }
                 }
 
-                if (AbstractDungeon.actionManager.cardQueue.isEmpty()) {
-                    if (originCharacter != null) {
-                        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(originCharacter, false, true));
-                        AbstractDungeon.actionManager.addToBottom(new CleanCharacterAction(true));
-                        originCharacter = null;
-                    }
+                //if (AbstractDungeon.actionManager.cardQueue.isEmpty()) {
+                if (originCharacter != null) {
+                    AbstractDungeon.actionManager.addToTop(new CleanCharacterAction(true));
+                    AbstractDungeon.actionManager.addToTop(new ChangeCharacterAction(originCharacter, false, true));
+                    originCharacter = null;
                 }
+                //}
             }
         }
     }

@@ -23,7 +23,9 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
@@ -38,7 +40,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.helpers.ModHelper;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -49,7 +51,6 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 import java.util.*;
 
@@ -97,6 +98,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     float moving_count = -1;
     static float MOVING_SPEED = 0.5F;
 
+    private float hoverTimer = 0.0F;
+    private Color nameColor = new Color();
+    private Color nameBgColor = new Color(0.0F, 0.0F, 0.0F, 0.0F);
 
     public static Animation<TextureRegion> mutuski_animation;
     public static Animation<TextureRegion> cat_animation;
@@ -495,6 +499,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             p.potions = main.potions;
             p.energy = main.energy;
             p.hoveredCard = main.hoveredCard;
+            p.flipHorizontal = main.flipHorizontal;
             p.toHover = main.toHover;
             p.cardInUse = null; //불필요
             p.movePosition_(last_offset+offset_, p.drawY, false);
@@ -845,6 +850,49 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         super.renderHand(sb);
     }
 
+
+    private void renderName(SpriteBatch sb) {
+        for (ProblemSolver68 p : problemSolverPlayer) {
+                p.renderName_(sb);
+        }
+    }
+
+    private void renderName_(SpriteBatch sb) {
+        if (!this.hb.hovered) {
+            this.hoverTimer = MathHelper.fadeLerpSnap(this.hoverTimer, 0.0F);
+        } else {
+            this.hoverTimer += Gdx.graphics.getDeltaTime();
+        }
+
+        if ((!AbstractDungeon.player.isDraggingCard || AbstractDungeon.player.hoveredCard == null || AbstractDungeon.player.hoveredCard.target == AbstractCard.CardTarget.ENEMY) && !this.isDying) {
+            if (this.hoverTimer != 0.0F) {
+                if (this.hoverTimer * 2.0F > 1.0F) {
+                    this.nameColor.a = 1.0F;
+                } else {
+                    this.nameColor.a = this.hoverTimer * 2.0F;
+                }
+            } else {
+                this.nameColor.a = MathHelper.slowColorLerpSnap(this.nameColor.a, 0.0F);
+            }
+
+            float tmp = Interpolation.exp5Out.apply(0.7F, 1.2F, this.hoverTimer);
+            this.nameColor.r = Interpolation.fade.apply(Color.DARK_GRAY.r, Settings.CREAM_COLOR.r, this.hoverTimer * 10.0F);
+            this.nameColor.g = Interpolation.fade.apply(Color.DARK_GRAY.g, Settings.CREAM_COLOR.g, this.hoverTimer * 3.0F);
+            this.nameColor.b = Interpolation.fade.apply(Color.DARK_GRAY.b, Settings.CREAM_COLOR.b, this.hoverTimer * 3.0F);
+            float y = Interpolation.exp10Out.apply(this.healthHb.cY, this.healthHb.cY - 8.0F * Settings.scale, this.nameColor.a);
+            float x = this.hb.cX - this.animX;
+            this.nameBgColor.a = this.nameColor.a / 2.0F * this.hbAlpha;
+            sb.setColor(this.nameBgColor);
+            TextureAtlas.AtlasRegion img = ImageMaster.MOVE_NAME_BG;
+            sb.draw(img, x - (float)img.packedWidth / 2.0F, y - (float)img.packedHeight / 2.0F, (float)img.packedWidth / 2.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, Settings.scale * tmp, Settings.scale * 2.0F, 0.0F);
+            Color var10000 = this.nameColor;
+            var10000.a *= this.hbAlpha;
+            FontHelper.renderFontCentered(sb, FontHelper.tipHeaderFont, getLocalizedName(solverType), x, y, this.nameColor);
+        }
+
+    }
+
+
     public void onVictory() {
 
         if (!isProblemSolver(solverType)) {
@@ -966,6 +1014,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         else {
             super.render(sb);
         }
+
+        renderName_(sb);
 
 
         if(this == AbstractDungeon.player && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
@@ -1135,9 +1185,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
-    public void applyStartOfTurnPreDrawCards() {
+    public void applyStartOfTurnRelics() {
         AbstractDungeon.actionManager.addToTop(new CleanCharacterAction(true));
-        super.applyStartOfTurnPreDrawCards();
+        super.applyStartOfTurnRelics();
     }
 
     public static boolean isAllDead() {

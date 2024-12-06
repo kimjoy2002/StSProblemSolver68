@@ -66,8 +66,7 @@ public class AvatarOfFearPower extends AbstractPower implements CloneablePowerIn
         if (power instanceof FearPower &&
                 target instanceof AbstractMonster &&
                 ((AbstractMonster)target).getIntentBaseDmg() >= 0 &&
-                power.amount > 0 &&
-                source == this.owner && target != this.owner && !target.hasPower("Artifact")) {
+                power.amount > 0 && !target.hasPower("Artifact")) {
             int value = power.amount;
             this.flash();
             this.addToBot(new ApplyPowerAction(target, source, new StrengthPower(target, -value), -value, true, AbstractGameAction.AttackEffect.NONE));

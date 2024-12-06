@@ -41,7 +41,8 @@
   {
     "PROPER_NAME": "Mercenary",
     "NAMES": [
-      "mercenary"
+      "mercenary",
+      "mercenaries"
     ],
     "DESCRIPTION": "Temporary allies that participate in combat. Up to four allied characters can exist."
   },

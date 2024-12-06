@@ -36,6 +36,9 @@ public class DiligentPastPower extends AbstractPower implements CloneablePowerIn
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DiligentPastPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DiligentPastPower32.png"));
 
+    private static final Texture untex84 = TextureLoader.getTexture(makePowerPath("DiligentPastUsedPower84.png"));
+    private static final Texture untex32 = TextureLoader.getTexture(makePowerPath("DiligentPastUsedPower32.png"));
+
     private int cardsDoubledThisTurn = 0;
     public DiligentPastPower(final AbstractCreature owner, int amount) {
         name = NAME;
@@ -52,6 +55,7 @@ public class DiligentPastPower extends AbstractPower implements CloneablePowerIn
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
+        checkPower();
     }
 
 
@@ -63,22 +67,37 @@ public class DiligentPastPower extends AbstractPower implements CloneablePowerIn
         }
 
     }
+    private void checkPower() {
+        if(this.amount > 0 && this.cardsDoubledThisTurn > 0) {
+            enablePower();
+        } else {
+            disablePower();
+        }
+
+    }
+
+    private void enablePower() {
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        updateDescription();
+    }
+
+    private void disablePower() {
+        this.region128 = new TextureAtlas.AtlasRegion(untex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(untex32, 0, 0, 32, 32);
+        updateDescription();
+    }
+
 
     public void atStartOfTurn() {
-        this.cardsDoubledThisTurn = 0;
+        this.cardsDoubledThisTurn = amount;
+        checkPower();
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        int attack_count = 0;
-        for(AbstractCard card_ : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-            if(card_.type == AbstractCard.CardType.ATTACK) {
-                attack_count++;
-            }
-        }
 
-
-        if (!card.purgeOnUse && this.amount > 0 && attack_count - this.cardsDoubledThisTurn <= this.amount) {
-            ++this.cardsDoubledThisTurn;
+        if (!card.purgeOnUse && card.type == AbstractCard.CardType.ATTACK && this.amount > 0 && this.cardsDoubledThisTurn > 0) {
+            this.cardsDoubledThisTurn--;
             this.flash();
             AbstractMonster m = null;
             if (action.target != null) {
@@ -99,6 +118,7 @@ public class DiligentPastPower extends AbstractPower implements CloneablePowerIn
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
 
+            checkPower();
         }
 
     }

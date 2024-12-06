@@ -56,12 +56,15 @@ public class BurstStrike extends AbstractDynamicCard {
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                             AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         } else {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                            AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             AbstractCard card = makeStatEquivalentCopy();
             if(card instanceof BurstStrike) {
                 ((BurstStrike)card).isCopy = true;
             }
             AbstractDungeon.actionManager.addToBottom(
-                    new AllCardAction(card, m, null));
+                    new AllCardAction(card, m, p));
         }
     }
 

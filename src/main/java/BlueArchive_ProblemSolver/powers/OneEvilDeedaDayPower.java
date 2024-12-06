@@ -33,6 +33,9 @@ public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowe
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("OneEvilDeedaDayPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("OneEvilDeedaDayPower32.png"));
 
+    private static final Texture untex84 = TextureLoader.getTexture(makePowerPath("OneEvilDeedaDayUsedPower84.png"));
+    private static final Texture untex32 = TextureLoader.getTexture(makePowerPath("OneEvilDeedaDayUsedPower32.png"));
+    private boolean disabledUntilEndOfTurn = false;
     public OneEvilDeedaDayPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
@@ -48,6 +51,7 @@ public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowe
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
+        checkPower();
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
@@ -58,13 +62,46 @@ public class OneEvilDeedaDayPower extends AbstractPower implements CloneablePowe
             this.description += DESCRIPTIONS[1];
         }
         this.description += DESCRIPTIONS[2];
+        if(disabledUntilEndOfTurn) {
+            this.description += DESCRIPTIONS[3];
+        }
     }
 
+
+    private void enablePower() {
+        disabledUntilEndOfTurn = false;
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        updateDescription();
+    }
+
+    private void disablePower() {
+        disabledUntilEndOfTurn = true;
+        this.region128 = new TextureAtlas.AtlasRegion(untex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(untex32, 0, 0, 32, 32);
+        updateDescription();
+    }
+
+
+
+    private void checkPower() {
+        if(this.amount > 0 && evildeedThisTurn < 1) {
+            enablePower();
+        } else {
+            disablePower();
+        }
+    }
+
+
+    public void atStartOfTurn() {
+        checkPower();
+    }
     @Override
     public void onEvilDeeds(AbstractCard card) {
         if (this.amount > 0 && evildeedThisTurn <= 1) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(amount));
+            checkPower();
         }
     }
     @Override

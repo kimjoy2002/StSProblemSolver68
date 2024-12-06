@@ -45,6 +45,7 @@ public class FearPower extends AbstractPower implements CloneablePowerInterface,
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("FearPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("FearPower32.png"));
 
+    public boolean already_feared = false;
     public FearPower(final AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
@@ -69,22 +70,27 @@ public class FearPower extends AbstractPower implements CloneablePowerInterface,
     }
 
     public void OnUsePotion(AbstractPotion potion, AbstractCreature target) {
-        AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
+        if(!already_feared)
+            AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
     }
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
+        if(!already_feared)
+            AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
     }
 
     public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
+        if(!already_feared)
+            AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
+        if(!already_feared)
+            AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
     }
     public int onAttacked(DamageInfo info, int damageAmount) {
-        AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
+        if(!already_feared)
+            AbstractDungeon.actionManager.addToBottom(new CheckFearAction(owner));
         return damageAmount;
     }
     @Override

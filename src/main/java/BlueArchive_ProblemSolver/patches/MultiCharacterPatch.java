@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.patches;
 
 import BlueArchive_ProblemSolver.actions.CheckApplyPowerAction;
+import BlueArchive_ProblemSolver.actions.CleanCharacterAction;
 import BlueArchive_ProblemSolver.actions.ImpAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.powers.ImmotalPower;
@@ -12,6 +13,8 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -137,10 +140,20 @@ public class MultiCharacterPatch {
                     p_.onRemove();
                 }
 
+                AbstractPlayer next_ = null;
+                if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+                    next_ = ProblemSolver68.changeToNextCharacter();
+                } else {
+                    next_ = ProblemSolver68.changeToRandomCharacter();
+                }
+
                 ArrayList<AbstractPower> newPowers = new ArrayList<AbstractPower>();
                 for(AbstractPower power_ : __instance.powers) {
                     if(power_ instanceof CloneablePowerInterface && power_ instanceof SharedPower){
                         newPowers.add(((CloneablePowerInterface)power_).makeCopy());
+                    }
+                    else {
+                        SharedPower.moreShared(power_, next_, newPowers);
                     }
                 }
 
@@ -158,12 +171,7 @@ public class MultiCharacterPatch {
                 }
 
                 __instance.powers.clear();
-                AbstractPlayer next_ = null;
-                if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-                    next_ = ProblemSolver68.changeToNextCharacter();
-                } else {
-                    next_ = ProblemSolver68.changeToRandomCharacter();
-                }
+
                 if(next_ != null) {
                     for(AbstractPower power_ : newPowers) {
                         AbstractDungeon.actionManager.addToBottom(new CheckApplyPowerAction(next_, next_, power_));
@@ -330,6 +338,35 @@ public class MultiCharacterPatch {
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractDungeon.class, "player");
                 return LineFinder.findAllInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+    }
+
+
+
+
+
+    @SpirePatch(
+            clz = GameActionManager.class,
+            method = "getNextAction"
+    )
+    public static class getNextActionPatch {
+        @SpireInsertPatch(
+                locator = Locator.class
+
+        )
+        public static void Insert(GameActionManager __instance) {
+            if(AbstractDungeon.player instanceof ProblemSolver68) {
+                if (__instance.monsterQueue.isEmpty()) {
+                    AbstractDungeon.actionManager.addToBottom(new CleanCharacterAction(true));
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.NewExprMatcher(WaitAction.class);
+                return new int[]{LineFinder.findInOrder(ctMethodToPatch, finalMatcher)[0] + 1};
             }
         }
     }

@@ -53,12 +53,12 @@ public class MineChain extends MineCard  {
         if(index_ >= 0 && index_ < AbstractDungeon.player.hand.group.size()) {
             if(index_target_ == -1 || index_target_ > index_) {
                 //오른쪽에 있음
-                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_));
-                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_+1));
+                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeStatEquivalentCopy(), 1, index_));
+                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeStatEquivalentCopy(), 1, index_+1));
             } else {
                 //왼쪽에 있음 (구)
-                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_-1));
-                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeCopy(), 1, index_));
+                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeStatEquivalentCopy(), 1, index_-1));
+                this.addToTop(new MakeTempCardInHandIndexAction(cardsToPreview.makeStatEquivalentCopy(), 1, index_));
             }
         }
         return true;

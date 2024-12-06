@@ -23,7 +23,7 @@ public class AllCardAction extends AbstractGameAction {
     public void update() {
         for(int i = 0; i < ProblemSolver68.problemSolverPlayer.size(); i++) {
             ProblemSolver68 ps = ProblemSolver68.problemSolverPlayer.get(i);
-            if(ps.currentHealth > 0) {
+            if(ps != exclude && ps.currentHealth > 0) {
                 AbstractMonster m = null;
                 if (target != null) {
                     m = (AbstractMonster) target;

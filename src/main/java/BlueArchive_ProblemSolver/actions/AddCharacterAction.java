@@ -1,5 +1,7 @@
 package BlueArchive_ProblemSolver.actions;
 
+import BlueArchive_ProblemSolver.cards.AbstractDynamicCard;
+import BlueArchive_ProblemSolver.cards.CatSnacks;
 import BlueArchive_ProblemSolver.cards.HireHelmetLeader;
 import BlueArchive_ProblemSolver.cards.ImmortalMercenary;
 import BlueArchive_ProblemSolver.characters.Aru;
@@ -9,6 +11,7 @@ import BlueArchive_ProblemSolver.powers.PerfectPresidentsIntegiblePower;
 import BlueArchive_ProblemSolver.powers.PerfectPresidentsStrPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -64,13 +67,32 @@ public class AddCharacterAction extends AbstractGameAction {
             else if (type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_DEFECT || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_WATCHER || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_IRONCLAD || type == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_SILENT) {
                 this.addToBot(new ChangeCharacterAction(p, false, true, true));
             }
-            for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
-                for (AbstractPower power_ : ps.powers) {
-                    if(power_ instanceof PerfectPresidentsStrPower) {
-                        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, power_.amount), power_.amount));
+
+            if (!ProblemSolver68.isProblemSolver(type)) {
+                for(AbstractCard c :  AbstractDungeon.player.drawPile.group) {
+                    if (c instanceof CatSnacks) {
+                        c.setCostForTurn(-999);
                     }
-                    if(power_ instanceof PerfectPresidentsIntegiblePower) {
-                        this.addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, power_.amount), power_.amount));
+                }
+                for(AbstractCard c :  AbstractDungeon.player.hand.group) {
+                    if (c instanceof CatSnacks) {
+                        c.setCostForTurn(-999);
+                    }
+                }
+                for(AbstractCard c :  AbstractDungeon.player.discardPile.group) {
+                    if (c instanceof CatSnacks) {
+                        c.setCostForTurn(-999);
+                    }
+                }
+
+                for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                    for (AbstractPower power_ : ps.powers) {
+                        if(power_ instanceof PerfectPresidentsStrPower) {
+                            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, power_.amount), power_.amount));
+                        }
+                        if(power_ instanceof PerfectPresidentsIntegiblePower) {
+                            this.addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, power_.amount), power_.amount));
+                        }
                     }
                 }
             }

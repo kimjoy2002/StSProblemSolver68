@@ -42,6 +42,9 @@ public class ImpAction extends AbstractGameAction {
                             newPowers.add(((CloneablePowerInterface)power_).makeCopy());
                             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(ps, ps, power_));
                         }
+                        else if(SharedPower.moreShared(power_, AbstractDungeon.player, newPowers)) {
+                            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(ps, ps, power_));
+                        }
                     }
                 }
 

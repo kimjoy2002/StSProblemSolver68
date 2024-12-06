@@ -62,6 +62,28 @@ public class CheckFearAction extends AbstractGameAction {
         }
 
     }
+
+
+
+    public boolean areMonstersBasicallyDead(AbstractCreature exclude) {
+        if(AbstractDungeon.getCurrRoom() == null || AbstractDungeon.getCurrRoom().monsters == null)
+            return false;
+
+        Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+
+        AbstractMonster m;
+        do {
+            if (!var1.hasNext()) {
+                return true;
+            }
+
+            m = (AbstractMonster)var1.next();
+        } while(m == exclude || m.currentHealth <= 0 || m.isDying || m.isEscaping || (m.hasPower(FearPower.POWER_ID) &&
+                owner.getPower(FearPower.POWER_ID).amount >= m.currentHealth));
+
+        return false;
+    }
+
     public void update() {
         if(!owner.hasPower(FearPower.POWER_ID)) {
             this.isDone = true;
@@ -71,6 +93,7 @@ public class CheckFearAction extends AbstractGameAction {
 
         if(!owner.isEscaping && !owner.isDying && owner instanceof AbstractMonster &&
                 amount >= owner.currentHealth) {
+            ((FearPower)owner.getPower(FearPower.POWER_ID)).already_feared = true;
             if(owner instanceof SpireShield || owner instanceof SpireSpear) {
                 loseSurround();
             }
@@ -78,8 +101,20 @@ public class CheckFearAction extends AbstractGameAction {
                 boolean form1 = ReflectionHacks.getPrivate(owner, AwakenedOne.class, "form1");
                 if(form1) {
                     AbstractDungeon.actionManager.addToBottom(new InstantKillAction(owner));
+                    this.isDone = true;
                     return;
                 }
+            } else if(owner.id.equals("BlueArchive_Hoshino:GozBunsin") ||
+                    (owner.id.equals("BlueArchive_Hoshino:Goz") && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().cannotLose ) ||
+                    owner.id.equals("BlueArchive_Hoshino:PeroroHifumi")||
+                    owner.id.equals("BlueArchive_Hoshino:Siro")||
+                    owner.id.startsWith("BlueArchive_Hoshino:Kaitenger")) {
+                AbstractDungeon.actionManager.addToBottom(new InstantKillAction(owner));
+                this.isDone = true;
+                return;
+            } else if(areMonstersBasicallyDead(owner) && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().cannotLose) {
+                //특수 처리(보통 여기로 타면 좀 문제가 있음)
+                AbstractDungeon.getCurrRoom().cannotLose = false;
             }
             AbstractDungeon.actionManager.addToBottom(new FearEscapeAction((AbstractMonster)owner));
         }

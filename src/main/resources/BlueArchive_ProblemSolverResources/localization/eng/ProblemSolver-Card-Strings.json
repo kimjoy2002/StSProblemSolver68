@@ -170,8 +170,8 @@
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "Cat's Time",
-    "DESCRIPTION": "Summon a *Cat BlueArchive_ProblemSolver:Mercenary with !M! HP to the back.",
-    "UPGRADE_DESCRIPTION": "Summon up to two *Cat BlueArchive_ProblemSolver:Mercenaries with !M! HP to the back.",
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the back.",
+    "UPGRADE_DESCRIPTION": "Summon up to 2 BlueArchive_ProblemSolver:Mercenaries with !M! HP to the back.",
     "EXTENDED_DESCRIPTION": [
       "No more summons available."
     ]
@@ -349,7 +349,8 @@
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "Cat Snacks",
-    "DESCRIPTION": "If a *Cat BlueArchive_ProblemSolver:Mercenary is present, reduce its HP to 0 and draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card. NL If a BlueArchive_ProblemSolver:Mercenary is summoned, this card's costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL If a BlueArchive_ProblemSolver:Mercenary is summoned, this card's costs 0 this turn."
   },
   "BlueArchive_ProblemSolver:SharingWeapon": {
     "NAME": "Share Equipment",
@@ -392,7 +393,7 @@
   },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "Assault",
-    "DESCRIPTION": "Draw !M! cards and discard all BlueArchive_ProblemSolver:Finisher cards in your hand. NL BlueArchive_ProblemSolver:Finisher: Activate the Finisher effects of all discarded BlueArchive_ProblemSolver:Finisher cards.",
+    "DESCRIPTION": "Draw !M! cards and discard all BlueArchive_ProblemSolver:Finisher cards in hand. NL BlueArchive_ProblemSolver:Finisher: Activate the Finisher effects of all discarded BlueArchive_ProblemSolver:Finisher cards.",
     "EXTENDED_DESCRIPTION": [
       "Does nothing."
     ]
@@ -482,7 +483,7 @@
   },
   "BlueArchive_ProblemSolver:PokerFace": {
     "NAME": "Poker Face",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. Choose one to play and discard the other.",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Choose one to play and discard the other.",
     "EXTENDED_DESCRIPTION": [
       "The unused card is discarded."
     ]
@@ -702,5 +703,4 @@
     "NAME": "Immortal Mercenary",
     "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL When this BlueArchive_ProblemSolver:Mercenary dies, add a cost 0 *Immortal* *Mercenary* card to the discard pile."
   }
-}
 }
