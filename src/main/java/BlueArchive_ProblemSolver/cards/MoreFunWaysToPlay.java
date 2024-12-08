@@ -27,14 +27,14 @@ public class MoreFunWaysToPlay extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int BLOCK = 8;
-    private static final int UPGRADE_PLUS_BLOCK = 4;
+    private static final int BLOCK = 7;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public MoreFunWaysToPlay() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

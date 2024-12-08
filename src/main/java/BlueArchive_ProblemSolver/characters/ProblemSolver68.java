@@ -1301,7 +1301,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 AbstractDungeon.actionManager.addToTop(new ChangeCharacterAction(p));
             }
         } else if(!inDamageAll) {
-            AbstractDungeon.player = p;
+            changeCurrentPlayer(p);
         }
         return p;
     }

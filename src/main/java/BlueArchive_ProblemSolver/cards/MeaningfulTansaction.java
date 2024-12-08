@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -36,18 +37,20 @@ public class MeaningfulTansaction extends EvilDeedsCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
+    private static final int BLOCK = 7;
+    private static final int UPGRADE_PLUS_BLOCK = 1;
 
     public MeaningfulTansaction() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseBlock = BLOCK;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
-        setRequireEvil(3);
-        exhaust = true;
+        setRequireEvil(4);
     }
 
     @Override
@@ -58,19 +61,14 @@ public class MeaningfulTansaction extends EvilDeedsCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new RemoveDebuffsAction(p));
-        AbstractDungeon.effectsQueue.add(new HealOnlyEffect(p.hb.cX - p.animX, p.hb.cY));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         super.use(p, m);
     }
 
     @Override
     public void onEvilDeeds(AbstractPlayer p, AbstractMonster m) {
-        for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
-            if (ps != AbstractDungeon.player) {
-                this.addToBot(new RemoveDebuffsAction(ps));
-                AbstractDungeon.effectsQueue.add(new HealOnlyEffect(ps.hb.cX - ps.animX, ps.hb.cY));
-            }
-        }
+        this.addToBot(new RemoveDebuffsAction(p));
+        AbstractDungeon.effectsQueue.add(new HealOnlyEffect(p.hb.cX - p.animX, p.hb.cY));
     }
 
     // Upgraded stats.
@@ -78,6 +76,7 @@ public class MeaningfulTansaction extends EvilDeedsCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             updateRequireEvil(-1);
             makeDescrption();
         }

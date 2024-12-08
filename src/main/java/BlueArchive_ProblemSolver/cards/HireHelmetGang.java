@@ -44,7 +44,7 @@ public class HireHelmetGang extends AbstractDynamicCard {
     }
 
     public void updateVal () {
-        baseMagicNumber = MAGIC + GameActionManagerPatch.increaseMercenaryMaxHP;
+        baseMagicNumber = MAGIC + (upgraded?UPGRADE_PLUS_MAGIC:0) + GameActionManagerPatch.increaseMercenaryMaxHP;
     }
     public void applyPowers() {
         updateVal();

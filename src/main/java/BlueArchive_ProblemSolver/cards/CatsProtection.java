@@ -48,13 +48,13 @@ public class CatsProtection extends AbstractDynamicCard {
     public void applyPowers() {
         updateVal();
         super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription = upgraded?cardStrings.UPGRADE_DESCRIPTION:cardStrings.DESCRIPTION;
         this.initializeDescription();
     }
     public void onMoveToDiscard() {
         updateVal();
         super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription = upgraded?cardStrings.UPGRADE_DESCRIPTION:cardStrings.DESCRIPTION;
         this.initializeDescription();
     }
     // Actions the card should do.

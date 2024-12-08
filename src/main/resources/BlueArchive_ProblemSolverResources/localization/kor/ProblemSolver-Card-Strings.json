@@ -8,7 +8,7 @@
     "DESCRIPTION": "방어도를 !B! 얻습니다."
   },
   "BlueArchive_ProblemSolver:ChooseAru": {
-    "NAME": "라쿠하치마 아루",
+    "NAME": "리쿠하치마 아루",
     "DESCRIPTION": "*느와르 *어택 추가. NL 전용 키워드: BlueArchive_ProblemSolver:악행. NL 강점: [E] 획득. 힘 증가."
   },
   "BlueArchive_ProblemSolver:ChooseMutsuki": {
@@ -104,7 +104,8 @@
   },
   "BlueArchive_ProblemSolver:WannaHaveSomeFun": {
     "NAME": "신나게 가볼까?",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 모든 아군이 힘을 !BlueArchive_ProblemSolver:M! 얻고 턴이 끝날때 힘을 !BlueArchive_ProblemSolver:M! 잃습니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 모든 아군이 힘을 !BlueArchive_ProblemSolver:M! 얻고 턴이 끝날때 힘을 !BlueArchive_ProblemSolver:M! 잃습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑습니다. 모든 아군이 힘을 !BlueArchive_ProblemSolver:M! 얻고 턴이 끝날때 힘을 !BlueArchive_ProblemSolver:M! 잃습니다."
   },
   "BlueArchive_ProblemSolver:CuteImpScheme": {
     "NAME": "소악마의 귀여운 꿍꿍이",
@@ -119,7 +120,7 @@
   },
   "BlueArchive_ProblemSolver:LastDitch": {
     "NAME": "최후의 일격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 죽습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 죽습니다."
   },
   "BlueArchive_ProblemSolver:LeadersDignity": {
     "NAME": "리더의 품격",
@@ -188,8 +189,8 @@
       "아루가 없어!"
     ]
   },
-  "BlueArchive_ProblemSolver:RecklessBehavior": {
-    "NAME": "폭주하는 행동",
+  "BlueArchive_ProblemSolver:ButIllDoMyBest": {
+    "NAME": "히, 힘내겠습니다!",
     "DESCRIPTION": "모든 아군이 방어도를 !B! 얻습니다. 모든 아군이 한 턴간 다음 턴 시작시에도 방어도가 사라지지 않습니다."
   },
   "BlueArchive_ProblemSolver:Taunt": {
@@ -216,11 +217,11 @@
   },
   "BlueArchive_ProblemSolver:MeaningfulTansaction": {
     "NAME": "유익한 거래",
-    "DESCRIPTION": "자신의 부정적인 효과를 모두 제거합니다. 소멸. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 부정적인 효과를 모두 제거합니다.",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:악행 (!BlueArchive_ProblemSolver:M2!): 자신의 부정적인 효과를 모두 제거합니다.",
     "EXTENDED_DESCRIPTION": [
-      "자신의 부정적인 효과를 모두 제거합니다. 소멸. NL ",
+      "방어도를 !B! 얻습니다. NL ",
       "BlueArchive_ProblemSolver:악행 (",
-      "/!BlueArchive_ProblemSolver:M2!): 대신 모든 아군의 부정적인 효과를 모두 제거합니다."
+      "/!BlueArchive_ProblemSolver:M2!): 자신의 부정적인 효과를 모두 제거합니다."
     ]
   },
   "BlueArchive_ProblemSolver:CorrectAdvice": {
@@ -322,13 +323,6 @@
     "NAME": "조용한 위압",
     "DESCRIPTION": "적의 힘을 이번 턴 동안 !M! 낮춥니다. NL BlueArchive_ProblemSolver:공포를 !BlueArchive_ProblemSolver:M! 부여합니다."
   },
-  "BlueArchive_ProblemSolver:ButIllDoMyBest": {
-    "NAME": "히, 힘내겠습니다!",
-    "DESCRIPTION": "임시_체력 을 !BlueArchive_ProblemSolver:M! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 힘을 !M! 잃습니다.",
-    "EXTENDED_DESCRIPTION": [
-      "힘을 !M! 잃습니다. "
-    ]
-  },
   "BlueArchive_ProblemSolver:ForAruSama": {
     "NAME": "아루님을 위해서!",
     "DESCRIPTION": "*하루카의 힘이 내려갈때마다, 그 !M! 배만큼 *아루의 힘을 올립니다.",
@@ -379,10 +373,7 @@
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "원격 폭탄",
-    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 소멸. NL BlueArchive_ProblemSolver:지뢰: 비용이 0이 됩니다.",
-    "EXTENDED_DESCRIPTION": [
-      "사용할 수 없어."
-    ]
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 소멸. NL BlueArchive_ProblemSolver:지뢰: 비용이 0이 됩니다."
   },
   "BlueArchive_ProblemSolver:BuildingBomb": {
     "NAME": "건물 폭탄 설치",
@@ -445,10 +436,7 @@
   },
   "BlueArchive_ProblemSolver:BoobieTrap": {
     "NAME": "부비트랩",
-    "DESCRIPTION": "사용하거나 버려지면 방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:지뢰: 이번 전투동안 이 카드로 얻는 방어도가 !M! 증가합니다.",
-    "EXTENDED_DESCRIPTION": [
-      "사용할 수 없어."
-    ]
+    "DESCRIPTION": "사용하거나 버려지면 방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:지뢰: 이번 전투동안 이 카드로 얻는 방어도가 !M! 증가합니다."
   },
   "BlueArchive_ProblemSolver:MineExpert": {
     "NAME": "지뢰 전문가",
@@ -654,7 +642,7 @@
   },
   "BlueArchive_ProblemSolver:DiligentPast": {
     "NAME": "성실한 과거",
-    "DESCRIPTION": "매 턴 처음으로 사용하는 공격 카드가 !M! 번 사용되고, 그 후 후열로 이동합니다."
+    "DESCRIPTION": "매 턴 처음으로 사용하는 공격 카드가 두 번 사용되고, 그 후 후열로 이동합니다."
   },
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "즐거운 과거",
@@ -702,6 +690,21 @@
   },
   "BlueArchive_ProblemSolver:ImmortalMercenary": {
     "NAME": "불사의 용병",
-    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 전열에 소환합니다. NL 이 BlueArchive_ProblemSolver:용병은 죽을때 버린 카드 더미에 비용 0의 *불사의 *용병 카드를 넣습니다."
+    "DESCRIPTION": "체력 !M! 의 BlueArchive_ProblemSolver:용병을 전열에 소환합니다. NL 이 BlueArchive_ProblemSolver:용병은 죽을때 버린 카드 더미에 비용 0의 *불사의 *용병 카드를 넣습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "더 고용할 수 없어"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ShieldOfProblemSolver": {
+    "NAME": "흥신소의 방패",
+    "DESCRIPTION": "사용불가. NL 이 카드가 덱에 있는 채로 전투가 끝나면 *하루카의 최대 체력이 !M! 증가합니다.",
+    "UPGRADE_DESCRIPTION": "사용불가. 휘발성. NL 이 카드가 덱에 있는 채로 전투가 끝나면 *하루카의 최대 체력이 !M! 증가합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "사용할 수 없어."
+    ]
+  },
+  "BlueArchive_ProblemSolver:PanicBarrage": {
+    "NAME": "패닉 배러지",
+    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 막히지 않은 피해만큼 BlueArchive_ProblemSolver:공포를 부여합니다."
   }
 }

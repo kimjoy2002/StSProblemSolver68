@@ -17,9 +17,7 @@ public class ProblemSolverSave implements CustomSavable<ArrayList<SaveData>> {
             if(ProblemSolver68.problemSolverPlayer.size() == currentCharacters.size()) {
                 for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
                     for(SaveData saveData: currentCharacters) {
-                        if(ProblemSolver68.stringToEnum(saveData.name) == ps.solverType
-                                && saveData.max_hp == ps.maxHealth
-                               && saveData.hp == ps.currentHealth) {
+                        if(ProblemSolver68.stringToEnum(saveData.name) == ps.solverType) {
                             temp.add(saveData);
                         }
                     }

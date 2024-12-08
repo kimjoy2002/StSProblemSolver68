@@ -63,11 +63,6 @@ public class ImmotalPower extends AbstractPower implements CloneablePowerInterfa
         }
         this.addToBot(new MakeTempCardInDiscardAction(this.card,1));
     }
-    public void atStartOfTurn() {
-        this.addToBot(new GainEnergyAction(this.amount));
-        this.flash();
-    }
-
 
     @Override
     public AbstractPower makeCopy() {

@@ -14,7 +14,7 @@ public class TauntPatch {
 
     @SpirePatch(
             clz = AbstractRoom.class,
-            method = "endTurn"
+            method = "applyEndOfTurnPreCardPowers"
     )
     public static class EndTurnPatch {
         public static void Prefix(AbstractRoom __instance) {

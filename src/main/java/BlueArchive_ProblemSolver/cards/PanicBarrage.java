@@ -1,30 +1,22 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.PanicBarrageAction;
+import BlueArchive_ProblemSolver.actions.SweepAction;
 import BlueArchive_ProblemSolver.characters.Aru;
-import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.SearingBlowEffect;
-import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class LastDitch extends AbstractDynamicCard {
-    public static final String ID = DefaultMod.makeID(LastDitch.class.getSimpleName());
+public class PanicBarrage extends AbstractDynamicCard {
+    public static final String ID = DefaultMod.makeID(PanicBarrage.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public static final String IMG = makeCardPath("LastDitch.png");
+    public static final String IMG = makeCardPath("PanicBarrage.png");
 
 
     public static final String NAME = cardStrings.NAME;
@@ -40,29 +32,27 @@ public class LastDitch extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 0;
-    private static final int DAMAGE = 20;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int COST = 2;
+    private static final int DAMAGE = 4;
 
-    private static final int MAGIC = 2;
+    public static final int MAGIC = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
-    public LastDitch() {
+
+
+    public PanicBarrage() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
+        setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (m != null) {
-            this.addToBot(new VFXAction(new SearingBlowEffect(m.hb.cX, m.hb.cY, AbstractDungeon.player.maxHealth/10), 0.2F));
+        for(int i = 0; i < magicNumber; i++) {
+            this.addToBot(new PanicBarrageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
         }
-
-        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        this.addToBot(new DrawCardAction(p, magicNumber));
-        this.addToBot(new LoseHPAction(p, p, 99999, AbstractGameAction.AttackEffect.FIRE));
     }
 
     // Upgraded stats.
@@ -70,7 +60,6 @@ public class LastDitch extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
