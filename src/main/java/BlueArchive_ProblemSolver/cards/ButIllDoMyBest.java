@@ -35,7 +35,7 @@ public class ButIllDoMyBest extends AbstractDynamicCard {
 
     private static final int COST = 2;
     private static final int BLOCK = 13;
-    private static final int UPGRADE_PLUS_BLOCK = 5;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public ButIllDoMyBest() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

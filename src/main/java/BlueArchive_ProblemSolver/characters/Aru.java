@@ -370,9 +370,9 @@ public class Aru extends ProblemSolver68 {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.LIGHTNING,
-                AbstractGameAction.AttackEffect.LIGHTNING,
-                AbstractGameAction.AttackEffect.LIGHTNING};
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY};
     }
 
     @Override
@@ -466,25 +466,14 @@ public class Aru extends ProblemSolver68 {
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList();
-        if(AbstractDungeon.player.hasRelic("BlueArchive_Hoshino:PeroroRelic")) {
-            panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_1_1.png"));
-            panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_2_2.png"));
-            panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_3_3.png"));
-        }
-        else {
-            panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_1.png"));
-            panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_2.png"));
-            panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_3.png"));
-        }
+        panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_1.png"));
+        panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_2.png"));
+        panels.add(new CutscenePanel("BlueArchive_ProblemSolverResources/images/ending/ending_3.png"));
         return panels;
     }
 
 
     public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {
         update_timer += Gdx.graphics.getDeltaTime();
-
-        for (float i = 0; i + (1.0 / 10.0) <= update_timer; update_timer -= (1.0 / 10.0)) {
-            //effects.add(new VictoryPeroroGoodEffect());
-        }
     }
 }

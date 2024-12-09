@@ -12,6 +12,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
@@ -29,13 +33,15 @@ public class ForAruSama extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
     private static final int UPGRADE_PLUS_MAGIC = 1;
+    private static final int MAGIC2 = 1;
 
 
     public ForAruSama() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        baseSecondMagicNumber = secondMagicNumber = MAGIC2;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA);
     }
@@ -43,7 +49,13 @@ public class ForAruSama extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new ForAruSamaPower(AbstractDungeon.player, magicNumber), magicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new StrengthPower(AbstractDungeon.player, magicNumber), magicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU));
+
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new FrailPower(AbstractDungeon.player, secondMagicNumber, false), secondMagicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU));
+
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new DexterityPower(AbstractDungeon.player, magicNumber), magicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA));
+
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new WeakPower(AbstractDungeon.player, secondMagicNumber, false), secondMagicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA));
     }
 
     //Upgraded stats.
@@ -54,15 +66,5 @@ public class ForAruSama extends AbstractDynamicCard {
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
-    }
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(!(p instanceof ProblemSolver68) ||
-             !ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA)){
-
-            this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            return false;
-        }
-        return super.canUse(p,m);
     }
 }

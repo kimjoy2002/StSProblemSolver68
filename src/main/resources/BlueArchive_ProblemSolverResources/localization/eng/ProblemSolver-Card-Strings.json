@@ -324,10 +324,7 @@
   },
   "BlueArchive_ProblemSolver:ForAruSama": {
     "NAME": "For Aru-sama!",
-    "DESCRIPTION": "Each time *Haruka loses Strength, increase *Aru's Strength by that amount multiplied by !M!.",
-    "EXTENDED_DESCRIPTION": [
-      "Haruka is required."
-    ]
+    "DESCRIPTION": "*Aru gains !M! Strength and !BlueArchive_ProblemSolver:M! Frail. NL *Haruka gains !M! Dexterity and !BlueArchive_ProblemSolver:M! Weak."
   },
   "BlueArchive_ProblemSolver:RockSpirit": {
     "NAME": "Rock Spirit",
@@ -705,5 +702,10 @@
   "BlueArchive_ProblemSolver:PanicBarrage": {
     "NAME": "Panic Barrage",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Apply BlueArchive_ProblemSolver:Fear equal to unblocked damage dealt."
+  },
+  "BlueArchive_ProblemSolver:Exit": {
+    "NAME": "EXIT",
+    "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain X *Shift+ cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain X+1 *Shift+ cards. NL Exhaust."
   }
 }

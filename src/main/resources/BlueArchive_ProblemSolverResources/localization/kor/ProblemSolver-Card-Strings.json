@@ -325,10 +325,7 @@
   },
   "BlueArchive_ProblemSolver:ForAruSama": {
     "NAME": "아루님을 위해서!",
-    "DESCRIPTION": "*하루카의 힘이 내려갈때마다, 그 !M! 배만큼 *아루의 힘을 올립니다.",
-    "EXTENDED_DESCRIPTION": [
-      "하루카가 필요해."
-    ]
+    "DESCRIPTION": "*아루가 힘을 !M! 얻고 손상을 !BlueArchive_ProblemSolver:M! 얻습니다. NL *하루카가 민첩을 !M! 얻고 약화를 !BlueArchive_ProblemSolver:M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:RockSpirit": {
     "NAME": "락 스피릿",
@@ -706,5 +703,10 @@
   "BlueArchive_ProblemSolver:PanicBarrage": {
     "NAME": "패닉 배러지",
     "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL 막히지 않은 피해만큼 BlueArchive_ProblemSolver:공포를 부여합니다."
+  },
+  "BlueArchive_ProblemSolver:Exit": {
+    "NAME": "비상구",
+    "DESCRIPTION": "적 전체에 약화를 !M! 부여합니다. NL *교대+ 카드를 X 장 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "적 전체에 약화를 !M! 부여합니다. NL *교대+ 카드를 X+1 장 얻습니다. NL 소멸."
   }
 }
