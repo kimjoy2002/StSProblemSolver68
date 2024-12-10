@@ -9,7 +9,7 @@
   },
   "BlueArchive_ProblemSolver:ChooseAru": {
     "NAME": "Rikuhachima Aru",
-    "DESCRIPTION": "Obtain *Noir *Attack. NL Unique Keyword: BlueArchive_ProblemSolver:Evil *Deeds. NL Strengths: Gain [E] , increase Strength."
+    "DESCRIPTION": "Obtain *Noir *Attack. NL Unique Keyword: BlueArchive_ProblemSolver:Evil *Deeds. NL Strengths: Gain [E] , gain Strength."
   },
   "BlueArchive_ProblemSolver:ChooseMutsuki": {
     "NAME": "Asagi Mutsuki",
@@ -25,11 +25,11 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "Catch the Thief",
-    "DESCRIPTION": "Draw !M! cards. NL If possible, draw cards from the selected *Problem BlueArchive_ProblemSolver:Solver character."
+    "DESCRIPTION": "Draw !M! cards. NL If possible, Draw 2 cards. If possible, draw the selected *Problem BlueArchive_ProblemSolver:Solver card."
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "Problem Solver Barricade",
-    "DESCRIPTION": "All allies gain !B! Block. NL Each time an ally is attacked this turn, the target switches to a different ally."
+    "DESCRIPTION": "All allies gain !B! Block. NL Each time an ally is attacked this turn, the next attack targets a different ally."
   },
   "BlueArchive_ProblemSolver:DistractingShot": {
     "NAME": "Distracting Shot",
@@ -50,15 +50,15 @@
   },
   "BlueArchive_ProblemSolver:StrategicWithdrawal": {
     "NAME": "Strategic Withdrawal",
-    "DESCRIPTION": "Gain !M! temporary_hp each time you move to back."
+    "DESCRIPTION": "Gain !M! temporary_hp whenever you move to the back."
   },
   "BlueArchive_ProblemSolver:FirstAid": {
     "NAME": "First Aid",
-    "DESCRIPTION": "Revive a random fallen *Problem BlueArchive_ProblemSolver:Solver with 1 HP and move them to the front. NL Allies in the front gain !M! temporary_hp. NL Exhaust."
+    "DESCRIPTION": "Revive a random fallen *Problem BlueArchive_ProblemSolver:Solver with 1 HP and move them to the front. NL Allies at the front gain !M! temporary_hp. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:DogFight": {
     "NAME": "Dogfight",
-    "DESCRIPTION": "Deal !D! damage. Increase this card's damage by !M! this combat each time a character dies."
+    "DESCRIPTION": "Deal !D! damage. Deals !M! additional damage for ALL characters that died this combat."
   },
   "BlueArchive_ProblemSolver:HireHelmetGang": {
     "NAME": "Hire Helmet Gang",
@@ -69,18 +69,18 @@
   },
   "BlueArchive_ProblemSolver:HireHelmetLeader": {
     "NAME": "Hire Helmet Leader",
-    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. The chosen BlueArchive_ProblemSolver:Mercenary starts with !BlueArchive_ProblemSolver:M! *Plated *Armor or !BlueArchive_ProblemSolver:M2! Strength.",
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. The BlueArchive_ProblemSolver:Mercenary starts with either !BlueArchive_ProblemSolver:M! *Plated *Armor or !BlueArchive_ProblemSolver:M2! Strength.",
     "EXTENDED_DESCRIPTION": [
       "I can't hire more."
     ]
   },
   "BlueArchive_ProblemSolver:ChooseRabu": {
     "NAME": "Hire Komakaze Rabu",
-    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL The chosen BlueArchive_ProblemSolver:Mercenary starts with !BlueArchive_ProblemSolver:M! *Plated *Armor."
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL The BlueArchive_ProblemSolver:Mercenary starts with !BlueArchive_ProblemSolver:M! *Plated *Armor."
   },
   "BlueArchive_ProblemSolver:ChooseSaori": {
     "NAME": "Hire Joumae Saori",
-    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL The chosen BlueArchive_ProblemSolver:Mercenary starts with !BlueArchive_ProblemSolver:M! Strength."
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL The BlueArchive_ProblemSolver:Mercenary starts with !BlueArchive_ProblemSolver:M! Strength."
   },
   "BlueArchive_ProblemSolver:FireSupport": {
     "NAME": "Fire Support",
@@ -104,8 +104,8 @@
   },
   "BlueArchive_ProblemSolver:WannaHaveSomeFun": {
     "NAME": "Wanna Have Some Fun?",
-    "DESCRIPTION": "Draw !M! card. NL All allies gain !BlueArchive_ProblemSolver:M! Strength. NL At the end of your turn, lose !BlueArchive_ProblemSolver:M! Strength.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL All allies gain !BlueArchive_ProblemSolver:M! Strength. NL At the end of your turn, lose !BlueArchive_ProblemSolver:M! Strength."
+    "DESCRIPTION": "Draw !M! card. NL All allies gain !BlueArchive_ProblemSolver:M! Strength. NL At the end of this turn, lose Strength.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL All allies gain !BlueArchive_ProblemSolver:M! Strength. NL At the end of this turn, lose Strength."
   },
   "BlueArchive_ProblemSolver:CuteImpScheme": {
     "NAME": "Cute Imp's Scheme",
@@ -113,7 +113,7 @@
   },
   "BlueArchive_ProblemSolver:CaliforniaGurls": {
     "NAME": "California Gurls",
-    "DESCRIPTION": "*Mutsuki moves to back. NL Gain Strength and Dexterity !M! at the start of your turn. NL This effect is lost if *Mutsuki is in the front.",
+    "DESCRIPTION": "*Mutsuki moves to back. NL Gain !M! Strength and Dexterity at the start of your turn. NL This effect is lost if *Mutsuki is in the front.",
     "EXTENDED_DESCRIPTION": [
       "Mutsuki must be alive."
     ]
@@ -124,17 +124,17 @@
   },
   "BlueArchive_ProblemSolver:LeadersDignity": {
     "NAME": "Leader's Dignity",
-    "DESCRIPTION": "All allies gain Strength !M! and Block !B!. NL Exhaust.",
+    "DESCRIPTION": "All allies gain !M! Strength and !B! Block. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Alright, time to work!"
     ]
   },
   "BlueArchive_ProblemSolver:LoanShark": {
     "NAME": "Loan Shark",
-    "DESCRIPTION": "Usable only with Strength greater than 0. NL Gain [E] [E]. NL Lose Strength !BlueArchive_ProblemSolver:M!.",
-    "UPGRADE_DESCRIPTION": "Usable only with Strength greater than 0. NL Gain [E] [E] [E]. NL Lose Strength !BlueArchive_ProblemSolver:M!.",
+    "DESCRIPTION": "Can only be played if Strength is greater than 0. NL Gain [E] [E]. NL Lose !BlueArchive_ProblemSolver:M! Strength.",
+    "UPGRADE_DESCRIPTION": "Can only be played if Strength is greater than 0. NL Gain [E] [E] [E]. NL Lose !BlueArchive_ProblemSolver:M! Strength.",
     "EXTENDED_DESCRIPTION": [
-      "Requires Strength greater than 0."
+      "Strength must be 0 or higher!"
     ]
   },
   "BlueArchive_ProblemSolver:ScaryFace": {
@@ -143,7 +143,7 @@
   },
   "BlueArchive_ProblemSolver:BluffShot": {
     "NAME": "Bluff Shot",
-    "DESCRIPTION": "Deal !D! damage. NL Lose Strength !M!. NL Move to back."
+    "DESCRIPTION": "Deal !D! damage. NL Lose Strength !M!. NL Move to the back."
   },
   "BlueArchive_ProblemSolver:ExplodingAria": {
     "NAME": "Exploding Aria",
@@ -349,7 +349,7 @@
   },
   "BlueArchive_ProblemSolver:FocusonAttack": {
     "NAME": "Sudden Strike",
-    "DESCRIPTION": "Each time you move to front, deal !M! damage to ALL enemies and draw !BlueArchive_ProblemSolver:M! cards."
+    "DESCRIPTION": "Each time you move to the front, deal !M! damage to ALL enemies and draw !BlueArchive_ProblemSolver:M! cards."
   },
   "BlueArchive_ProblemSolver:AlertButton": {
     "NAME": "Alert Button",
@@ -401,7 +401,7 @@
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "Infiltration Tactics",
-    "DESCRIPTION": "The next Attack card you play deals !M! times its damage. NL Move to back."
+    "DESCRIPTION": "The next Attack card you play deals !M! times its damage. NL Move to the back."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeAru": {
     "NAME": "Tactical Challenge - Aru",
@@ -464,7 +464,7 @@
   },
   "BlueArchive_ProblemSolver:StaringContest": {
     "NAME": "Staring Contest",
-    "DESCRIPTION": "Apply !M! Weak and Vulnerable to both you and the enemy. NL Move to back. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Weak and Vulnerable to both you and the enemy. NL Move to the back. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:PokerFace": {
     "NAME": "Poker Face",
@@ -511,7 +511,7 @@
   },
   "BlueArchive_ProblemSolver:AttractAttention": {
     "NAME": "Draw Attention",
-    "DESCRIPTION": "Gain !M! BlueArchive_ProblemSolver:Metallicize. NL Automatically move to front at the end of each turn."
+    "DESCRIPTION": "Gain !M! BlueArchive_ProblemSolver:Metallicize. NL Automatically move to the front at the end of each turn."
   },
   "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
     "NAME": "Suspicious Rumor",
@@ -594,7 +594,7 @@
   },
   "BlueArchive_ProblemSolver:Obstinate": {
     "NAME": "Stubbornness",
-    "DESCRIPTION": "Transfer your current Block to a selected ally. NL The selected ally gains !B! Block and moves to front."
+    "DESCRIPTION": "Transfer your current Block to a selected ally. NL The selected ally gains !B! Block and moves to the front."
   },
   "BlueArchive_ProblemSolver:WarningShot": {
     "NAME": "Warning Shot",
@@ -638,7 +638,7 @@
   },
   "BlueArchive_ProblemSolver:DiligentPast": {
     "NAME": "Diligent Past",
-    "DESCRIPTION": "The first attack card you play each turn is played twice, then move to back."
+    "DESCRIPTION": "The first attack card you play each turn is played twice, then move to the back."
   },
   "BlueArchive_ProblemSolver:JoyfulPast": {
     "NAME": "Joyful Past",
@@ -668,7 +668,7 @@
   },
   "BlueArchive_ProblemSolver:Shift": {
     "NAME": "Shift",
-    "DESCRIPTION": "Retain. NL The chosen ally gains !B! Block and moves to front. NL Exhaust."
+    "DESCRIPTION": "Retain. NL The chosen ally gains !B! Block and moves to the front. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:TheGravityofaBoss": {
     "NAME": "The Boss’s Gravity",
@@ -681,8 +681,8 @@
   },
   "BlueArchive_ProblemSolver:Lure": {
     "NAME": "Lure",
-    "DESCRIPTION": "Discard 1 card. NL The chosen ally moves to front.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Discard 1 card. NL The chosen ally moves to front."
+    "DESCRIPTION": "Discard 1 card. NL The chosen ally moves to the front.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Discard 1 card. NL The chosen ally moves to the front."
   },
   "BlueArchive_ProblemSolver:ImmortalMercenary": {
     "NAME": "Immortal Mercenary",
