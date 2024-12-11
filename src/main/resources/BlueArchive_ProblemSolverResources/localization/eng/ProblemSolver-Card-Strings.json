@@ -143,7 +143,7 @@
   },
   "BlueArchive_ProblemSolver:BluffShot": {
     "NAME": "Bluff Shot",
-    "DESCRIPTION": "Deal !D! damage. NL Lose Strength !M!. NL Move to the back."
+    "DESCRIPTION": "Deal !D! damage. NL Lose !M! Strength. NL Move to the back."
   },
   "BlueArchive_ProblemSolver:ExplodingAria": {
     "NAME": "Exploding Aria",
@@ -158,7 +158,7 @@
   },
   "BlueArchive_ProblemSolver:NoirShoot": {
     "NAME": "Noir Attack",
-    "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Deal additional !D! damage to ALL enemies.",
+    "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Then deal !D! damage to ALL enemies.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage. NL ",
       "BlueArchive_ProblemSolver:Evil *Deeds (",
@@ -167,7 +167,7 @@
   },
   "BlueArchive_ProblemSolver:ShotABlank": {
     "NAME": "Shot a Blank",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL You cannot draw additional cards this turn."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL Cannot draw additional cards this turn."
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
     "NAME": "Cat's Time",
@@ -195,24 +195,24 @@
   },
   "BlueArchive_ProblemSolver:Taunt": {
     "NAME": "Taunt",
-    "DESCRIPTION": "Gain !B! Block. NL BlueArchive_ProblemSolver:Finisher: Double this character's Block.",
+    "DESCRIPTION": "Gain !B! Block. NL BlueArchive_ProblemSolver:Finisher: Double your Block.",
     "EXTENDED_DESCRIPTION": [
-      "Double this character's Block."
+      "Double your Block."
     ]
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
     "NAME": "Flank Attack",
-    "DESCRIPTION": "Deal !D! damage. Apply !BlueArchive_ProblemSolver:M! Vulnerable. NL BlueArchive_ProblemSolver:Finisher: Apply additional !M! Weak.",
+    "DESCRIPTION": "Deal !D! damage. Apply !BlueArchive_ProblemSolver:M! Vulnerable. NL BlueArchive_ProblemSolver:Finisher: Apply !M! Weak.",
     "EXTENDED_DESCRIPTION": [
       "Apply !M! Weak."
     ]
   },
   "BlueArchive_ProblemSolver:PumpPanning": {
     "NAME": "Pump Panning",
-    "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Finisher: Increase the attack count by 1 for this combat. shuffle this card into your draw pile.",
+    "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Finisher: Increase attack count by 1 for this combat. shuffle this card into your draw pile.",
     "EXTENDED_DESCRIPTION": [
       "Increase the attack count by 1 for this combat. shuffle this card into your draw pile.",
-      "Deal !D! damage !M! times. NL BlueArchive_ProblemSolver:Finisher: Increase the attack count by 1 for this combat. shuffle this card into your draw pile."
+      "Deal !D! damage !M! times. NL BlueArchive_ProblemSolver:Finisher: Increase attack count by 1 for this combat. shuffle this card into your draw pile."
     ]
   },
   "BlueArchive_ProblemSolver:MeaningfulTansaction": {
@@ -240,20 +240,20 @@
   },
   "BlueArchive_ProblemSolver:NewYearsSymphony": {
     "NAME": "New Year's Symphony",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! BlueArchive_ProblemSolver:Imp per enemy hit."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! BlueArchive_ProblemSolver:Imp for each enemy hit."
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "Imp Chorus",
-    "DESCRIPTION": "Deal !D! damage per BlueArchive_ProblemSolver:Imp. NL This card’s damage is not increased by BlueArchive_ProblemSolver:Imp.",
+    "DESCRIPTION": "Deal !D! damage for each BlueArchive_ProblemSolver:Imp. NL This card’s damage is not increased by BlueArchive_ProblemSolver:Imp.",
     "EXTENDED_DESCRIPTION": [
       "I’m not an Imp.",
       " NL (",
-      " times attack.)"
+      " times.)"
     ]
   },
   "BlueArchive_ProblemSolver:MoreFunWaysToPlay": {
     "NAME": "More Fun Ways to Play",
-    "DESCRIPTION": "Gain !B! Block. NL Regain the BlueArchive_ProblemSolver:Imp damage boost."
+    "DESCRIPTION": "Gain !B! Block. NL Regain the BlueArchive_ProblemSolver:Imp damage increase."
   },
   "BlueArchive_ProblemSolver:DangerousPlay": {
     "NAME": "Dangerous Play",
@@ -270,8 +270,8 @@
   },
   "BlueArchive_ProblemSolver:InterestingProposal": {
     "NAME": "Interesting Proposal",
-    "DESCRIPTION": "Add !M! *Debt cards to your hand.",
-    "UPGRADE_DESCRIPTION": "Add !M! *Debt+ cards to your hand."
+    "DESCRIPTION": "Add !M! *Debts into your hand.",
+    "UPGRADE_DESCRIPTION": "Add !M! *Debts+ into your hand."
   },
   "BlueArchive_ProblemSolver:HardboiledHanetsukiShot": {
     "NAME": "Hardboiled Hanetsuki Shot",
@@ -284,8 +284,8 @@
   },
   "BlueArchive_ProblemSolver:Reputation": {
     "NAME": "Reputation",
-    "DESCRIPTION": "This card does not increase BlueArchive_ProblemSolver:Evil *Deeds. NL Deal !D! damage. NL Exhaust. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Gain a *Reputation card.",
-    "UPGRADE_DESCRIPTION": "This card does not increase BlueArchive_ProblemSolver:Evil *Deeds. NL Deal !D! damage. NL Exhaust. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Gain a *Reputation+ card.",
+    "DESCRIPTION": "This card does not increase BlueArchive_ProblemSolver:Evil *Deeds. NL Deal !D! damage. NL Exhaust. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Gain a *Reputation.",
+    "UPGRADE_DESCRIPTION": "This card does not increase BlueArchive_ProblemSolver:Evil *Deeds. NL Deal !D! damage. NL Exhaust. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Gain a *Reputation+.",
     "EXTENDED_DESCRIPTION": [
       "This card does not increase BlueArchive_ProblemSolver:Evil *Deeds. NL Deal !D! damage. NL Exhaust. NL ",
       "BlueArchive_ProblemSolver:Evil *Deeds (",
@@ -299,24 +299,24 @@
   },
   "BlueArchive_ProblemSolver:HardboiledShot": {
     "NAME": "Hardboiled Shot",
-    "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!+): Increase damage by BlueArchive_ProblemSolver:Evil *Deeds X !M!.",
+    "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!+): Deals additional !M! damage for each BlueArchive_ProblemSolver:Evil *Deeds.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage. NL ",
       "BlueArchive_ProblemSolver:Evil *Deeds (",
-      "/!BlueArchive_ProblemSolver:M2!+): Increase damage by BlueArchive_ProblemSolver:Evil *Deeds X !M!."
+      "/!BlueArchive_ProblemSolver:M2!+): Deals an additional !M! damage for each BlueArchive_ProblemSolver:Evil *Deeds."
     ]
   },
   "BlueArchive_ProblemSolver:OneEvilDeedaDay": {
     "NAME": "One Evil Deed a Day",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Gain [E] the first time BlueArchive_ProblemSolver:Evil *Deeds triggers each turn."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever Evil Deeds triggers for the first time each turn, gain [E]."
   },
   "BlueArchive_ProblemSolver:Snipe": {
     "NAME": "Snipe",
-    "DESCRIPTION": "Deal !D! damage. NL This card gains additional damage equal to positive Strength held by other allies."
+    "DESCRIPTION": "Deal !D! damage. NL Deals additional damage equal to the positive Strength of other allies."
   },
   "BlueArchive_ProblemSolver:CantbeHelped": {
     "NAME": "Can't Be Helped",
-    "DESCRIPTION": "Deal !D! damage. NL Increase damage by the amount of BlueArchive_ProblemSolver:Fear applied to the enemy."
+    "DESCRIPTION": "Deal !D! damage. NL Deals additional damage equal to the amount of Fear applied to the enemy"
   },
   "BlueArchive_ProblemSolver:QuietPressure": {
     "NAME": "Silent Pressure",
@@ -328,20 +328,20 @@
   },
   "BlueArchive_ProblemSolver:RockSpirit": {
     "NAME": "Rock Spirit",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Apply !M! BlueArchive_ProblemSolver:Fear whenever an enemy loses HP from an attack."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever an attack deals unblocked damage, apply !M! BlueArchive_ProblemSolver:Fear."
   },
   "BlueArchive_ProblemSolver:NegativeThinking": {
     "NAME": "Negative Thinking",
-    "DESCRIPTION": "Gain !B! Block. NL If you have a negative effect, gain an additional !B! Block."
+    "DESCRIPTION": "Gain !B! Block. NL If you have any debuffs, gain an additional !B! Block."
   },
   "BlueArchive_ProblemSolver:UnwelcomeSchool": {
     "NAME": "Unwelcome School",
-    "DESCRIPTION": "Each time this character moves, automatically play the top !M! cards of the draw pile."
+    "DESCRIPTION": "Each time this character moves, play the top card of your draw pile."
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "Cat Snacks",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card. NL If a BlueArchive_ProblemSolver:Mercenary is summoned, this card's costs 0 this turn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL If a BlueArchive_ProblemSolver:Mercenary is summoned, this card's costs 0 this turn."
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card. NL If a BlueArchive_ProblemSolver:Mercenary is summoned, this card costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL If a BlueArchive_ProblemSolver:Mercenary is summoned, this card costs 0 this turn."
   },
   "BlueArchive_ProblemSolver:SharingWeapon": {
     "NAME": "Share Equipment",
