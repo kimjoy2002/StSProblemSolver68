@@ -33,8 +33,8 @@
   },
   "BlueArchive_ProblemSolver:DistractingShot": {
     "NAME": "Distracting Shot",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 *Shift card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 1 *Shift+ card."
+    "DESCRIPTION": "Deal !D! damage. NL Add 1 *Shift into your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 1 *Shift+ into your hand."
   },
   "BlueArchive_ProblemSolver:DiningTogether": {
     "NAME": "Team Dinner",
@@ -344,12 +344,12 @@
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL If a BlueArchive_ProblemSolver:Mercenary is summoned, this card costs 0 this turn."
   },
   "BlueArchive_ProblemSolver:SharingWeapon": {
-    "NAME": "Share Equipment",
-    "DESCRIPTION": "The next Attack or Skill card you play this turn will also be played by ALL allies in order. NL Exhaust."
+    "NAME": "Share Weapon",
+    "DESCRIPTION": "This turn, the next Attack or Skill you play is also played by all allies in sequence. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:FocusonAttack": {
-    "NAME": "Sudden Strike",
-    "DESCRIPTION": "Each time you move to the front, deal !M! damage to ALL enemies and draw !BlueArchive_ProblemSolver:M! cards."
+    "NAME": "Pounce",
+    "DESCRIPTION": "Whenever you move to the front, deal 10 damage to ALL enemies and draw 2 cards. !M! damage to ALL enemies and draw !BlueArchive_ProblemSolver:M! cards."
   },
   "BlueArchive_ProblemSolver:AlertButton": {
     "NAME": "Alert Button",
