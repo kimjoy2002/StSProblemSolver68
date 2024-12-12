@@ -349,19 +349,19 @@
   },
   "BlueArchive_ProblemSolver:FocusonAttack": {
     "NAME": "Pounce",
-    "DESCRIPTION": "Whenever you move to the front, deal 10 damage to ALL enemies and draw 2 cards. !M! damage to ALL enemies and draw !BlueArchive_ProblemSolver:M! cards."
+    "DESCRIPTION": "Whenever you move to the front, deal !M! damage to ALL enemies and draw !BlueArchive_ProblemSolver:M! cards."
   },
   "BlueArchive_ProblemSolver:AlertButton": {
     "NAME": "Alert Button",
-    "DESCRIPTION": "Gain !B! Block. NL For the next !M! turns, you cannot play Attack cards. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL  You cannot play any Attacks for the next !M! turns. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:SelfDestructButton": {
     "NAME": "Self-Destruct Button",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For the next !M! turns, you cannot gain Block from cards. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL You cannot gain Block from cards for the next !M! turns. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:GloomyPast": {
     "NAME": "Gloomy Past",
-    "DESCRIPTION": "Gain !M! temporary_hp whenever you receive a negative effect."
+    "DESCRIPTION": "Gain !M! temporary_hp whenever you receive a debuffs"
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "Detonator",
