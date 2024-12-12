@@ -365,19 +365,19 @@
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "Detonator",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! random BlueArchive_ProblemSolver:Mine or 0-cost cards from the draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL Draw a random Mine card or a 0-cost card from your draw pile."
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "Remote Bomb",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Draw !M! cards. NL Exhaust. NL BlueArchive_ProblemSolver:Mine: Costs 0."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Draw !M! card. NL Exhaust. NL BlueArchive_ProblemSolver:Mine: This card costs 0."
   },
   "BlueArchive_ProblemSolver:BuildingBomb": {
     "NAME": "Plant Building Bomb",
-    "DESCRIPTION": "Shuffle !M! *Remote *Bomb cards into the draw pile."
+    "DESCRIPTION": "Shuffle !M! *Remote *Bombs into your draw pile."
   },
   "BlueArchive_ProblemSolver:Reconnaissance": {
     "NAME": "Reconnaissance",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Shuffle a *Remote *Bomb into the draw pile at the end of your turn."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL At the end of your turn, Shuffle a *Remote *Bombs into your draw pile."
   },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "Assault",
