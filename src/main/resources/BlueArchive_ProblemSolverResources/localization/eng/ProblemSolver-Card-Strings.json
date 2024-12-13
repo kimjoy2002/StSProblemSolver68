@@ -524,7 +524,7 @@
   },
   "BlueArchive_ProblemSolver:Omamoribond": {
     "NAME": "Omamori Bond",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever you have applied a total of 4 Debuffs to any targets, Draw a card."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever you have applied a total of !M! Debuffs to any targets, Draw a card."
   },
   "BlueArchive_ProblemSolver:KayokoKick": {
     "NAME": "Weapon Disarm",
