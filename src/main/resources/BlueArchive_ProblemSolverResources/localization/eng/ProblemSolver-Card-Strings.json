@@ -381,7 +381,7 @@
   },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "Assault",
-    "DESCRIPTION": "Draw !M! cards and discard all BlueArchive_ProblemSolver:Finisher cards in hand. NL BlueArchive_ProblemSolver:Finisher: Activate the Finisher effects of all discarded BlueArchive_ProblemSolver:Finisher cards.",
+    "DESCRIPTION": "Draw !M! cards. Discard all BlueArchive_ProblemSolver:Finisher cards in your hand NL BlueArchive_ProblemSolver:Finisher: Activate all BlueArchive_ProblemSolver:Finisher effects of the discarded cards.",
     "EXTENDED_DESCRIPTION": [
       "Does nothing."
     ]
@@ -397,38 +397,39 @@
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
     "NAME": "Proper Greeting",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Activate and remove any prepared BlueArchive_ProblemSolver:Finisher effect."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Activate and remove the stored BlueArchive_ProblemSolver:Finisher effect."
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "Infiltration Tactics",
-    "DESCRIPTION": "The next Attack card you play deals !M! times its damage. NL Move to the back."
+    "DESCRIPTION": "Next Attacks deals double damage. NL Move to the back.",
+    "UPGRADE_DESCRIPTION": "Next Attacks deals triple damage. NL Move to the back."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeAru": {
     "NAME": "Tactical Challenge - Aru",
-    "DESCRIPTION": "Deal !D! damage. NL Increase damage by !M! for each *Tactical *Challenge card played this combat."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each *Tactical *Challenge card played this combat."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeMutsuki": {
     "NAME": "Tactical Challenge - Mutsuki",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Reduce cost by 1 for each *Tactical *Challenge card played this combat."
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Costs 1 less [E] for each *Tactical *Challenge card played this combat."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeKayoko": {
     "NAME": "Tactical Challenge - Kayoko",
-    "DESCRIPTION": "Draw !M! cards. NL Draw an additional card for every !BlueArchive_ProblemSolver:M! *Tactical *Challenge cards played this combat."
+    "DESCRIPTION": "Draw !M! cards, plus 1 more card for every !BlueArchive_ProblemSolver:M! *Tactical *Challenge cards played this combat."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeHaruka": {
     "NAME": "Tactical Challenge - Haruka",
-    "DESCRIPTION": "Gain !B! Block. NL Increase Block by !M! for each *Tactical *Challenge card played this combat."
+    "DESCRIPTION": "Gain !B! Block. NL Gains !M! additional Block for each *Tactical *Challenge card played this combat."
   },
   "BlueArchive_ProblemSolver:MutsukiMine": {
     "NAME": "Ankle Mine",
-    "DESCRIPTION": "Unplayable. Retain. NL When discarded, triggers the BlueArchive_ProblemSolver:Mine effect. NL BlueArchive_ProblemSolver:Mine: A random enemy loses !M! HP. Exhaust.",
+    "DESCRIPTION": "Unplayable. Retain. NL Discarding this card triggers the BlueArchive_ProblemSolver:Mine effect. NL BlueArchive_ProblemSolver:Mine: A random enemy loses !M! HP. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "I can't play NL this card."
     ]
   },
   "BlueArchive_ProblemSolver:MineField": {
     "NAME": "Minefield",
-    "DESCRIPTION": "Discard 1 card. NL Add !M! *Ankle *Mine cards to its position."
+    "DESCRIPTION": "Discard 1 card, then add !M! *Ankle *Mines in its position."
   },
   "BlueArchive_ProblemSolver:BoobieTrap": {
     "NAME": "Booby Trap",
@@ -436,7 +437,7 @@
   },
   "BlueArchive_ProblemSolver:MineExpert": {
     "NAME": "Mine Expert",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Deal !M! damage to ALL enemies whenever a BlueArchive_ProblemSolver:Mine effect triggers."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever a BlueArchive_ProblemSolver:Mine effect is triggered, deal !M! damage to all enemies."
   },
   "BlueArchive_ProblemSolver:RouletteMisdirection": {
     "NAME": "Roulette Misdirection",
@@ -455,12 +456,12 @@
     ]
   },
   "BlueArchive_ProblemSolver:TacticalChallengePS68": {
-    "NAME": "Tactical *Challenge - Problem Solver 68",
+    "NAME": "Tactical *Challenge - PS68",
     "DESCRIPTION": "Add !M! random *Tactical *Challenge cards to your hand. NL They cost 0 this turn. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:TroubleMaker": {
     "NAME": "Troublemaker",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Immediately triggers the BlueArchive_ProblemSolver:Mine effect whenever a BlueArchive_ProblemSolver:Mine card is drawn or generated in your hand."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Activates the BlueArchive_ProblemSolver:Mine effect whenever a BlueArchive_ProblemSolver:Mine card enters your hand."
   },
   "BlueArchive_ProblemSolver:StaringContest": {
     "NAME": "Staring Contest",
@@ -468,14 +469,14 @@
   },
   "BlueArchive_ProblemSolver:PokerFace": {
     "NAME": "Poker Face",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Choose one to play and discard the other.",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL When you play one of the drawn cards, discard the other.",
     "EXTENDED_DESCRIPTION": [
       "The unused card is discarded."
     ]
   },
   "BlueArchive_ProblemSolver:MaginotLine": {
     "NAME": "Maginot Line",
-    "DESCRIPTION": "Gain !B! Block. NL Gain temporary_hp equal to !M! times the number of negative effects applied to ALL characters. NL Exhaust.",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! temporary_hp equal for each debuff applied to ALL characters NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gain ",
       " temporary_hp.)"
@@ -483,11 +484,11 @@
   },
   "BlueArchive_ProblemSolver:ShockAndAwe": {
     "NAME": "Shock and Awe",
-    "DESCRIPTION": "Double the values of BlueArchive_ProblemSolver:Fear and BlueArchive_ProblemSolver:Imp on ALL characters. NL Exhaust."
+    "DESCRIPTION": "Double the BlueArchive_ProblemSolver:Fear and BlueArchive_ProblemSolver:Imp on ALL characters. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:SideDeck": {
     "NAME": "Side Deck",
-    "DESCRIPTION": "Choose 1 card from the Side Deck to add to your hand or gain a card reward for the Side Deck after combat. NL Exhaust."
+    "DESCRIPTION": "Choose 1 card from the Side Deck to add to your hand, or gain a card reward for the Side Deck. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:AddDeck": {
     "NAME": "Add to Side Deck",
@@ -515,15 +516,15 @@
   },
   "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
     "NAME": "Suspicious Rumor",
-    "DESCRIPTION": "Unplayable. NL While in hand, other cards gain !M! BlueArchive_ProblemSolver:Evil *Deeds. NL Once, while in hand, gain [E] [E] when BlueArchive_ProblemSolver:Evil *Deeds triggers.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL While in hand, other cards gain !M! BlueArchive_ProblemSolver:Evil *Deeds. NL Once, while in hand, gain [E] [E] [E] when BlueArchive_ProblemSolver:Evil *Deeds triggers.",
+    "DESCRIPTION": "Unplayable. NL While in hand, other cards gain !M! BlueArchive_ProblemSolver:Evil *Deeds. NL while this card is in your hand, gain [E] [E] the first time BlueArchive_ProblemSolver:Evil *Deeds triggers.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL While in hand, other cards gain !M! BlueArchive_ProblemSolver:Evil *Deeds. NL while this card is in your hand, gain [E] [E] [E] the first time BlueArchive_ProblemSolver:Evil *Deeds triggers.",
     "EXTENDED_DESCRIPTION": [
       "I can't play NL this card."
     ]
   },
   "BlueArchive_ProblemSolver:Omamoribond": {
     "NAME": "Omamori Bond",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Draw !BlueArchive_ProblemSolver:M! cards whenever an ally applies !M! Debuffs to anyone."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever you have applied a total of 4 Debuffs to any targets, Draw a card."
   },
   "BlueArchive_ProblemSolver:KayokoKick": {
     "NAME": "Weapon Disarm",
