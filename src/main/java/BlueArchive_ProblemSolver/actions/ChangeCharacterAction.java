@@ -224,6 +224,8 @@ public class ChangeCharacterAction extends AbstractGameAction {
         AbstractDungeon.player = changeCharacter;
         AbstractDungeon.player.gold = temp.gold;
         AbstractDungeon.player.displayGold = temp.displayGold;
+        AbstractDungeon.player.maxOrbs = temp.maxOrbs;
+        AbstractDungeon.player.masterMaxOrbs = temp.masterMaxOrbs;
         AbstractDungeon.player.gameHandSize = temp.gameHandSize;
         AbstractDungeon.player.hand.refreshHandLayout();
         AbstractDungeon.player.hand.applyPowers();

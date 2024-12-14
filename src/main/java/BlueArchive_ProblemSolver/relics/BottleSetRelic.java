@@ -1,18 +1,17 @@
 package BlueArchive_ProblemSolver.relics;
 
 import BlueArchive_ProblemSolver.DefaultMod;
-import BlueArchive_ProblemSolver.actions.AddCharacterAction;
-import BlueArchive_ProblemSolver.actions.ChangeStancOtherPlayereAction;
-import BlueArchive_ProblemSolver.actions.IncreaseMaxOrbOtherCharacterAction;
-import BlueArchive_ProblemSolver.actions.SolverTalkAction;
+import BlueArchive_ProblemSolver.actions.*;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.potions.TagPotion;
 import BlueArchive_ProblemSolver.powers.OnUsePotionPower;
 import BlueArchive_ProblemSolver.util.TextureLoader;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -210,6 +209,12 @@ public class BottleSetRelic extends CustomRelic implements OnUsePotionRelic {
                    if (ps != AbstractDungeon.player && ps.currentHealth > 0) {
                       this.addToBot(new GainBlockAction(ps, ps, potency));
                    }
+                }
+            }
+            else if(potion instanceof TagPotion){
+                flash();
+                for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                    AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(ps, ps, potency));
                 }
             }
         }

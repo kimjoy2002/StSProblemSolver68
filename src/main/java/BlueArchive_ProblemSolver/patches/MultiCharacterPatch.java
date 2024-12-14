@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.DeathScreen;
+import com.megacrit.cardcrawl.stances.NeutralStance;
 import com.megacrit.cardcrawl.vfx.combat.BattleStartEffect;
 import com.megacrit.cardcrawl.vfx.combat.HbBlockBrokenEffect;
 import javassist.CtBehavior;
@@ -171,6 +172,11 @@ public class MultiCharacterPatch {
                 }
 
                 __instance.powers.clear();
+
+                if (!__instance.stance.ID.equals("Neutral")) {
+                    __instance.stance = new NeutralStance();
+                    __instance.onStanceChange("Neutral");
+                }
 
                 if(next_ != null) {
                     for(AbstractPower power_ : newPowers) {

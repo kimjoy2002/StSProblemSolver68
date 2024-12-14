@@ -6,6 +6,8 @@ import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.powers.StealthPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
@@ -13,6 +15,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 public class InfiltrationTactics extends AbstractDynamicCard {
 
     public static final String ID = DefaultMod.makeID(InfiltrationTactics.class.getSimpleName());
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = makeCardPath("InfiltrationTactics.png");
 
 
@@ -46,6 +49,7 @@ public class InfiltrationTactics extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

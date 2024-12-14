@@ -6,28 +6,28 @@
       "deeds",
       "evildeeds"
     ],
-    "DESCRIPTION": "Accumulates Evil Deeds while in hand when other cards are played. Requires X Evil Deeds to activate its effect."
+    "DESCRIPTION": "Gain 1 Evil Deed whenever another card is played. Requires X Evil Deeds to trigger its effect."
   },
   {
     "PROPER_NAME": "Imp",
     "NAMES": [
       "imp"
     ],
-    "DESCRIPTION": "Increases the damage of attack cards once per turn. Cute Imps are shared across all allies."
+    "DESCRIPTION": "Once per turn, increases the damage of attacks. Imps are shared across all allies."
   },
   {
     "PROPER_NAME": "Mine",
     "NAMES": [
       "mine"
     ],
-    "DESCRIPTION": "Triggers when the cards on either side in hand are played."
+    "DESCRIPTION": "Triggers when the cards adjacent to it in your hand are played."
   },
   {
     "PROPER_NAME": "Fear",
     "NAMES": [
       "fear"
     ],
-    "DESCRIPTION": "If the #yFear applied to an enemy equals or exceeds their HP, they flee. (You receive rewards as if you won the fight.)"
+    "DESCRIPTION": "When the #yFear applied to an enemy equals or exceeds their HP, they flee. Gain rewards normally"
   },
   {
     "PROPER_NAME": "Problem Solver",
@@ -47,38 +47,38 @@
     "DESCRIPTION": "Temporary allies that participate in combat. Up to four allied characters can exist."
   },
   {
-    "PROPER_NAME": "Finisher",
+    "PROPER_NAME": "Closure",
     "NAMES": [
-      "finisher"
+      "closure"
     ],
-    "DESCRIPTION": "#yFinisher effects trigger at the end of the turn. Only the last #yFinisher card played will activate."
+    "DESCRIPTION": "#yClosure effect triggers at the end of the turn. Only the last #yClosure card played will activate."
   },
   {
     "PROPER_NAME": "Fixer Form",
     "NAMES": [
       "__fixerform__"
     ],
-    "DESCRIPTION": "If no Problem Solver characters are present, gain 2 random effects from the list."
+    "DESCRIPTION": "If no Problem Solver characters are present, gain 2 random effects."
   },
   {
     "PROPER_NAME": "Metallicize",
     "NAMES": [
       "metallicize"
     ],
-    "DESCRIPTION": "Gain that amount of #yBlock at the end of each turn."
+    "DESCRIPTION": "At the end of turn, gain amount of #yBlock."
   },
   {
     "PROPER_NAME": "Temporary Confusion",
     "NAMES": [
       "confusion"
     ],
-    "DESCRIPTION": "Costs of cards drawn are randomized until the end of the turn."
+    "DESCRIPTION": "Whenever you draw a card, randomize its cost until the end of the turn."
   },
   {
     "PROPER_NAME": "Shared",
     "NAMES": [
       "shared"
     ],
-    "DESCRIPTION": "This power always applies to the front character and persists even if the front character dies."
+    "DESCRIPTION": "This power is always applied to the front character and remains active even if the front character dies."
   }
 ]

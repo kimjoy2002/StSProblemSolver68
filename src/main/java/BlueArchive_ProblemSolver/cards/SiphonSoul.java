@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.combat.CardPoofEffect;
@@ -62,6 +64,17 @@ public class SiphonSoul extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCreature c = getTarget(this);
+
+        applyPowers();
+        if(c instanceof AbstractPlayer){
+           if(c.hasPower(VulnerablePower.POWER_ID)) {
+               damage *= 1.5f;
+           }
+        }
+        else if(c instanceof AbstractMonster) {
+            calculateCardDamage((AbstractMonster)c);
+        }
+
         if(c != null) {
             this.addToBot(new SiphonSoulAction(c, p, new DamageInfo(p, this.damage, this.damageTypeForTurn), magicNumber, secondMagicNumber));
         }

@@ -46,11 +46,15 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.ending.SpireShield;
 import com.megacrit.cardcrawl.monsters.ending.SpireSpear;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.combat.HealEffect;
+import jdk.nashorn.internal.parser.AbstractParser;
 
 import java.util.*;
 
@@ -118,6 +122,8 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         change.gold = AbstractDungeon.player.gold;
         change.displayGold = AbstractDungeon.player.displayGold;
         change.gameHandSize = AbstractDungeon.player.gameHandSize;
+        change.masterMaxOrbs = AbstractDungeon.player.masterMaxOrbs;
+        change.maxOrbs = AbstractDungeon.player.maxOrbs;
 
 
         AbstractDungeon.player = change;
@@ -496,6 +502,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             p.limbo = main.limbo;
             p.relics = main.relics;
             p.potionSlots = main.potionSlots;
+            p.maxOrbs = main.maxOrbs;
+            p.orbs = main.orbs;
+            p.masterMaxOrbs = main.masterMaxOrbs;
             p.potions = main.potions;
             p.energy = main.energy;
             p.hoveredCard = main.hoveredCard;
@@ -944,6 +953,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         CatNum = 0;
 
     }
+
     public void onVictorySub() {
         if(currentHealth <= 0) {
             heal(1);
@@ -970,12 +980,20 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         powers.clear();
     }
 
+
+
     @Override
     public void combatUpdate() {
         super.combatUpdate();
         for (ProblemSolver68 ps : problemSolverPlayer) {
             if(ps != AbstractDungeon.player) {
+                AbstractPlayer temp = AbstractDungeon.player;
+
+                //스탠드 이미지 위치정보를 위해서
+                AbstractDungeon.player = ps;
                 ps.stance.update();
+                AbstractDungeon.player = temp;
+
             }
         }
     }
@@ -1131,7 +1149,6 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
 
     }
-
 
     public void preBattlePrep() {
         changeCurrentPlayer(getFrontMember());

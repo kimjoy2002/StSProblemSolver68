@@ -183,8 +183,8 @@
   },
   "BlueArchive_ProblemSolver:OutlawsRoad": {
     "NAME": "무법자의 길",
-    "DESCRIPTION": "*아루가 전열로 이동합니다. NL [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "*아루가 전열로 이동합니다. NL [E] [E] [E] 를 얻고 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "DESCRIPTION": "[E] 를 얻습니다. NL 진노합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "[E] [E] 를 얻습니다. NL 진노합니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       "아루가 없어!"
     ]
@@ -402,7 +402,8 @@
   },
   "BlueArchive_ProblemSolver:InfiltrationTactics": {
     "NAME": "잡입행동",
-    "DESCRIPTION": "다음 공격 카드가 피해를 !M! 배로 줍니다. NL 후열로 이동합니다."
+    "DESCRIPTION": "다음 공격 카드가 피해를 2 배로 줍니다. NL 후열로 이동합니다.",
+    "UPGRADE_DESCRIPTION": "다음 공격 카드가 피해를 3 배로 줍니다. NL 후열로 이동합니다."
   },
   "BlueArchive_ProblemSolver:TacticalChallengeAru": {
     "NAME": "전술대항전 - 아루",
@@ -631,7 +632,8 @@
   },
   "BlueArchive_ProblemSolver:PartyPistol": {
     "NAME": "깜짝 권총",
-    "DESCRIPTION": "보존. NL 피해를 !D! 줍니다. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다."
+    "DESCRIPTION": "보존. NL 피해를 !D! 줍니다. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "보존. NL 피해를 !D! 줍니다. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다."
   },
   "BlueArchive_ProblemSolver:HiddenPast": {
     "NAME": "숨겨진 과거",

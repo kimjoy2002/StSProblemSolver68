@@ -50,7 +50,7 @@ public class OmamoribondPower extends AbstractPower implements CloneablePowerInt
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + drawcount + DESCRIPTIONS[1] + drawpower + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0] + drawcount + DESCRIPTIONS[1];
     }
 
     public void AllApplyed(AbstractPower power, AbstractCreature target, AbstractCreature source) {

@@ -1,11 +1,8 @@
 package BlueArchive_ProblemSolver.patches.powers;
 
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
-import BlueArchive_ProblemSolver.powers.FreeCardPower;
 import BlueArchive_ProblemSolver.powers.OnEndOverCharacterPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;

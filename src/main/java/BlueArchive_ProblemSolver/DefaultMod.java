@@ -10,6 +10,7 @@ import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.effects.SaveEffect;
 import BlueArchive_ProblemSolver.patches.EnumPatch;
 import BlueArchive_ProblemSolver.patches.GridSelectScreenPatch;
+import BlueArchive_ProblemSolver.potions.TagPotion;
 import BlueArchive_ProblemSolver.relics.*;
 import BlueArchive_ProblemSolver.rewards.SideDeckReward;
 import BlueArchive_ProblemSolver.save.ProblemSolverSave;
@@ -149,9 +150,9 @@ public class DefaultMod implements
     public static final Color DEFAULT_BLACK_RED = CardHelper.getColor(200.0f, 0.0f, 0.0f);
     
     // Potion Colors in RGB
-    public static final Color TEMP_POTION_LIQUID = CardHelper.getColor(240.0f, 240.0f, 240.0f);
-    public static final Color TEMP_POTION_HYBRID = CardHelper.getColor(240.0f, 240.0f, 240.0f);
-    public static final Color TEMP_POTION_SPOTS = CardHelper.getColor(30.0f, 30.0f, 30.0f);
+    public static final Color TAG_POTION_LIQUID = CardHelper.getColor(240.0f, 30.0f, 30.0f);
+    public static final Color TAG_POTION_HYBRID = CardHelper.getColor(120.0f, 30.0f, 30.0f);
+    public static final Color TAG_POTION_SPOTS = CardHelper.getColor(30.0f, 30.0f, 30.0f);
 
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
@@ -375,90 +376,8 @@ public class DefaultMod implements
         // Create the Mod Menu
         ModPanel settingsPanel = new ModPanel();
 
-        ModLabel buttonLabel = new ModLabel("", 600.0F, 700.0F, settingsPanel, (me) -> {
-            if (me.parent.waitingOnEvent && changekey) {
-                me.text = "Press Key";
-            } else {
-                me.text = "(" + Input.Keys.toString(leftKey) + ", " + Input.Keys.toString(rightKey)  + ") Character Change Key";
-            }
-        });
-        settingsPanel.addUIElement(buttonLabel);
-        ModButton leftKeyButton = new ModButton(350.0F, 650.0F, settingsPanel, (me) -> {
-            me.parent.waitingOnEvent = true;
-            changekey = true;
-            this.leftInputProcessor = Gdx.input.getInputProcessor();
-            Gdx.input.setInputProcessor(new InputAdapter() {
-
-                public boolean keyUp(int keycode) {
-                    leftKey = keycode;
-                    try {
-                        SpireConfig config = new SpireConfig("BlueArchive_ProblemSolver", "BlueArchiveConfig", problemSolverSettings);
-                        config.setInt(LEFT_CHARACTER_BUTTON_KEY, keycode);
-                        config.save();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    me.parent.waitingOnEvent = false;
-                    Gdx.input.setInputProcessor(leftInputProcessor);
-                    return true;
-                }
-            });
-        });
-        settingsPanel.addUIElement(leftKeyButton);
-        ModButton rightKeyButton = new ModButton(475.0F, 650.0F, settingsPanel, (me) -> {
-            me.parent.waitingOnEvent = true;
-            changekey = true;
-            this.rightInputProcessor = Gdx.input.getInputProcessor();
-            Gdx.input.setInputProcessor(new InputAdapter() {
-                public boolean keyUp(int keycode) {
-                    rightKey = keycode;
-                    try {
-                        SpireConfig config = new SpireConfig("BlueArchive_ProblemSolver", "BlueArchiveConfig", problemSolverSettings);
-                        config.setInt(RIGHT_CHARACTER_BUTTON_KEY, keycode);
-                        config.save();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    me.parent.waitingOnEvent = false;
-                    Gdx.input.setInputProcessor(rightInputProcessor);
-                    return true;
-                }
-            });
-        });
-        settingsPanel.addUIElement(rightKeyButton);
-
-
-        ModLabel rollButtonLabel = new ModLabel("", 475.0F, 600.0F, settingsPanel, (me) -> {
-            if (me.parent.waitingOnEvent && !changekey) {
-                me.text = "Press Key";
-            } else {
-                me.text = "(" + Input.Keys.toString(rollkey) + ") Character Shuffle Key (For when you can't see the character)";
-            }
-        });
-        settingsPanel.addUIElement(rollButtonLabel);
-        ModButton rollKeyButton = new ModButton(350.0F, 550.0F, settingsPanel, (me) -> {
-            me.parent.waitingOnEvent = true;
-            changekey = false;
-            this.rollInputProcessor = Gdx.input.getInputProcessor();
-            Gdx.input.setInputProcessor(new InputAdapter() {
-                public boolean keyUp(int keycode) {
-                    rollkey = keycode;
-                    try {
-                        SpireConfig config = new SpireConfig("BlueArchive_ProblemSolver", "BlueArchiveConfig", problemSolverSettings);
-                        config.setInt(ROLL_CHARACTER_BUTTON_KEY, keycode);
-                        config.save();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    me.parent.waitingOnEvent = false;
-                    Gdx.input.setInputProcessor(rollInputProcessor);
-                    return true;
-                }
-            });
-        });
-        settingsPanel.addUIElement(rollKeyButton);
         activeTutorialButton = new ModLabeledToggleButton("Active Problem Solver Tutorial.",
-                350.0f, 450.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 activeTutorial,
                 settingsPanel,
                 (label) -> {},
@@ -589,7 +508,7 @@ public class DefaultMod implements
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
 
-        //BaseMod.addPotion(PeroroPotion.class, PERORO_POTION_LIQUID, PERORO_POTION_HYBRID, PERORO_POTION_SPOTS, PeroroPotion.POTION_ID, Aru.Enums.HIFUMI);
+        BaseMod.addPotion(TagPotion.class, TAG_POTION_LIQUID, TAG_POTION_HYBRID, TAG_POTION_SPOTS, TagPotion.POTION_ID, PROBLEM_SOLVER );
 
 
         logger.info("Done editing potions");

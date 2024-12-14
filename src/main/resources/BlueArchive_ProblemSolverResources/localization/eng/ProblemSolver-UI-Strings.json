@@ -21,14 +21,14 @@
   },
   "BlueArchive_ProblemSolver:RestOption": {
     "TEXT": [
-      "Heal 30% of the total Problem Solver's HP, distributed across all characters. (",
+      "Distribute Heal 30% of the total Problem Solver's HP. (",
       "Heal 100% of the total Problem Solver's HP. (",
-      "Heal additional HP based on the following effect: "
+      " HP from "
     ]
   },
   "BlueArchive_ProblemSolver:SideDeck": {
     "TEXT": [
-      "Select a card to bring from the side deck or a battle reward.",
+      "Select a card from the side deck or obtain a reward after combat.",
       "Add a card to the side deck.",
       "Cards included in the side deck."
     ]

@@ -1,1 +1,5 @@
-{}
+{
+  "BlueArchive_ProblemSolver:TagPotion": {
+    "NAME": "Tag Potion",
+    "DESCRIPTIONS": ["Gain #b", " #yTemporary #yHP. Move to the back."]
+  }}

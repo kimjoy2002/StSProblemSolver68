@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputActionSet;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.ArrayList;
@@ -49,6 +51,10 @@ public class ALLTargeting  extends TargetingHandler<AbstractCreature> {
                         AbstractDungeon.player.hoveredCard.applyPowers();
                         if(hovered.hasPower(VulnerablePower.POWER_ID)) {
                             AbstractDungeon.player.hoveredCard.damage *= 1.5f;
+                            AbstractDungeon.player.hoveredCard.isDamageModified = true;
+                        }
+                        if(hovered.hasPower(IntangiblePlayerPower.POWER_ID) || hovered.hasPower(IntangiblePower.POWER_ID)) {
+                            AbstractDungeon.player.hoveredCard.damage = 1;
                             AbstractDungeon.player.hoveredCard.isDamageModified = true;
                         }
                     }

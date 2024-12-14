@@ -66,7 +66,7 @@ public class TacticalChallengeMutsuki extends AbstractDynamicCard {
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                             AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
-        AbstractDungeon.actionManager.addToBottom(new AddChellengeCountAction());
+        AbstractDungeon.actionManager.addToBottom(new AddChellengeCountAction(this));
     }
 
 

@@ -26,7 +26,7 @@
   },
   "BlueArchive_ProblemSolver:MercenaryCatalogueRelic": {
     "NAME": "Mercenary Catalogue",
-    "FLAVOR": "\"Meet the finest mercenaries in the Spire! Only 189,990 gold!\"",
+    "FLAVOR": "\"Meet the best mercenaries in the Spire! Only 189,990 gold!\"",
     "DESCRIPTIONS": [
       "At the start of combat, spend #r",
       " #yGold to summon a mercenary with #g",
@@ -52,15 +52,15 @@
     "NAME": "Bottle Set",
     "FLAVOR": "A bottle set bought cheaply as a group purchase in the Problem Solver.",
     "DESCRIPTIONS": [
-      "Gain #b1 potion slot. Potions applied to allies affect all ally characters."
+      "Upon pick up, gain #b1 potion slot. Potions affect all allies."
     ]
   },
   "BlueArchive_ProblemSolver:ArusTreasuredWalletRelic": {
     "NAME": "Aru's Treasured Wallet",
     "FLAVOR": "A priceless gift from Haruka, Kayoko, and Mutsuki when the Problem Solver was first established. It's Aru's most cherished possession.",
     "DESCRIPTIONS": [
-      "At the start of combat, all allies gain #yTemporary HP by #b",
-      "."
+      "At the start of combat, all allies gain #b",
+      " #yTemporary HP."
     ]
   }
 }

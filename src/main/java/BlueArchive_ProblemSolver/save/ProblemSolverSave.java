@@ -2,6 +2,7 @@ package BlueArchive_ProblemSolver.save;
 
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import basemod.abstracts.CustomSavable;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class ProblemSolverSave implements CustomSavable<ArrayList<SaveData>> {
         currentCharacters.clear();
         if(characters != null) {
             for(SaveData c : characters) {
-                ProblemSolver68.addCharacter(ProblemSolver68.stringToEnum(c.name), c.hp, c.max_hp, false);
+                AbstractPlayer ps =  ProblemSolver68.addCharacter(ProblemSolver68.stringToEnum(c.name), c.hp, c.max_hp, false);
             }
         }
     }
