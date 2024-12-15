@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "Old Maid",
-    "DESCRIPTION": "Draw !M! cards. NL If possible, Draw 2 cards. If possible, draw the selected *Problem BlueArchive_ProblemSolver:Solver card."
+    "DESCRIPTION": "Draw !M! cards. NL If possible, draw the selected *Problem BlueArchive_ProblemSolver:Solver card."
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "Problem Solver Barricade",

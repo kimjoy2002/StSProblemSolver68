@@ -184,10 +184,7 @@
   "BlueArchive_ProblemSolver:OutlawsRoad": {
     "NAME": "무법자의 길",
     "DESCRIPTION": "[E] 를 얻습니다. NL 진노합니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "[E] [E] 를 얻습니다. NL 진노합니다. NL 소멸.",
-    "EXTENDED_DESCRIPTION": [
-      "아루가 없어!"
-    ]
+    "UPGRADE_DESCRIPTION": "[E] [E] 를 얻습니다. NL 진노합니다. NL 소멸."
   },
   "BlueArchive_ProblemSolver:ButIllDoMyBest": {
     "NAME": "히, 힘내겠습니다!",

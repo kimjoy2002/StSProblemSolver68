@@ -57,6 +57,15 @@ public class FocusonAttackPower extends AbstractPower implements CloneablePowerI
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + draw_amount + DESCRIPTIONS[2];
     }
 
+
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        if (this.amount != -1) {
+            this.draw_amount += 2;
+        }
+    }
+
+
     @Override
     public void OnMoving() {
 
