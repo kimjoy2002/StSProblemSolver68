@@ -108,7 +108,8 @@ public class CheckFearAction extends AbstractGameAction {
                     (owner.id.equals("BlueArchive_Hoshino:Goz") && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().cannotLose ) ||
                     owner.id.equals("BlueArchive_Hoshino:PeroroHifumi")||
                     owner.id.equals("BlueArchive_Hoshino:Siro")||
-                    owner.id.startsWith("BlueArchive_Hoshino:Kaitenger")) {
+                    owner.id.startsWith("BlueArchive_Hoshino:Kaitenger") ||
+                    owner.id.equals("BlueArchive_Hoshino:Hieronymus")) {
                 AbstractDungeon.actionManager.addToBottom(new InstantKillAction(owner));
                 this.isDone = true;
                 return;
