@@ -6,14 +6,14 @@
       "deeds",
       "evildeeds"
     ],
-    "DESCRIPTION": "Gain 1 Evil Deed whenever another card is played. Requires X Evil Deeds to trigger its effect."
+    "DESCRIPTION": "Gain 1 #yEvil #yDeed whenever another card is played. Requires X #yEvil #yDeeds to trigger its effect."
   },
   {
     "PROPER_NAME": "Imp",
     "NAMES": [
       "imp"
     ],
-    "DESCRIPTION": "Once per turn, increases the damage of attacks. Imps are shared across all allies."
+    "DESCRIPTION": "Once per turn, increases the damage of attacks. #yImps are shared across all allies."
   },
   {
     "PROPER_NAME": "Mine",

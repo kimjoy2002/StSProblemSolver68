@@ -5,7 +5,7 @@
       "Problem Solver 68"
     ],
     "TEXT": [
-      "A request has come in!",
+      "Starting the request!",
       "NL Everyone prepares for a barrage...",
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~problem~ ~solver,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
     ]
@@ -13,11 +13,11 @@
   "BlueArchive_ProblemSolver:NeowReward": {
     "NAMES": [],
     "TEXT": [
-      "[ #gIncrease #gALL #gallies' #gmaximum #gHP #gby #g",
-      "#gIncrease #gALL #gallies' #gmaximum #gHP #gby #g",
-      "[ #rLose #rmaximum #rHP #rfor #rALL #rallies #rby #r",
-      " #rand #rgain #r",
-      "[ #rALL #rallies #rtake #rdamage #rof #r"
+      "[ #gAll #gCharacters #gMax #gHP #g+",
+      "#gAll #gCharacters #gMax #gHP #g+",
+      "[ #rAll #rCharacters #rlose #r",
+      " #rMax #rHP ",
+      "[ #rAll #rCharacters #rtake #r"
     ]
   }
 }

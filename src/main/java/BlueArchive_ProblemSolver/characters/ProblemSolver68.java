@@ -59,8 +59,7 @@ import jdk.nashorn.internal.parser.AbstractParser;
 import java.util.*;
 
 import static BlueArchive_ProblemSolver.DefaultMod.*;
-import static BlueArchive_ProblemSolver.characters.Aru.CAT_SKELETON_GIF;
-import static BlueArchive_ProblemSolver.characters.Aru.MUTSUKI_SKELETON_GIF;
+import static BlueArchive_ProblemSolver.characters.Aru.*;
 import static BlueArchive_ProblemSolver.characters.Aru.ProblemSolver68Type.*;
 
 public abstract class ProblemSolver68 extends CustomPlayer {
@@ -107,7 +106,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
     private Color nameBgColor = new Color(0.0F, 0.0F, 0.0F, 0.0F);
 
     public static Animation<TextureRegion> mutuski_animation;
-    public static Animation<TextureRegion> cat_animation;
+    public static Animation<TextureRegion> cat_animation[];
     float animation_elapsed = 0;
     public ProblemSolver68(String name, AbstractPlayer.PlayerClass playerClass, String[] orbTextures, String orbVfxPath, float[] layerSpeeds, AbstractAnimation animation) {
         super(name, playerClass, orbTextures, orbVfxPath, layerSpeeds, animation);
@@ -142,7 +141,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
         }
         if (ProblemSolver68.cat_animation == null) {
-            ProblemSolver68.cat_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+            ProblemSolver68.cat_animation = new Animation[2];
+            ProblemSolver68.cat_animation[0] = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+            ProblemSolver68.cat_animation[1] = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT2_SKELETON_GIF).read());
         }
     }
     
@@ -570,7 +571,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
             }
             if(ProblemSolver68.cat_animation == null) {
-                ProblemSolver68.cat_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+                ProblemSolver68.cat_animation = new Animation[2];
+                ProblemSolver68.cat_animation[0] = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+                ProblemSolver68.cat_animation[1] = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT2_SKELETON_GIF).read());
             }
 
 
@@ -1068,8 +1071,11 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 && cat_animation != null){
             animation_elapsed += Gdx.graphics.getDeltaTime();
             sb.setColor(Color.WHITE);
-            sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.slip_x - 306.0f * Settings.scale / 2.0F + this.animX, this.slip_y - 150 * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
-            //sb.draw(cat_animation.getKeyFrame(animation_elapsed), this.drawX - 266.0f * Settings.scale / 2.0F + this.animX, this.drawY - 125.0f * Settings.scale / 2.0F+ this.animY,  188.0f/2,  200.0f/2, 188.0f, 200.0f, Settings.scale, Settings.scale, 90.0f, true);
+            if(myCount % 2 == 0) {
+                sb.draw(cat_animation[0].getKeyFrame(animation_elapsed), this.slip_x - 306.0f * Settings.scale / 2.0F + this.animX, this.slip_y - 150 * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
+            } else {
+                sb.draw(cat_animation[1].getKeyFrame(animation_elapsed), this.drawX - 266.0f * Settings.scale / 2.0F + this.animX, this.drawY - 125.0f * Settings.scale / 2.0F+ this.animY,  188.0f/2,  200.0f/2, 188.0f, 200.0f, Settings.scale, Settings.scale, 90.0f, true);
+            }
         } else {
             switch (this.animation.type()) {
                 case NONE:

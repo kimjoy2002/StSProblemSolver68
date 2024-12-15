@@ -32,6 +32,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.mod.stslib.patches.CustomTargeting;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
@@ -63,9 +64,8 @@ import java.util.Collections;
 import java.util.Properties;
 import java.util.UUID;
 
-import static BlueArchive_ProblemSolver.characters.Aru.CAT_SKELETON_GIF;
+import static BlueArchive_ProblemSolver.characters.Aru.*;
 import static BlueArchive_ProblemSolver.characters.Aru.Enums.PROBLEM_SOLVER;
-import static BlueArchive_ProblemSolver.characters.Aru.MUTSUKI_SKELETON_GIF;
 import static BlueArchive_ProblemSolver.characters.ProblemSolver68.problemSolverPlayer;
 
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -435,7 +435,9 @@ public class DefaultMod implements
                 ProblemSolver68.mutuski_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(MUTSUKI_SKELETON_GIF).read());
             }
             if(ProblemSolver68.cat_animation == null) {
-                ProblemSolver68.cat_animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+                ProblemSolver68.cat_animation = new Animation[2];
+                ProblemSolver68.cat_animation[0] = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT_SKELETON_GIF).read());
+                ProblemSolver68.cat_animation[1] = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal(CAT2_SKELETON_GIF).read());
             }
 
 

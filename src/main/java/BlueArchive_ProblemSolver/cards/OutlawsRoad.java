@@ -56,7 +56,6 @@ public class OutlawsRoad extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded?2:1));
         this.addToBot(new ChangeStanceAction("Wrath"));
-        this.addToBot(new ChannelAction(AbstractOrb.getRandomOrb(true)));
         //AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU, true));
         //AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
     }

@@ -613,7 +613,7 @@
   },
   "BlueArchive_ProblemSolver:ShadowShot": {
     "NAME": "Shadow Shot",
-    "DESCRIPTION": "Deal !M! damage for each card in your hand that isn't a Curse or Status card.",
+    "DESCRIPTION": "Deal !M! damage for each card in your hand that isn't a Curse or Status.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -685,15 +685,15 @@
   },
   "BlueArchive_ProblemSolver:ImmortalMercenary": {
     "NAME": "Immortal Mercenary",
-    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL When it dies, add a cost 0 *Immortal *Mercenary card to your discard pile.",
+    "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the front. NL When it dies, add a cost 0 *Immortal *Mercenary to your discard pile.",
     "EXTENDED_DESCRIPTION": [
       "I can't hire more."
     ]
   },
   "BlueArchive_ProblemSolver:ShieldOfProblemSolver": {
     "NAME": "Shield of the Problem Solver",
-    "DESCRIPTION": "Unplayable. NL If this card remains in your deck at the end of combat, *Haruka gains Max HP by !M!.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Ethereal. NL If this card remains in your deck at the end of combat, *Haruka gains Max HP by !M!.",
+    "DESCRIPTION": "Unplayable. NL If this card remains in your deck at the end of combat, *Haruka gains !M! Max HP.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Ethereal. NL If this card remains in your deck at the end of combat, *Haruka gains !M! Max HP.",
     "EXTENDED_DESCRIPTION": [
       "I can't play NL this card."
     ]
@@ -704,7 +704,7 @@
   },
   "BlueArchive_ProblemSolver:Exit": {
     "NAME": "EXIT",
-    "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain X *Shift+ cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain X+1 *Shift+ cards. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain X *Shift+. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain X+1 *Shift+. NL Exhaust."
   }
 }

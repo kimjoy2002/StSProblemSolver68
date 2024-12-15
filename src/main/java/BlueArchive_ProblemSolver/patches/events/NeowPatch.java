@@ -76,9 +76,18 @@ public class NeowPatch {
                     case TEN_PERCENT_HP_LOSS:
                         ProblemSolver68.decreaseMaxHpAll(hp_bonus, AbstractDungeon.player);
                         break;
-                    case PERCENT_DAMAGE:
-                        ProblemSolver68.damageAll(AbstractDungeon.player.currentHealth / 10 * 3, AbstractDungeon.player);
+                    case PERCENT_DAMAGE:{
+                        AbstractPlayer player = AbstractDungeon.player;
+                        for(AbstractPlayer ps : ProblemSolver68.problemSolverPlayer) {
+                            if(ps != player) {
+                                player = ps;
+                                break;
+                            }
+                        }
+                        ProblemSolver68.damageAll(player.currentHealth / 10 * 3, AbstractDungeon.player);
                         break;
+
+                    }
                 }
 
                 switch (__instance.type) {

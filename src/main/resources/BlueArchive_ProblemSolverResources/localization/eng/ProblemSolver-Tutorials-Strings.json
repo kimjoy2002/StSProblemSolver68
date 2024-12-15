@@ -3,8 +3,8 @@
     "TEXT": [
       "#bProblem #bSolver lets you control multiple characters during combat. NL You can use specific card effects to switch their positions.",
       "During your turn, cards are played based on buffs applied to the #yfront character. NL Unless stated otherwise, buffs or powers always affect the #yfront character.",
-      "During the enemy's turn, the #yfront character always takes the attacks. NL If the current #yfront character dies, the next one will take their place.",
-      "Characters who die during combat revive with 1 HP after the battle. NL However, if all #bProblem #bSolver characters die before the battle ends, you lose."
+      "During the enemy's turn, the #yfront character always takes the attacks. NL If the #yfront character dies, the next attack will target the next character.",
+      "Characters who die during combat revive with 1 HP after the battle. NL If all #bProblem #bSolver characters die before the battle ends, you lose."
     ],
     "LABEL": [
       "Next",

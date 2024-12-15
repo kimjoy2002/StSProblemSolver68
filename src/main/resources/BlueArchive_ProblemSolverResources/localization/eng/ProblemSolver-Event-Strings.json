@@ -19,7 +19,7 @@
   },
   "BlueArchive_ProblemSolver:Nest": {
     "OPTIONS": [
-      "[Stay in line] #gObtain Ritual Dagger. ALL #rcharacters #rlose #r"
+      "[Stay in line] #gObtain Ritual Dagger. #rALL #rcharacters #rlose #r"
     ]
   },
   "BlueArchive_ProblemSolver:ScrapOoze": {
@@ -106,7 +106,7 @@
   },
   "BlueArchive_ProblemSolver:ForgottenAltar": {
     "OPTIONS": [
-      "[Sacrifice] #gALL #gcharacters' #gain #g",
+      "[Sacrifice] #gALL #gcharacters #ggain #g",
       " #gMax #gHP. #rALL #rcharacters #rlose #r",
       " #rHP."
     ]
@@ -123,7 +123,7 @@
   },
   "BlueArchive_ProblemSolver:MoaiHead": {
     "OPTIONS": [
-      "[Enter] ALL characters #gHeal #gto #gfull #gHP. #rLose #r",
+      "[Enter] #gALL #gcharacters #gHeal #gto #gfull #gHP. #rLose #r",
       " #rMax #rHP."
     ]
   },
