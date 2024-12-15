@@ -37,7 +37,7 @@
   "BlueArchive_ProblemSolver:OutlawsRockPower": {
     "NAME": "Outlaw’s Rock",
     "DESCRIPTIONS": [
-      "#gShared NL Each time #yEvil Deeds is triggered, apply #r",
+      "#gShared NL Each time #yEvil #yDeeds is triggered, apply #r",
       " #yFear to ALL enemies."
     ]
   },
@@ -66,7 +66,7 @@
     "DESCRIPTIONS": [
       "#gShared NL Gain ",
       "[E] ",
-      " when #yEvil Deeds is triggered for the first time each turn.",
+      " when #yEvil #yDeeds is triggered for the first time each turn.",
       " (Used)"
     ]
   },
