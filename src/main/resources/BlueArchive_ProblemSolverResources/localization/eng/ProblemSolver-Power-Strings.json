@@ -37,8 +37,8 @@
   "BlueArchive_ProblemSolver:OutlawsRockPower": {
     "NAME": "Outlaw’s Rock",
     "DESCRIPTIONS": [
-      "#gShared NL Each time #yEvil Deeds is triggered, deal #r",
-      " damage to ALL enemies."
+      "#gShared NL Each time #yEvil Deeds is triggered, apply #r",
+      " #yFear to ALL enemies."
     ]
   },
   "BlueArchive_ProblemSolver:TauntPower": {
