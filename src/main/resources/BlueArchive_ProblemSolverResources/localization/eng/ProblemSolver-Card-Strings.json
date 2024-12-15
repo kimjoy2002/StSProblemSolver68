@@ -96,7 +96,7 @@
   },
   "BlueArchive_ProblemSolver:PanicShot": {
     "NAME": "Panic Shot",
-    "DESCRIPTION": "Apply !M! BlueArchive_ProblemSolver:Fear. NL Apply !BlueArchive_ProblemSolver:M! Weak."
+    "DESCRIPTION": "Apply !M! BlueArchive_ProblemSolver:Fear. NL Apply !BlueArchive_ProblemSolver:M! Vulnerable."
   },
   "BlueArchive_ProblemSolver:PanicBringer": {
     "NAME": "Panic Bringer",
