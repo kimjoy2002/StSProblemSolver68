@@ -13,7 +13,7 @@
   },
   "BlueArchive_ProblemSolver:ChooseMutsuki": {
     "NAME": "Asagi Mutsuki",
-    "DESCRIPTION": "Obtain *Scorching *Aria. NL Keyword: BlueArchive_ProblemSolver:Imp. NL Strengths: Multi-hit attacks, discards."
+    "DESCRIPTION": "Obtain *Exploding *Aria. NL Keyword: BlueArchive_ProblemSolver:Imp. NL Strengths: Multi-hit attacks, discards."
   },
   "BlueArchive_ProblemSolver:ChooseKayoko": {
     "NAME": "Onikata Kayoko",
@@ -285,6 +285,7 @@
     "UPGRADE_DESCRIPTION": "This card does not increase BlueArchive_ProblemSolver:Evil *Deeds. NL Deal !D! damage. NL Exhaust. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Gain a *Reputation+.",
     "EXTENDED_DESCRIPTION": [
       "This card does not increase BlueArchive_ProblemSolver:Evil *Deeds. NL Deal !D! damage. NL Exhaust. NL ",
+      "This card does not increase BlueArchive_ProblemSolver:Evil *Deeds. NL Deal !D! damage. NL Exhaust. NL ",
       "BlueArchive_ProblemSolver:Evil *Deeds (",
       "/!BlueArchive_ProblemSolver:M2!): Gain a *Reputation.",
       "/!BlueArchive_ProblemSolver:M2!): Gain a *Reputation+."
@@ -446,8 +447,8 @@
   },
   "BlueArchive_ProblemSolver:MineChain": {
     "NAME": "Mine Chain",
-    "DESCRIPTION": "Unplayable. NL BlueArchive_ProblemSolver:Mine: Add *Ankle *Mine cards to both adjacent positions.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL BlueArchive_ProblemSolver:Mine: Add *Ankle *Mine+ cards to both adjacent positions.",
+    "DESCRIPTION": "Unplayable. NL BlueArchive_ProblemSolver:Mine: Add *Ankle *Mines to both adjacent positions.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL BlueArchive_ProblemSolver:Mine: Add *Ankle *Mines+ to both adjacent positions.",
     "EXTENDED_DESCRIPTION": [
       "I can't play NL this card."
     ]
