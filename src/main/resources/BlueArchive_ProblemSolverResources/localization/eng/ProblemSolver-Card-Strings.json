@@ -108,7 +108,7 @@
     "UPGRADE_DESCRIPTION": "Draw !M! cards. NL All allies gain !BlueArchive_ProblemSolver:M! Strength. NL At the end of this turn, lose Strength."
   },
   "BlueArchive_ProblemSolver:CuteImpScheme": {
-    "NAME": "Cute Imp's Scheme",
+    "NAME": "Cute Imp Scheme",
     "DESCRIPTION": "Gain !M! BlueArchive_ProblemSolver:Imp."
   },
   "BlueArchive_ProblemSolver:CaliforniaGurls": {
@@ -170,7 +170,7 @@
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL Cannot draw additional cards this turn."
   },
   "BlueArchive_ProblemSolver:CatsProtection": {
-    "NAME": "Cat's Time",
+    "NAME": "Cat's Protection",
     "DESCRIPTION": "Summon a BlueArchive_ProblemSolver:Mercenary with !M! HP to the back.",
     "UPGRADE_DESCRIPTION": "Summon up to 2 BlueArchive_ProblemSolver:Mercenaries with !M! HP to the back.",
     "EXTENDED_DESCRIPTION": [
@@ -249,7 +249,7 @@
     ]
   },
   "BlueArchive_ProblemSolver:MoreFunWaysToPlay": {
-    "NAME": "More Fun Ways to Play",
+    "NAME": "More Fun Ways to Play!",
     "DESCRIPTION": "Gain !B! Block. NL Regain the BlueArchive_ProblemSolver:Imp damage increase."
   },
   "BlueArchive_ProblemSolver:DangerousPlay": {
@@ -524,7 +524,7 @@
     "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever you have applied a total of !M! Debuffs to any targets, Draw a card."
   },
   "BlueArchive_ProblemSolver:KayokoKick": {
-    "NAME": "Weapon Disarm",
+    "NAME": "Kayoko Kick",
     "DESCRIPTION": "Innate. NL Deal !D! damage. NL Remove Artifact from the enemy. NL Apply !M! Weak."
   },
   "BlueArchive_ProblemSolver:Claymore": {
@@ -653,7 +653,7 @@
     "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Whenever you apply BlueArchive_ProblemSolver:Fear, if the enemy intends to attack, reduce their Strength by the same amount for 1 turn."
   },
   "BlueArchive_ProblemSolver:Sweep": {
-    "NAME": "Sweep Up",
+    "NAME": "Sweep",
     "DESCRIPTION": "Deal !D! damage. NL Gain Strength equal to unblocked damage dealt. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain Strength equal to unblocked damage dealt."
   },
