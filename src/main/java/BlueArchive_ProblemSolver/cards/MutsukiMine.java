@@ -53,7 +53,9 @@ public class MutsukiMine extends MineCard {
     @Override
     public boolean onMine(AbstractCard c) {
         AbstractMonster m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
-        AbstractDungeon.actionManager.addToTop(new LoseHPAction(m, AbstractDungeon.player, magicNumber, AbstractGameAction.AttackEffect.FIRE));
+        if(m != null) {
+            AbstractDungeon.actionManager.addToTop(new LoseHPAction(m, AbstractDungeon.player, magicNumber, AbstractGameAction.AttackEffect.FIRE));
+        }
         AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
         AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
         return true;
