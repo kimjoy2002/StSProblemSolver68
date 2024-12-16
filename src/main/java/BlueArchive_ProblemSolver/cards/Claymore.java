@@ -42,7 +42,6 @@ public class Claymore extends MineCard {
         baseDamage = DAMAGE;
         this.isMultiDamage = true;
         baseMagicNumber = magicNumber = MAGIC;
-        exhaust = true;
     }
 
     // Actions the card should do.

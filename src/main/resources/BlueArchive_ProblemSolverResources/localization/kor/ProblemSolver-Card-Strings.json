@@ -514,8 +514,8 @@
   },
   "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
     "NAME": "수상한 소문",
-    "DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 손에 있을때 한번만, BlueArchive_ProblemSolver:악행이 발동할때 [E] [E] 를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 손에 있을때 한번만, BlueArchive_ProblemSolver:악행이 발동할때 [E] [E] [E] 를 얻습니다.",
+    "DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 턴당 한 번씩, BlueArchive_ProblemSolver:악행이 발동할때 [E] [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "사용불가. NL 손에 있는 동안 다른 카드들이 BlueArchive_ProblemSolver:악행을 !M! 얻습니다. NL 턴당 한 번씩, BlueArchive_ProblemSolver:악행이 발동할때 [E] [E] [E] 를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "사용할 수 없어."
     ]

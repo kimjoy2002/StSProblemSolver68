@@ -62,6 +62,9 @@ public class SnsuspiciousRumor extends AbstractDynamicCard implements OnEvilDeed
             }
         }
     }
+    public void atTurnStart() {
+        gainEnergy = true;
+    }
     public void onMoveToDiscard() {
         gainEnergy = true;
     }

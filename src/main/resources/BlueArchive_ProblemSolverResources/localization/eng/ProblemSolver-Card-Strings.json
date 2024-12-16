@@ -514,8 +514,8 @@
   },
   "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
     "NAME": "Suspicious Rumor",
-    "DESCRIPTION": "Unplayable. NL While in hand, other cards gain !M! BlueArchive_ProblemSolver:Evil *Deeds. NL while this card is in your hand, gain [E] [E] the first time BlueArchive_ProblemSolver:Evil *Deeds triggers.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL While in hand, other cards gain !M! BlueArchive_ProblemSolver:Evil *Deeds. NL while this card is in your hand, gain [E] [E] [E] the first time BlueArchive_ProblemSolver:Evil *Deeds triggers.",
+    "DESCRIPTION": "Unplayable. NL While in hand, other cards gain !M! BlueArchive_ProblemSolver:Evil *Deeds. NL Gain [E] [E] the first time BlueArchive_ProblemSolver:Evil *Deeds triggers each turn.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL While in hand, other cards gain !M! BlueArchive_ProblemSolver:Evil *Deeds. NL Gain [E] [E] [E] the first time BlueArchive_ProblemSolver:Evil *Deeds triggers each turn.",
     "EXTENDED_DESCRIPTION": [
       "I can't play NL this card."
     ]

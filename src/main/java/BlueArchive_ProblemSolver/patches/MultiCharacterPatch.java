@@ -244,6 +244,7 @@ public class MultiCharacterPatch {
                 locator = Locator.class
         )
         public static SpireReturn Insert(AbstractPlayer __instance, DamageInfo info) {
+            MultiCharacterPatch.onDead_(__instance);
             if (__instance instanceof ProblemSolver68 && !((ProblemSolver68)__instance).isProblemSolver()) {
                 if (MultiCharacterPatch.onDamage_(__instance)) {
                     return SpireReturn.Return();
@@ -279,30 +280,6 @@ public class MultiCharacterPatch {
 
 
 
-
-
-    @SpirePatch(
-            clz = AbstractPlayer.class,
-            method = "damage",
-            paramtypez= {
-                    DamageInfo.class
-            }
-    )
-    public static class OnDeadPatch {
-        @SpireInsertPatch(
-                locator = Locator.class
-        )
-        public static void Insert(AbstractPlayer __instance, DamageInfo info) {
-            MultiCharacterPatch.onDead_(__instance);
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
-                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
-            }
-        }
-    }
 
 
 
