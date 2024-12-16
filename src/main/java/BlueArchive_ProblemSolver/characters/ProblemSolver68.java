@@ -383,7 +383,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
     }
 
-
+    public void heal(int healAmount, boolean showEffect) {
+        super.heal(healAmount, showEffect);
+        if(currentHealth > 0 && isProblemSolver() && isDead) {
+            isDead = false;
+        }
+    }
     public static void removeCharacter(ProblemSolver68 player) {
         float offset_ = PROBLEM_SOLVER_INTERVAL*Settings.scale/2;
         boolean isPrev = true;
@@ -1064,7 +1069,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         if(solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI
                 && hasPower(CaliforniaGurlsPower.POWER_ID)
                 && mutuski_animation != null){
-            animation_elapsed += Gdx.graphics.getDeltaTime();
+            animation_elapsed += Gdx.graphics.getDeltaTime()*2;
             sb.setColor(Color.WHITE);
             sb.draw(mutuski_animation.getKeyFrame(animation_elapsed), this.slip_x - 306.0f * Settings.scale / 2.0F + this.animX, this.slip_y - 150.0f * Settings.scale / 2.0F+ this.animY,  256.0f/2,  256.0f/2, 256.0f, 256.0f, Settings.scale, Settings.scale, 90.0f, true);
         } else if(solverType == Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_CAT
@@ -1358,11 +1363,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
 
         if (this.escapeTimer < 0.0F) {
-            if(currentHealth <= 0 && !isProblemSolver(solverType)) {
+            if(!isProblemSolver(solverType)) {
                 if (problemSolverPlayer.contains(this)) {
                     AbstractDungeon.actionManager.addToBottom(new RemoveCharacterAction(this));
                 }
-            } else {
+            }
+            else {
                 AbstractDungeon.getCurrRoom().endBattle();
             }
             this.flipHorizontal = false;
