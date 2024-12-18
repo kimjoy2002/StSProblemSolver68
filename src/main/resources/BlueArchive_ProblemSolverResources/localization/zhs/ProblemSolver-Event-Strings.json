@@ -1,0 +1,144 @@
+{
+  "BlueArchive_ProblemSolver:CursedTome": {
+    "OPTIONS": [
+      "[Continue] #r所有 #r角色 #r失去 #r1 #r生命值.",
+      "[Continue] #r所有 #r角色 #r失去 #r2 #r生命值.",
+      "[Continue] #r所有 #r角色 #r失去 #r3 #r生命值.",
+      "[Stop] #r所有 #r角色 #r失去 #r3 #r生命值.",
+      "[Take] #g获取 #g那本 #g书. #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:KnowingSkull": {
+    "OPTIONS": [
+      "[信息?] #g揭晓 #gthe #gBoss. #r所有 #r角色 #r失去 #r",
+      "[成功?] #g获得 #g一张 #g无色 #g卡. #r所有 #r角色 #r失去 #r",
+      "[一瓶药?] #g获得 #g一瓶 #g药水. #r所有 #r角色 #r失去 #r",
+      " #g金币. #r所有 #r角色 #r失去 #r",
+      "[我该怎么离开?] #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Nest": {
+    "OPTIONS": [
+      "[保持队形] #g获取仪式匕首. #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ScrapOoze": {
+    "OPTIONS": [
+      "[深入内部] #r所有 #r角色 #r失去 #r",
+      "[更深] #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:GoopPuddle": {
+    "OPTIONS": [
+      " #g金币. #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:SensoryStone": {
+    "OPTIONS": [
+      "[交互] #g加入#g2张 #g无色 #g牌 #g到 #g你的 #g卡组中. #r所有 #r角色 #r失去 #r",
+      "[交互] #g加入#g3张 #g无色 #g牌 #g到 #g你的 #g卡组中. #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:WingStatue": {
+    "OPTIONS": [
+      "[祈祷] #g将 #g一张 #g卡牌 #g移除出 #g你的 #g卡组. #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Ghosts": {
+    "OPTIONS": [
+      "[接受] #g获得 #g3 灵体牌。 #r所有 #角色 #r失去 #r一半 #r的 #r最大 #r生命值.",
+      "[接受] #g获得 #g3 灵体牌. #r所有 #角色 #r失去 #r一半 #r的 #r最大 #r生命值."
+    ]
+  },
+  "BlueArchive_ProblemSolver:Vampires": {
+    "OPTIONS": [
+      "[接受] #g移除 #g所有打击. #g获得 #g5 啃噬. #r所有 #r角色 #r失去 #r30% #r的 #r最大 #r生命值."
+    ]
+  },
+  "BlueArchive_ProblemSolver:BigFish": {
+    "OPTIONS": [
+      "[香蕉] #g所有 #g橘色 #g治疗 #g",
+      "[甜甜圈] #g所有 #g角色' #g最大 #g生命值 #g+"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Cleric": {
+    "OPTIONS": [
+      "[治疗] #y35 #y金币: #g治疗 #g所有 #g角色 #g"
+    ]
+  },
+  "BlueArchive_ProblemSolver:GoldenIdol": {
+    "OPTIONS": [
+      "[粉碎] #r所有 #r角色 #r受到 #r",
+      "[隐藏] #r所有 #r角色 #r失去 #r10% #r的 #r最大 #r生命值."
+    ]
+  },
+  "BlueArchive_ProblemSolver:Mushrooms": {
+    "OPTIONS": [
+      "[吃下] #g治疗 #g所有 #g"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ShiningLight": {
+    "OPTIONS": [
+      "[进入] #g升级 #g2张 #g随机 #g卡牌. #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Designer": {
+    "OPTIONS": [
+      "[打一拳] #r所有 #r角色 #r失去 #r",
+      " #r生命值."
+    ]
+  },
+  "BlueArchive_ProblemSolver:FaceTrader": {
+    "OPTIONS": [
+      "[触摸] #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:GremlinWheelGame": {
+    "OPTIONS": [
+      "[奖赏!] #g所有 #g角色 #g治疗 #g到 #g满 #g生命值.",
+      "[奖赏?] #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:WomanInBlue": {
+    "OPTIONS": [
+      "[离开] #r所有 #r角色 #r受到 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ForgottenAltar": {
+    "OPTIONS": [
+      "[献祭] #g所有 #g角色 #g获得 #g",
+      " #g最大 #g生命值. #r所有 #r角色 #r失去 #r",
+      " #r生命值."
+    ]
+  },
+  "BlueArchive_ProblemSolver:TheLibrary": {
+    "OPTIONS": [
+      "[休息] #g治疗 #g全部 #g"
+    ]
+  },
+  "BlueArchive_ProblemSolver:MindBloom": {
+    "OPTIONS": [
+      "[我已痊愈] #g所有 #g角色 #g治疗 #g到 #g满 #g生命值. #r诅咒 #r- #r疑虑."
+    ]
+  },
+  "BlueArchive_ProblemSolver:MoaiHead": {
+    "OPTIONS": [
+      "[进入] #g所有 #g角色 #g恢复 #g到 #g满 #g生命值. #r失去 #r",
+      " #r最大 #r生命值."
+    ]
+  },
+  "BlueArchive_ProblemSolver:WindingHalls": {
+    "OPTIONS": [
+      "[拥抱疯狂] #g获取 #g2张 疯狂. #r所有 #r角色 #r失去 #r",
+      "[专注] #rBecome #r被诅咒 #r- #r苦恼. #g治疗 #g所有 #g",
+      "[寻找来路] #r所有 #r角色 #r失去 #r"
+    ]
+  },
+  "BlueArchive_ProblemSolver:BonfireElementals": {
+    "OPTIONS": [
+      "火焰稍稍变亮了一些。. NL 精灵们继续起舞，你们觉得身子暖和了一些…….. NL  所有角色恢复 #b3 生命值.",
+      "火焰喷射出来，变亮了许多！精灵们在你们的身边兴奋地舞蹈着，让你们充满了暖意。.~ NL 所有角色恢复到满生命值",
+      "火焰爆发起来，几乎将你们震倒在地。火光亮了约有一倍。精灵们在你们身边兴奋地舞蹈着，然后融入了你们的躯体，让你们充满了温暖和力量。 NL 所有角色的最大生命值提升 #b5 并且 #g恢复到满生命值."
+    ]
+  }
+}

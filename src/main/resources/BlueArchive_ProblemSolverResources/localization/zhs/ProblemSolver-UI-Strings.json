@@ -1,0 +1,36 @@
+{
+  "BlueArchive_ProblemSolver:CharSelectAction": {
+    "TEXT": [
+      "选择你的初始角色。",
+      "阿露",
+      "睦月",
+      "佳代子",
+      "春香",
+      "头盔团",
+      "兰舞",
+      "纱织",
+      "猫猫",
+      "路人",
+      "不朽佣兵"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ChallengeMode": {
+    "TEXT": [
+      "以一个随机组合开始游戏"
+    ]
+  },
+  "BlueArchive_ProblemSolver:RestOption": {
+    "TEXT": [
+      "分配便利屋角色总生命值30%的治疗量。 (",
+      "治疗所有便利屋角色100%的生命值。 (",
+      " 生命值 从 "
+    ]
+  },
+  "BlueArchive_ProblemSolver:SideDeck": {
+    "TEXT": [
+      "选择一张来自副卡组的卡加入手牌, 或为副卡组选择一次卡牌奖励.",
+      "在副卡组中加入一张卡",
+      "卡片已收录于副卡组."
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+[
+  {
+    "PROPER_NAME": "恶行",
+    "NAMES": [
+      "恶",
+      "行",
+      "恶行"
+    ],
+    "DESCRIPTION": "每当另一张卡被打出时获得 1 个 #y恶行。需要 X个 #y恶行 来触发它的效果."
+  },
+  {
+    "PROPER_NAME": "小恶魔",
+    "NAMES": [
+      "小恶魔"
+    ],
+    "DESCRIPTION": "每回合一次，提升攻击的伤害. 所有盟友共享 #y小恶魔 。"
+  },
+  {
+    "PROPER_NAME": "地雷",
+    "NAMES": [
+      "地雷"
+    ],
+    "DESCRIPTION": "当手牌中相邻的卡被打出时触发。"
+  },
+  {
+    "PROPER_NAME": "恐惧",
+    "NAMES": [
+      "恐惧"
+    ],
+    "DESCRIPTION": "当敌人受到的 #y恐惧 与他们的当前生命值相等时他们会逃跑。正常获得奖励。"
+  },
+  {
+    "PROPER_NAME": "便利屋",
+    "NAMES": [
+      "便利",
+      "屋",
+      "便利屋"
+    ],
+    "DESCRIPTION": "便利屋角色指的是 #y阿露 , #y睦月 , #y佳代子 , and #y春香 ."
+  },
+  {
+    "PROPER_NAME": "雇佣兵",
+    "NAMES": [
+      "雇佣兵",
+      "雇佣兵们"
+    ],
+    "DESCRIPTION": "临时加入战斗的友方. 最多可以存在4个角色。"
+  },
+  {
+    "PROPER_NAME": "闭幕",
+    "NAMES": [
+      "闭幕"
+    ],
+    "DESCRIPTION": "#y闭幕 效果在回合结束时触发。 只有上一个被打出的 #y闭幕 卡片的效果会激活。"
+  },
+  {
+    "PROPER_NAME": "这就是便利屋",
+    "NAMES": [
+      "__fixerform__"
+    ],
+    "DESCRIPTION": "如果当前没有便利屋的角色，获取2个随机特效。"
+  },
+  {
+    "PROPER_NAME": "金属化",
+    "NAMES": [
+      "金属化"
+    ],
+    "DESCRIPTION": "在回合结束时, 获得 #y点护甲 ."
+  },
+  {
+    "PROPER_NAME": "临时困惑",
+    "NAMES": [
+      "困惑"
+    ],
+    "DESCRIPTION": "随机化你本回合中抽到的卡片的费用。"
+  },
+  {
+    "PROPER_NAME": "共用",
+    "NAMES": [
+      "共用"
+    ],
+    "DESCRIPTION": "这个效果通常会应用在你最前方的角色，并在他们倒下后继续在下一个角色身上维持效果。"
+  }
+]

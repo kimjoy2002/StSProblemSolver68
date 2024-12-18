@@ -1,0 +1,711 @@
+{
+  "BlueArchive_ProblemSolver:ProblemSolverStrike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "BlueArchive_ProblemSolver:ProblemSolverDefend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "BlueArchive_ProblemSolver:ChooseAru": {
+    "NAME": "陆八魔阿露",
+    "DESCRIPTION": "获取 *黑色 *攻击。 NL Keyword: bluearchive_problemsolver:恶行 。 NL 特技: 获得 [E] , 获得 力量 。"
+  },
+  "BlueArchive_ProblemSolver:ChooseMutsuki": {
+    "NAME": "浅黄睦月",
+    "DESCRIPTION": "获取 *爆裂 *咏叹调。 NL Keyword: bluearchive_problemsolver:小恶魔 。 NL 特技: 多段攻击, 弃牌。"
+  },
+  "BlueArchive_ProblemSolver:ChooseKayoko": {
+    "NAME": "鬼方佳代子",
+    "DESCRIPTION": "获取 *恐慌 *射击。 NL Keyword: bluearchive_problemsolver:恐惧 。 NL 特技: 负面效果, 低费, 抽牌。"
+  },
+  "BlueArchive_ProblemSolver:ChooseHaruka": {
+    "NAME": "伊草春香",
+    "DESCRIPTION": "获取 *一触 *即发。 NL Keyword: bluearchive_problemsolver:闭幕 。 NL 特技: 高防御, 自我负面效果。"
+  },
+  "BlueArchive_ProblemSolver:OldMaid": {
+    "NAME": "抽鬼牌",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 若是可以, 抽取选择的 bluearchive_problemsolver:便利屋 成员的卡牌。"
+  },
+  "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
+    "NAME": "便利屋露障",
+    "DESCRIPTION": "所有成员获得 !B! 格挡 。 NL 本回合，当一名成员受到攻击后，敌人的下次攻击将选择另一个成员。"
+  },
+  "BlueArchive_ProblemSolver:DistractingShot": {
+    "NAME": "分神射击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在你的手中加入一张 *换位 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 在你的手中加入一张 *换位+ 。"
+  },
+  "BlueArchive_ProblemSolver:DiningTogether": {
+    "NAME": "一同用餐",
+    "DESCRIPTION": "获得等同于所有的 bluearchive_problemsolver:便利屋 成员数量的 [E] NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (获取 ",
+      " [E] 。)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:BurstStrike": {
+    "NAME": "爆裂打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每个成员会按顺序使用这张卡。"
+  },
+  "BlueArchive_ProblemSolver:StrategicWithdrawal": {
+    "NAME": "战略性撤退！",
+    "DESCRIPTION": "每当成员移动到后方时，获得 !M! 点 临时生命 "
+  },
+  "BlueArchive_ProblemSolver:FirstAid": {
+    "NAME": "急救",
+    "DESCRIPTION": "随机以1点生命值复活一名倒下的 bluearchive_problemsolver:便利屋 成员并使其移动到最前方。 NL 最前方的成员获得 !M! 点 临时生命 值。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:DogFight": {
+    "NAME": "混战",
+    "DESCRIPTION": "造成 !D! 点伤害。 本场战斗中每有一个死亡的角色额外造成 !M! 点伤害。"
+  },
+  "BlueArchive_ProblemSolver:HireHelmetGang": {
+    "NAME": "雇佣头盔团",
+    "DESCRIPTION": "在最前方召唤一个拥有!M! 点生命值的 bluearchive_problemsolver:雇佣兵",
+    "EXTENDED_DESCRIPTION": [
+      "人口满了。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:HireHelmetLeader": {
+    "NAME": "雇佣头盔团队长",
+    "DESCRIPTION": "在前方召唤一名拥有!M! 点生命值的 bluearchive_problemsolver:雇佣兵 队长 ， bluearchive_problemsolver:雇佣兵 队长 拥有 !BlueArchive_ProblemSolver:M! *多层护甲 或 !BlueArchive_ProblemSolver:M2! 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "人口满了。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ChooseRabu": {
+    "NAME": "雇佣河驹风兰舞",
+    "DESCRIPTION": "在前方召唤一个拥有!M!点生命值的 bluearchive_problemsolver:雇佣兵 。 NL bluearchive_problemsolver:雇佣兵 拥有 !BlueArchive_ProblemSolver:M! 点 *多层护甲 。"
+  },
+  "BlueArchive_ProblemSolver:ChooseSaori": {
+    "NAME": "雇佣锭前纱织",
+    "DESCRIPTION": "在前方召唤一个拥有!M!点生命值的 bluearchive_problemsolver:雇佣兵 。 NL bluearchive_problemsolver:雇佣兵 拥有 !BlueArchive_ProblemSolver:M! 点 力量 。"
+  },
+  "BlueArchive_ProblemSolver:FireSupport": {
+    "NAME": "火力支援",
+    "DESCRIPTION": "获得 !M! 点 临时生命 值。 NL 造成等同于所有成员 临时生命 值总和的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (造成 ",
+      " 伤害。)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:CombatRation": {
+    "NAME": "作战口粮",
+    "DESCRIPTION": "所有成员获得 !M! 点 临时生命 值。"
+  },
+  "BlueArchive_ProblemSolver:PanicShot": {
+    "NAME": "恐慌射击",
+    "DESCRIPTION": "施加 !M! 层 bluearchive_problemsolver:恐惧 。 NL 施加 !BlueArchive_ProblemSolver:M! 易伤 。"
+  },
+  "BlueArchive_ProblemSolver:PanicBringer": {
+    "NAME": "恐慌传播者",
+    "DESCRIPTION": "对所有敌人施加 !M! 层 虚弱 。 NL 对所有敌人施加 !BlueArchive_ProblemSolver:M! 层 bluearchive_problemsolver:恐惧 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:WannaHaveSomeFun": {
+    "NAME": "想找点乐子吗？",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 所有成员获得 !BlueArchive_ProblemSolver:M! 点 力量 。 NL 在回合结束时，失去 力量 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 所有成员获得 !BlueArchive_ProblemSolver:M! 点 力量 。 NL 在回合结束时，失去 力量 。"
+  },
+  "BlueArchive_ProblemSolver:CuteImpScheme": {
+    "NAME": "小恶魔心机",
+    "DESCRIPTION": "获得 !M! 层 bluearchive_problemsolver:小恶魔 。"
+  },
+  "BlueArchive_ProblemSolver:CaliforniaGurls": {
+    "NAME": "California Gurls",
+    "DESCRIPTION": "*睦月 向后移动。 NL 在你的回合开始时获得 !M! 点 力量 与 敏捷 。 NL 这个效果会在睦月移动到前方时失去。",
+    "EXTENDED_DESCRIPTION": [
+      "还有一个前提是睦月必须活着。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:LastDitch": {
+    "NAME": "最后一搏！",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张卡。 NL 死亡。"
+  },
+  "BlueArchive_ProblemSolver:LeadersDignity": {
+    "NAME": "社长的高雅气质",
+    "DESCRIPTION": "所有友方获得 !M! 点 力量 与 !B! 点 格挡 。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      "该干活儿了！"
+    ]
+  },
+  "BlueArchive_ProblemSolver:LoanShark": {
+    "NAME": "高利贷",
+    "DESCRIPTION": "只能在 力量 大于0时打出。 NL 获得 [E] [E] 。 NL 失去 !BlueArchive_ProblemSolver:M! 点 力量 。。",
+    "UPGRADE_DESCRIPTION": "能在 力量 大于0时打出。 NL 获得 [E] [E] [E] 。 NL 失去 !BlueArchive_ProblemSolver:M! 点 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "力量必须大于0才能用！"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ScaryFace": {
+    "NAME": "凶狠的面相",
+    "DESCRIPTION": "施加 !M! 点 虚弱 。 NL 施加 !BlueArchive_ProblemSolver:M! 点 bluearchive_problemsolver:恐惧 。"
+  },
+  "BlueArchive_ProblemSolver:BluffShot": {
+    "NAME": "虚晃一枪",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 失去 !M! 点 力量 。 NL 向后移动。"
+  },
+  "BlueArchive_ProblemSolver:ExplodingAria": {
+    "NAME": "爆裂咏叹调",
+    "DESCRIPTION": "弃1张牌。 NL 对一名随机敌人造成 !D! 点伤害 !M! 次"
+  },
+  "BlueArchive_ProblemSolver:TriggerOver": {
+    "NAME": "一触即发",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 : 失去 !M! 点 格挡 。",
+    "EXTENDED_DESCRIPTION": [
+      "失去 !M! 点 格挡 。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:NoirShoot": {
+    "NAME": "黑色攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! ): 然后对所有敌人造成 !D! 点伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL ",
+      "bluearchive_problemsolver:恶行 (",
+      "/ !BlueArchive_ProblemSolver:M2! ): 对所有敌人造成额外的 !D! 点伤害"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ShotABlank": {
+    "NAME": "一枪毙命",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 本回合将无法抽牌。"
+  },
+  "BlueArchive_ProblemSolver:CatsProtection": {
+    "NAME": "收养猫咪",
+    "DESCRIPTION": "在后排召唤一只拥有with !M! 点生命值的 bluearchive_problemsolver:雇佣兵 。",
+    "UPGRADE_DESCRIPTION": "在后排召唤两只拥有with !M! 点生命值的 bluearchive_problemsolver:雇佣兵 。",
+    "EXTENDED_DESCRIPTION": [
+      "没法继续收养了。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:OutlawsRock": {
+    "NAME": "法外狂徒处刑曲",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL  每当 bluearchive_problemsolver:恶行 触发时，对所有敌人施加 !M! 点 bluearchive_problemsolver:恐惧 。"
+  },
+  "BlueArchive_ProblemSolver:OutlawsRoad": {
+    "NAME": "法外狂徒之路",
+    "DESCRIPTION": "获得 [E] 。 NL 进入 愤怒 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] 。 NL 进入 愤怒 。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:ButIllDoMyBest": {
+    "NAME": "我、我会加油的！",
+    "DESCRIPTION": "所有成员获得 !B! 点 格挡 。 在下个回合开始时， 格挡 将不会移除。"
+  },
+  "BlueArchive_ProblemSolver:Taunt": {
+    "NAME": "嘲讽",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 : 将你的 格挡 翻倍。",
+    "EXTENDED_DESCRIPTION": [
+      "翻倍你的 格挡 。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:FlankAttack": {
+    "NAME": "侧翼攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 施加 !BlueArchive_ProblemSolver:M! 点  脆弱 。 NL bluearchive_problemsolver:闭幕 : 施加 !M! 点 虚弱 。",
+    "EXTENDED_DESCRIPTION": [
+      "施加 !M! 点 虚弱 。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:PumpPanning": {
+    "NAME": "混乱射击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL bluearchive_problemsolver:闭幕 : 在本场战斗中增加1次伤害次数。 将这张卡洗入你的牌库。",
+    "EXTENDED_DESCRIPTION": [
+      "在本场战斗中增加1次伤害次数。 将这张卡洗入你的牌库。",
+      "造成 !D! 点伤害 !M! 次。 NL bluearchive_problemsolver:闭幕 : 在本场战斗中增加1次伤害次数。 将这张卡洗入你的牌库。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:MeaningfulTansaction": {
+    "NAME": "易亦非凡",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! ): 移除你的所有负面效果",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !B! 点 格挡 。 NL ",
+      "bluearchive_problemsolver:恶行 (",
+      "/ !BlueArchive_ProblemSolver:M2! ): 移除你的所有负面效果"
+    ]
+  },
+  "BlueArchive_ProblemSolver:CorrectAdvice": {
+    "NAME": "首席顾问",
+    "DESCRIPTION": "虚无 。 NL 每位角色仅能使用一次。 NL 抽 !M! 张卡",
+    "EXTENDED_DESCRIPTION": [
+      "她用过这张卡了。",
+      " NL {",
+      ", ",
+      "}"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ScorchingSerenade": {
+    "NAME": "灼热小夜曲",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 !M! 次。"
+  },
+  "BlueArchive_ProblemSolver:NewYearsSymphony": {
+    "NAME": "新年交响乐",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每对一个敌人造成伤害，就获得一个 !M! bluearchive_problemsolver:小恶魔 。"
+  },
+  "BlueArchive_ProblemSolver:ImpChorus": {
+    "NAME": "小恶魔合唱",
+    "DESCRIPTION": "每拥有一个 bluearchive_problemsolver:小恶魔 就造成一次 !D! 点伤害 。 NL 这张卡的伤害不会被 bluearchive_problemsolver:小恶魔 提升。",
+    "EXTENDED_DESCRIPTION": [
+      "我不是小恶魔哦。",
+      " NL (",
+      " 次。)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:MoreFunWaysToPlay": {
+    "NAME": "捉弄的推陈出新!",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 重新获得来自 the bluearchive_problemsolver:小恶魔 的伤害加成。"
+  },
+  "BlueArchive_ProblemSolver:DangerousPlay": {
+    "NAME": "危命游戏",
+    "DESCRIPTION": "获取 !M!点 bluearchive_problemsolver:小恶魔 。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:Debt": {
+    "NAME": "负债",
+    "DESCRIPTION": "保留 。 NL 消耗 。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! ): 抽一张牌。",
+    "EXTENDED_DESCRIPTION": [
+      "保留 。 NL 消耗 。 NL ",
+      "bluearchive_problemsolver:恶行 (",
+      "/ !BlueArchive_ProblemSolver:M2! ): 抽一张牌"
+    ]
+  },
+  "BlueArchive_ProblemSolver:InterestingProposal": {
+    "NAME": "有趣的提案",
+    "DESCRIPTION": "添加 !M! 张 *负债 加入你的手中",
+    "UPGRADE_DESCRIPTION": "添加 !M! *负债+ 加入你的手中"
+  },
+  "BlueArchive_ProblemSolver:HardboiledHanetsukiShot": {
+    "NAME": "冷酷无情毽子攻击",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! ): 获取 [E] [E] 。",
+    "EXTENDED_DESCRIPTION": [
+      "对所有敌人造成 !D! 点伤害。NL ",
+      "bluearchive_problemsolver:恶行 (",
+      "/ !BlueArchive_ProblemSolver:M2! ): 获取 [E] [E] 。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Reputation": {
+    "NAME": "信贷",
+    "DESCRIPTION": "这张卡不会增加 bluearchive_problemsolver:恶行 。 NL 造成 !D! 点伤害。 NL 消耗 。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! ): 获得一张 *信贷。",
+    "UPGRADE_DESCRIPTION":"这张卡不会增加 bluearchive_problemsolver:恶行 。 NL 造成 !D! 点伤害。 NL 消耗 。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! ): 获得一张 *信贷+。",
+    "EXTENDED_DESCRIPTION": [
+      "这张卡不会增加 bluearchive_problemsolver:恶行 。 NL 造成 !D! 点伤害。 NL",
+      "这张卡不会增加 bluearchive_problemsolver:恶行 。 NL 造成 !D! 点伤害。 NL ",
+      "bluearchive_problemsolver:恶行 (",
+      "/ !BlueArchive_ProblemSolver:M2! ): 获取一张 *信贷",
+      "/ !BlueArchive_ProblemSolver:M2! ): 获取一张 *信贷+"
+    ]
+  },
+  "BlueArchive_ProblemSolver:PerfectPresidentsStyle": {
+    "NAME": "计划通",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 所有当前与本场战斗中接下来召唤的 bluearchive_problemsolver:雇佣兵 获取 !M! 层 力量 与 !BlueArchive_ProblemSolver:M! 层无实体。"
+  },
+  "BlueArchive_ProblemSolver:HardboiledShot": {
+    "NAME": "冷酷无情射击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! +): 每有一层 bluearchive_problemsolver:恶行 额外造成 !M! 点伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL ",
+      "bluearchive_problemsolver:恶行 (",
+      "/ !BlueArchive_ProblemSolver:M2! +): 每有一层 bluearchive_problemsolver:恶行 额外造成 !M! 点伤害。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:OneEvilDeedaDay": {
+    "NAME": "一日一恶",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每个回合每当 bluearchive_problemsolver:恶行 触发，获得 [E] 。"
+  },
+  "BlueArchive_ProblemSolver:Snipe": {
+    "NAME": "打冷枪",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 造成相当于所有其他友方的 力量 数值的额外伤害。"
+  },
+  "BlueArchive_ProblemSolver:CantbeHelped": {
+    "NAME": "没救了",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 造成等同于目标身上的 bluearchive_problemsolver:恐惧 层数的额外伤害。"
+  },
+  "BlueArchive_ProblemSolver:QuietPressure": {
+    "NAME": "无声压力",
+    "DESCRIPTION": "在本回合中敌人失去 !M! 点 力量 。 NL 施加 !BlueArchive_ProblemSolver:M! 层 bluearchive_problemsolver:恐惧 。"
+  },
+  "BlueArchive_ProblemSolver:ForAruSama": {
+    "NAME": "为了阿露大人！",
+    "DESCRIPTION": "*阿露 获得 !M! 层 力量 与 !BlueArchive_ProblemSolver:M! 层  脆弱 。 NL *春香 获得 !M! 层 敏捷 和 !BlueArchive_ProblemSolver:M! 层 虚弱 。。"
+  },
+  "BlueArchive_ProblemSolver:RockSpirit": {
+    "NAME": "摇滚精神",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每当造成未被 格挡 的伤害，施加 !M! 层 bluearchive_problemsolver:恐惧 。"
+  },
+  "BlueArchive_ProblemSolver:NegativeThinking": {
+    "NAME": "消极思想",
+    "DESCRIPTION": "获取 !B! 层 格挡 。 NL 如果你有任何负面效果，额外获取 !B! 层 格挡 。"
+  },
+  "BlueArchive_ProblemSolver:UnwelcomeSchool": {
+    "NAME": "Unwelcome School",
+    "DESCRIPTION": "每当这个角色移动时，打出你牌库顶的牌。"
+  },
+  "BlueArchive_ProblemSolver:CatSnacks": {
+    "NAME": "猫条",
+    "DESCRIPTION": "获取 !B! 层 格挡 。 NL 抽 !M! 张牌。 NL 若本回合内有 bluearchive_problemsolver:雇佣兵 被召唤，这张卡的费用消耗为0。",
+    "UPGRADE_DESCRIPTION": "获取 !B! 层 格挡 。 NL 抽 !M! 张牌。 NL 若本回合内有 bluearchive_problemsolver:雇佣兵 被召唤，这张卡的费用消耗为0。"
+  },
+  "BlueArchive_ProblemSolver:SharingWeapon": {
+    "NAME": "借你武器",
+    "DESCRIPTION": "本回合内下一张打出的卡同样会被所有友方按顺序打出。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:FocusonAttack": {
+    "NAME": "突袭",
+    "DESCRIPTION": "每当你往前移动时，对所有敌人造成 !M! 点伤害并抽 !BlueArchive_ProblemSolver:M! 张牌。"
+  },
+  "BlueArchive_ProblemSolver:AlertButton": {
+    "NAME": "大绿按钮",
+    "DESCRIPTION": "获取 !B! 点 格挡 。 NL  直到接下来的 !M! 个回合为止，你无法打出攻击牌。 NL 消耗"
+  },
+  "BlueArchive_ProblemSolver:SelfDestructButton": {
+    "NAME": "大红按钮",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 直到接下来的 !M! 个回合为止你无法打出 格挡 牌。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:GloomyPast": {
+    "NAME": "灰暗经历",
+    "DESCRIPTION": "每当你获得负面效果，获取 !M! 点 临时生命 。"
+  },
+  "BlueArchive_ProblemSolver:Detonator": {
+    "NAME": "引爆器",
+    "DESCRIPTION": "获取 !B! 点 格挡 。 NL 从牌库中随机抽取一张 地雷 或是0费卡牌。"
+  },
+  "BlueArchive_ProblemSolver:RemoteBomb": {
+    "NAME": "遥控炸弹",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 抽 !M! 张卡。 NL 消耗 。 NL bluearchive_problemsolver:地雷 : 这张卡费用为0。"
+  },
+  "BlueArchive_ProblemSolver:BuildingBomb": {
+    "NAME": "安装炸弹",
+    "DESCRIPTION": "在你的牌库中洗入 !M! 张 *遥控 *炸弹。"
+  },
+  "BlueArchive_ProblemSolver:Reconnaissance": {
+    "NAME": "预先侦查",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 在你的回合结束时，在你的牌库中洗入 !M! 张 *遥控 *炸弹。"
+  },
+  "BlueArchive_ProblemSolver:Assault": {
+    "NAME": "攻坚",
+    "DESCRIPTION": "抽 !M! 张卡。 弃掉你手中的所有 bluearchive_problemsolver:闭幕 牌 NL bluearchive_problemsolver:闭幕 : 激活弃牌堆中的所有 bluearchive_problemsolver:闭幕 效果",
+    "EXTENDED_DESCRIPTION": [
+      "什么也不做。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:WithAllYourHeart": {
+    "NAME": "怀以真心",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 :获得可持续到下回合的 [E] [E] ",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 : 获得可持续到下回合的 [E] [E] [E] ",
+    "EXTENDED_DESCRIPTION": [
+      "获得可持续到下回合的[E] [E] ",
+      "获得可持续到下回合的 [E] [E] [E] "
+    ]
+  },
+  "BlueArchive_ProblemSolver:ProperGreeting": {
+    "NAME": "妥当问候",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 激活并移除当前的 bluearchive_problemsolver:闭幕 效果"
+  },
+  "BlueArchive_ProblemSolver:InfiltrationTactics": {
+    "NAME": "潜入战术",
+    "DESCRIPTION": "下次攻击造成双倍伤害 NL 向后移动",
+    "UPGRADE_DESCRIPTION": "下次攻击造成三倍伤害 NL 向后移动"
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengeAru": {
+    "NAME": "独家战术 - 阿露",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 这场战斗中每打出过一张 *独家战术 额外造成 !M! 点伤害。"
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengeMutsuki": {
+    "NAME": "独家战术 - 睦月",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 费用减少你在本场战斗中打出的 *独家战术 的 [E]  。"
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengeKayoko": {
+    "NAME": "独家战术 - 佳代子",
+    "DESCRIPTION": "抽 !M! 张牌。你每打出过 !BlueArchive_ProblemSolver:M! 张 *独家战术 卡额外增加一张卡。"
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengeHaruka": {
+    "NAME": "独家战术 - 春香",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 你每打出过一张 *独家战术 额外获得 !M! 点 格挡 "
+  },
+  "BlueArchive_ProblemSolver:MutsukiMine": {
+    "NAME": "反步兵地雷",
+    "DESCRIPTION": "不能被打出 。 保留 。 NL 当你激活 bluearchive_problemsolver:地雷 效果时，弃掉这张卡。。 NL bluearchive_problemsolver:地雷 : 一个随机敌人失去 !M! 点生命值。 消耗",
+    "EXTENDED_DESCRIPTION": [
+      "我无法打出 NL 这张牌。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:MineField": {
+    "NAME": "雷区",
+    "DESCRIPTION": "弃 1 张牌, 然后在那个位置加入 !M! 张 *反步兵 *地雷。"
+  },
+  "BlueArchive_ProblemSolver:BoobieTrap": {
+    "NAME": "饵雷",
+    "DESCRIPTION": "被打出或弃掉时，获得 !B! 点 格挡 NL bluearchive_problemsolver:地雷 : 本场战斗中此卡获得的 格挡 额外增加 !M! 点。"
+  },
+  "BlueArchive_ProblemSolver:MineExpert": {
+    "NAME": "地雷专家",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每当一个 bluearchive_problemsolver:地雷 效果触发，对所有敌人造成 !M! 点伤害。"
+  },
+  "BlueArchive_ProblemSolver:RouletteMisdirection": {
+    "NAME": "反向轮转",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 弃掉你手中最靠左的卡。"
+  },
+  "BlueArchive_ProblemSolver:LoveAndViolence": {
+    "NAME": "爱与暴力",
+    "DESCRIPTION": "弃牌直到 !M! 张卡。 NL 每弃掉一张牌造成 !D! 伤害"
+  },
+  "BlueArchive_ProblemSolver:MineChain": {
+    "NAME": "连锁地雷",
+    "DESCRIPTION": "不能被打出 。 NL bluearchive_problemsolver:地雷 : 在临近的位置加入两张 *反步兵 *地雷",
+    "UPGRADE_DESCRIPTION": "不能被打出 。 NL bluearchive_problemsolver:地雷 : 在临近的位置加入两张 *反步兵 *地雷+",
+    "EXTENDED_DESCRIPTION": [
+      "我无法打出 NL 这张卡。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:TacticalChallengePS68": {
+    "NAME": "独家战术 - 便利屋68",
+    "DESCRIPTION": "手牌中加入 !M! 张随机的 *独家战术 。 NL 这些卡本回合的消耗为0 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:TroubleMaker": {
+    "NAME": "捣蛋鬼",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每当一张 bluearchive_problemsolver:地雷 进入你的手牌时，激活 bluearchive_problemsolver:地雷 效果"
+  },
+  "BlueArchive_ProblemSolver:StaringContest": {
+    "NAME": "敢与她对视吗？",
+    "DESCRIPTION": "对你与敌人同时施加 !M! 层 虚弱 与  脆弱 NL 退到后方 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:PokerFace": {
+    "NAME": "面无表情",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 在你使用了其中一张牌后, 弃掉其他的。",
+    "EXTENDED_DESCRIPTION": [
+      "未被使用的卡被弃掉了。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:MaginotLine": {
+    "NAME": "马奇诺防线",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 点 临时生命 值，与所有角色受到的debuff量相等 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (获得 ",
+      " 临时生命 值。)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ShockAndAwe": {
+    "NAME": "战战惊惊",
+    "DESCRIPTION": "翻倍所有角色身上的 bluearchive_problemsolver:恐惧 和 bluearchive_problemsolver:小恶魔 。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:SideDeck": {
+    "NAME": "副卡组",
+    "DESCRIPTION": "选择一张来自副卡组的卡加入手牌, 或为副卡组选择一次卡牌奖励。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:AddDeck": {
+    "NAME": "加一张卡到副卡组",
+    "DESCRIPTION": "在战斗后选择一次卡牌奖励加入到副卡组中。"
+  },
+  "BlueArchive_ProblemSolver:DeepClean": {
+    "NAME": "深度清理",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL *阿露 *使用: 对所有敌人造成伤害。 NL *睦月 *使用: 将伤害切割为 !M! 次",
+    "EXTENDED_DESCRIPTION": [
+      "对所有敌人造成 !D! 点伤害。",
+      "造成 !D! 点伤害 !M! 次。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:FixerForm": {
+    "NAME": "这就是便利屋",
+    "DESCRIPTION": "每个你的回合开始时, *阿露 获得 [E] NL *佳代 子抽 !M! 张牌 NL *睦月 获得 !BlueArchive_ProblemSolver:M! 点 力量 NL *春香 获得 !BlueArchive_ProblemSolver:M2! 点 敏捷",
+    "UPGRADE_DESCRIPTION": "每个你的回合开始时, *阿露 获得 [E] [E]  NL *佳代 子抽 !M! 张牌 NL *睦月 获得 !BlueArchive_ProblemSolver:M! 点 力量 NL *春香 获得 !BlueArchive_ProblemSolver:M2! 点 敏捷",
+    "EXTENDED_DESCRIPTION": [
+      "BlueArchive_ProblemSolver:__fixerform__"
+    ]
+  },
+  "BlueArchive_ProblemSolver:AttractAttention": {
+    "NAME": "没活硬整",
+    "DESCRIPTION": "获得 !M! 层 bluearchive_problemsolver:金属化 。 NL 每个回合结束时自动移动到最前方。"
+  },
+  "BlueArchive_ProblemSolver:SnsuspiciousRumor": {
+    "NAME": "可疑传闻",
+    "DESCRIPTION": "不能被打出 。 NL 在手牌中时，其他的卡牌获得 !M! 层 bluearchive_problemsolver:恶行 。 NL 在每个回合第一次的 bluearchive_problemsolver:恶行 触发时获得 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 在手牌中时，其他的卡牌获得 !M! 层 bluearchive_problemsolver:恶行 。 NL 在每回合第一次 bluearchive_problemsolver:恶行 触发时获得 [E] [E] [E] 。",
+    "EXTENDED_DESCRIPTION": [
+      "这张牌无法被 NL 打出"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Omamoribond": {
+    "NAME": "护身符的羁绊",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每当你对任何目标施加任何 !M! 负面效果，抽一张卡。"
+  },
+  "BlueArchive_ProblemSolver:KayokoKick": {
+    "NAME": "佳代子飞踢",
+    "DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。 NL 移除敌人身上的 人工制品 。 NL 施加 !M! 虚弱 。"
+  },
+  "BlueArchive_ProblemSolver:Claymore": {
+    "NAME": "阔剑地雷",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL bluearchive_problemsolver:地雷 : 这张卡造成的伤害在本回合提升 !M! 点"
+  },
+  "BlueArchive_ProblemSolver:OneInTheChamber": {
+    "NAME": "密室死斗",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在你的回合开始时，从弃牌堆或牌堆中将这张卡移回你的手牌。"
+  },
+  "BlueArchive_ProblemSolver:SiphonSoul": {
+    "NAME": "灵魂虹吸",
+    "DESCRIPTION": "对一名敌人或友方造成 !D! 点伤害。 NL 如果击杀目标，获得 !M! 点 临时生命 值和 !BlueArchive_ProblemSolver:M! 点 力量",
+    "EXTENDED_DESCRIPTION": [
+      "不能对自己使用！"
+    ]
+  },
+  "BlueArchive_ProblemSolver:HeadShot": {
+    "NAME": "爆头",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果敌人身上有负面效果，则造成双倍伤害。"
+  },
+  "BlueArchive_ProblemSolver:MessUp": {
+    "NAME": "搞砸了",
+    "DESCRIPTION": "直到回合结束时获得 *临时 bluearchive_problemsolver:困惑 NL 抽 !M! 张牌。"
+  },
+  "BlueArchive_ProblemSolver:WakeUpBoss": {
+    "NAME": "醒一醒, 社长!",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 每个累计在手牌中的 bluearchive_problemsolver:恶行 会额外获得 !M! 点 格挡 "
+  },
+  "BlueArchive_ProblemSolver:Stalemate": {
+    "NAME": "陷入僵局",
+    "DESCRIPTION": "获得当前存活的友方单位次数的 !B! 点 格挡 。"
+  },
+  "BlueArchive_ProblemSolver:TakeABreather": {
+    "NAME": "喘口气",
+    "DESCRIPTION": "bluearchive_problemsolver:闭幕 : 获得 !B! 点 格挡 ",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !B! 点 格挡 。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Retribution": {
+    "NAME": "报复",
+    "DESCRIPTION": "造成相当于本次战斗中失去的 格挡 和 临时生命 值数量的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (造成 !D! 点伤害。)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:HoldBack": {
+    "NAME": "退缩",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 同时对自身和敌人施加 !M! 层 虚弱 。"
+  },
+  "BlueArchive_ProblemSolver:Pruning": {
+    "NAME": "修剪时间",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL bluearchive_problemsolver:闭幕 : 获得 !M! 点 敏捷 。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !M! 点 敏捷 。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Backblast": {
+    "NAME": "反击",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL bluearchive_problemsolver:闭幕 : 再次对所有敌人造成 !D! 点伤害",
+    "EXTENDED_DESCRIPTION": [
+      "对所有敌人造成 !D! 点伤害。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Obstinate": {
+    "NAME": "倔强",
+    "DESCRIPTION": "将你当前的 格挡 转移到一个友方身上。 NL 那名友方获得 !B! 点 格挡 并移动到前方。"
+  },
+  "BlueArchive_ProblemSolver:WarningShot": {
+    "NAME": "警示射击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! ): 获得 !M! 点 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL ",
+      "bluearchive_problemsolver:恶行 (",
+      "/ !BlueArchive_ProblemSolver:M2! ): 获得 !M! 点 力量 。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:WhoGavePermission": {
+    "NAME": "谁允许了……？",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每当你攻击该目标，造成 !M! 点伤害。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:Fireworks": {
+    "NAME": "烟花",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 额外攻击等同于本回合弃掉的牌的次数。"
+  },
+  "BlueArchive_ProblemSolver:ShadowShot": {
+    "NAME": "影子射击",
+    "DESCRIPTION": "手中每有一张诅咒与状态之外的牌就造成 !M! 点伤害",
+    "EXTENDED_DESCRIPTION": [
+      " NL (造成 !D! 点伤害。)"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ImpishPrank": {
+    "NAME": "小恶魔的恶作剧",
+    "DESCRIPTION": "弃掉任意数量的牌， NL 获得等同于弃掉的牌数量的 bluearchive_problemsolver:小恶魔 。"
+  },
+  "BlueArchive_ProblemSolver:SecondDeal": {
+    "NAME": "纸牌魔术",
+    "DESCRIPTION": "获取 !B! 点 格挡 。 NL 弃 1 张牌。 NL 如果被弃掉的牌的费用在 1 或者更小, 将这张卡返回原来的位置。"
+  },
+  "BlueArchive_ProblemSolver:PartyPistol": {
+    "NAME": "惊吓手枪",
+    "DESCRIPTION": "保留 。 NL 造成 !D! 点伤害。 NL 若是这张卡从你的手中被弃掉，抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 造成 !D! 点伤害。 NL 若是这张卡从你的手中被弃掉，抽 !M! 张牌。"
+  },
+  "BlueArchive_ProblemSolver:HiddenPast": {
+    "NAME": "隐瞒经历",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每当你抽或在手牌中创建一张卡，对随机一名敌人造成 !M! 点伤害。"
+  },
+  "BlueArchive_ProblemSolver:DiligentPast": {
+    "NAME": "勤勉经历",
+    "DESCRIPTION": "每回合你打出的第一张攻击卡打出两次，然后你的角色会移动到后方。"
+  },
+  "BlueArchive_ProblemSolver:JoyfulPast": {
+    "NAME": "愉悦经历",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每当你弃掉或消耗一张牌,最前方的友方获得 !M! 点 格挡 。"
+  },
+  "BlueArchive_ProblemSolver:DestinyDraw": {
+    "NAME": "注定一抽",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每回合一次, 当你的手牌空了, 抽 !M! 张牌 并获得等同于合记消耗的 [E] 。",
+    "UPGRADE_DESCRIPTION": "固有 。 bluearchive_problemsolver:共用 。 NL 每回合一次, 当你的手牌空了, 抽 !M! 张牌 并获得等同于合记消耗的 [E] 。"
+  },
+  "BlueArchive_ProblemSolver:AvatarOfFear": {
+    "NAME": "恐惧化身",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 每当你施加 bluearchive_problemsolver:恐惧 , 如果敌人的意图是攻击,在本回合内降低它们等量的 力量 。"
+  },
+  "BlueArchive_ProblemSolver:Sweep": {
+    "NAME": "扫荡",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获取等同于造成的未被 格挡 伤害的 力量 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获取等同于造成的未被 格挡 伤害的 力量 。"
+  },
+  "BlueArchive_ProblemSolver:PanicShotRetry": {
+    "NAME": "凹命中",
+    "DESCRIPTION": "使你的弃牌堆中最多 !M! 张随机的0费卡加入你的手牌。。"
+  },
+  "BlueArchive_ProblemSolver:Silencer": {
+    "NAME": "消音器",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合你每打出一张0费卡，费用减少 [E] 。"
+  },
+  "BlueArchive_ProblemSolver:Shift": {
+    "NAME": "换位",
+    "DESCRIPTION": "保留 。 NL 选择的友方获得 !B! 点 格挡 并移动到前方。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:TheGravityofaBoss": {
+    "NAME": "社长的威严",
+    "DESCRIPTION": "保留 。 NL 获得 !B! 点 格挡 。 NL bluearchive_problemsolver:恶行 ( !BlueArchive_ProblemSolver:M2! ): 对所有敌人施加 !M! 层 虚弱 和 易伤",
+    "EXTENDED_DESCRIPTION": [
+      "Retain。 NL 获得 !B! 点 格挡 。 NL ",
+      "bluearchive_problemsolver:恶行 (",
+      "/ !BlueArchive_ProblemSolver:M2! ): 对所有敌人施加 !M! 层 虚弱 和易伤"
+    ]
+  },
+  "BlueArchive_ProblemSolver:Lure": {
+    "NAME": "鱼饵",
+    "DESCRIPTION": "弃 1 张牌。 NL 选择的友方移动到前方。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 弃 1 张牌。 NL 选择的友方移动到前方。"
+  },
+  "BlueArchive_ProblemSolver:ImmortalMercenary": {
+    "NAME": "不朽佣兵",
+    "DESCRIPTION": "在前方召唤一个拥有 !M! 点生命值的 bluearchive_problemsolver:雇佣兵 。 NL 当它阵亡时, 在你的弃牌中加入一张0费的 *不朽佣兵",
+    "EXTENDED_DESCRIPTION": [
+      "人口满了。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:ShieldOfProblemSolver": {
+    "NAME": "便利屋之盾",
+    "DESCRIPTION": "不能被打出 。 NL 每场战斗结束时如果这张卡在你的卡组中, *春香 获得 !M! 点最大生命值",
+    "UPGRADE_DESCRIPTION": "不能被打出 。 虚无 。 NL 每场战斗结束时如果这张卡在你的卡组中, *春香 获得 !M! 点最大生命值",
+    "EXTENDED_DESCRIPTION": [
+      "无法打出 NL 这张卡。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:PanicBarrage": {
+    "NAME": "恐慌雷",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 施加未被 格挡 的伤害层数的 bluearchive_problemsolver:恐惧 。"
+  },
+  "BlueArchive_ProblemSolver:Exit": {
+    "NAME": "安全出口",
+    "DESCRIPTION": "对所有敌人施加 !M! 层 虚弱 。 NL 获得 X 张 *换位+。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人施加 !M! 层 虚弱 。 NL 获得 X+1 张 *换位+。 NL 消耗 。"
+  }
+}
