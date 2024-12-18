@@ -1,43 +1,43 @@
 {
   "BlueArchive_ProblemSolver:ProblemSolverBaseRelic": {
     "NAME": "便利屋徽章",
-    "FLAVOR": "一枚证明便利屋成员身份的徽章.",
+    "FLAVOR": "一枚证明便利屋队员身份的徽章。",
     "DESCRIPTIONS": [
-      "第一个回合开始时, 在你的手牌中加入一张 #y换位"
+      "每场战斗开始时，在你的手牌中加入一张 #y换位。"
     ]
   },
   "BlueArchive_ProblemSolver:ProblemSolverBaseRelicPlus": {
     "NAME": "便利屋老兵徽章",
-    "FLAVOR": "一个可证明老兵身份的便利屋徽章",
+    "FLAVOR": "一枚证明老兵身份的便利屋徽章。",
     "DESCRIPTIONS": [
-      "每个回合开始时，若你手中没有#y换位, 则获得一张升级过的 #y换位+."
+      "每个回合开始时，若你手中没有 #y换位 , 则获得一张 #y换位+ 。"
     ]
   },
   "BlueArchive_ProblemSolver:MoreProblemSolverRelic": {
-    "NAME": "额外便利屋成员",
-    "FLAVOR": "\"好了，员工们！是工作的时间了！\"",
+    "NAME": "队员喜加一",
+    "FLAVOR": "\"听着，队员们：到工作的时间了！\"",
     "DESCRIPTIONS": [
-      "加入 #y阿露 作为激活的成员.",
-      "加入 #y睦月 作为激活的成员.",
-      "加入 #y佳代子 作为激活的成员.",
-      "加入 #y春香 作为激活的成员.",
-      "获得时增加一名便利屋成员"
+      "将 #y阿露 加入队伍。",
+      "将 #y睦月 加入队伍。",
+      "将 #y佳代子 加入队伍。",
+      "将 #y春香 加入队伍。",
+      "拾起时，选择一名便利屋成员加入队伍。"
     ]
   },
   "BlueArchive_ProblemSolver:MercenaryCatalogueRelic": {
-    "NAME": "雇佣兵目录",
+    "NAME": "雇佣兵名录",
     "FLAVOR": "\"尖塔里最棒的雇佣兵！只要998！\"",
     "DESCRIPTIONS": [
-      "在战斗开始时，在最前方消耗#r",
-      " #y金钱去召唤一个拥有 #g",
-      " 生命值的雇佣兵."
+      "每场战斗开始时，消耗#r",
+      " #y金币 在最前方召唤一个拥有 #g",
+      " 点最大生命值的雇佣兵。"
     ]
   },
   "BlueArchive_ProblemSolver:TNTRelic": {
     "NAME": "TNT",
     "FLAVOR": "不用怕，在基沃托斯，什么样的伤口都会在一觉醒来后治好！",
     "DESCRIPTIONS": [
-      "每当一个友方阵亡, 对所有敌人造成 #r",
+      "每当一个友方单位倒下时, 对所有敌人造成 #r",
       " 点伤害。"
     ]
   },
@@ -45,22 +45,22 @@
     "NAME": "无线电收发机",
     "FLAVOR": "\"所有人，准备从无线电里接收通讯！\"",
     "DESCRIPTIONS": [
-      "在战斗中, 点击一名友方使其移动到前方. 无法触发与位移有关的效果."
+      "在战斗中, 左键点击一名友方使其位移到最前方。 无法触发与移动有关的效果。"
     ]
   },
   "BlueArchive_ProblemSolver:BottleSetRelic": {
     "NAME": "水壶套装",
-    "FLAVOR": "便利屋成员们团购的廉价水壶套装.",
+    "FLAVOR": "便利屋成员们团购的廉价水壶套装。",
     "DESCRIPTIONS": [
-      "拾取后, 获取 #b1 药水槽. 药水会影响所有盟友."
+      "拾起时，获得 #b1 个药水栏位。 药水会对所有友方单位生效。"
     ]
   },
   "BlueArchive_ProblemSolver:ArusTreasuredWalletRelic": {
-    "NAME": "阿露的宝贝钱包",
-    "FLAVOR": "便利屋成立之初，春香，佳代子和睦月一同送给阿露的礼物，是阿露最珍贵的财产。.",
+    "NAME": "阿露非常贵重的钱包",
+    "FLAVOR": "阿露爱用的高级钱包。便利屋成立之初，遥香、佳代子、睦月一起凑钱买给她的礼物，对她来说是无可替代的重要物品。",
     "DESCRIPTIONS": [
-      "战斗开始时, 所有友方获得 #b",
-      " #y点临时生命值。."
+      "战斗开始时, 所有友方单位获得 #b",
+      " 点 #y临时生命 。"
     ]
   }
 }
