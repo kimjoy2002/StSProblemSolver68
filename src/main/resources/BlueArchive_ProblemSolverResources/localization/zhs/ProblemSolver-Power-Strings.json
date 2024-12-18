@@ -182,7 +182,7 @@
   "BlueArchive_ProblemSolver:HiddenPastPower": {
     "NAME": "隐秘的过往",
     "DESCRIPTIONS": [
-      "#g共用。 NL 每当一张牌进入手牌时，对随机敌人造成 #r",
+      "#g共用。 NL 每当你抽或在手牌中创建一张牌时，对随机敌人造成 #r",
       " 点伤害。"
     ]
   },
@@ -204,8 +204,8 @@
   "BlueArchive_ProblemSolver:DestinyDrawPower": {
     "NAME": "命定之抽",
     "DESCRIPTIONS": [
-      "#g共用。 NL 每回合首次手牌归零时，抽 #b",
-      " 张牌，并获得相当于最大能量的 [E] 。",
+      "#g共用。 NL 每回合首次手牌为空时，抽 #b",
+      " 张牌，并获得相当于已消耗能量的 [E] 。",
       "（本回合已触发。）"
     ]
   },
