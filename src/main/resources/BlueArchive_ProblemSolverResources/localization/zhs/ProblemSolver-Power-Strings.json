@@ -31,11 +31,11 @@
     "NAME": "California Gurls",
     "DESCRIPTIONS": [
       "在每个回合开始时，获得 #g",
-      "点 #y力量与 #y敏捷。 在 #y位移 到最前方时失去此效果。"
+      "点 #y力量与 #y敏捷。 在 #y移动 到最前方时失去此效果。"
     ]
   },
   "BlueArchive_ProblemSolver:OutlawsRockPower": {
-    "NAME": "法外狂徒处刑曲",
+    "NAME": "暴徒摇滚",
     "DESCRIPTIONS": [
       "#g共用 。 NL 每当 #y恶 #y行 触发时, 给予所有敌人 #r 层",
       " #y恐惧。"
@@ -44,7 +44,7 @@
   "BlueArchive_ProblemSolver:TauntPower": {
     "NAME": "嘲讽",
     "DESCRIPTIONS": [
-      "在每个回合结束时， #y位移 到最前方。"
+      "在每个回合结束时， #y移动 到最前方。"
     ]
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsStrPower": {
@@ -80,7 +80,7 @@
   "BlueArchive_ProblemSolver:UnwelcomeSchoolPower": {
     "NAME": "Unwelcome School",
     "DESCRIPTIONS": [
-      "每当你 #y位移 时, 打出抽牌堆顶部的 #b",
+      "每当你 #y移动 时, 打出抽牌堆顶部的 #b",
       " 张牌。"
     ]
   },
@@ -95,7 +95,7 @@
   "BlueArchive_ProblemSolver:FocusonAttackPower": {
     "NAME": "突袭",
     "DESCRIPTIONS": [
-      "每当你向前 #y位移 时，对所有敌人造成 #r",
+      "每当你向前 #y移动 时，对所有敌人造成 #r",
       " 点伤害并抽 #b",
       " 张牌。"
     ]
@@ -189,9 +189,9 @@
   "BlueArchive_ProblemSolver:DiligentPastPower": {
     "NAME": "勤勉的过往",
     "DESCRIPTIONS": [
-      "每回合打出的第一张攻击牌会打出两次，然后你 #y位移 到最后方。",
+      "每回合打出的第一张攻击牌会打出两次，然后你 #y移动 到最后方。",
       "每回合打出的前 #b",
-      " 张攻击牌会打出两次，然后你 #y位移 到最后方。"
+      " 张攻击牌会打出两次，然后你 #y移动 到最后方。"
     ]
   },
   "BlueArchive_ProblemSolver:JoyfulPastPower": {
@@ -224,9 +224,9 @@
     ]
   },
   "BlueArchive_ProblemSolver:RunAwayPower": {
-    "NAME": "战略撤退",
+    "NAME": "战略性撤退",
     "DESCRIPTIONS": [
-      "每当你 #y位移 到最后方时，获得 #b",
+      "每当你 #y移动 到最后方时，获得 #b",
       " 点 #y临时生命 。"
     ]
   },
