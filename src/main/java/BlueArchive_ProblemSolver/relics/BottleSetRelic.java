@@ -214,7 +214,9 @@ public class BottleSetRelic extends CustomRelic implements OnUsePotionRelic {
             else if(potion instanceof TagPotion){
                 flash();
                 for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
-                    AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(ps, ps, potency));
+                    if (ps != AbstractDungeon.player && ps.currentHealth > 0) {
+                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(ps, ps, potency));
+                    }
                 }
             }
         }

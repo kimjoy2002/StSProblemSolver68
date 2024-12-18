@@ -39,7 +39,7 @@ public class Omamoribond extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new OmamoribondPower(AbstractDungeon.player, magicNumber, secondMagicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new OmamoribondPower(AbstractDungeon.player,magicNumber , magicNumber, secondMagicNumber)));
     }
 
     //Upgraded stats.
