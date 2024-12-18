@@ -13,11 +13,11 @@
   "BlueArchive_ProblemSolver:NeowReward": {
     "NAMES": [],
     "TEXT": [
-      "[ #g所有 #g角色的 #g最大 #g生命值 #g+",
-      "#g所有 #g角色的 #g最大 #g生命值 #g+",
-      "[ #r所有 #r角色 #r失去 #r",
+      "[ #g所有 #g队员的 #g最大 #g生命值 #g+",
+      "#g所有 #g队员的 #g最大 #g生命值 #g+",
+      "[ #r所有 #r队员 #r失去 #r",
       " #r最大 #r生命值 ",
-      "[ #r所有 #r角色 #r拿取 #r"
+      "[ #r所有 #r队员 #r拿取 #r"
     ]
   }
 }

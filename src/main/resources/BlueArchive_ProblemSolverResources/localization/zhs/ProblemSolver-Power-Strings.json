@@ -1,236 +1,239 @@
 {
   "BlueArchive_ProblemSolver:ChangeWhenHitPower": {
-    "NAME": "便利屋露障",
+    "NAME": "便利屋壁垒",
     "DESCRIPTIONS": [
-      "当一名成员受到攻击后，敌人的下次攻击将选择另一个成员。"
+      "当一名队员受到攻击后，敌人的下次攻击将选择另一个队员。"
     ]
   },
   "BlueArchive_ProblemSolver:FearPower": {
     "NAME": "恐惧",
     "DESCRIPTIONS": [
-      "如果生命值低于 #r",
-      " , 这名敌人就会逃离."
+      "如果生命值小于等于 #r",
+      " , 这名敌人就会逃离。"
     ]
   },
   "BlueArchive_ProblemSolver:ImpPower": {
     "NAME": "可爱小恶魔",
     "DESCRIPTIONS": [
       "本回合的下一次攻击造成 #g",
-      " 点额外伤害. 在回合开始时, 重新获得 #g",
-      " 伤害提升效果 #g",
-      " ."
+      " 点额外伤害。 在回合开始时, 重新获得 #g",
+      " 点该效果 #g",
+      " 。"
     ]
   },
   "BlueArchive_ProblemSolver:FinishPower": {
-    "NAME": "谢幕曲",
+    "NAME": "闭幕",
     "DESCRIPTIONS": [
-      "回合结束时，触发下列效果。"
+      "在本回合结束时，触发下列效果："
     ]
   },
   "BlueArchive_ProblemSolver:CaliforniaGurlsPower": {
     "NAME": "California Gurls",
     "DESCRIPTIONS": [
-      "在回合开始时获得 #g",
-      " #y力量与 #y敏捷. 在移动到前方时失去此效果。"
+      "在每个回合开始时，获得 #g",
+      "点 #y力量与 #y敏捷。 在 #y位移 到最前方时失去此效果。"
     ]
   },
   "BlueArchive_ProblemSolver:OutlawsRockPower": {
     "NAME": "法外狂徒处刑曲",
     "DESCRIPTIONS": [
-      "#g共享 NL 每当 #y恶 #y行 触发, 对所有敌人施加 #r 层",
-      " #y恐惧."
+      "#g共用 。 NL 每当 #y恶 #y行 触发时, 给予所有敌人 #r 层",
+      " #y恐惧。"
     ]
   },
   "BlueArchive_ProblemSolver:TauntPower": {
     "NAME": "嘲讽",
     "DESCRIPTIONS": [
-      "在每个回合结束时移动到最前方."
+      "在每个回合结束时， #y位移 到最前方。"
     ]
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsStrPower": {
     "NAME": "雇佣兵力量",
     "DESCRIPTIONS": [
-      "#g共用 NL 获得 #g",
-      " #y 层力量 每当 #y雇佣兵被召唤."
+      "#g共用 。 NL 每当 #y雇佣兵 被召唤时，获得 #g",
+      " 点 #y力量 。"
     ]
   },
   "BlueArchive_ProblemSolver:PerfectPresidentsIntegiblePower": {
     "NAME": "雇佣兵无实体",
     "DESCRIPTIONS": [
-      "#g共用 NL 获得 #g",
-      " #y 层无实体 #y每当雇佣兵被召唤。"
+      "#g共用 。 NL 每当 #y雇佣兵 被召唤时，获得 #g",
+      " 层 #y无实体 。"
     ]
   },
   "BlueArchive_ProblemSolver:OneEvilDeedaDayPower": {
     "NAME": "一日一恶",
     "DESCRIPTIONS": [
-      "#g共用 NL 获得 ",
+      "#g共用 。 NL 每回合首次触发 #y恶 #y行时，获得 ",
       "[E] ",
-      " 当 #y恶 #y行在每个回合首次触发",
-      " (已触发)"
+      "。",
+      " （本回合已触发。）"
     ]
   },
   "BlueArchive_ProblemSolver:RockSpiritPower": {
     "NAME": "摇滚精神",
     "DESCRIPTIONS": [
-      "#g共用 NL每当一次 #y攻击造成不被格挡的伤害, 施加 #b 层",
-      " #y恐惧."
+      "#g共用 。 NL 每当你造成未被格挡的伤害时, 给予目标 #b 层",
+      " #y恐惧 。"
     ]
   },
   "BlueArchive_ProblemSolver:UnwelcomeSchoolPower": {
     "NAME": "Unwelcome School",
     "DESCRIPTIONS": [
-      "每当你移动, 打出卡组最上方的 #b",
-      " 张卡。"
+      "每当你 #y位移 时, 打出抽牌堆顶部的 #b",
+      " 张牌。"
     ]
   },
   "BlueArchive_ProblemSolver:AllCardPower": {
     "NAME": "借你武器",
     "DESCRIPTIONS": [
-      "其他友方会轮流使用 #y攻击 或 #y技能在本回合。",
-      "所有其他友方会使用 #b",
-      " #y攻击 #y技能 在本回合."
+      "所有其他友方单位也会打出本回合打出的下一张 #y攻击 或 #y技能 牌。",
+      "所有其他友方单位也会打出本回合打出的下 #b",
+      " 张 #y攻击 或 #y技能 牌。"
     ]
   },
   "BlueArchive_ProblemSolver:FocusonAttackPower": {
     "NAME": "突袭",
     "DESCRIPTIONS": [
-      "每当你向前移动，对所有敌人造成 #r",
+      "每当你向前 #y位移 时，对所有敌人造成 #r",
       " 点伤害并抽 #b",
-      " 张牌."
+      " 张牌。"
     ]
   },
   "BlueArchive_ProblemSolver:EntangleTurnPower": {
     "NAME": "缠网",
     "DESCRIPTIONS": [
-      "无法打出 #y攻击牌，在 #b",
-      " 回合中."
+      "#b",
+      " 个回合内无法打出 #y攻击 牌。"
     ]
   },
   "BlueArchive_ProblemSolver:GloomyPastPower": {
-    "NAME": "阴暗经历",
+    "NAME": "灰暗的过往",
     "DESCRIPTIONS": [
-      "获得 #y点临时生命值通过 #b",
-      " 每次得到减益效果。."
+      "每次获得 #y负面效果 时，获得 #b",
+      " 点 #y临时生命 。"
     ]
   },
   "BlueArchive_ProblemSolver:ReconnaissancePower": {
     "NAME": "事先侦查",
     "DESCRIPTIONS": [
-      "#g共用 NL 回合结束时在牌组中洗入 #b",
-      " #y 张遥控炸弹",
-      " #y 张遥控炸弹"
+      "#g共用。 NL 回合结束时向抽牌堆中洗入 #b",
+      " 张 #y遥控炸弹 。",
+      " 张 #y遥控炸弹 。"
     ]
   },
   "BlueArchive_ProblemSolver:MineExpertPower": {
     "NAME": "地雷专家",
     "DESCRIPTIONS": [
-      "#g共用 NL 每当一个 #y地雷效果触发, 对所有敌人造成 #r",
+      "#g共用。 NL 每当 #y地雷 效果被触发时，对所有敌人造成 #r",
       " 点伤害。"
     ]
   },
   "BlueArchive_ProblemSolver:TroubleMakerPower": {
     "NAME": "捣蛋鬼",
     "DESCRIPTIONS": [
-      "#g共用 NL #y 地雷进入你手中时激活 #y 地雷的效果。",
-      "#g共用 NL #y 地雷进入你手中时激活 #b 次 #y 地雷的效果。",
+      "#g共用。 NL 每当 #y地雷 牌进入手牌时，触发 #y地雷 效果。",
+      "#g共用。 NL 每当 #y地雷 牌进入手牌时，触发 #y地雷 效果 #b",
+      " 次。"
     ]
   },
   "BlueArchive_ProblemSolver:DexupPower": {
-    "NAME": "获取敏捷",
+    "NAME": "获得敏捷",
     "DESCRIPTIONS": [
-      "在每个回合开始时获取 #b",
-      " #y层敏捷。"
+      "每个回合开始时，获得 #b",
+      " 点 #y敏捷 。"
     ]
   },
   "BlueArchive_ProblemSolver:StrupPower": {
-    "NAME": "获取力量",
+    "NAME": "获得力量",
     "DESCRIPTIONS": [
-      "在每个回合开始时获取 #b",
-      " #y层敏捷。"
+      "每个回合开始时，获得 #b",
+      " 点 #y力量 。"
     ]
   },
   "BlueArchive_ProblemSolver:EnergyupPower": {
-    "NAME": "获取能量",
+    "NAME": "获得能量",
     "DESCRIPTIONS": [
-      "在每个回合开始时获取 ",
-      " [E]  "
+      "每个回合开始时，获得 #b",
+      " [E] 。"
     ]
   },
   "BlueArchive_ProblemSolver:OmamoribondPower": {
-    "NAME": "护身符羁绊",
+    "NAME": "御守羁绊",
     "DESCRIPTIONS": [
-      "#g共用 NL 每当你对任何单位施加任何 #b",
-      " 负面效果时，抽一张牌。"
+      "#g共用。 NL 每当你对任何单位造成 #b",
+      " 次负面效果时，抽一张牌。"
     ]
   },
   "BlueArchive_ProblemSolver:DamageReturnPower": {
-    "NAME": "谁允许了......？",
+    "NAME": "谁允许了……？",
     "DESCRIPTIONS": [
-      "每次攻击时, 造成 #r",
+      "每次被攻击时，受到 #r",
       " 点伤害。"
     ]
   },
   "BlueArchive_ProblemSolver:StealthPower": {
-    "NAME": "渗透",
+    "NAME": "潜行",
     "DESCRIPTIONS": [
-      "下次攻击额外造成 #g",
-      " 倍伤害。"
+      "下次攻击造成的伤害提升至 #g",
+      " 倍。"
     ]
   },
   "BlueArchive_ProblemSolver:HiddenPastPower": {
-    "NAME": "隐藏经历",
+    "NAME": "隐秘的过往",
     "DESCRIPTIONS": [
-      "#g共用 NL 每当一张卡加入手卡时造成 #r",
+      "#g共用。 NL 每当一张牌进入手牌时，对随机敌人造成 #r",
       " 点伤害。"
     ]
   },
   "BlueArchive_ProblemSolver:DiligentPastPower": {
-    "NAME": "勤勉经历",
+    "NAME": "勤勉的过往",
     "DESCRIPTIONS": [
-      "每个回合第一次打出的攻击牌打出两次，然后退到后方。",
-      "每个回合第一次打出的攻击牌打出 #b",
-      " 次，然后退到后方。"
+      "每回合打出的第一张攻击牌会打出两次，然后你 #y位移 到最后方。",
+      "每回合打出的前 #b",
+      " 张攻击牌会打出两次，然后你 #y位移 到最后方。"
     ]
   },
   "BlueArchive_ProblemSolver:JoyfulPastPower": {
-    "NAME": "欢愉经历",
+    "NAME": "欢愉的过往",
     "DESCRIPTIONS": [
-      "#g共用 NL 每当一张卡被弃掉或消耗获得 #b",
+      "#g共用。 NL 每当一张牌被丢弃或 #y消耗 时，获得 #b",
       " 点格挡。"
     ]
   },
   "BlueArchive_ProblemSolver:DestinyDrawPower": {
-    "NAME": "注定一抽",
+    "NAME": "命定之抽",
     "DESCRIPTIONS": [
-      "#g共用 NL 每个回合第一次用光手卡后，抽 #b",
-      " 张牌并且获得相当于总费用的 [E] ",
-      " (已生效)"
+      "#g共用。 NL 每回合首次手牌归零时，抽 #b",
+      " 张牌，并获得相当于最大能量的 [E] 。",
+      "（本回合已触发。）"
     ]
   },
   "BlueArchive_ProblemSolver:AvatarOfFearPower": {
     "NAME": "恐惧化身",
     "DESCRIPTIONS": [
-      "#g共用 NL 每当你施加 #y恐惧, 如果敌人的意图是攻击，则降低其 #y层力量，持续1回合。",
-      "#g共用 NL 每当你施加 #y恐惧, 如果敌人的意图是攻击，则降低其 #y层力量 #b 次，持续1回合。",
+      "#g共用。 NL 每当你给予敌人 #y恐惧 时，若其意图为攻击，令其本回合失去等量力量。",
+      "#g共用。 NL 每当你给予敌人 #y恐惧 时，若其意图为攻击，令其本回合失去等量力量 #b",
+      " 次。"
     ]
   },
   "BlueArchive_ProblemSolver:OneTurnConfusionPower": {
-    "NAME": "临时困惑",
+    "NAME": "临时混乱",
     "DESCRIPTIONS": [
-      "抽卡时随机化它们的费用，持续到本回合结束。"
+      "本回合你每抽到一张牌，就将其耗能随机变化。"
     ]
   },
   "BlueArchive_ProblemSolver:RunAwayPower": {
     "NAME": "战略撤退",
     "DESCRIPTIONS": [
-      "当你的角色移动到后方时，获得#y 点临时生命值",
+      "每当你 #y位移 到最后方时，获得 #b",
+      " 点 #y临时生命 。"
     ]
   },
   "BlueArchive_ProblemSolver:ImmotalPower": {
     "NAME": "不朽",
     "DESCRIPTIONS": [
-      "死亡后, 在弃牌堆中加入一张费用 #b0 的 #y不朽 #y佣兵"
+      "死亡后, 在弃牌堆中加入一张耗能为 #b0 的 #y不朽 #y佣兵 。"
     ]
   }
 }
