@@ -21,7 +21,7 @@
   },
   "BlueArchive_ProblemSolver:ChooseHaruka": {
     "NAME": "伊草春香",
-    "DESCRIPTION": "获得 *擦枪 *走火。 NL 关键词： bluearchive_problemsolver:闭幕 。 NL 特长： 高防御、自身负面效果。"
+    "DESCRIPTION": "获得 *一触 *即发。 NL 关键词： bluearchive_problemsolver:闭幕 。 NL 特长： 高防御、自身负面效果。"
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "抽鬼牌",
@@ -150,7 +150,7 @@
     "DESCRIPTION": "弃1张牌。 NL 对一名随机敌人造成 !D! 点伤害 !M! 次。"
   },
   "BlueArchive_ProblemSolver:TriggerOver": {
-    "NAME": "擦枪走火",
+    "NAME": "一触即发",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 : 失去 !M! 点 格挡 。",
     "EXTENDED_DESCRIPTION": [
       "失去 !M! 点 格挡 。"
