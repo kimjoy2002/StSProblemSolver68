@@ -35,7 +35,7 @@
     ]
   },
   "BlueArchive_ProblemSolver:OutlawsRockPower": {
-    "NAME": "暴徒摇滚",
+    "NAME": "法外狂徒处刑曲",
     "DESCRIPTIONS": [
       "#g共用 。 NL 每当 #y恶 #y行 触发时, 给予所有敌人 #r 层",
       " #y恐惧。"
@@ -95,7 +95,7 @@
   "BlueArchive_ProblemSolver:FocusonAttackPower": {
     "NAME": "突袭",
     "DESCRIPTIONS": [
-      "每当你向前 #y移动 时，对所有敌人造成 #r",
+      "每当你 #y移动 到最前时，对所有敌人造成 #r",
       " 点伤害并抽 #b",
       " 张牌。"
     ]
