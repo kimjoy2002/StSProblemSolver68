@@ -75,12 +75,12 @@
     ]
   },
   "BlueArchive_ProblemSolver:ChooseRabu": {
-    "NAME": "雇佣河驹风兰舞",
-    "DESCRIPTION": "在前方召唤一个拥有 !M! 点最大生命值的 bluearchive_problemsolver:雇佣兵，其获得 !BlueArchive_ProblemSolver:M! 层 *多层护甲 。"
+    "NAME": "雇佣河驹风兰舞
+    "DESCRIPTION": "在前方召唤一个拥有 !M! 点最大生命值的 bluearchive_problemsolver:雇佣兵 ，其获得 !BlueArchive_ProblemSolver:M! 层 *多层护甲 。"
   },
   "BlueArchive_ProblemSolver:ChooseSaori": {
     "NAME": "雇佣锭前纱织",
-    "DESCRIPTION": "在前方召唤一个拥有 !M! 点最大生命值的 bluearchive_problemsolver:雇佣兵，其获得 !BlueArchive_ProblemSolver:M! 点 力量 。"
+    "DESCRIPTION": "在前方召唤一个拥有 !M! 点最大生命值的 bluearchive_problemsolver:雇佣兵 ，其获得 !BlueArchive_ProblemSolver:M! 点 力量 。"
   },
   "BlueArchive_ProblemSolver:FireSupport": {
     "NAME": "火力支援",
@@ -241,7 +241,7 @@
   },
   "BlueArchive_ProblemSolver:ImpChorus": {
     "NAME": "小恶魔的合唱曲",
-    "DESCRIPTION": "每拥有一层 bluearchive_problemsolver:小恶魔，就造成一次 !D! 点伤害 。 NL 这张牌不受 bluearchive_problemsolver:小恶魔 伤害提升效果影响。",
+    "DESCRIPTION": "每拥有一层 bluearchive_problemsolver:小恶魔 ，就造成一次 !D! 点伤害 。 NL 这张牌不受 bluearchive_problemsolver:小恶魔 伤害提升效果影响。",
     "EXTENDED_DESCRIPTION": [
       "我不是小恶魔哦。",
       " NL (",
@@ -338,8 +338,8 @@
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "猫条",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 若本回合内召唤过 bluearchive_problemsolver:雇佣兵，这张牌本回合耗能为0。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 若本回合内召唤过 bluearchive_problemsolver:雇佣兵，这张牌本回合耗能为0。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 若本回合内召唤过 bluearchive_problemsolver:雇佣兵 ，这张牌本回合耗能为0。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 若本回合内召唤过 bluearchive_problemsolver:雇佣兵 ，这张牌本回合耗能为0。"
   },
   "BlueArchive_ProblemSolver:SharingWeapon": {
     "NAME": "借你武器",
@@ -363,7 +363,7 @@
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "起爆器",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 从抽牌堆中随机抽取一张 bluearchive_problemsolver:地雷 或 0[E] 卡牌。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 从抽牌堆中随机抽取一张 bluearchive_problemsolver:地雷 或 0 [E] 卡牌。"
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "遥控炸弹",

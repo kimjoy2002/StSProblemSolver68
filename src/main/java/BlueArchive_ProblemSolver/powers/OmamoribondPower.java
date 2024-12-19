@@ -27,13 +27,13 @@ public class OmamoribondPower extends AbstractPower implements CloneablePowerInt
     private int drawpower;
     private int drawcount;
 
-    public OmamoribondPower(final AbstractCreature owner, int amount, int drawpower) {
+    public OmamoribondPower(final AbstractCreature owner, int current_amount, int amount, int drawpower) {
         name = NAME;
         ID = POWER_ID + omamoriIdOffset;
         ++omamoriIdOffset;
 
         this.owner = owner;
-        this.amount = amount;
+        this.amount = current_amount;
         this.drawpower = drawpower;
         this.drawcount = amount;
 
@@ -66,7 +66,7 @@ public class OmamoribondPower extends AbstractPower implements CloneablePowerInt
 
     @Override
     public AbstractPower makeCopy() {
-        return new OmamoribondPower(owner, drawcount, drawpower);
+        return new OmamoribondPower(owner, amount, drawcount, drawpower);
     }
 
 }

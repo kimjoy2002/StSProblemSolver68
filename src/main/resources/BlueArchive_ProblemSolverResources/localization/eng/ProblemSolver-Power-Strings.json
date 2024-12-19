@@ -87,8 +87,8 @@
   "BlueArchive_ProblemSolver:AllCardPower": {
     "NAME": "Sharing Weapon",
     "DESCRIPTIONS": [
-      "All other allies use the next #yAttack or #ySkill this turn.",
-      "All other allies use the next #b",
+      "All other allies play the next #yAttack or #ySkill this turn.",
+      "All other allies play the next #b",
       " #yAttack or #ySkill this turn."
     ]
   },
