@@ -23,7 +23,7 @@ public class TacticalChallengePS68 extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final int MAGIC = 3;
     private static final int UPGRADE_PLUS_MAGIC = 1;
     public TacticalChallengePS68() {

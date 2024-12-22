@@ -65,12 +65,14 @@ public class Fireworks extends AbstractDynamicCard {
     }
 
     public void triggerWhenDrawn() {
+        baseMagicNumber = magicNumber = MAGIC;
+        this.resetAttributes();
         upgradeMagicNumber(GameActionManager.totalDiscardedThisTurn);
         this.initializeDescription();
     }
 
     public void atTurnStart() {
-        baseMagicNumber = MAGIC;
+        baseMagicNumber = magicNumber = MAGIC;
         this.resetAttributes();
         this.applyPowers();
     }
