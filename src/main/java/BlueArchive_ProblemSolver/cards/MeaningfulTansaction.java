@@ -50,7 +50,7 @@ public class MeaningfulTansaction extends EvilDeedsCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
-        setRequireEvil(4);
+        setRequireEvil(3);
     }
 
     @Override

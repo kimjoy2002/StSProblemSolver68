@@ -35,6 +35,7 @@ public class FlankAttack extends FinishCard {
     private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DMG = 2;
     private static final int MAGIC = 1;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
     private static final int UPGRADE_PLUS_MAGIC2 = 1;
     private static final int MAGIC2 = 1;
 
@@ -78,6 +79,7 @@ public class FlankAttack extends FinishCard {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeSecondMagicNumber(UPGRADE_PLUS_MAGIC2);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

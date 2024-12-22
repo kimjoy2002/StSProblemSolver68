@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.city.GremlinLeader;
 import com.megacrit.cardcrawl.monsters.city.Mugger;
+import com.megacrit.cardcrawl.monsters.exordium.Looter;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.powers.StasisPower;
@@ -86,6 +87,12 @@ public class FearEscapeAction extends AbstractGameAction {
             }
             if(m instanceof Mugger) {
                 int stolenGold = ReflectionHacks.getPrivate(m, Mugger.class, "stolenGold");
+                if (stolenGold > 0) {
+                    AbstractDungeon.getCurrRoom().addStolenGoldToRewards(stolenGold);
+                }
+            }
+            if(m instanceof Looter) {
+                int stolenGold = ReflectionHacks.getPrivate(m, Looter.class, "stolenGold");
                 if (stolenGold > 0) {
                     AbstractDungeon.getCurrRoom().addStolenGoldToRewards(stolenGold);
                 }

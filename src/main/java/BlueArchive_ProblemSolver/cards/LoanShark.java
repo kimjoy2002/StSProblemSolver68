@@ -38,7 +38,7 @@ public class LoanShark extends AbstractDynamicCard {
     private static final int COST = 0;
     public static final int MAGIC = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
-    public static final int MAGIC2 = 2;
+    public static final int MAGIC2 = 1;
 
     public LoanShark() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

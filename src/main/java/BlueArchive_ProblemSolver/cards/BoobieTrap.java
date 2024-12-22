@@ -28,8 +28,9 @@ public class BoobieTrap extends MineCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 6;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
 
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
@@ -59,6 +60,7 @@ public class BoobieTrap extends MineCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }

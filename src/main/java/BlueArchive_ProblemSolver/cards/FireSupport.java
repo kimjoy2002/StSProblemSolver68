@@ -39,7 +39,7 @@ public class FireSupport extends AbstractDynamicCard {
     private static final int COST = 1;
 
 
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 5;
 
     public FireSupport() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

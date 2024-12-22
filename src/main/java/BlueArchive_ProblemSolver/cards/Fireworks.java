@@ -76,9 +76,9 @@ public class Fireworks extends AbstractDynamicCard {
     }
 
     public AbstractCard makeCopy() {
-        AbstractCard tmp = new Fireworks();
+        Fireworks tmp = new Fireworks();
         if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            upgradeMagicNumber(GameActionManager.totalDiscardedThisTurn);
+            tmp.upgradeMagicNumber(GameActionManager.totalDiscardedThisTurn);
         }
         return tmp;
     }

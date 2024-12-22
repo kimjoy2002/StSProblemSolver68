@@ -21,7 +21,7 @@ public class UnwelcomeSchool extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final int MAGIC = 1;
 
 
@@ -43,7 +43,7 @@ public class UnwelcomeSchool extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(2);
+            this.upgradeBaseCost(1);
             //upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }

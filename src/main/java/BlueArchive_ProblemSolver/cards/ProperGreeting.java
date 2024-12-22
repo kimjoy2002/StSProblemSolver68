@@ -32,6 +32,7 @@ public class ProperGreeting extends AbstractDynamicCard {
     private static final int UPGRADE_PLUS_DMG = 2;
 
     private static final int MAGIC = 1;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
     public ProperGreeting() {
@@ -56,6 +57,7 @@ public class ProperGreeting extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }
