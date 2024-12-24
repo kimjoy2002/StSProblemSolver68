@@ -1,6 +1,6 @@
 {
   "BlueArchive_ProblemSolver:TagPotion": {
     "NAME": "换位药水",
-    "DESCRIPTIONS": ["获得 #b", " #y点临时#y生命值。 当前角色移动到最后方。"]
+    "DESCRIPTIONS": ["获得 #b", " #y点临时 #y生命值。 当前角色移动到最后方。"]
   }
 }

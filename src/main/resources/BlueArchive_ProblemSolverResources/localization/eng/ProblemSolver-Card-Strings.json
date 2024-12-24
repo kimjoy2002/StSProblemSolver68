@@ -131,8 +131,8 @@
   },
   "BlueArchive_ProblemSolver:LoanShark": {
     "NAME": "Loan Shark",
-    "DESCRIPTION": "Can only be played if Strength is greater than 0. NL Gain [E] [E]. NL Lose !BlueArchive_ProblemSolver:M! Strength.",
-    "UPGRADE_DESCRIPTION": "Can only be played if Strength is greater than 0. NL Gain [E] [E] [E]. NL Lose !BlueArchive_ProblemSolver:M! Strength.",
+    "DESCRIPTION": "Can only be played if Strength is 0 or greater. NL Gain [E] [E]. NL Lose !BlueArchive_ProblemSolver:M! Strength.",
+    "UPGRADE_DESCRIPTION": "Can only be played if Strength is 0 or greater. NL Gain [E] [E] [E]. NL Lose !BlueArchive_ProblemSolver:M! Strength.",
     "EXTENDED_DESCRIPTION": [
       "Strength must be 0 or higher!"
     ]

@@ -531,6 +531,7 @@ public class DefaultMod implements
         BaseMod.addRelicToCustomPool(new BottleSetRelic(), Aru.Enums.COLOR_RED);
 
 
+        BaseMod.addRelicToCustomPool(new ArusTreasuredWalletRelic(), Aru.Enums.COLOR_RED);
         BaseMod.addRelicToCustomPool(new ProblemSolverBaseRelicPlus(), Aru.Enums.COLOR_RED);
         BaseMod.addRelicToCustomPool(new MercenaryCatalogueRelic(), Aru.Enums.COLOR_RED);
         BaseMod.addRelicToCustomPool(new RadioTransceiverRelic(), Aru.Enums.COLOR_RED);

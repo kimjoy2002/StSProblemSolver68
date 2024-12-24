@@ -131,10 +131,10 @@
   },
   "BlueArchive_ProblemSolver:LoanShark": {
     "NAME": "高利贷",
-    "DESCRIPTION": "只能在 力量 大于0时打出。 NL 获得 [E] [E] 。 NL 失去 !BlueArchive_ProblemSolver:M! 点 力量 。",
-    "UPGRADE_DESCRIPTION": "只能在 力量 大于0时打出。 NL 获得 [E] [E] [E] 。 NL 失去 !BlueArchive_ProblemSolver:M! 点 力量 。",
+    "DESCRIPTION": "只能在 力量 大于等于0时打出。 NL 获得 [E] [E] 。 NL 失去 !BlueArchive_ProblemSolver:M! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "只能在 力量 大于等于0时打出。 NL 获得 [E] [E] [E] 。 NL 失去 !BlueArchive_ProblemSolver:M! 点 力量 。",
     "EXTENDED_DESCRIPTION": [
-      "力量必须大于0才能使用这张牌。"
+      "力量必须大于等于0才能使用这张牌。"
     ]
   },
   "BlueArchive_ProblemSolver:ScaryFace": {
@@ -199,9 +199,9 @@
   },
   "BlueArchive_ProblemSolver:FlankAttack": {
     "NAME": "侧翼攻击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予  !BlueArchive_ProblemSolver:M! 层  易伤 。 NL bluearchive_problemsolver:闭幕 : 施加 !M! 层 以上 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予  !BlueArchive_ProblemSolver:M! 层  易伤 。 NL bluearchive_problemsolver:闭幕 : 给予 !M! 层 虚弱 。",
     "EXTENDED_DESCRIPTION": [
-      "施加 !M! 层  易伤 。"
+      "给予 !M! 层  虚弱 。"
     ]
   },
   "BlueArchive_ProblemSolver:PumpPanning": {
@@ -243,7 +243,7 @@
     "NAME": "小恶魔的合唱曲",
     "DESCRIPTION": "每拥有一层 bluearchive_problemsolver:小恶魔 ，就造成一次 !D! 点伤害 。 NL 这张牌不受 bluearchive_problemsolver:小恶魔 伤害提升效果影响。",
     "EXTENDED_DESCRIPTION": [
-      "我不是小恶魔哦。",
+      "我没有小恶魔哦。",
       " NL (",
       " 次。)"
     ]
@@ -386,11 +386,11 @@
   },
   "BlueArchive_ProblemSolver:WithAllYourHeart": {
     "NAME": "怀以真心",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 :获得可保留到下回合的 [E] [E] 。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 : 获得可保留到下回合的 [E] [E] [E] 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 :获得 [E] [E] 你的能量可以保存到下个回合。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 : 获得 [E] [E] [E] 你的能量可以保存到下个回合。",
     "EXTENDED_DESCRIPTION": [
-      "获得可保留到下回合的 [E] [E] 。",
-      "获得可保留到下回合的 [E] [E] [E] 。"
+      "获得 [E] [E] 你的能量可以保存到下个回合。",
+      "获得 [E] [E] [E] 你的能量可以保存到下个回合。"
     ]
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
