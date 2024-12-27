@@ -625,7 +625,7 @@
   },
   "BlueArchive_ProblemSolver:SecondDeal": {
     "NAME": "Second Deal",
-    "DESCRIPTION": "Gain !B! Block. NL Discard 1 card. NL If the discarded card costs 1 or more, return this card to its position."
+    "DESCRIPTION": "Gain !B! Block. NL Discard 1 card. NL If the discarded card costs 1 or more, return this card to the discarded card's position."
   },
   "BlueArchive_ProblemSolver:PartyPistol": {
     "NAME": "Surprise Pistol",

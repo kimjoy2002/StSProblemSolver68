@@ -227,6 +227,9 @@ public class ChangeCharacterAction extends AbstractGameAction {
         AbstractDungeon.player.maxOrbs = temp.maxOrbs;
         AbstractDungeon.player.masterMaxOrbs = temp.masterMaxOrbs;
         AbstractDungeon.player.gameHandSize = temp.gameHandSize;
+        AbstractDungeon.player.relics = temp.relics;
+        AbstractDungeon.player.blights = temp.blights;
+        AbstractDungeon.player.potions = temp.potions;
         AbstractDungeon.player.hand.refreshHandLayout();
         AbstractDungeon.player.hand.applyPowers();
         AbstractDungeon.onModifyPower();

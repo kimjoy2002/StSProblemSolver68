@@ -78,8 +78,6 @@ public class ShowCardAndToHandIndexEffect extends AbstractGameEffect {
         if (AbstractDungeon.player.hasPower("Corruption") && card.type == AbstractCard.CardType.SKILL) {
             card.setCostForTurn(-9);
         }
-
-        HiddenPastPatch.triggerHiddenPast(card);
     }
 
     private void playCardObtainSfx() {

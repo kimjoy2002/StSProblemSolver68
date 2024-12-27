@@ -123,6 +123,9 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         change.gameHandSize = AbstractDungeon.player.gameHandSize;
         change.masterMaxOrbs = AbstractDungeon.player.masterMaxOrbs;
         change.maxOrbs = AbstractDungeon.player.maxOrbs;
+        change.relics = AbstractDungeon.player.relics;
+        change.blights = AbstractDungeon.player.blights;
+        change.potions = AbstractDungeon.player.potions;
 
 
         AbstractDungeon.player = change;

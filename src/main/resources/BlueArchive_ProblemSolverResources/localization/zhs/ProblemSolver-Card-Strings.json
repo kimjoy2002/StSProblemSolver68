@@ -96,7 +96,7 @@
   },
   "BlueArchive_ProblemSolver:PanicShot": {
     "NAME": "恐慌射击",
-    "DESCRIPTION": "给予 !M! 层 bluearchive_problemsolver:恐惧 和 !BlueArchive_ProblemSolver:M! 层易伤 。"
+    "DESCRIPTION": "给予 !M! 层 bluearchive_problemsolver:恐惧 和 !BlueArchive_ProblemSolver:M! 层 易伤 。"
   },
   "BlueArchive_ProblemSolver:PanicBringer": {
     "NAME": "恐慌引路人",
@@ -404,7 +404,7 @@
   },
   "BlueArchive_ProblemSolver:TacticalChallengeAru": {
     "NAME": "独家战术 - 阿露",
-    "DESCRIPTION": "造成 !D! 伤害。 NL 本场战斗中每打出过一张 *独家战术 ，造成的伤害增加 !M! 。"
+    "DESCRIPTION": "造成 !D! 伤害。 NL 本场战斗中每打出过1张 *独家战术 ，造成的伤害增加 !M! 。"
   },
   "BlueArchive_ProblemSolver:TacticalChallengeMutsuki": {
     "NAME": "独家战术 - 睦月",
@@ -412,7 +412,7 @@
   },
   "BlueArchive_ProblemSolver:TacticalChallengeKayoko": {
     "NAME": "独家战术 - 佳代子",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 本场战斗中每打出过一张 *独家战术 ，额外抽 1 张牌。"
+    "DESCRIPTION": "抽 !M! 张牌。 NL 本场战斗中每打出过 !BlueArchive_ProblemSolver:M! 张 *独家战术 ，额外抽 1 张牌。"
   },
   "BlueArchive_ProblemSolver:TacticalChallengeHaruka": {
     "NAME": "独家战术 - 春香",
@@ -625,7 +625,7 @@
   },
   "BlueArchive_ProblemSolver:SecondDeal": {
     "NAME": "纸牌魔术",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 弃 1 张牌。 NL 如果被丢弃的牌耗能为 1 或更高, 将本牌返回原位。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 弃 1 张牌。 NL 如果被丢弃的牌耗能为 1 或更高, 将本牌返回被弃掉的牌的位置。"
   },
   "BlueArchive_ProblemSolver:PartyPistol": {
     "NAME": "惊吓手枪",
