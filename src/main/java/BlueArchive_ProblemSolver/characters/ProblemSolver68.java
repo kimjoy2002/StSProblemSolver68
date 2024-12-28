@@ -1438,7 +1438,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             }
         }
 
-        /*if (isLeftJustPressed() && !this.isDisabled && this.enabled) {
+        if (isLeftJustPressed() && !this.isDisabled && this.enabled) {
             int index = problemSolverPlayer.size()-1;
             for (int i = 0; i < problemSolverPlayer.size(); i++) {
                 if(problemSolverPlayer.get(i) == AbstractDungeon.player)
@@ -1454,7 +1454,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             }
         }
 
-        if (isRightJustPressed() && !this.isDisabled && this.enabled) {
+        /*if (isRightJustPressed() && !this.isDisabled && this.enabled) {
             int index = 0;
             for (int i = problemSolverPlayer.size()-1; i >= 0; i--) {
                 if(problemSolverPlayer.get(i) == AbstractDungeon.player)
