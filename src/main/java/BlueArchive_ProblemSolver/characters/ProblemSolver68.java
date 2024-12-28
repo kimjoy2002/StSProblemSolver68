@@ -121,6 +121,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         change.gold = AbstractDungeon.player.gold;
         change.displayGold = AbstractDungeon.player.displayGold;
         change.gameHandSize = AbstractDungeon.player.gameHandSize;
+        change.masterHandSize = AbstractDungeon.player.masterHandSize;
         change.masterMaxOrbs = AbstractDungeon.player.masterMaxOrbs;
         change.maxOrbs = AbstractDungeon.player.maxOrbs;
         change.relics = AbstractDungeon.player.relics;
@@ -359,6 +360,15 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         return null;
     }
 
+    public static ProblemSolver68 getCharacter(Aru.ProblemSolver68Type problemSolverType) {
+        for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer){
+            if(ps.solverType == problemSolverType) {
+                return ps;
+            }
+        }
+        return null;
+    }
+
     public static void saveDeathCharacter(ProblemSolver68 player) {
         mayRevivePlayer.add(player);
         removeCharacter(player);
@@ -511,6 +521,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             p.limbo = main.limbo;
             p.relics = main.relics;
             p.potionSlots = main.potionSlots;
+            p.masterHandSize = main.masterHandSize;
             p.maxOrbs = main.maxOrbs;
             p.orbs = main.orbs;
             p.masterMaxOrbs = main.masterMaxOrbs;
@@ -1177,6 +1188,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
                 p.powers.clear();
                 p.isEndingTurn = false;
                 p.endTurnQueued = false;
+                p.gameHandSize = p.masterHandSize;
                 p.healthBarUpdatedEvent();
                 if (ModHelper.isModEnabled("Lethality")) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 3), 3));

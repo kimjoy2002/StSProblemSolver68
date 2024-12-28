@@ -66,13 +66,13 @@ public class FixerForm extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(AbstractDungeon.player instanceof ProblemSolver68) {
-            if(ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU))
+            if(ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU) && ProblemSolver68.isLive(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU))
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new EnergyupPower(AbstractDungeon.player, upgraded?2:1),  upgraded?2:1, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU));
-            if(ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO))
+            if(ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO) && ProblemSolver68.isLive(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO) )
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new DrawPower(p, this.magicNumber), magicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_KAYOKO));
-            if(ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI))
+            if(ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI) && ProblemSolver68.isLive(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI))
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new StrupPower(AbstractDungeon.player, secondMagicNumber), secondMagicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI));
-            if(ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA))
+            if(ProblemSolver68.hasCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA) && ProblemSolver68.isLive(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA))
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerToSpecificAction(new DexupPower(AbstractDungeon.player, thirdMagicNumber), thirdMagicNumber, Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_HARUKA));
         } else {
             ArrayList<Integer> array_power = new ArrayList();
