@@ -1425,7 +1425,7 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             if (AbstractDungeon.player.hoveredCard == null) {
                 this.hb.update();
             }
-            if (!Settings.USE_LONG_PRESS && InputHelper.justClickedLeft && this.hb.hovered && !this.isDisabled && !AbstractDungeon.isScreenUp) {
+            if (InputHelper.justClickedLeft && this.hb.hovered && !this.isDisabled && !AbstractDungeon.isScreenUp) {
                 this.hb.clickStarted = true;
                 CardCrawlGame.sound.play("UI_CLICK_1");
             }
@@ -1439,46 +1439,13 @@ public abstract class ProblemSolver68 extends CustomPlayer {
         }
 
         if (isLeftJustPressed() && !this.isDisabled && this.enabled) {
-            int index = problemSolverPlayer.size()-1;
-            for (int i = 0; i < problemSolverPlayer.size(); i++) {
-                if(problemSolverPlayer.get(i) == AbstractDungeon.player)
-                    break;
-                index = i;
-            }
-
-            if (problemSolverPlayer.get(index) == this) {
-                this.hb.clicked = false;
-                if (!AbstractDungeon.isScreenUp) {
-                    this.disable(true);
-                }
-            }
-        }
-
-        /*if (isRightJustPressed() && !this.isDisabled && this.enabled) {
-            int index = 0;
-            for (int i = problemSolverPlayer.size()-1; i >= 0; i--) {
-                if(problemSolverPlayer.get(i) == AbstractDungeon.player)
-                    break;
-                index = i;
-            }
-
-            if (problemSolverPlayer.get(index) == this) {
-                this.hb.clicked = false;
-                if (!AbstractDungeon.isScreenUp) {
-                    this.disable(true);
-                }
-            }
-        }
-
-
-        if (isRollJustPressed() && !this.isDisabled && this.enabled) {
             if (AbstractDungeon.player == this) {
                 this.hb.clicked = false;
                 if (!AbstractDungeon.isScreenUp) {
-                    changeCharacter = true;
+                    this.backwalking();
                 }
             }
-        }*/
+        }
     }
     public int getLeftKeyCode() {
         return leftKey;
@@ -1526,6 +1493,12 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             return true;
         }
         return false;
+    }
+
+    public void backwalking() {
+        if(AbstractDungeon.player.hasRelic(RadioTransceiverRelic.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction(this, true, false, false));
+        }
     }
 
     public void disable(boolean isEnemyTurn) {
