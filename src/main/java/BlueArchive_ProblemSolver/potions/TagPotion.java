@@ -46,7 +46,7 @@ public class TagPotion extends CustomPotion  {
     // This is your potency.
     @Override
     public int getPotency(final int potency) {
-        return 8;
+        return 12;
     }
 
     public void initializeData() {

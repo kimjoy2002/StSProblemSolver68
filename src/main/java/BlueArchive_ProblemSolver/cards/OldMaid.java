@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.ChangeCharacterAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -53,6 +54,7 @@ public class OldMaid extends AbstractDynamicCard {
             c = p!=null?p:AbstractDungeon.player;
         }
 
+        AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction((AbstractPlayer)c, false, false, true));
         ProblemSolver68 ps68 = (c instanceof ProblemSolver68)?(ProblemSolver68)c:null;
         this.addToBot(new AbstractGameAction() {
             public void update() {
@@ -78,7 +80,7 @@ public class OldMaid extends AbstractDynamicCard {
                         AbstractDungeon.player.drawPile.addToTop(cards_.get(i));
                     }
                 }
-                this.addToBot(new DrawCardAction(magicNumber));
+                this.addToTop(new DrawCardAction(magicNumber));
                 this.isDone = true;
             }
         });

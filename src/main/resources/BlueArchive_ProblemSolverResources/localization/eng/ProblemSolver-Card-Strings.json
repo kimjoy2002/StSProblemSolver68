@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "Old Maid",
-    "DESCRIPTION": "Draw !M! cards. NL If possible, draw the selected *Problem BlueArchive_ProblemSolver:Solver card."
+    "DESCRIPTION": "The chosen ally moves to the front. NL Draw !M! cards. NL If possible, draw the selected *Problem BlueArchive_ProblemSolver:Solver card."
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "Problem Solver Barricade",
@@ -646,8 +646,7 @@
   },
   "BlueArchive_ProblemSolver:DestinyDraw": {
     "NAME": "Destiny Draw",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Once per turn, when your hand becomes empty, draw !M! card and gain [E] equal to their combined cost.",
-    "UPGRADE_DESCRIPTION": "Innate. BlueArchive_ProblemSolver:Shared. NL Once per turn, when your hand becomes empty, draw !M! card and gain [E] equal to their combined cost."
+    "DESCRIPTION": "Innate. BlueArchive_ProblemSolver:Shared. NL Once per turn, when your hand becomes empty, draw !M! card and gain [E] equal to their combined cost."
   },
   "BlueArchive_ProblemSolver:AvatarOfFear": {
     "NAME": "Avatar of Fear",

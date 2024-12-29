@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 가능하다면 선택한 BlueArchive_ProblemSolver:흥신소 카드를 뽑습니다."
+    "DESCRIPTION": "선택한 아군이 전열로 이동합니다. NL 카드를 !M! 장 뽑습니다. NL 가능하다면 선택한 BlueArchive_ProblemSolver:흥신소 카드를 뽑습니다."
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "흥신소 바리케이트",
@@ -646,8 +646,7 @@
   },
   "BlueArchive_ProblemSolver:DestinyDraw": {
     "NAME": "데스티니 드로우",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성. BlueArchive_ProblemSolver:공유. NL 턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다."
+    "DESCRIPTION": "선천성. BlueArchive_ProblemSolver:공유. NL 턴마다 1번씩, 손이 0장이 되었을때 카드를 !M! 장 뽑고 그 비용만큼 [E] 를 얻습니다."
   },
   "BlueArchive_ProblemSolver:AvatarOfFear": {
     "NAME": "공포의 화신",

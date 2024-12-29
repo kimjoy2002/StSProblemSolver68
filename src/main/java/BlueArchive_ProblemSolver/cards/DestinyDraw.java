@@ -27,12 +27,14 @@ public class DestinyDraw extends AbstractDynamicCard {
 
     private static final int COST = 0;
     private static final int MAGIC = 1;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
     public DestinyDraw() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
+        this.isInnate = true;
     }
 
     // Actions the card should do.
@@ -46,8 +48,7 @@ public class DestinyDraw extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.isInnate = true;
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

@@ -47,7 +47,7 @@ public class LoveAndViolence extends AbstractDynamicCard {
     private static final int DAMAGE = 7;
 
     private static final int MAGIC = 3;
-    private static final int UPGRADE_PLUS_DAM = 1;
+    private static final int UPGRADE_PLUS_DAM = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
     public LoveAndViolence() {
