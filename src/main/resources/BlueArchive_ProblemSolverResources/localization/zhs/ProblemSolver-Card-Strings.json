@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "抽鬼牌",
-    "DESCRIPTION": "选择一名友方移动到最前方。 NL 抽 !M! 张牌。 NL优先抽取选择的 bluearchive_problemsolver:便利屋 队员的卡牌。"
+    "DESCRIPTION": "选择一名友方移动到最前方。 NL 抽 !M! 张牌。 NL 优先抽取选择的 bluearchive_problemsolver:便利屋 队员的卡牌。"
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "便利屋壁垒",
