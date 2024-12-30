@@ -83,7 +83,7 @@ public class ImpPower extends AbstractPower implements CloneablePowerInterface, 
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
-        this.addToBot(new ImpAmountAction(stackAmount, this, true));
+        this.amount_imp += amount_imp;
     }
 
     public void reducePower(int reduceAmount) {
