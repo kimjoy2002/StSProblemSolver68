@@ -54,7 +54,6 @@ public class WithAllYourHeart extends FinishCard {
         ArrayList<AbstractGameAction> temp = new ArrayList<AbstractGameAction>();
         temp.add(new GainEnergyAction(magicNumber));
         temp.add(new KeepEnergyAction(magicNumber));
-        temp.add(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
         return temp;
     }
     public String getFinishString(){
