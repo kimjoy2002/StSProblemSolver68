@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "도둑 잡기",
-    "DESCRIPTION": "선택한 아군이 전열로 이동합니다. NL 카드를 !M! 장 뽑습니다. NL 가능하다면 선택한 BlueArchive_ProblemSolver:흥신소 카드를 뽑습니다."
+    "DESCRIPTION": "선택한 아군이 전열로 이동합니다. NL 카드를 !M! 장 뽑습니다."
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "흥신소 바리케이트",
@@ -197,13 +197,6 @@
       "가진 방어도가 2배로 증가합니다. "
     ]
   },
-  "BlueArchive_ProblemSolver:FlankAttack": {
-    "NAME": "측면 공격",
-    "DESCRIPTION": "피해를 !D! 줍니다. 취약을 !BlueArchive_ProblemSolver:M! 부여합니다. NL BlueArchive_ProblemSolver:마무리: 추가로 약화를 !M! 부여합니다.",
-    "EXTENDED_DESCRIPTION": [
-      "약화를 !M! 부여합니다. "
-    ]
-  },
   "BlueArchive_ProblemSolver:PumpPanning": {
     "NAME": "펌프패닝",
     "DESCRIPTION": "피해를 !D! 줍니다. NL BlueArchive_ProblemSolver:마무리: 이번 전투 동안 공격 횟수가 1 증가하고 뽑을 카드 더미에 섞어넣습니다.",
@@ -250,7 +243,7 @@
   },
   "BlueArchive_ProblemSolver:MoreFunWaysToPlay": {
     "NAME": "좀 더 즐겁게 노는 방법",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:소악마의 피해량 증가 효과를 다시 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:소악마만큼 방어도를 추가로 얻고 피해량 증가 효과를 다시 얻습니다."
   },
   "BlueArchive_ProblemSolver:DangerousPlay": {
     "NAME": "위험한 놀이",
@@ -330,11 +323,12 @@
   },
   "BlueArchive_ProblemSolver:NegativeThinking": {
     "NAME": "부정적인 사고",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 나에게 부정적인 효과가 있으면 추가로 방어도를 !B! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 준비중인 BlueArchive_ProblemSolver:마무리 효과가 있으면 !M! 장 더 뽑습니다."
   },
   "BlueArchive_ProblemSolver:UnwelcomeSchool": {
     "NAME": "Unwelcome School",
-    "DESCRIPTION": "이 캐릭터가 이동할때마다 뽑을 카드 더미 맨 위에 있는 카드를 !M! 장 사용합니다."
+    "DESCRIPTION": "이 캐릭터가 이동할때마다 이번 턴 동안 손에 있는 무작위 카드 1장의 비용이 1 감소합니다.",
+    "UPGRADE_DESCRIPTION": "이 캐릭터가 이동할때마다 이번 턴 동안 손에 있는 무작위 카드 1장의 비용이 0이 됩니다."
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "고양이 간식",
@@ -353,17 +347,13 @@
     "NAME": "경보 단추",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 !M! 턴 동안 공격 카드를 사용할 수 없습니다. NL 소멸."
   },
-  "BlueArchive_ProblemSolver:SelfDestructButton": {
-    "NAME": "자폭 단추",
-    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 다음 !M! 턴 동안 카드를 통해 방어도를 얻을 수 없습니다. NL 소멸."
-  },
   "BlueArchive_ProblemSolver:GloomyPast": {
     "NAME": "우울한 과거",
     "DESCRIPTION": "부정적인 효과를 부여받을 때마다 임시_체력 을 !M! 얻습니다."
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "기폭 장치",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 뽑을 카드 더미에 있는 BlueArchive_ProblemSolver:지뢰 또는 비용이 0인 무작위 카드 !M! 장을 뽑습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 손에 있는 모든 BlueArchive_ProblemSolver:지뢰 효과를 발동합니다."
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "원격 폭탄",
@@ -377,11 +367,15 @@
     "NAME": "사전답사",
     "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL 내 턴 종료 시 뽑을 카드 더미에 *원격 *폭탄을 섞어넣습니다."
   },
+  "BlueArchive_ProblemSolver:PreparedToPerfection": {
+    "NAME": "철저한 준비",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:공유. NL BlueArchive_ProblemSolver:마무리 효과를 !M! 개 더 준비할 수 있습니다."
+  },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "맹습",
-    "DESCRIPTION": "카드를 !M! 장 뽑고 손의 BlueArchive_ProblemSolver:마무리 카드를 전부 버립니다. NL BlueArchive_ProblemSolver:마무리: 이 효과로 버린 모든 BlueArchive_ProblemSolver:마무리 카드의 BlueArchive_ProblemSolver:마무리 효과를 발동합니다.",
+    "DESCRIPTION": "준비중인 BlueArchive_ProblemSolver:마무리 효과를 2배로 하거나, \" BlueArchive_ProblemSolver:마무리: 카드를 !M! 장 뽑고 손을 !BlueArchive_ProblemSolver:M! 턴 보존합니다.\"를 얻습니다. ",
     "EXTENDED_DESCRIPTION": [
-       "아무것도 안합니다. "
+      "카드를 !M! 장 뽑고 손을 !M2! 턴 보존합니다. "
     ]
   },
   "BlueArchive_ProblemSolver:WithAllYourHeart": {
@@ -389,8 +383,7 @@
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 다음 턴까지 유지되는 [E] [E] 를 얻습니다.",
     "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL BlueArchive_ProblemSolver:마무리: 다음 턴까지 유지되는 [E] [E] [E] 를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      "다음 턴까지 유지되는 [E] [E] 를 얻습니다. ",
-      "다음 턴까지 유지되는 [E] [E] [E] 를 얻습니다. "
+      "다음 턴까지 유지되는 !M! [E] 를 얻습니다. "
     ]
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
@@ -447,8 +440,8 @@
   },
   "BlueArchive_ProblemSolver:MineChain": {
     "NAME": "지뢰 연쇄",
-    "DESCRIPTION": "사용불가. NL BlueArchive_ProblemSolver:지뢰: 양 옆에 *발목 *지뢰를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "사용불가. NL BlueArchive_ProblemSolver:지뢰: 양 옆에 *발목 *지뢰+를 얻습니다.",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:지뢰: 양 옆에 *발목 *지뢰를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "BlueArchive_ProblemSolver:지뢰: 양 옆에 *발목 *지뢰+를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "사용할 수 없어."
     ]
@@ -614,14 +607,14 @@
   },
   "BlueArchive_ProblemSolver:ShadowShot": {
     "NAME": "그림자 사격",
-    "DESCRIPTION": "손에 있는 저주 나 상태이상이 아닌 카드 1장당 !M! 만큼 피해를 줍니다.",
+    "DESCRIPTION": "손에 있는 카드 1장당 !M! 만큼 피해를 줍니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)"
     ]
   },
   "BlueArchive_ProblemSolver:ImpishPrank": {
     "NAME": "소악마의 장난",
-    "DESCRIPTION": "카드를 원하는만큼 버립니다. NL 버린 카드 수만큼 BlueArchive_ProblemSolver:소악마를 얻습니다."
+    "DESCRIPTION": "카드를 1 장 소멸 시킵니다. NL 그 카드의 비용의 !M! 배만큼 BlueArchive_ProblemSolver:소악마를 얻습니다."
   },
   "BlueArchive_ProblemSolver:SecondDeal": {
     "NAME": "세컨드 딜",
@@ -654,8 +647,7 @@
   },
   "BlueArchive_ProblemSolver:Sweep": {
     "NAME": "쓸어담기",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 막히지 않은 피해만큼 힘을 얻습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 막히지 않은 피해만큼 힘을 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 막히지 않은 피해만큼 힘을 얻습니다."
   },
   "BlueArchive_ProblemSolver:PanicShotRetry": {
     "NAME": "패닉샷 리트라이",
@@ -706,5 +698,17 @@
     "NAME": "비상구",
     "DESCRIPTION": "적 전체에 약화를 !M! 부여합니다. NL *교대+ 카드를 X 장 얻습니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "적 전체에 약화를 !M! 부여합니다. NL *교대+ 카드를 X+1 장 얻습니다. NL 소멸."
+  },
+  "BlueArchive_ProblemSolver:ChooseDraw": {
+    "NAME": "마무리 얻기",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:마무리: 카드를 !M! 장 뽑고 손을 !BlueArchive_ProblemSolver:M! 턴 보존합니다."
+  },
+  "BlueArchive_ProblemSolver:ChooseDouble": {
+    "NAME": "마무리 2배",
+    "DESCRIPTION": "준비중인 BlueArchive_ProblemSolver:마무리 효과를 2배로 합니다."
+  },
+  "BlueArchive_ProblemSolver:EmergencyEscape": {
+    "NAME": "긴급 탈출",
+    "DESCRIPTION": "임시_체력 을 !M! 만큼 얻습니다. NL 후열로 이동합니다. NL *교대 카드를 !BlueArchive_ProblemSolver:M! 장 얻습니다."
   }
 }

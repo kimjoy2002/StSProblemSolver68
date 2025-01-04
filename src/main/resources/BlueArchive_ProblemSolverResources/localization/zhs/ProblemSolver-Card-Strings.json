@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "抽鬼牌",
-    "DESCRIPTION": "选择一名友方移动到最前方。 NL 抽 !M! 张牌。 NL 优先抽取选择的 bluearchive_problemsolver:便利屋 队员的卡牌。"
+    "DESCRIPTION": "选择一名友方移动到最前方。 NL 抽 !M! 张牌。"
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "便利屋壁垒",
@@ -197,13 +197,6 @@
       "将你的 格挡 翻倍。"
     ]
   },
-  "BlueArchive_ProblemSolver:FlankAttack": {
-    "NAME": "侧翼攻击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予  !BlueArchive_ProblemSolver:M! 层  易伤 。 NL bluearchive_problemsolver:闭幕 : 给予 !M! 层 虚弱 。",
-    "EXTENDED_DESCRIPTION": [
-      "给予 !M! 层  虚弱 。"
-    ]
-  },
   "BlueArchive_ProblemSolver:PumpPanning": {
     "NAME": "慌乱射击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL bluearchive_problemsolver:闭幕 : 在本场战斗中额外造成 1 次伤害。 将这张牌洗入你的抽牌堆。",
@@ -250,7 +243,7 @@
   },
   "BlueArchive_ProblemSolver:MoreFunWaysToPlay": {
     "NAME": "更有趣的玩法！",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 本回合重新获得 bluearchive_problemsolver:小恶魔 的伤害加成。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得相当于 bluearchive_problemsolver:小恶魔 层数的格挡，在本回合重新获得 bluearchive_problemsolver:小恶魔 的伤害加成。"
   },
   "BlueArchive_ProblemSolver:DangerousPlay": {
     "NAME": "危命游戏",
@@ -330,11 +323,12 @@
   },
   "BlueArchive_ProblemSolver:NegativeThinking": {
     "NAME": "消极思想",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果你有任何负面效果，再次获得 !B! 点 格挡 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 若你已拥有一个 bluearchive_problemsolver:闭幕 效果 ， 抽额外 !BlueArchive_ProblemSolver:M! 张牌。"
   },
   "BlueArchive_ProblemSolver:UnwelcomeSchool": {
     "NAME": "Unwelcome School",
-    "DESCRIPTION": "每当当前角色移动时，打出抽牌堆顶的牌。"
+    "DESCRIPTION": "每当当前角色移动时, 你手中的随机1张牌在本回合内耗能减少1。",
+    "UPGRADE_DESCRIPTION": "每当当前角色移动时, 你手中的随机1张牌在本回合内耗能为0。"
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "猫条",
@@ -353,17 +347,13 @@
     "NAME": "大绿按钮",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL  接下来 !M! 回合无法打出攻击牌。 NL 消耗"
   },
-  "BlueArchive_ProblemSolver:SelfDestructButton": {
-    "NAME": "大红按钮",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 接下来 !M! 回合无法打出 格挡 牌。 NL 消耗 。"
-  },
   "BlueArchive_ProblemSolver:GloomyPast": {
     "NAME": "灰暗的过往",
     "DESCRIPTION": "每当当前角色获得负面效果时，获得 !M! 点 临时生命 。"
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "起爆器",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 从抽牌堆中随机抽取一张 bluearchive_problemsolver:地雷 或 0 [E] 卡牌。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 触发你手中所有地雷卡的 bluearchive_problemsolver:地雷 效果。"
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "遥控炸弹",
@@ -377,11 +367,15 @@
     "NAME": "预先侦查",
     "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 在你的回合结束时，在抽牌堆中洗入 !M! 张 *遥控 *炸弹。"
   },
+  "BlueArchive_ProblemSolver:PreparedToPerfection": {
+    "NAME": "万事俱备！",
+    "DESCRIPTION": "bluearchive_problemsolver:共用 。 NL 你可以额外应用 !M! 个 bluearchive_problemsolver:闭幕 效果。"
+  },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "攻坚",
-    "DESCRIPTION": "抽 !M! 张牌。 丢弃手牌中的所有 bluearchive_problemsolver:闭幕 牌。 NL bluearchive_problemsolver:闭幕 : 激活弃牌堆中的所有 bluearchive_problemsolver:闭幕 效果。",
+    "DESCRIPTION": "翻倍当前的 bluearchive_problemsolver:闭幕 效果, 或是 获得 \" bluearchive_problemsolver:闭幕 : 抽 !M! 张牌并在 !BlueArchive_ProblemSolver:M! 回合内保留你的手牌。 \"",
     "EXTENDED_DESCRIPTION": [
-      "什么也不做。"
+      "抽 !M! 张牌并在 !M2! 回合内保留你的手牌。"
     ]
   },
   "BlueArchive_ProblemSolver:WithAllYourHeart": {
@@ -389,8 +383,7 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 :获得 [E] [E] 你的能量可以保存到下个回合。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL bluearchive_problemsolver:闭幕 : 获得 [E] [E] [E] 你的能量可以保存到下个回合。",
     "EXTENDED_DESCRIPTION": [
-      "获得 [E] [E] 你的能量可以保存到下个回合。",
-      "获得 [E] [E] [E] 你的能量可以保存到下个回合。"
+      "获得 !M! [E] 你的能量可以保存到下个回合。"
     ]
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
@@ -447,8 +440,8 @@
   },
   "BlueArchive_ProblemSolver:MineChain": {
     "NAME": "连锁地雷",
-    "DESCRIPTION": "不能被打出 。 NL bluearchive_problemsolver:地雷 : 在相邻位置加入两张 *反步兵 *地雷 。",
-    "UPGRADE_DESCRIPTION": "不能被打出 。 NL bluearchive_problemsolver:地雷 : 在相邻位置加入两张 *反步兵 *地雷+ 。",
+    "DESCRIPTION": "bluearchive_problemsolver:地雷 : 在相邻位置加入两张 *反步兵 *地雷 。",
+    "UPGRADE_DESCRIPTION": "bluearchive_problemsolver:地雷 : 在相邻位置加入两张 *反步兵 *地雷+ 。",
     "EXTENDED_DESCRIPTION": [
       "我无法打出 NL 这张牌。"
     ]
@@ -526,7 +519,7 @@
   },
   "BlueArchive_ProblemSolver:KayokoKick": {
     "NAME": "佳代子飞踢",
-    "DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。 NL 移除敌人身上的 人工制品 。 NL 给予 !M! 层虚弱 。"
+    "DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。 NL 移除敌人身上的 人工制品 。 NL 给予 !M! 层 虚弱 。"
   },
   "BlueArchive_ProblemSolver:Claymore": {
     "NAME": "阔剑地雷",
@@ -614,14 +607,14 @@
   },
   "BlueArchive_ProblemSolver:ShadowShot": {
     "NAME": "影子射击",
-    "DESCRIPTION": "手牌中每有一张 状态牌 或 诅咒 牌之外的牌，造成 !M! 点伤害。",
+    "DESCRIPTION": "手牌中每有一张牌，造成 !M! 点伤害。",
     "EXTENDED_DESCRIPTION": [
       " NL (造成 !D! 点伤害。)"
     ]
   },
   "BlueArchive_ProblemSolver:ImpishPrank": {
     "NAME": "小恶魔的恶作剧",
-    "DESCRIPTION": "丢弃任意数量的牌， NL 获得等同于丢弃的牌数量的 bluearchive_problemsolver:小恶魔 。"
+    "DESCRIPTION": "消耗一张牌. NL 被消耗的牌的每有1点耗能，获取 !M! 层 bluearchive_problemsolver:小恶魔 。"
   },
   "BlueArchive_ProblemSolver:SecondDeal": {
     "NAME": "纸牌魔术",
@@ -654,8 +647,7 @@
   },
   "BlueArchive_ProblemSolver:Sweep": {
     "NAME": "扫荡",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得等同于造成的未被 格挡 伤害的 力量 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得等同于造成的未被 格挡 伤害的 力量 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得等同于造成的未被 格挡 伤害的 力量 。"
   },
   "BlueArchive_ProblemSolver:PanicShotRetry": {
     "NAME": "凹命中",
@@ -706,5 +698,17 @@
     "NAME": "安全出口",
     "DESCRIPTION": "给予所有敌人 !M! 层 虚弱 。 NL 获得 X 张 *换位+ 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "给予所有敌人 !M! 层 虚弱 。 NL 获得 X+1 张 *换位+ 。 NL 消耗 。"
+  },
+  "BlueArchive_ProblemSolver:ChooseDraw": {
+    "NAME": "抽牌",
+    "DESCRIPTION": "bluearchive_problemsolver:闭幕 :  抽 !M! 张牌并在 !BlueArchive_ProblemSolver:M! 回合内保留你的手牌。"
+  },
+  "BlueArchive_ProblemSolver:ChooseDouble": {
+    "NAME": "翻倍",
+    "DESCRIPTION": "翻倍当前的 bluearchive_problemsolver:闭幕 效果。 "
+  },
+  "BlueArchive_ProblemSolver:EmergencyEscape": {
+    "NAME": "紧急逃生出口",
+    "DESCRIPTION": "获得 !M! 点 临时生命 。 NL 移动到最后方。 NL 在你的手牌中加入 !BlueArchive_ProblemSolver:M! 张 *换位 。"
   }
 }

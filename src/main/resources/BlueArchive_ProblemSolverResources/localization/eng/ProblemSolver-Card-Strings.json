@@ -25,7 +25,7 @@
   },
   "BlueArchive_ProblemSolver:OldMaid": {
     "NAME": "Old Maid",
-    "DESCRIPTION": "The chosen ally moves to the front. NL Draw !M! cards. NL If possible, draw the selected *Problem BlueArchive_ProblemSolver:Solver card."
+    "DESCRIPTION": "The chosen ally moves to the front. NL Draw !M! cards."
   },
   "BlueArchive_ProblemSolver:ProblemSolverBarricade": {
     "NAME": "Problem Solver Barricade",
@@ -162,7 +162,7 @@
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage. NL ",
       "BlueArchive_ProblemSolver:Evil *Deeds (",
-      "/!BlueArchive_ProblemSolver:M2!): Deal additional !D! damage to ALL enemies."
+      "/!BlueArchive_ProblemSolver:M2!): Deal !D! damage to ALL enemies."
     ]
   },
   "BlueArchive_ProblemSolver:ShotABlank": {
@@ -195,13 +195,6 @@
     "DESCRIPTION": "Gain !B! Block. NL BlueArchive_ProblemSolver:Closure: Double your Block.",
     "EXTENDED_DESCRIPTION": [
       "Double your Block."
-    ]
-  },
-  "BlueArchive_ProblemSolver:FlankAttack": {
-    "NAME": "Flank Attack",
-    "DESCRIPTION": "Deal !D! damage. Apply !BlueArchive_ProblemSolver:M! Vulnerable. NL BlueArchive_ProblemSolver:Closure: Apply !M! Weak.",
-    "EXTENDED_DESCRIPTION": [
-      "Apply !M! Weak."
     ]
   },
   "BlueArchive_ProblemSolver:PumpPanning": {
@@ -250,7 +243,7 @@
   },
   "BlueArchive_ProblemSolver:MoreFunWaysToPlay": {
     "NAME": "More Fun Ways to Play!",
-    "DESCRIPTION": "Gain !B! Block. NL Regain the BlueArchive_ProblemSolver:Imp damage increase."
+    "DESCRIPTION": "Gain !B! Block. NL Gain additional Block equal to BlueArchive_ProblemSolver:Imp, Regain the BlueArchive_ProblemSolver:Imp damage increase."
   },
   "BlueArchive_ProblemSolver:DangerousPlay": {
     "NAME": "Dangerous Play",
@@ -330,11 +323,12 @@
   },
   "BlueArchive_ProblemSolver:NegativeThinking": {
     "NAME": "Negative Thinking",
-    "DESCRIPTION": "Gain !B! Block. NL If you have any debuffs, gain an additional !B! Block."
+    "DESCRIPTION": "Gain !B! Block. NL If an ally has a prepared BlueArchive_ProblemSolver:Closure effect, draw !M! additional card."
   },
   "BlueArchive_ProblemSolver:UnwelcomeSchool": {
     "NAME": "Unwelcome School",
-    "DESCRIPTION": "Each time this character moves, play the top card of your draw pile."
+    "DESCRIPTION": "Each time this character moves, a random card in your hand costs 1 less for the turn.",
+    "UPGRADE_DESCRIPTION": "Each time this character moves, a random card in your hand costs 0 for the turn."
   },
   "BlueArchive_ProblemSolver:CatSnacks": {
     "NAME": "Cat Snacks",
@@ -353,17 +347,13 @@
     "NAME": "Alert Button",
     "DESCRIPTION": "Gain !B! Block. NL  You cannot play any Attacks for the next !M! turns. NL Exhaust."
   },
-  "BlueArchive_ProblemSolver:SelfDestructButton": {
-    "NAME": "Self-Destruct Button",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL You cannot gain Block from cards for the next !M! turns. NL Exhaust."
-  },
   "BlueArchive_ProblemSolver:GloomyPast": {
     "NAME": "Gloomy Past",
     "DESCRIPTION": "Gain !M! temporary_hp whenever you receive a debuffs"
   },
   "BlueArchive_ProblemSolver:Detonator": {
     "NAME": "Detonator",
-    "DESCRIPTION": "Gain !B! Block. NL Draw a random Mine card or a 0-cost card from your draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card. NL Triggers all BlueArchive_ProblemSolver:Mine effects in your hand"
   },
   "BlueArchive_ProblemSolver:RemoteBomb": {
     "NAME": "Remote Bomb",
@@ -377,11 +367,15 @@
     "NAME": "Reconnaissance",
     "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL At the end of your turn, Shuffle a *Remote *Bombs into your draw pile."
   },
+  "BlueArchive_ProblemSolver:PreparedToPerfection": {
+    "NAME": "Prepared to Perfection",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Allow preparation of !M! additional BlueArchive_ProblemSolver:Closure effects."
+  },
   "BlueArchive_ProblemSolver:Assault": {
     "NAME": "Assault",
-    "DESCRIPTION": "Draw !M! cards. Discard all BlueArchive_ProblemSolver:Closure cards in your hand NL BlueArchive_ProblemSolver:Closure: Activate all BlueArchive_ProblemSolver:Closure effects of the discarded cards.",
+    "DESCRIPTION": "Doubles the prepared BlueArchive_ProblemSolver:Closure effect, or gains \" BlueArchive_ProblemSolver:Closure: Draw !M! cards and retain your hand for !BlueArchive_ProblemSolver:M! turn. \"",
     "EXTENDED_DESCRIPTION": [
-      "Does nothing."
+      "Draws !M! cards and retains your hand for !M2! turn."
     ]
   },
   "BlueArchive_ProblemSolver:WithAllYourHeart": {
@@ -389,8 +383,7 @@
     "DESCRIPTION": "Gain !B! Block. NL BlueArchive_ProblemSolver:Closure: Gain [E] [E] until the next turn.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL BlueArchive_ProblemSolver:Closure: Gain [E] [E] [E] until the next turn.",
     "EXTENDED_DESCRIPTION": [
-      "Gain [E] [E] until the next turn.",
-      "Gain [E] [E] [E] until the next turn."
+      "Gain !M! [E] until the next turn."
     ]
   },
   "BlueArchive_ProblemSolver:ProperGreeting": {
@@ -416,7 +409,7 @@
   },
   "BlueArchive_ProblemSolver:TacticalChallengeHaruka": {
     "NAME": "Tactical Challenge - Haruka",
-    "DESCRIPTION": "Gain !B! Block. NL Gains !M! additional Block for each *Tactical *Challenge card played this combat."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for each *Tactical *Challenge card played this combat."
   },
   "BlueArchive_ProblemSolver:MutsukiMine": {
     "NAME": "Ankle Mine",
@@ -447,8 +440,8 @@
   },
   "BlueArchive_ProblemSolver:MineChain": {
     "NAME": "Mine Chain",
-    "DESCRIPTION": "Unplayable. NL BlueArchive_ProblemSolver:Mine: Add *Ankle *Mines to both adjacent positions.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL BlueArchive_ProblemSolver:Mine: Add *Ankle *Mines+ to both adjacent positions.",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Mine: Add *Ankle *Mines to both adjacent positions.",
+    "UPGRADE_DESCRIPTION": "BlueArchive_ProblemSolver:Mine: Add *Ankle *Mines+ to both adjacent positions.",
     "EXTENDED_DESCRIPTION": [
       "I can't play NL this card."
     ]
@@ -459,7 +452,7 @@
   },
   "BlueArchive_ProblemSolver:TroubleMaker": {
     "NAME": "Troublemaker",
-    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Activates the BlueArchive_ProblemSolver:Mine effect whenever a BlueArchive_ProblemSolver:Mine card enters your hand."
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL Triggers the BlueArchive_ProblemSolver:Mine effect whenever a BlueArchive_ProblemSolver:Mine card enters your hand."
   },
   "BlueArchive_ProblemSolver:StaringContest": {
     "NAME": "Staring Contest",
@@ -476,8 +469,8 @@
     "NAME": "Maginot Line",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! temporary_hp equal for each debuff applied to ALL characters NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Gain ",
-      " temporary_hp.)"
+      " NL ( Gain ",
+      " temporary_hp. )"
     ]
   },
   "BlueArchive_ProblemSolver:ShockAndAwe": {
@@ -553,7 +546,7 @@
   },
   "BlueArchive_ProblemSolver:WakeUpBoss": {
     "NAME": "Wake Up, Boss!",
-    "DESCRIPTION": "Gain !B! Block. NL Gain an additional !M! Block for each BlueArchive_ProblemSolver:Evil *Deeds accumulated in your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Gains !M! additional Block for each BlueArchive_ProblemSolver:Evil *Deeds accumulated in your hand."
   },
   "BlueArchive_ProblemSolver:Stalemate": {
     "NAME": "Stalemate",
@@ -614,14 +607,14 @@
   },
   "BlueArchive_ProblemSolver:ShadowShot": {
     "NAME": "Shadow Shot",
-    "DESCRIPTION": "Deal !M! damage for each card in your hand that isn't a Curse or Status.",
+    "DESCRIPTION": "Deal !M! damage for each card in your hand.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
   },
   "BlueArchive_ProblemSolver:ImpishPrank": {
     "NAME": "Impish Prank",
-    "DESCRIPTION": "Discard as many cards as you want. NL Gain BlueArchive_ProblemSolver:Imp equal to the number of discarded cards."
+    "DESCRIPTION": "Exhaust a card. NL Gain !M! BlueArchive_ProblemSolver:Imp equal to its cost."
   },
   "BlueArchive_ProblemSolver:SecondDeal": {
     "NAME": "Second Deal",
@@ -654,8 +647,7 @@
   },
   "BlueArchive_ProblemSolver:Sweep": {
     "NAME": "Sweep",
-    "DESCRIPTION": "Deal !D! damage. NL Gain Strength equal to unblocked damage dealt. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain Strength equal to unblocked damage dealt."
+    "DESCRIPTION": "Deal !D! damage. NL Gain Strength equal to unblocked damage dealt."
   },
   "BlueArchive_ProblemSolver:PanicShotRetry": {
     "NAME": "Panic Shot Retry",
@@ -706,5 +698,17 @@
     "NAME": "EXIT",
     "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain X *Shift+. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain X+1 *Shift+. NL Exhaust."
+  },
+  "BlueArchive_ProblemSolver:ChooseDraw": {
+    "NAME": "Choose Draw",
+    "DESCRIPTION": "BlueArchive_ProblemSolver:Closure: Draw !M! cards and retain your hand for !BlueArchive_ProblemSolver:M! turn."
+  },
+  "BlueArchive_ProblemSolver:ChooseDouble": {
+    "NAME": "Choose Double",
+    "DESCRIPTION": "Doubles the prepared BlueArchive_ProblemSolver:Closure effect."
+  },
+  "BlueArchive_ProblemSolver:EmergencyEscape": {
+    "NAME": "Emergency Escape",
+    "DESCRIPTION": "Gain !M! temporary_hp. NL Move to the back. NL Add !BlueArchive_ProblemSolver:M! *Shift into your hand."
   }
 }

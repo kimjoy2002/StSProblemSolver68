@@ -55,35 +55,7 @@ public class OldMaid extends AbstractDynamicCard {
         }
 
         AbstractDungeon.actionManager.addToBottom(new ChangeCharacterAction((AbstractPlayer)c, false, false, true));
-        ProblemSolver68 ps68 = (c instanceof ProblemSolver68)?(ProblemSolver68)c:null;
-        this.addToBot(new AbstractGameAction() {
-            public void update() {
-                CardGroup drawPiles = AbstractDungeon.player.drawPile;
-                ArrayList<AbstractCard> cards_ = new ArrayList<AbstractCard>();
-                Aru.ProblemSolver68Type type = Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE;
-                if(ps68 != null) {
-                    type = ps68.solverType;
-                }
-
-                if (type != Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_NONE) {
-                    for(AbstractCard card : drawPiles.group) {
-                        if(card instanceof AbstractDynamicCard) {
-                            if(((AbstractDynamicCard)card).isSolverType(type)) {
-                                cards_.add(card);
-                            }
-                        }
-                    }
-                }
-                if(cards_.size() > 0) {
-                    for(int i = 0; i< magicNumber && i< cards_.size(); i++) {
-                        AbstractDungeon.player.drawPile.removeCard(cards_.get(i));
-                        AbstractDungeon.player.drawPile.addToTop(cards_.get(i));
-                    }
-                }
-                this.addToTop(new DrawCardAction(magicNumber));
-                this.isDone = true;
-            }
-        });
+        this.addToTop(new DrawCardAction(magicNumber));
     }
 
     private static String getImgPath(AbstractPlayer p) {

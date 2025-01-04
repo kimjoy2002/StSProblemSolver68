@@ -69,7 +69,7 @@
   "BlueArchive_ProblemSolver:GoldenIdol": {
     "OPTIONS": [
       "[부순다] #r모든 #r캐릭터가 #r피해를 #r",
-      "[숨는다] #r모든 #r캐릭터가 #r최대 #r체력을 #r10% 잃습니다."
+      "[숨는다] #r모든 #r캐릭터가 #r최대 #r체력을 #r10% #r잃습니다."
     ]
   },
   "BlueArchive_ProblemSolver:Mushrooms": {
@@ -107,7 +107,7 @@
   "BlueArchive_ProblemSolver:ForgottenAltar": {
     "OPTIONS": [
       "[희생] #g모든 #g캐릭터가 #g최대 #g체력이 #g",
-      " 증가합니다. #r모든 #r캐릭터가 #r체력을 #r",
+      " #g증가합니다. #r모든 #r캐릭터가 #r체력을 #r",
       " #r잃습니다."
     ]
   },

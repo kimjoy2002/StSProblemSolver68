@@ -80,8 +80,12 @@
   "BlueArchive_ProblemSolver:UnwelcomeSchoolPower": {
     "NAME": "Unwelcome School",
     "DESCRIPTIONS": [
-      "Each time you move, play the top #b",
-      " card of your draw pile."
+      "Each time you moves, a random #b ",
+      " card in your hand costs 1 less for the turn.",
+      " cards in your hand costs 1 less for the turn.",
+      "Each time you moves, a random #b ",
+      " card in your hand costs 0 for the turn.",
+      " cards in your hand costs 0 for the turn."
     ]
   },
   "BlueArchive_ProblemSolver:AllCardPower": {
@@ -234,6 +238,13 @@
     "NAME": "Immortality",
     "DESCRIPTIONS": [
       "Upon death, add a cost #b0 #yImmortal #yMercenary card to your discard pile."
+    ]
+  },
+  "BlueArchive_ProblemSolver:PreparedPerfectionPower": {
+    "NAME": "Prepared To Perfection",
+    "DESCRIPTIONS": [
+      "#gShared NL Allow preparation of #b",
+      " additional #yClosure effects."
     ]
   }
 }

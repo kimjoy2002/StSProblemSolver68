@@ -63,7 +63,6 @@ public class ChooseRabu extends AbstractDynamicCard {
         }
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
         return false;
     }
 

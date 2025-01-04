@@ -720,10 +720,11 @@ public abstract class ProblemSolver68 extends CustomPlayer {
             if(AbstractDungeon.player.hasPower(powerID)) {
                 val += AbstractDungeon.player.getPower(powerID).amount;
             }
-        }
-        for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
-            if(ps.hasPower(powerID)) {
-                val += ps.getPower(powerID).amount;
+        } else {
+            for (ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                if(ps.hasPower(powerID)) {
+                    val += ps.getPower(powerID).amount;
+                }
             }
         }
         return val;

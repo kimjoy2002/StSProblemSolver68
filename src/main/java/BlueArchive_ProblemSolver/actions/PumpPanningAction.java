@@ -9,14 +9,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class PumpPanningAction extends AbstractGameAction {
     private AbstractCard card;
     public PumpPanningAction(AbstractCard card) {
-        this.setValues(this.target, this.source, 0);
+        this.setValues(this.target, this.source, 1);
         this.card = card;
         this.actionType = ActionType.CARD_MANIPULATION;
     }
 
     public void update() {
         if(card != null) {
-            card.baseMagicNumber++;
+            for(int i = 0; i <amount; i++) {
+                card.baseMagicNumber++;
+            }
             card.rawDescription = PumpPanning.cardStrings.EXTENDED_DESCRIPTION[1];
 
             if(AbstractDungeon.player.discardPile.contains(this.card)) {

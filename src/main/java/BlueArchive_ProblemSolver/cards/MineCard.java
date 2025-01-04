@@ -27,26 +27,30 @@ abstract public class MineCard extends AbstractDynamicCard {
             int index2_ = AbstractDungeon.player.hand.group.indexOf(this);
             if(index2_ >= 0 && index_ >= 0 && abs(index_ - index2_)<=1) {
                 if(onMine(c)) {
-                    if(AbstractDungeon.player instanceof ProblemSolver68) {
-                        for(AbstractPlayer ps : ProblemSolver68.problemSolverPlayer) {
-                            for(AbstractPower p : ps.powers) {
-                                if(p instanceof OnMinePower) {
-                                    ((OnMinePower)p).onMine(c);
-                                }
-                            }
-                        }
-                    } else {
-                        for(AbstractPower p : AbstractDungeon.player.powers) {
-                            if(p instanceof OnMinePower) {
-                                ((OnMinePower)p).onMine(c);
-                            }
-                        }
+                    whenOnMine(c);
+                }
+            }
+        }
+    }
+    public void whenOnMine(AbstractCard c) {
+        if(AbstractDungeon.player instanceof ProblemSolver68) {
+            for(AbstractPlayer ps : ProblemSolver68.problemSolverPlayer) {
+                for(AbstractPower p : ps.powers) {
+                    if(p instanceof OnMinePower) {
+                        ((OnMinePower)p).onMine(c);
                     }
+                }
+            }
+        } else {
+            for(AbstractPower p : AbstractDungeon.player.powers) {
+                if(p instanceof OnMinePower) {
+                    ((OnMinePower)p).onMine(c);
                 }
             }
         }
     }
 
+    public boolean canMine(){return true;};
     public abstract boolean onMine(AbstractCard c);
 
 }

@@ -4,6 +4,7 @@ import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.ImpAmountAction;
 import BlueArchive_ProblemSolver.characters.Aru;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
+import static BlueArchive_ProblemSolver.cards.ImpChorus.getImpCount;
 
 public class MoreFunWaysToPlay extends AbstractDynamicCard {
     public static final String ID = DefaultMod.makeID(MoreFunWaysToPlay.class.getSimpleName());
@@ -33,7 +35,7 @@ public class MoreFunWaysToPlay extends AbstractDynamicCard {
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
     private static final int COST = 1;
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 6;
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public MoreFunWaysToPlay() {
@@ -47,6 +49,20 @@ public class MoreFunWaysToPlay extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(new ImpAmountAction(999, null, false));
+    }
+
+
+    public void applyPowers() {
+        this.baseBlock = upgraded?BLOCK+UPGRADE_PLUS_BLOCK:BLOCK;
+        int count = getImpCount();
+        this.baseBlock += count;
+        super.applyPowers();
+        this.initializeDescription();
+    }
+
+    public void onMoveToDiscard() {
+        this.baseBlock = upgraded?BLOCK+UPGRADE_PLUS_BLOCK:BLOCK;
+        this.initializeDescription();
     }
 
     // Upgraded stats.

@@ -3,6 +3,7 @@ package BlueArchive_ProblemSolver.cards;
 import BlueArchive_ProblemSolver.DefaultMod;
 import BlueArchive_ProblemSolver.actions.KeepEnergyAction;
 import BlueArchive_ProblemSolver.characters.Aru;
+import BlueArchive_ProblemSolver.powers.FinishPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -56,8 +57,9 @@ public class WithAllYourHeart extends FinishCard {
         temp.add(new KeepEnergyAction(magicNumber));
         return temp;
     }
+
     public String getFinishString(){
-        return upgraded?cardStrings.EXTENDED_DESCRIPTION[1]:cardStrings.EXTENDED_DESCRIPTION[0];
+        return cardStrings.EXTENDED_DESCRIPTION[0];
     };
     //Upgraded stats.
     @Override

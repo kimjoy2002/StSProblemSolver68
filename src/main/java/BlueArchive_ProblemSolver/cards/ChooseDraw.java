@@ -1,23 +1,30 @@
 package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.actions.AddCharacterAction;
+import BlueArchive_ProblemSolver.actions.FinishAction;
+import BlueArchive_ProblemSolver.actions.KeepEnergyAction;
 import BlueArchive_ProblemSolver.characters.Aru;
-import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import com.megacrit.cardcrawl.powers.EquilibriumPower;
+
+import java.util.ArrayList;
 
 import static BlueArchive_ProblemSolver.DefaultMod.makeCardPath;
 
-public class ChooseMutsuki extends AbstractDynamicCard {
-    public static final String ID = DefaultMod.makeID(ChooseMutsuki.class.getSimpleName());
+public class ChooseDraw extends FinishCard {
+    public static final String ID = DefaultMod.makeID(ChooseDraw.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public static final String IMG = makeCardPath("ChooseMutsuki.png");
+    public static final String IMG = makeCardPath("ChooseDraw.png");
 
 
     public static final String NAME = cardStrings.NAME;
@@ -34,21 +41,31 @@ public class ChooseMutsuki extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = -2;
-
-
-    public ChooseMutsuki() {
+    public ChooseDraw(){
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.cardsToPreview = new ExplodingAria();
+        baseMagicNumber = magicNumber = Assault.MAGIC;
+        baseSecondMagicNumber = secondMagicNumber = Assault.MAGIC2;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
     }
+
+    public String getFinishString(){
+        return Assault.cardStrings.EXTENDED_DESCRIPTION[0];
+    };
+    @Override
+    public ArrayList<AbstractGameAction> onFinish(AbstractPlayer p, AbstractMonster m) {
+        ArrayList<AbstractGameAction> temp = new ArrayList<AbstractGameAction>();
+        temp.add(new DrawCardAction(magicNumber));
+        temp.add(new ApplyPowerAction(p, p, new EquilibriumPower(p, this.secondMagicNumber), this.secondMagicNumber));
+        return temp;
+    }
+
     @Override
     public void onChoseThisOption() {
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(cardsToPreview, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
-        ProblemSolver68.addCharacter(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_MUTSUKI);
+        super.use(AbstractDungeon.player, null);
     }
 
     // Upgraded stats.

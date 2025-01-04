@@ -51,20 +51,19 @@ public class Detonator extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        this.addToBot(new DrawCardAction(1));
+        AbstractCard detonator = this;
         this.addToBot(new AbstractGameAction() {
             public void update() {
-                CardGroup drawPiles = AbstractDungeon.player.drawPile;
+                CardGroup hands = AbstractDungeon.player.hand;
                 AbstractCard card_ = null;
-                for(AbstractCard card : drawPiles.group) {
-                    if(card.cost == 0 || card.costForTurn == 0 || card.freeToPlayOnce || card instanceof MineCard) {
-                        card_ = card;
-                        break;
+                for(AbstractCard card : hands.group) {
+                    if(card instanceof MineCard &&
+                            ((MineCard)card).canMine()) {
+                        if(((MineCard)card).onMine(detonator)) {
+                            ((MineCard)card).whenOnMine(detonator);
+                        }
                     }
-                }
-                if(card_ != null) {
-                    AbstractDungeon.player.drawPile.removeCard(card_);
-                    AbstractDungeon.player.drawPile.addToTop(card_);
-                    this.addToBot(new DrawCardAction(1));
                 }
                 this.isDone = true;
             }

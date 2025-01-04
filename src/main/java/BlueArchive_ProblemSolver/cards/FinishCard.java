@@ -2,7 +2,9 @@ package BlueArchive_ProblemSolver.cards;
 
 import BlueArchive_ProblemSolver.actions.FinishAction;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
+import BlueArchive_ProblemSolver.powers.FinishPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -20,7 +22,7 @@ abstract public class FinishCard extends AbstractDynamicCard {
     }
 
 
-    public void finishAfter(AbstractPlayer p, AbstractMonster m, ArrayList<AbstractGameAction> actions, String finishstring) {
+    public void finishAfter(AbstractPlayer p, AbstractMonster m, ArrayList<AbstractGameAction> actions, FinishPower.FinishString finishstring) {
         this.addToBot(new FinishAction(this, actions, finishstring, isDebuf()));
     }
 
@@ -28,12 +30,30 @@ abstract public class FinishCard extends AbstractDynamicCard {
         return false;
     }
 
-    String makeFinishString() {
+    FinishPower.FinishString makeFinishString() {
         String temp = getFinishString();
-        temp = temp.replaceAll("!M!", Integer.toString(magicNumber));
-        temp = temp.replaceAll("!B!", Integer.toString(block));
-        temp = temp.replaceAll("!D!", Integer.toString(damage));
-        return temp;
+        AbstractCard card_ = makeCopy();
+        card_.drawScale = 0.3f;
+        if(upgraded)
+            card_.upgrade();
+        return new FinishPower.FinishString() {
+            AbstractCard card = card_;
+            String original = temp;
+            @Override
+            public String getFinishString(int amount) {
+                String finishString = original;
+                finishString = finishString.replaceAll("!M!", Integer.toString(magicNumber * amount));
+                finishString = finishString.replaceAll("!M2!", Integer.toString(secondMagicNumber * amount));
+                finishString = finishString.replaceAll("!B!", Integer.toString(block * amount));
+                finishString = finishString.replaceAll("!D!", Integer.toString(damage * amount));
+                return finishString;
+            }
+
+            @Override
+            public AbstractCard getCard() {
+                return card;
+            }
+        };
     }
 
     public abstract String getFinishString();

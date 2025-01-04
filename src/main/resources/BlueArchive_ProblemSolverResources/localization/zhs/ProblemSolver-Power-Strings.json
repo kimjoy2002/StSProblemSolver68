@@ -80,8 +80,12 @@
   "BlueArchive_ProblemSolver:UnwelcomeSchoolPower": {
     "NAME": "Unwelcome School",
     "DESCRIPTIONS": [
-      "每当你 #y移动 时, 打出抽牌堆顶部的 #b",
-      " 张牌。"
+      "每当你移动， 你手中的 #b ",
+      " 张牌在本回合内耗能减少1。",
+      " 张牌在本回合内耗能减少1。",
+      "每当你移动， 你手中的 #b ",
+      " 张牌在本回合内耗能为0。 ",
+      " 张牌在本回合内耗能为0。 "
     ]
   },
   "BlueArchive_ProblemSolver:AllCardPower": {
@@ -234,6 +238,13 @@
     "NAME": "不朽",
     "DESCRIPTIONS": [
       "死亡后, 在弃牌堆中加入一张耗能为 #b0 的 #y不朽 #y佣兵 。"
+    ]
+  },
+  "BlueArchive_ProblemSolver:PreparedPerfectionPower": {
+    "NAME": "万事俱备！",
+    "DESCRIPTIONS": [
+      "#g共用。 NL 你可以额外应用 #b",
+      " 个 #y闭幕 效果。"
     ]
   }
 }

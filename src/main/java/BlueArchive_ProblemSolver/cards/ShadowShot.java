@@ -61,7 +61,7 @@ public class ShadowShot extends AbstractDynamicCard {
     public void updateVal () {
         int value_ = 0;
         for(AbstractCard c : AbstractDungeon.player.hand.group){
-            if(c.type != CardType.CURSE && c.type != CardType.STATUS && c != this)
+            if(c != this)
                 value_++;
         }
         this.baseDamage = value_ * magicNumber;

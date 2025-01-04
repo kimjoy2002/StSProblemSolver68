@@ -32,7 +32,7 @@ public class MineChain extends MineCard  {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Aru.Enums.COLOR_RED;
 
-    private static final int COST = -2;
+    private static final int COST = 0;
 
     public MineChain() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -73,9 +73,5 @@ public class MineChain extends MineCard  {
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
-    }
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-        return false;
     }
 }

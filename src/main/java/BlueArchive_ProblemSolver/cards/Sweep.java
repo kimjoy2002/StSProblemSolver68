@@ -46,12 +46,12 @@ public class Sweep extends AbstractDynamicCard {
 
     private static final int COST = 3;
     private static final int DAMAGE = 6;
+    private static final int UPGRADE_PLUS_DMG = 2;
 
 
     public Sweep() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        exhaust = true;
         setSolverType(Aru.ProblemSolver68Type.PROBLEM_SOLVER_68_ARU);
     }
 
@@ -66,8 +66,7 @@ public class Sweep extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            exhaust = false;
+            upgradeDamage(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
     }

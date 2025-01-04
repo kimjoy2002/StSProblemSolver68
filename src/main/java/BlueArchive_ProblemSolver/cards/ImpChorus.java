@@ -48,7 +48,7 @@ public class ImpChorus extends AbstractDynamicCard {
     }
 
 
-    public int getImpCount() {
+    public static int getImpCount() {
         int impcount = 0;
         if(AbstractDungeon.player instanceof ProblemSolver68) {
             for(AbstractPlayer ps : ProblemSolver68.problemSolverPlayer) {
