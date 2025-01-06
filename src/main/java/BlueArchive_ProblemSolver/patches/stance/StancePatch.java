@@ -25,6 +25,7 @@ public class StancePatch {
                         ps.orbs.clear();
                         ps.loseBlock(true);
                         if (!ps.stance.ID.equals("Neutral")) {
+                            ps.stance.onExitStance();
                             ps.stance = new NeutralStance();
                             ps.onStanceChange("Neutral");
                         }

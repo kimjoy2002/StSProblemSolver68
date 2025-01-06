@@ -1,6 +1,7 @@
 package BlueArchive_ProblemSolver.powers;
 
 import BlueArchive_ProblemSolver.DefaultMod;
+import BlueArchive_ProblemSolver.cards.EvilDeedsCard;
 import BlueArchive_ProblemSolver.characters.ProblemSolver68;
 import BlueArchive_ProblemSolver.patches.cards.UseCardActionPatch;
 import BlueArchive_ProblemSolver.util.TextureLoader;

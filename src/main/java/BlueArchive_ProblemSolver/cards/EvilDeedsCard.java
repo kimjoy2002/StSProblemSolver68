@@ -108,4 +108,14 @@ abstract public class EvilDeedsCard extends AbstractDynamicCard implements onAdd
             this.glowColor = AbstractDynamicCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
+
+    public AbstractCard makeSameInstanceOf() {
+        AbstractCard card = super.makeSameInstanceOf();
+        if(card instanceof EvilDeedsCard) {
+            ((EvilDeedsCard)card).evil = this.evil;
+            ((EvilDeedsCard)card).require_evil = this.require_evil;
+        }
+        return card;
+    }
+
 }

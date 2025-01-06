@@ -174,6 +174,7 @@ public class MultiCharacterPatch {
                 __instance.powers.clear();
 
                 if (!__instance.stance.ID.equals("Neutral")) {
+                    __instance.stance.onExitStance();
                     __instance.stance = new NeutralStance();
                     __instance.onStanceChange("Neutral");
                 }

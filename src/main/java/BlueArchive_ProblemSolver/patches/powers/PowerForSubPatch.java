@@ -5,7 +5,10 @@ import BlueArchive_ProblemSolver.patches.GameActionManagerPatch;
 import BlueArchive_ProblemSolver.patches.MultiCharacterPatch;
 import BlueArchive_ProblemSolver.powers.ForSubPower;
 import BlueArchive_ProblemSolver.relics.RadioTransceiverRelic;
+import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -13,7 +16,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.NoDrawPower;
+import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import javassist.CtBehavior;
 
 import java.util.Iterator;
@@ -23,6 +29,34 @@ public class PowerForSubPatch {
     public static AbstractPlayer prevCharacter = null;
 
 
+    @SpirePatch(
+            clz = ApplyPowerAction.class,
+            method = "update"
+    )
+    public static class applyPowerActionPatch {
+        public static void Prefix(ApplyPowerAction __instance) {
+            if(AbstractDungeon.player instanceof ProblemSolver68) {
+                float duration = (float) ReflectionHacks.getPrivate(__instance, AbstractGameAction.class, "duration");
+                AbstractPower powerToApply = (AbstractPower) ReflectionHacks.getPrivate(__instance, ApplyPowerAction.class, "powerToApply");
+                float startingDuration = (float) ReflectionHacks.getPrivate(__instance, ApplyPowerAction.class, "startingDuration");
+                if (__instance.target != null && !__instance.target.isDeadOrEscaped()) {
+                    if (duration == startingDuration) {
+                        if (powerToApply instanceof NoDrawPower && __instance.target.hasPower(powerToApply.ID)) {
+
+                        } else {
+                            for(ProblemSolver68 ps : ProblemSolver68.problemSolverPlayer) {
+                                for(AbstractPower p : ps.powers) {
+                                    if(p instanceof ForSubPower) {
+                                        ((ForSubPower)p).onApplyPowerSub(powerToApply, __instance.target, ps);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     @SpirePatch(
             clz = AbstractCard.class,

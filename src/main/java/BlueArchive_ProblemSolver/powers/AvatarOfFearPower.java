@@ -26,7 +26,7 @@ import static BlueArchive_ProblemSolver.DefaultMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class AvatarOfFearPower extends AbstractPower implements CloneablePowerInterface, SharedPower {
+public class AvatarOfFearPower extends AbstractPower implements CloneablePowerInterface, SharedPower, ForSubPower {
     public static final String POWER_ID = DefaultMod.makeID("AvatarOfFearPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -62,7 +62,7 @@ public class AvatarOfFearPower extends AbstractPower implements CloneablePowerIn
         }
     }
 
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+    public void onApplyPowerSub(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power instanceof FearPower &&
                 target instanceof AbstractMonster &&
                 ((AbstractMonster)target).getIntentBaseDmg() >= 0 &&

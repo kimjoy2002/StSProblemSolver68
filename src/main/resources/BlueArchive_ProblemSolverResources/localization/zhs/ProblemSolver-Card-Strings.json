@@ -323,7 +323,7 @@
   },
   "BlueArchive_ProblemSolver:NegativeThinking": {
     "NAME": "消极思想",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 若你已拥有一个 bluearchive_problemsolver:闭幕 效果 ， 抽额外 !BlueArchive_ProblemSolver:M! 张牌。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 若你已拥有一个 bluearchive_problemsolver:闭幕 效果 ， 抽额外 !M! 张牌。"
   },
   "BlueArchive_ProblemSolver:UnwelcomeSchool": {
     "NAME": "Unwelcome School",
