@@ -57,7 +57,7 @@
     "DESCRIPTION": "Revive a random fallen *Problem BlueArchive_ProblemSolver:Solver with 1 HP and move them to the front. NL Allies at the front gain !M! temporary_hp. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:DogFight": {
-    "NAME": "Dogfight",
+    "NAME": "Dogpile",
     "DESCRIPTION": "Deal !D! damage. Deals !M! additional damage for ALL characters that died this combat."
   },
   "BlueArchive_ProblemSolver:HireHelmetGang": {
@@ -119,7 +119,7 @@
     ]
   },
   "BlueArchive_ProblemSolver:LastDitch": {
-    "NAME": "Last Ditch",
+    "NAME": "Last-Ditch",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Die."
   },
   "BlueArchive_ProblemSolver:LeadersDignity": {
@@ -264,7 +264,7 @@
     "UPGRADE_DESCRIPTION": "Add !M! *Debts+ into your hand."
   },
   "BlueArchive_ProblemSolver:HardboiledHanetsukiShot": {
-    "NAME": "Hardboiled Hanetsuki Shot",
+    "NAME": "Hard-Boiled Hanetsuki Shot",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Gain [E] [E].",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage to ALL enemies. NL ",
@@ -289,7 +289,7 @@
     "DESCRIPTION": "BlueArchive_ProblemSolver:Shared. NL All current and future BlueArchive_ProblemSolver:Mercenaries gain !M! Strength and !BlueArchive_ProblemSolver:M! Intangible."
   },
   "BlueArchive_ProblemSolver:HardboiledShot": {
-    "NAME": "Hardboiled Shot",
+    "NAME": "Hard-Boiled Shot",
     "DESCRIPTION": "Deal !D! damage. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!+): Deals additional !M! damage for each BlueArchive_ProblemSolver:Evil *Deeds.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage. NL ",
@@ -662,7 +662,7 @@
     "DESCRIPTION": "Retain. NL The chosen ally gains !B! Block and moves to the front. NL Exhaust."
   },
   "BlueArchive_ProblemSolver:TheGravityofaBoss": {
-    "NAME": "The Boss’s Gravity",
+    "NAME": "Gravity of a Boss",
     "DESCRIPTION": "Retain. NL Gain !B! Block. NL BlueArchive_ProblemSolver:Evil *Deeds (!BlueArchive_ProblemSolver:M2!): Apply !M! Weak and Vulnerable to ALL enemies.",
     "EXTENDED_DESCRIPTION": [
       "Retain. NL Gain !B! Block. NL ",
